@@ -615,6 +615,138 @@ When required scope data is stale, conflicting, or unavailable:
 7. Scope moves and hierarchy changes are auditable and trigger access impact analysis.
 8. AI, search, exports, reports, and aggregates cannot bypass field or resource scope.
 
+## Deterministic permission evaluation
+
+Authorization uses deny-overrides evaluation with no hidden role priority or recency rule.
+
+### Evaluation sequence
+
+For every governed request:
+
+1. Establish the attributable subject, authenticated session, and current assurance.
+2. Verify subject lifecycle and applicable global security or identity restrictions.
+3. Resolve current resource, field, relationship, hierarchy, and policy context.
+4. Evaluate independently sufficient complete allow grants.
+5. Apply matching explicit scoped denials.
+6. Apply segregation-of-duties, risk, and other mandatory policy constraints.
+7. Recheck resource state and execution-time contextual conditions.
+8. Permit only when at least one complete grant survives every applicable constraint.
+9. Deny by default otherwise.
+
+The precedence is:
+
+`Lifecycle or security restriction → explicit denial → segregation or risk constraint → complete allow grant → default deny`
+
+Authentication failure, insufficient assurance, missing approval, incompatible resource state, explicit denial, and absence of an allow grant remain distinct decision categories even when the customer-facing response cannot disclose the distinction.
+
+### Allow behavior
+
+An allow is valid only when one complete grant independently satisfies the requested capability, resource, fields, conditions, assurance, threshold, and time.
+
+- Two allow grants may each authorize separate actions.
+- Components do not fuse across grants.
+- Role order and assignment recency have no effect.
+- A prior allow does not survive lifecycle, scope, policy, or resource-state change.
+- Approval is a condition or separate capability, not a new broad allow.
+
+### Explicit denial
+
+An explicit denial overrides a matching allow only within its governed scope.
+
+For example:
+
+- Allow: approve pricing up to R$50,000 in Region South.
+- Deny: approve pricing for Campaign X during an incident.
+
+Other eligible Region South approvals remain available; Campaign X is blocked.
+
+Explicit denial is used for a specific governed prohibition, incident, legal restriction, toxic combination, or bounded exception. It is not a substitute for removing obsolete grants or completing offboarding.
+
+A denial declares:
+
+- Policy owner and version
+- Capability, resource, field, and subject scope
+- Conditions
+- Start and expiry or review
+- Reason category
+- Recovery or exception path
+- Audit requirements
+
+### Segregation and risk constraints
+
+Segregation and risk constraints evaluate the proposed operation after complete grants are found.
+
+They may deny or require additional approval, assurance, narrower scope, or a different actor. A role assignment cannot override these constraints merely because it was granted later or by a senior user.
+
+The constraint evaluates effective assignments, delegation, authorship, approvals, prior actions, and relevant relationships according to policy.
+
+### Default deny and degraded policy
+
+Access denies by default when:
+
+- No complete allow grant matches.
+- Required subject, scope, field, hierarchy, resource, or condition data is missing.
+- A required policy or segregation decision is unavailable.
+- Required assurance or approval is absent.
+- Applicable policy versions conflict without a governed resolution.
+
+Read-only degraded behavior may use previously confirmed permitted data only when disclosure policy explicitly allows it. Consequential actions do not fall back to cached broader access.
+
+### Decision trace
+
+Every material authorization decision can produce an auditable trace containing:
+
+- Subject and session reference
+- Requested capability and target
+- Evaluated grant and policy versions
+- Scope and hierarchy versions
+- Applicable lifecycle, denial, segregation, risk, assurance, and condition result
+- Final stable decision category
+- Evaluation and source timestamps
+- Correlation reference
+
+The trace does not copy unnecessary protected values. Workforce and customer explanations reveal only the reason detail and recovery path they are permitted to know.
+
+### Cache and invalidation
+
+Cached authorization decisions are bounded by:
+
+- Subject lifecycle and session
+- Role and grant versions
+- Delegation and assignment state
+- Scope and hierarchy versions
+- Explicit denial and risk policy versions
+- Resource state and relevant conditions
+- Assurance age
+- Expiry time
+
+Material change invalidates or shortens the decision. A cache hit cannot extend access beyond any underlying expiry or preserve an action after revocation.
+
+### Policy change and simulation
+
+Before a material role, scope, denial, segregation, or precedence change is activated, governance requires:
+
+- Proposed policy version
+- Effective-access impact analysis
+- Newly allowed and newly denied subject/resource populations
+- Incompatible-duty analysis
+- Critical workflow and non-disclosure tests
+- Rollout and recovery plan
+- Required approval
+
+Simulation is advisory until authoritative evaluation confirms the activated policy. It cannot grant access or guarantee the exact future resource population.
+
+### Governance rules
+
+1. Deny by default.
+2. Lifecycle and security restrictions override assignment grants.
+3. Explicit denials are scoped, versioned, expiring or reviewed, and auditable.
+4. Segregation and risk constraints cannot be bypassed by role priority or grant recency.
+5. At least one complete independently sufficient allow grant is required.
+6. Missing required policy context denies consequential access safely.
+7. Decisions use stable categories while explanations remain non-disclosing.
+8. Material policy changes require simulation, testing, approval, rollout, and recovery planning.
+
 ## Example authorization outcomes
 
 - A Catalog Editor can edit permitted product content for assigned categories but cannot approve publication.
@@ -717,7 +849,6 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Permission evaluation and conflict precedence
 - Delegation, temporary access, and just-in-time access workflow
 - Approval thresholds and segregation-of-duties matrix
 - Break-glass and emergency access
@@ -726,4 +857,4 @@ The following remain pending:
 
 ## Next decision
 
-Define permission evaluation and conflict precedence, followed by delegation, segregation, access review, and emergency controls.
+Define delegation, temporary access, and just-in-time access, followed by segregation, access review, and emergency controls.
