@@ -1,10 +1,12 @@
 # Product Structure Architecture
 
-**Status:** Next — not yet approved
+**Status:** In progress
+
+Phase 2B is proceeding through explicit decision gates. Approval of one topic does not imply approval of the remaining architecture.
 
 Phase 2B will define:
 
-1. Page Inventory
+1. [Page Inventory](01-page-inventory.md) — classification model approved; complete inventory pending
 2. Information Hierarchy
 3. Account Architecture
 4. Support Center Architecture
@@ -14,5 +16,5 @@ Phase 2B will define:
 8. Scalability
 9. Architecture Validation
 
-No Phase 2B architecture is approved yet. Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).
+Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).
 

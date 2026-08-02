@@ -1,6 +1,6 @@
 # Nexora Product Blueprint
 
-**Status:** Approved foundation; Phase 2B next
+**Status:** Approved foundation; Phase 2B in progress
 
 The Nexora Product Blueprint is the single source of truth for Nexora, a fictional premium Brazilian electronics retailer. It is Markdown-based, Git-versioned, organized one topic per file, supported by architecture decision records, and intended for later publication with Astro Starlight.
 
@@ -13,7 +13,7 @@ The Nexora Product Blueprint is the single source of truth for Nexora, a fiction
 - [Product overview](00-overview/vision.md)
 - [Brand](01-brand/positioning.md)
 - [Information Discovery Architecture](02-information-architecture/README.md)
-- [Product Structure Architecture](03-product-structure/README.md) — next
+- [Product Structure Architecture](03-product-structure/README.md) — in progress
 - [Design System](04-design-system/README.md) — planned
 - [Administrative Dashboard](05-admin-dashboard/README.md) — planned
 - [Engineering](06-engineering/README.md) — planned
@@ -25,7 +25,6 @@ The Nexora Product Blueprint is the single source of truth for Nexora, a fiction
 
 ## Approved status
 
-Phase 1, Product Foundation, and Phase 2A, Information Discovery Architecture, are approved. Phase 2B, Product Structure Architecture, is next and has not yet been designed or approved.
+Phase 1, Product Foundation, and Phase 2A, Information Discovery Architecture, are approved. Phase 2B, Product Structure Architecture, is in progress through explicit decision gates; only decisions marked approved are authoritative.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for decision and documentation governance.
-
