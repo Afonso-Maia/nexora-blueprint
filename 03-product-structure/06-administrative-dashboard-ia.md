@@ -278,11 +278,132 @@ Large or sensitive exports may be asynchronous, approval-gated, time-limited, wa
 7. Some actions may prohibit bulk execution entirely.
 8. AI may help construct a view or explain outcomes but cannot expand scope, select hidden records, confirm, approve, or execute.
 
+## Governed resource workspace
+
+Admin Resource Workspaces separate current authoritative state from proposed change. The shared workspace contract adapts to the owning domain's fields, lifecycle, risks, and permitted actions.
+
+### Information hierarchy
+
+Applicable workspace regions appear in this order:
+
+1. Resource identity, owner, lifecycle, and current status
+2. Primary permitted actions and outstanding obligations
+3. Editable domain sections or operational modules
+4. Validation, warnings, and blocking issues
+5. Relationships and downstream impact
+6. Preview or consequence comparison
+7. Approval, scheduling, execution, or publication state
+8. Audit and revision history
+
+Restricted fields, actions, and relationships are omitted or safely redacted according to permission policy. Their absence cannot be interpreted as an empty authoritative value.
+
+### Change envelope
+
+An applicable proposed change records:
+
+- Resource and baseline revision
+- Author and collaborators
+- Requested field or operation scope
+- Draft values and supporting rationale
+- Validation results and source timestamps
+- Downstream impact
+- Required assurance and approvals
+- Schedule or effective condition
+- Current change state
+- Execution and audit correlation
+
+The general lifecycle is:
+
+`Draft → Validate → Submit → Approve → Schedule or Apply/Publish`
+
+Domains may omit inapplicable stages but cannot bypass a required stage. Rejection or withdrawal preserves the proposal and rationale under the governing retention policy.
+
+### Commit modes
+
+Every mutation declares one of these modes:
+
+- **Immediate governed change:** a low-risk, reversible change validates and applies without a separate approval stage.
+- **Staged revision:** a coordinated content, catalog, taxonomy, compatibility, pricing, promotion, access, or configuration change remains separate until approved and applied or published.
+- **Scheduled change:** an approved revision becomes effective at a governed time or condition.
+- **Append-only operation:** an order, payment, inventory, Support, security, or other consequential event records a new operation rather than rewriting historical facts.
+
+Mode is defined by the owning domain and risk policy, not chosen opportunistically by the operator.
+
+### Validation
+
+Validation is layered:
+
+1. Field format and required values
+2. Resource-level consistency
+3. Governed relationship integrity
+4. Cross-domain dependency and impact
+5. Permission, assurance, and approval requirements
+6. Execution-time current-state validation
+
+Results distinguish blockers, warnings, informational findings, unavailable checks, and stale checks. A warning requires an allowed disposition; an unavailable required check blocks commitment.
+
+Cross-domain validation may report a required dependent change or route to its owning workspace. It cannot silently mutate another domain's resource.
+
+### Preview and impact
+
+Where a change affects customers, discovery, compatibility, price, policy, access, or operations, the workspace provides an applicable preview or before-and-after consequence comparison.
+
+Preview identifies:
+
+- Proposed revision
+- Data and policy versions
+- Intended audience or scope
+- Known unavailable dependencies
+- Difference from current authoritative state
+
+A preview is visibly non-live and does not prove that execution will succeed. Permission and state are rechecked when the change is committed.
+
+### Approval and execution
+
+Submission freezes the reviewable proposal or creates an explicit new revision when further editing is allowed. Approval records reviewer, scope, decision, rationale, and conditions.
+
+Approval does not:
+
+- Bypass current validation
+- Grant execution permission
+- Extend beyond the reviewed scope
+- Remain valid after a material proposal change
+- Guarantee an external or asynchronous outcome
+
+Execution reports confirmed, pending, failed, superseded, and indeterminate outcomes. Asynchronous work retains a durable correlation reference and safe continuation.
+
+### Concurrency and conflict
+
+Drafts and operations target a known baseline revision. If authoritative state changes materially:
+
+- Non-conflicting changes may be rebased with an explicit comparison.
+- Conflicting values require review and resolution.
+- Stale validation and approval are invalidated according to policy.
+- Silent last-write-wins behavior is prohibited.
+
+Presence indicators or edit locks may reduce collisions but do not replace revision checks.
+
+### History and rollback
+
+Applied and published history is immutable. Corrections and rollback create a new governed change referencing the prior version and explaining the reason and expected effect.
+
+Rollback is not assumed safe or complete. The owning domain revalidates current dependencies, irreversible side effects, customer commitments, and later changes before offering it.
+
+### Governance rules
+
+1. Source domains own field meaning, lifecycle, validation, commit mode, eligibility, and mutation.
+2. Admin Platform owns the shared workspace, change-envelope, comparison, and outcome interaction contracts.
+3. Approvals and execution permissions are evaluated separately.
+4. Customer-facing preview uses the same governed data model as the target surface where practical.
+5. Historical operational events are corrected through new events, not destructive edits.
+6. Every consequential change records actor, scope, baseline, validation, approval, execution, and outcome.
+7. Session interruption preserves eligible drafts but never assumes an unconfirmed commit.
+8. AI may propose or explain a draft but cannot submit, approve, schedule, publish, execute, or resolve conflicts.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Resource workspace editing, validation, approval, and publication model
 - Cross-domain order, customer, and Support operations
 - Admin search, command, and recent-work behavior
 - Audit and high-risk action presentation
@@ -291,4 +412,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the resource workspace editing, validation, approval, and publication model, followed by cross-domain operations and governance behavior.
+Define cross-domain Order, Customer, and Support operations, followed by operational discovery, audit, high-risk actions, and degraded behavior.

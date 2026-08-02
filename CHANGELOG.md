@@ -71,6 +71,7 @@
 - Approved stable capability-based Administrative Dashboard navigation.
 - Approved a deterministic exception-and-work Operations Overview.
 - Approved a shared governed Admin worklist, saved-view, selection, export, and bulk-action contract.
+- Approved governed Admin resource workspaces with staged change envelopes and immutable applied history.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
