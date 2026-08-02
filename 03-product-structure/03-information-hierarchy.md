@@ -106,6 +106,163 @@ The shell determines global navigation and persistent utilities. The archetype d
 - Dynamic updates announce meaningful changes without interrupting unrelated work.
 - Keyboard and assistive-technology users retain equivalent access to primary and recovery actions.
 
+## Approved archetype specifications
+
+### Hub
+
+**Purpose:** Orient users, prioritize continuation, and route them into high-value tasks.
+
+**Layer emphasis:** Primary task and meaningful continuation elevate Layers 1, 2, and 6. Recovery remains available without competing with the task.
+
+**Required regions:**
+
+1. Identity and current scope
+2. Primary task entry
+3. Meaningful continuation or active-state summary
+4. Prioritized destination groups
+5. Relevant recovery and help
+
+**Optional regions:**
+
+- Recommendations
+- Editorial context
+- Contextual AI
+- Announcements with genuine task impact
+
+**Prohibited patterns:**
+
+- Stacked promotional banners
+- Equal visual priority for every module
+- Search hidden beneath merchandising
+- Automatically opened AI
+- Dead-end promotional content
+
+**Primary-action behavior:** The highest-value task is explicit and remains available before optional modules. A Hub may have several destinations but only one primary task emphasis per context.
+
+**State and constraint placement:** Active orders, builds, cases, account restrictions, or service conditions appear before generic discovery modules when they materially affect the user.
+
+**Responsive transformation:**
+
+- Preserve the primary task and most relevant continuation above secondary modules.
+- Collapse lower-priority groups without changing their meaning.
+- Do not turn the Hub into an unstructured mobile menu.
+
+**Accessibility obligations:**
+
+- Destination groups use meaningful headings and landmarks.
+- Module reordering preserves semantic and focus order.
+- Personalized content changes do not move focus unexpectedly.
+
+**Representative pages:** STF-001 Home, STF-002 Deals Hub, ACC-001 Account Dashboard, PCB-001 PC Builder Start, SUP-001 Support Center, LEG-001 Legal and Policies Hub, and ADM-001 Operations Overview.
+
+### Results/List
+
+**Purpose:** Find, refine, assess, and select entities from a governed result set.
+
+**Layer emphasis:** Scope and active state precede the result area. Selection and batch actions become critical constraints while active.
+
+**Required regions:**
+
+1. Query, category, collection, or list identity
+2. Result count and current state
+3. Visible active filters, intent, and sorting
+4. Result area with consistent entity summaries
+5. Selection or bulk-action context when active
+6. Zero-result and invalid-state recovery
+
+**Optional regions:**
+
+- Quick Filters
+- Saved views
+- Comparison controls
+- Buying guidance
+- Contextual AI
+- Export or governed bulk actions in Admin contexts
+
+**Prohibited patterns:**
+
+- Separate result grids for guided and expert users
+- Hidden intent effects
+- Filters with no decision value
+- Infinite loading without position and recovery support
+- Recommendations presented as indistinguishable results
+- Destructive bulk action without review
+
+**Primary-action behavior:** Refinement and entity selection remain the primary interaction. Batch actions appear only after explicit selection and expose scope before execution.
+
+**State and constraint placement:** Applied filters, intent, selection count, permission limits, stale data, and partial-result failures remain adjacent to the results or controlling action.
+
+**Responsive transformation:**
+
+- Filters may move into a drawer, but active state remains visible outside it.
+- Sorting and result count remain discoverable.
+- Selection state persists while inspecting an item.
+- Focus returns predictably after filter or result updates.
+
+**Accessibility obligations:**
+
+- Result updates are announced without replacing focus.
+- Entity summaries use consistent names and action order.
+- Loading and pagination expose position, progress, and completion.
+- Bulk selection is operable without pointer-only interaction.
+
+**Representative pages:** DSC-001 Universal Search Results, DSC-002 Category Discovery, STF-003 Collection, STF-004 Brand, STF-005 Buying Guides Hub, ACC-002 Orders, ACC-004 Wishlist, PCB-003 Saved Builds, and SUP-006 My Support Cases.
+
+### Detail
+
+**Purpose:** Understand one durable object and take the next valid action.
+
+**Layer emphasis:** Identity, state, primary outcome, and critical constraints precede evidence, secondary continuation, and related content.
+
+**Required regions:**
+
+1. Object identity and status
+2. Primary summary
+3. Critical price, availability, compatibility, eligibility, or permission constraints
+4. Primary action and immediate alternatives
+5. Evidence and progressively disclosed detail
+6. Related lifecycle context
+7. Support and recovery
+
+**Optional regions:**
+
+- Media
+- Reviews
+- History or timeline
+- Related products or content
+- Comparison entry
+- Contextual AI
+- Share, save, or print
+
+**Prohibited patterns:**
+
+- Primary action shown before consequential constraints
+- Status hidden in decorative presentation
+- AI summaries replacing authoritative facts
+- Related products outranking object information
+- Specifications, reviews, tracking, or case history fragmented into unnecessary routes
+- Silent presentation of stale data
+
+**Primary-action behavior:** The action reflects current object state, variant, eligibility, access, and constraints. A changed constraint updates or disables the action with an explanation.
+
+**State and constraint placement:** Status and action-changing facts remain near the summary and primary action. Historical detail cannot substitute for current state.
+
+**Responsive transformation:**
+
+- Identity, status, constraints, and primary action remain together conceptually.
+- Sticky actions reflect the current variant, eligibility, and state.
+- Deep detail may collapse, but warnings and active context may not.
+- Timelines and comparisons retain accessible reading order.
+
+**Accessibility obligations:**
+
+- Object status is programmatically associated with identity.
+- Media has equivalent alternatives.
+- Disclosure controls expose state and relationships.
+- Dynamic price, stock, compatibility, or case changes are announced appropriately.
+
+**Representative pages:** EVA-001 Product Detail, ACC-003 Order Detail, PCB-004 Shared Build, SUP-007 Support Case Detail, and other approved durable-object destinations that are not active workspaces.
+
 ## Next decision
 
-Specify the nine archetypes, including required regions, optional regions, prohibited patterns, responsive behavior, and representative approved pages. Then map all 89 Page Inventory entries to exactly one primary archetype.
+Specify Workspace, Transaction, Content/Document, Recovery, Admin Queue, and Admin Resource Workspace. Then map all 89 Page Inventory entries to exactly one primary archetype.
