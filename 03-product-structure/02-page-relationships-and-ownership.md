@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — model and Discovery–Purchase graph approved; remaining graph and ownership ledger pending
+**Status:** Approved in part — model and customer connected-experience graph approved; Authentication/System/Admin graph and ownership ledger pending
 
 ## Purpose
 
@@ -155,12 +155,66 @@ The following exclusions apply to every edge in this slice:
 - Order Confirmation is reached only after an order exists.
 - Graph edges do not bypass host-owned validation or state handling.
 
+### Slice 2 — Account, PC Builder, AI, and Support
+
+The following exclusions apply throughout this slice:
+
+- Account, notification, build, conversation, and case references never grant access.
+- Payment credentials, authentication secrets, private AI reasoning, internal case notes, and unrelated customer data do not cross boundaries.
+- Referenced price, availability, compatibility, warranty, return, and order state is revalidated by its authoritative service.
+
+| Edge | Relationship | Trigger | Context carried | Context excluded | Access transition | Failure behavior | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| REL-CX-001 | `ACC-001` `resumes` `ACC-002` | Open order activity | Current order filter or reference | Unrelated dashboard data | Authenticated customer; Orders rechecks ownership | Return to Dashboard with unavailable activity notice | Approved |
+| REL-CX-002 | `ACC-001` `resumes` `PCB-003` | Open saved or recent builds | Owned build collection context | Build internals not needed by the list | Authenticated customer | Return to Dashboard with build-service recovery | Approved |
+| REL-CX-003 | `ACC-001` `resumes` `SUP-006` | Open active support activity | Active-case filter | Internal queue and agent data | Authenticated customer | Return to Dashboard with case-service recovery | Approved |
+| REL-CX-004 | `ACC-004` `leads-to` `EVA-001` | Open saved product | Product reference | Wishlist metadata unrelated to evaluation | Authenticated source; Product Detail remains public | Preserve Wishlist and show product recovery | Approved |
+| REL-CX-005 | `ACC-004` `leads-to` `EVA-002` | Compare selected saved products | Product references | Wishlist notes and unavailable selections | Authenticated source; Comparison uses permitted session state | Retain valid products and explain rejected members | Approved |
+| REL-CX-006 | `ACC-004` `leads-to` `PUR-001` | Add saved product to Cart | Product, chosen variant, quantity, and offer reference | Stale price and private Wishlist metadata | Authenticated Cart | Preserve Wishlist and explain validation failure | Approved |
+| REL-CX-007 | `ACC-007` `resumes` `ACC-003` | Open order notification | Order reference and event category | Message-delivery metadata | Authenticated customer; Order Detail rechecks ownership | Mark target unavailable without exposing order data | Approved |
+| REL-CX-008 | `ACC-007` `resumes` `PCB-002` | Open build notification | Build reference and event category | Message-delivery metadata | Authenticated owner; Workspace rechecks ownership | Preserve notification and show build recovery | Approved |
+| REL-CX-009 | `ACC-007` `resumes` `SUP-007` | Open case notification | Case reference and event category | Internal note or routing data | Authenticated or securely verified participant | Preserve notification and show safe case recovery | Approved |
+| REL-CX-010 | `ACC-003` `creates` `SUP-007` | Submit order-linked issue | Verified order, item, issue type, and customer submission | Payment credentials and unrelated order data | Authenticated owner or securely verified guest; case creation rechecks eligibility | Remain on Order Detail with duplicate warning or recoverable submission | Approved |
+| REL-CX-011 | `ACC-003` `resumes` `PCB-002` | Start upgrade from purchased build | Purchased build reference and user-confirmed copy intent | Immutable original order state | Authenticated owner; creates or opens an owned working copy | Remain on Order Detail if build cannot be reconstructed | Approved |
+| REL-CX-012 | `PCB-001` `creates` `PCB-002` | Confirm Guided or Expert initialization | Visible constraints, budget, goals, and initial selections | Hidden inference and unrelated profile data | Guest draft or authenticated owner established by Workspace | Remain on Start with correctable initialization error | Approved |
+| REL-CX-013 | `PCB-003` `resumes` `PCB-002` | Open saved build | Owned build reference | Other builds and list-only metadata | Authenticated owner; Workspace rechecks ownership | Remain on Saved Builds with unavailable-build recovery | Approved |
+| REL-CX-014 | `PCB-002` `creates` `PCB-004` | Confirm sharing | Governed read-only snapshot and share policy | Owner identity beyond approved attribution and private history | Owner must be authorized; recipient receives only share scope | Remain in Workspace with share creation or policy error | Approved |
+| REL-CX-015 | `PCB-004` `creates` `PCB-002` | Confirm duplicate | Shared component snapshot and visible constraints | Source ownership, private history, and edit authority | Guest draft or authenticated new owner; source remains immutable | Remain on Shared Build with duplication recovery | Approved |
+| REL-CX-016 | `PCB-002` `converts-to` `PUR-001` | Convert build to Cart | Component references, quantities, compatibility summary, and build reference | AI reasoning and stale price or stock | Guest or customer Cart; every component revalidated | Remain in Workspace with item-level correction and no partial Cart mutation | Approved |
+| REL-CX-017 | `DSC-001` `supports` `AIS-001` | Request AI help from Search | Visible query, filters, intent, and selected results | Ranking internals and unselected personal history | Guest or customer Assistant context | Keep Search usable if AI is unavailable or context rejected | Approved |
+| REL-CX-018 | `DSC-002` `supports` `AIS-001` | Request AI help from Category | Category, visible intent, filters, and selected products | Hidden ranking or inferred intent | Guest or customer Assistant context | Keep Category usable if AI is unavailable or context rejected | Approved |
+| REL-CX-019 | `EVA-001` `supports` `AIS-001` | Request product guidance | Product and selected variant | Private review signals and hidden recommendation data | Guest or customer Assistant context | Keep Product Detail usable if AI is unavailable | Approved |
+| REL-CX-020 | `EVA-002` `supports` `AIS-001` | Request comparison guidance | Comparison set and selected criteria | Private scoring internals | Guest or customer Assistant context | Keep Comparison usable and preserve its set | Approved |
+| REL-CX-021 | `PCB-002` `supports` `AIS-001` | Request engineering guidance | Build constraints, components, warnings, and budget | Compatibility engine internals and private history | Guest draft or authenticated owner context | Keep Workspace usable; deterministic validation remains authoritative | Approved |
+| REL-CX-022 | `PUR-002` `supports` `AIS-001` | Request checkout guidance | Non-sensitive section and eligible-option context | Contact details, addresses, payment data, fraud signals, and credentials | Same guest or customer session with minimized context | Keep Checkout usable and preserve sensitive state locally | Approved |
+| REL-CX-023 | `AIS-001` `leads-to` `EVA-001` | User selects recommendation | Product reference, visible rationale, and relevant stated requirement | Private reasoning and unrelated conversation | Product Detail independently validates public access | Preserve conversation and explain unavailable recommendation | Approved |
+| REL-CX-024 | `AIS-001` `leads-to` `EVA-002` | User confirms recommendation set | Product references and visible comparison criteria | Private reasoning and unrelated conversation | Comparison session or authenticated persistence | Preserve conversation and retain only valid products | Approved |
+| REL-CX-025 | `AIS-001` `leads-to` `PCB-001` | User confirms Builder handoff | Visible requirements, budget, and goals as initialization suggestions | Hidden inference and conversation content outside the task | Guest or customer; Builder makes effects inspectable | Preserve conversation and open Builder without rejected constraints | Approved |
+| REL-CX-026 | `SUP-003` `creates` `SUP-007` | Submit eligible return | Verified order, item, return intent, evidence, and logistics data | Payment credentials and unrelated order data | Authenticated owner or securely verified participant | Remain on Returns Hub with duplicate warning or recoverable submission | Approved |
+| REL-CX-027 | `SUP-004` `creates` `SUP-007` | Submit eligible warranty or repair claim | Verified product, coverage context, issue, and evidence | Unrelated customer and product data | Authenticated owner or securely verified participant | Remain on Warranty Hub with coverage or submission recovery | Approved |
+| REL-CX-028 | `SUP-005` `creates` `SUP-007` | Submit triaged request | Issue type, relevant verified references, channel choice, and submission | Unrelated profile data and internal routing rules | Authentication or verification applied before sensitive creation | Remain on Case Start with duplicate warning or recoverable submission | Approved |
+| REL-CX-029 | `SUP-006` `resumes` `SUP-007` | Open owned case | Authorized case reference | Other cases and internal routing data | Authenticated customer; Case Detail rechecks participation | Remain on My Cases with safe unavailable-case state | Approved |
+| REL-CX-030 | `SUP-007` `references` `ACC-003` | Inspect associated order context | Order reference and permitted customer-visible fields | Payment credentials, fraud data, and internal order notes | Verified case participant; Order Detail independently authorizes access | Keep case usable with order context marked unavailable | Approved |
+| REL-CX-031 | `SUP-007` `references` `EVA-001` | Inspect associated product | Product reference | Internal catalog governance data | Public active product or governed recovery | Keep case usable with product snapshot and unavailable notice | Approved |
+| REL-CX-032 | `SUP-007` `references` `PCB-002` | Inspect associated build | Build reference and permitted snapshot | Private build history and edit authority | Authenticated owner or explicitly governed snapshot access | Keep case usable with build context marked unavailable | Approved |
+
+### Slice 2 invariants
+
+- Dashboard and notification edges never bypass target authorization.
+- Wishlist price and availability are always revalidated.
+- Upgrade-later preserves the purchased build and works on an owned copy.
+- Shared Build duplication never changes the source.
+- Build-to-Cart revalidates every component and blocks hard incompatibilities.
+- AI context is visible, removable, minimal, and excludes payment or credential data.
+- AI recommendations require user confirmation before comparison or Builder initialization.
+- Support cases reference authoritative orders, products, and builds rather than copying ownership.
+- Case creation is idempotent and warns about likely duplicates.
+
 ## Next decision
 
 Populate and review consequential relationships in four slices:
 
-1. Account, PC Builder, AI, and Support
-2. Authentication, legal, and system recovery
-3. Admin management edges and the ownership ledger
+1. Authentication, legal, and system recovery
+2. Admin management edges and the ownership ledger
 
 Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
