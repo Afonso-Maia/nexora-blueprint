@@ -79,6 +79,7 @@
 - Approved operation-aware Admin recovery and responsive continuity.
 - Completed the Administrative Dashboard Information Architecture.
 - Accepted ADR-0003 and approved scoped capability-based RBAC.
+- Approved distinct attributable human and non-human subject classes.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

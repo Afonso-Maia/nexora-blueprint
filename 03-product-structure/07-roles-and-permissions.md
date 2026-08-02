@@ -6,7 +6,7 @@
 
 This document defines how Nexora grants attributable human and non-human subjects the minimum capabilities required to perform governed work.
 
-It implements the capability boundary established by the approved [Administrative Dashboard IA](06-administrative-dashboard-ia.md) and applies across Admin, Support, external-provider, service, automation, and AI-assisted access.
+It implements the capability boundary established by the approved [Administrative Dashboard IA](06-administrative-dashboard-ia.md) and applies across customer, guest, Admin, Support, external-provider, service, automation, and AI-assisted access.
 
 ## Decision
 
@@ -39,15 +39,18 @@ The cross-cutting rationale is recorded in [ADR-0003](../adrs/ADR-0003-scoped-ca
 
 A subject is an attributable actor evaluated for access. Initial subject classes include:
 
+- Customer Account
+- Securely verified guest participant
 - Workforce user
 - External-provider user
+- Authorized customer representative
 - Service identity
 - Automation identity
-- AI-assisted delegated identity
+- Delegated AI execution identity, if later permitted
 
 Shared anonymous operational identities are not acceptable for consequential work.
 
-The exact subject lifecycle, identity proofing, service ownership, and offboarding model remain pending.
+The exact subject lifecycle, identity proofing, service ownership, and offboarding workflow remain pending.
 
 ### Capability
 
@@ -123,6 +126,129 @@ Conditions are evaluated at commitment. Earlier page access, validation, preview
 Assurance requirements are proportional to risk and may be raised by current context. A consumer cannot lower the source policy's minimum.
 
 Authentication establishes identity and assurance. Authorization decides whether that assured subject may perform the capability within scope and conditions.
+
+## Distinct attributable subject model
+
+Nexora represents human and non-human subject classes explicitly. A subject, identity proof, session, credential, role assignment, delegation, and object association are separate records.
+
+### Common subject contract
+
+Every subject records:
+
+- Stable internal identifier
+- Subject class
+- Authoritative identity source
+- Current lifecycle and restriction state
+- Eligible authentication or credential policy
+- Eligible role, capability, and scope types
+- Review, expiry, and offboarding policy
+- Audit attribution
+- Accountable owner or sponsor when the subject is not a customer acting for itself
+
+Deactivation, authentication restriction, authorization revocation, object reassignment, and record retention are separate operations. None is inferred automatically from another.
+
+### Human subjects
+
+#### Customer Account
+
+A Customer Account represents an authenticated customer identity and owns only the customer capabilities and objects established by product policy. Purchase history or shared contact information does not automatically merge identities or grant access to another Account's objects.
+
+#### Securely verified guest participant
+
+A verified guest participant is a short-lived, purpose-bound subject established for an eligible order, case, or other specific task.
+
+- Verification grants only the approved object and task scope.
+- It does not create a Customer Account or permanent role assignment.
+- It expires and may require renewed assurance for sensitive actions.
+- Permanent guest-order claiming follows the approved explicit claim architecture.
+
+#### Workforce user
+
+A workforce user is an individually attributable Nexora operator. Organizational membership alone does not grant a capability. Workforce roles, scopes, duties, assurance, and lifecycle determine effective access.
+
+Shared team accounts are prohibited for consequential work.
+
+#### External-provider user
+
+An external-provider user is an individually attributable member of a verified provider organization. Provider membership constrains eligible roles and scopes but does not grant access by itself.
+
+Access is limited to an approved contract, work package, purpose, duration, and data scope. One provider case or task cannot reveal unrelated customer, order, case, or Nexora-internal information.
+
+#### Authorized customer representative
+
+An authorized representative acts for a customer only within an explicit verified representation scope.
+
+Representation does not transfer ownership of the Customer Account, order, payment, case, or other customer object. Scope, duration, assurance, revocation, and provenance remain visible and auditable.
+
+### Non-human subjects
+
+#### Service identity
+
+A service identity represents a bounded technical service-to-service actor. It has an accountable Nexora owner, approved purpose, explicit environment and resource scope, credential lifecycle, and monitoring policy.
+
+Its technical ability to reach a system does not define its business authority.
+
+#### Automation identity
+
+An automation identity represents a governed job or workflow that may initiate or execute explicitly approved operations.
+
+It records its trigger, delegated capabilities, scope, limits, accountable owner, review policy, and kill or revocation path. It cannot use a workforce user's shared credentials or inherit the full authority of its owner.
+
+#### Delegated AI execution identity
+
+Ordinary AI drafting, explanation, search assistance, and summarization remain attributed to the human or service subject using the capability. They do not create independent authority.
+
+If a later policy permits autonomous consequential execution, that execution requires a distinct delegated AI identity with:
+
+- Specific task and purpose
+- Explicit capability and resource scope
+- Start and expiry
+- Risk and action limits
+- Accountable owner
+- Approval and monitoring requirements
+- Immediate revocation path
+
+No such execution authority is approved by this subject-model decision.
+
+### Identity, session, and credential separation
+
+- **Subject:** the attributable actor evaluated for authorization.
+- **Identity proof:** evidence used by Authentication to establish the subject.
+- **Session:** a time-bounded authenticated context with current assurance.
+- **Credential:** a protected means used to establish a human or non-human session.
+- **Role assignment:** authorization capabilities and scope granted to the subject.
+- **Delegation:** a bounded authority relationship between attributable subjects.
+
+Revoking a credential does not erase the subject or its history. Ending a session does not revoke every assignment. Granting a role does not create authentication proof. These operations coordinate through explicit lifecycle rules.
+
+### Delegated sessions and anti-impersonation
+
+“View as customer,” provider-assisted access, or similar assisted workflows use an explicit delegated session.
+
+Every delegated session identifies:
+
+- Acting subject
+- Represented subject or object scope
+- Delegation basis and purpose
+- Permitted capabilities
+- Assurance
+- Start and expiry
+- Visible indication to the actor
+- Audit correlation
+
+The acting subject never becomes indistinguishable from the represented customer or provider. Messages, decisions, data access, and mutations retain the actual actor and delegation provenance.
+
+Passwords, authentication factors, recovery secrets, and active customer sessions are never requested or reused for workforce impersonation.
+
+### Ownership boundaries
+
+1. Authentication owns identity proofing, credentials, factors, and sessions.
+2. Roles and Permissions owns assignments, scope, conditions, and delegation.
+3. Customer, workforce, provider, and service directories own their subject metadata and source lifecycle signals.
+4. Source domains own customer objects and their association rules.
+5. Audit preserves the actual subject, delegated context, applicable role, and policy version.
+6. Suspending identity blocks new eligible sessions according to policy but does not erase historical attribution.
+7. No subject inherits authority merely through organizational membership, contact matching, related-object navigation, sponsorship, or technical connectivity.
 
 ## Role model
 
@@ -254,7 +380,7 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Subject lifecycle and identity classes
+- Subject lifecycle and joiner, mover, leaver, and provider workflows
 - Initial workforce role catalog
 - Scope hierarchy and combination rules
 - Permission evaluation and conflict precedence
@@ -267,4 +393,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the subject and identity model, followed by initial roles, scope semantics, access lifecycle, segregation, and emergency controls.
+Define subject lifecycle and joiner, mover, leaver, provider, and non-human identity behavior, followed by initial roles, scope semantics, segregation, and emergency controls.
