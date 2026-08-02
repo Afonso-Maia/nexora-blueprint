@@ -980,30 +980,135 @@ AI operates within the attributable user's and task's intersection of permission
 - Execute a consequential action unless a later explicit policy grants a narrowly governed automation capability
 - Retain authority after task, assignment, or delegation expiry
 
-## Audit and review
+## Continuous risk-based access review
 
-Assignments, definition changes, access requests, grants, denials where governed, delegation, use of high-risk capabilities, expiry, revocation, and offboarding are auditable.
+Access governance combines event-driven review with periodic certification. Review evaluates effective access, not merely role names or the assignments originally requested.
 
-Review distinguishes:
+### Review triggers
 
-- Role design
-- Effective subject access
-- Dormant or unused access
-- Temporary and overdue access
-- Incompatible duty combinations
-- Orphaned service or provider identities
+Event-driven review occurs for material changes such as:
+
+- Joiner, mover, leaver, or provider relationship change
+- Subject restriction, suspension, or credential incident
+- Role, capability, scope hierarchy, field policy, denial, or segregation change
+- Assignment, delegation, JIT grant, or work-package expiry
+- Accountable owner or sponsor departure
+- Service, automation, integration, or system retirement
+- Material inactivity, anomalous use, or unused privileged access
+- Newly detected incompatible duty combination
+- Change in resource sensitivity, risk, or regulatory purpose
+
+Periodic review frequency is proportional to risk, sensitivity, subject type, privilege, scope breadth, and access duration. Exact intervals are governed policy data.
+
+### Review unit
+
+Each review presents:
+
+- Subject and subject lifecycle
+- Accountable owner or sponsor
+- Current roles and role versions
+- Effective capabilities and complete scopes
+- Field restrictions and sensitive-data access
+- Delegations, JIT grants, provider work packages, and derived access
+- Approval and segregation conflicts
+- Last use and material actions
+- Upcoming expiry and overdue conditions
+- Source, policy, and hierarchy freshness
+
+The reviewer sees how access is obtained and what it enables. A role label alone is insufficient evidence for retention.
+
+### Review outcomes
+
+Review produces one or more explicit outcomes:
+
+- Retain unchanged with reason
+- Narrow capability, field, scope, threshold, or duration
+- Reassign owner or sponsor
+- Require stronger assurance or monitoring
+- Convert recurring temporary access into an approved stable assignment
+- Revoke immediately
+- Suspend pending evidence
+- Escalate an incompatible duty or orphaned identity
+
+Material retention and expansion require eligible authority. A reviewer cannot certify their own high-risk access where independence policy prohibits it.
+
+Failure to complete a review does not silently renew access. Overdue high-risk, temporary, external, non-human, or ownerless access suspends or expires according to policy.
+
+### Revocation
+
+Revocation is a durable attributed action with:
+
+- Subject and affected complete grants
+- Trigger and reason
+- Effective time
+- Sessions, credentials, delegations, and derived grants affected
+- Pending-work disposition owners
+- Propagation and confirmation state
+- Audit correlation
+
+Revocation propagates to navigation, search, recents, open workspaces, saved views, selections, drafts, approvals, exports, scheduled work, queued operations, provider packages, and authorization caches.
+
+Propagation distinguishes requested, pending, confirmed, failed, and indeterminate outcomes. A failed downstream revocation becomes a security-relevant obligation and does not mark offboarding complete.
+
+### Offboarding completion
+
+Offboarding completes only when the governed checklist confirms:
+
+- Authoritative subject state changed
+- New sessions and credentials blocked
+- Assignments, delegations, JIT access, and provider access ended
+- Owned services, automations, roles, queues, drafts, approvals, and obligations reassigned or intentionally retired
+- Export and recoverable delivery access handled
+- Scheduled and in-flight operations evaluated
+- Shared secrets or unattributed access paths investigated and removed
+- Customer or provider obligations retain an accountable owner
+- Audit evidence and residual exceptions recorded
+
+Historical attribution remains. Offboarding does not delete operational records or rewrite the former subject's actions.
+
+### Role and policy review
+
+Role definitions and authorization policies are reviewed independently from subject assignments.
+
+Review covers:
+
+- Duplicate or overlapping roles
+- Unused capabilities
 - Scope drift
+- Excessive field access
+- Threshold and duration appropriateness
+- Incompatible duties
+- Repeated exceptions and JIT patterns
+- Orphaned owners
+- Policy simulation coverage
+- Deprecated resource or system references
 
-Audit evidence records the applicable role and policy version. It does not rely only on the current role definition.
+Changing or retiring a role requires effective-access impact analysis and an explicit assignment migration or revocation plan.
+
+### Audit
+
+Assignments, definition changes, access requests, grants, denials where governed, delegation, JIT use, review decisions, privileged activity, expiry, revocation, propagation failures, exceptions, and offboarding are auditable.
+
+Audit evidence records the applicable role, grant, scope, policy, and hierarchy versions. It does not rely only on current definitions.
+
+### Governance rules
+
+1. Risk determines review rigor and frequency.
+2. Event-driven review supplements periodic certification.
+3. Effective access and derived grants are reviewed together.
+4. Non-response never silently preserves overdue high-risk access.
+5. Reviewers require independence for governed sensitive decisions.
+6. Revocation is tracked through confirmed downstream propagation.
+7. Offboarding remains incomplete while material access or ownership exceptions are unresolved.
+8. Historical attribution survives review, revocation, role retirement, and offboarding.
 
 ## Provisional dependencies
 
 The following remain pending:
 
 - Break-glass and emergency access
-- Access review, revocation, and offboarding
 - Roles and Permissions validation
 
 ## Next decision
 
-Define continuous access review, revocation, and offboarding, followed by break-glass emergency access and topic validation.
+Define break-glass emergency access, then validate the complete Roles and Permissions architecture.
