@@ -347,15 +347,113 @@ Duplicate events from linked systems resolve into one understandable case timeli
 7. Support cannot use a lifecycle transition to bypass another domain's authorization or evidence requirements.
 8. AI may summarize the case but cannot change type, lifecycle, responsibility, eligibility, or linked operational state.
 
+## Case-centered communication record
+
+The SUP-007 timeline is the canonical customer-facing communication record for the case. Approved communication channels act as adapters to this record rather than maintaining competing customer histories.
+
+### Timeline event types
+
+The timeline distinguishes:
+
+- Customer, representative, agent, and specialist messages
+- Governed channel transcripts or interaction summaries
+- Evidence submissions, validation, and review outcomes
+- Case decisions and customer-visible rationale
+- Lifecycle, responsibility, escalation, and due-expectation changes
+- Linked operational updates
+- System notices, delivery failures, and corrected events
+
+Every event records its type, actor or source, timestamp, visibility, and provenance. Linked operational events retain their authoritative owner and source timestamp.
+
+Material customer-visible communication is not silently rewritten. Corrections and redactions preserve an auditable relationship to the original while showing the customer the applicable current version when policy permits.
+
+### Channel behavior
+
+Messaging owns per-channel queuing, delivery, retry, and failure state. Support owns the case meaning, message association, and customer-facing conversation.
+
+1. An outbound message is recorded separately from its delivery state.
+2. Delivery success does not imply that the customer read or accepted the message.
+3. Failed delivery is visible to authorized case participants and triggers a governed retry or alternate-channel path.
+4. Replies received through an approved adapter join the correct case only after participant and case-reference validation.
+5. A channel interaction that cannot be safely associated remains pending review and does not silently enter a case.
+6. Phone or other non-text interactions use an attributed governed summary or transcript with applicable notice and access controls.
+
+### Evidence objects
+
+Evidence is a governed object rather than an unstructured attachment. It records:
+
+- Uploader and participant role
+- Submission and capture timestamps
+- Evidence type, format, and version
+- Related case, item, issue, and decision
+- Access classification and permitted participants
+- Validation, malware-scan, and review state
+- Retention and deletion rule
+- Redaction, replacement, or withdrawal history
+
+Uploading evidence confirms receipt only. It does not prove a claim, establish eligibility, or approve a remedy. Review outcomes identify the responsible reviewer and material rationale.
+
+Unsupported, unsafe, unreadable, incomplete, or excessive evidence receives an actionable state without exposing security-sensitive scanning detail. Replacing evidence creates a new version and does not silently overwrite material previously used in a decision.
+
+### Participant model
+
+Governed participant roles include:
+
+- Customer
+- Authorized representative
+- Nexora Support agent
+- Nexora specialist or supervisor
+- Bounded external carrier, repair provider, manufacturer, or other approved provider
+
+Each participant association records verified identity or organizational identity, role, case scope, permissions, start time, expiry or revocation condition, and provenance.
+
+Participants receive the minimum case, object, message, and evidence scope required for their task. Association with one case does not grant access to unrelated orders, payments, Account data, cases, internal notes, or provider records.
+
+An authorized representative does not become the owner of the customer Account or associated commerce objects. Adding, changing, or removing a representative requires governed assurance and preserves history.
+
+### Internal notes
+
+Internal notes are explicitly separate from the customer-visible timeline:
+
+- They require a specific operational purpose and permission.
+- They are visibly labeled as internal in Admin experiences.
+- They cannot impersonate customer messages or authoritative source facts.
+- They cannot conceal a customer-facing decision, requirement, or promised action that should be communicated.
+- Their access, edits, and retention are auditable.
+
+Information copied from an internal note into customer communication becomes a new attributed customer-visible event. Internal notes never become an informal bypass for evidence or approval requirements.
+
+### AI use
+
+AI may draft replies, summarize timelines, classify submitted context, or help locate evidence. Consequential messages, decisions, participant changes, and evidence outcomes require approval by an authorized governed actor.
+
+AI-generated material is attributable in the operational record, cites its case sources where appropriate, and cannot:
+
+- Commit a remedy or operational outcome
+- Change case state or responsibility
+- Fabricate missing communication or evidence
+- Expand participant access
+- Convert an internal note into customer-visible fact without approval
+
+### Governance rules
+
+1. Support owns case communication, timeline structure, and participant access.
+2. Messaging owns delivery state and channel infrastructure.
+3. Evidence access follows sensitivity, purpose, participant scope, and retention policy.
+4. Failed delivery never counts as customer receipt or completed customer action.
+5. Provider or representative access is bounded and revocable.
+6. Customer-visible history, internal notes, and authoritative operational records remain distinct.
+7. Export, legal hold, redaction, and deletion actions preserve the governing policy and audit requirements.
+8. Degraded channel or evidence services preserve confirmed events and identify unconfirmed work without duplicating it.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Case communication, evidence, and participant model
 - Service level, escalation, and ownership-transfer behavior
 - External carrier, repair-provider, and manufacturer participation
 - Mobile Support navigation details
 
 ## Next decision
 
-Define the case communication, evidence, and participant model, followed by service levels, escalation, external participation, and mobile behavior.
+Define service-level, escalation, and ownership-transfer behavior, followed by external participation and mobile behavior.
