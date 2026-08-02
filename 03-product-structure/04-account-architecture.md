@@ -129,12 +129,91 @@ It does not fill missing owned state with additional merchandising.
 
 Mobile preserves the same priority order. Critical status and primary continuation remain ahead of recommendations and Preferences. Lower-priority modules may collapse, but their priority cannot be raised merely because they fit a compact presentation.
 
+## Composite order-state model
+
+Order Detail coordinates several independently authoritative state dimensions rather than flattening an order into one status.
+
+### Order lifecycle
+
+Owned by Purchase:
+
+- Placed
+- Processing
+- Fulfilled
+- Cancelled
+- Closed
+
+### Payment state
+
+Owned by Payments:
+
+- Pending
+- Authorized
+- Paid
+- Failed
+- Partially refunded
+- Refunded
+
+### Fulfillment state
+
+Owned by Delivery or Fulfillment for each shipment or delivery group:
+
+- Preparing
+- Shipped
+- Delivered
+- Exception
+- Returned
+
+### Case state
+
+Returns, refunds, warranties, repairs, and general Support remain linked typed cases owned by Support. A case does not overwrite the order, payment, or fulfillment state.
+
+### Customer-facing summary
+
+Order Detail derives a concise summary from the authoritative dimensions. Examples include:
+
+- Payment required
+- Preparing 2 items
+- Partially shipped
+- Delivery exception
+- Delivered — return in progress
+
+The summary is deterministic and explainable. It never becomes a new source of truth.
+
+The most urgent actionable condition leads. Users can inspect the underlying dimensions, partial states, timestamps, and historical events. A later summary does not erase earlier events.
+
+### Action eligibility
+
+Cancel, track, invoice, return, warranty, and Contact Support actions are evaluated against the current authoritative dimensions.
+
+Every action declares:
+
+- Eligible object or item scope
+- Current eligibility
+- Responsible domain
+- Consequence
+- Required assurance
+- Pending or conflicting operation
+- Reason when unavailable
+
+Eligibility is rechecked at action start and commitment. A stale button or prior notification cannot grant eligibility.
+
+### Governance rules
+
+1. Purchase owns order lifecycle.
+2. Payments owns payment state.
+3. Delivery or Fulfillment owns shipment state.
+4. Support owns case state.
+5. Customer owns the Order Detail experience but not these records.
+6. Partial shipment, cancellation, refund, return, and exception states remain explicit.
+7. Dashboard, Notifications, and Support reference the same authoritative dimensions.
+8. No customer-facing label implies a completed payment, delivery, refund, or remedy before its owner confirms it.
+
 ## Provisional dependencies
 
 The following remain pending:
 
 - Guest-order claim and consolidation
-- Order lifecycle and action eligibility
 - Account restriction and recovery behavior
 - Address and payment assurance
 - Notification categories, retention, and preferences
