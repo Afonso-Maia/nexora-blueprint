@@ -179,11 +179,109 @@ If a source is delayed or unavailable:
 
 AI may summarize permitted modules and explain prioritization, but it cannot assign severity, dismiss obligations, change scope, or execute the linked action.
 
+## Shared governed worklist contract
+
+Admin collection and queue pages use one interaction contract with domain-specific schemas, urgency rules, filters, and actions.
+
+### Collection and queue modes
+
+- **Collection:** supports finding, inspecting, comparing, and managing durable resources such as products, categories, customers, promotions, or workforce users.
+- **Queue:** supports processing actionable work ordered by governed urgency, assignment, obligation, exception, or review state.
+
+A page may expose a queue-oriented saved view over a collection, but the view does not change the underlying resource type or ownership. Priority order appears only when its governing rule and scope are visible.
+
+### Shared capabilities
+
+Eligible worklists support:
+
+- Permission-filtered search
+- Governed filters, grouping, and sort
+- Explicit personal, team, or organization scope
+- Result count with source freshness
+- Saved views
+- Column and presentation preferences
+- Stable object selection
+- Authorized export
+- Governed single-item and bulk actions
+
+Each domain defines which capabilities apply. Omitting an unsafe capability is preferable to presenting an action that cannot be governed reliably.
+
+### Saved views
+
+A saved view stores:
+
+- Owning resource or queue type
+- Filter, grouping, and sort configuration
+- Presentation preferences
+- Requested scope
+- Owner and sharing policy
+- Version and last validation state
+
+It stores neither copied result data nor authorization.
+
+Opening or sharing a view resolves current permitted records and fields. Invalid filters, renamed governed values, unavailable sources, and lost access receive an explicit repair or reduced-scope state. A shared view never reveals its creator's inaccessible counts, selections, or results to another user.
+
+### Selection
+
+Selection uses stable resource identifiers and declares its scope:
+
+- Visible-page selection
+- Explicit item selection across pages
+- All current results matching a governed query
+
+“All results” records the query, scope, and validation timestamp rather than relying on a visual checkbox. If material membership or eligibility changes before commitment, the user must inspect the refreshed scope or explicitly accept the governed change behavior.
+
+Changing filters, saved views, or resource scope never silently carries an incompatible selection. Restricted or deleted objects are removed without exposing protected details.
+
+### Bulk-action lifecycle
+
+Bulk actions follow:
+
+`Select scope → Validate → Preview consequences → Confirm → Execute → Report outcome`
+
+- **Select scope:** identifies resources and query scope.
+- **Validate:** rechecks permission, resource state, dependencies, conflicts, and action eligibility.
+- **Preview consequences:** summarizes eligible, ineligible, warning, approval-required, and unknown items.
+- **Confirm:** names the action, target scope, consequence, assurance, and approval behavior.
+- **Execute:** applies the governed operation with item-level idempotency and auditability.
+- **Report outcome:** separates success, failure, skipped, pending, and indeterminate items with safe follow-up.
+
+Validation is repeated at execution. Preview does not reserve eligibility or freeze mutable source state unless the action explicitly uses a governed snapshot.
+
+### Partial results and recovery
+
+A bulk operation declares whether it is:
+
+- Independently item-addressable
+- Transactional for a governed group
+- Approval-batched
+- Asynchronous
+
+The interface does not imply all-or-nothing behavior unless the owning operation guarantees it. Successful items are not rolled back merely to simplify presentation, and failed items are never reported as changed.
+
+Retry targets only eligible unconfirmed or failed items and uses the operation's idempotency contract. Pending work remains inspectable after navigation, session interruption, or handoff.
+
+### Export
+
+Exports use the current governed query and field permissions. Before generation, the user sees scope, included fields, sensitivity, expected format, and applicable assurance.
+
+Large or sensitive exports may be asynchronous, approval-gated, time-limited, watermarked, or prohibited. Export artifacts do not preserve access after their governed expiry and never include fields hidden from the initiating user.
+
+### Governance rules
+
+1. Admin Platform owns the shared worklist, saved-view, selection, and outcome interaction contracts.
+2. Source domains own resource fields, filter semantics, priority inputs, eligibility, and mutations.
+3. Counts, previews, selection, export, and execution apply the same authorization and data scope.
+4. Saved views and shared links never carry the creator's authority.
+5. Bulk execution records actor, scope, action, validation, approval, result, and correlation reference.
+6. High-risk actions may require reduced batch size, step-up assurance, approval, or single-resource execution.
+7. Some actions may prohibit bulk execution entirely.
+8. AI may help construct a view or explain outcomes but cannot expand scope, select hidden records, confirm, approve, or execute.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Collection, queue, saved-view, and bulk-action model
 - Resource workspace editing, validation, approval, and publication model
 - Cross-domain order, customer, and Support operations
 - Admin search, command, and recent-work behavior
@@ -193,4 +291,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the collection, queue, saved-view, and bulk-action model, followed by resource workspaces, cross-domain operations, and governance behavior.
+Define the resource workspace editing, validation, approval, and publication model, followed by cross-domain operations and governance behavior.
