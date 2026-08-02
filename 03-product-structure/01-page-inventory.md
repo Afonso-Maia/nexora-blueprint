@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and customer-facing inventory approved; Administrative Dashboard pending
+**Status:** Approved in part — customer-facing inventory and Admin Commerce Operations approved; remaining Admin inventory pending
 
 ## Purpose
 
@@ -1150,6 +1150,243 @@ Every approved page and embedded unit must later define applicable:
 - Successful completion
 
 Route-level system pages are a final recovery boundary, not a substitute for these states.
+
+### Block 6A — Administrative Dashboard: Commerce Operations
+
+All Admin pages use the permission-aware Admin shell, are excluded from public indexing and customer Universal Search, and participate only in operational search when the user is authorized. Roles, field permissions, approvals, bulk-action limits, and segregation of duties remain provisional.
+
+#### ADM-001 — Operations Overview
+
+- **Type / class:** Fixed dashboard / Administrative Dashboard
+- **Purpose:** Summarize actionable operational conditions without becoming a passive vanity dashboard.
+- **Ownership:** Admin Platform; supported by Catalog, Inventory, Pricing, Purchase, Support, Marketing, and Platform Operations
+- **Audience / access / shell:** Authorized workforce users / Role-restricted / Admin
+- **Entry / URL:** Admin root and authenticated workforce entry / `/admin`
+- **Search participation:** Excluded from public search; not an operational-search result
+- **Relationships / actions:** Leads to authorized queues, saved views, alerts, and workspaces; actions are inspect exceptions and continue to governed work
+- **Required states:** No assigned work, partial metric source, stale data, restricted modules, and broad service degradation
+- **Lifecycle / journeys:** Operate and govern / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-002 — Products
+
+- **Type / class:** Resource list page / Administrative Dashboard
+- **Purpose:** Find, filter, review, and perform governed bulk actions on catalog products.
+- **Ownership:** Catalog; supported by Inventory, Pricing, Marketing, Compatibility, and Admin Platform
+- **Audience / access / shell:** Authorized catalog and related operators / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Overview, operational search, and related workspaces / `/admin/products`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Product Workspace, Inventory Item Workspace, and related governance pages; actions include filter, saved view, export, and authorized bulk transition
+- **Required states:** No products, no matches, partial index, stale view, selection conflict, bulk validation failure, and export pending
+- **Lifecycle / journeys:** Operate and govern catalog / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-003 — Product Workspace
+
+- **Type / class:** Durable resource detail and editor / Administrative Dashboard
+- **Purpose:** Govern one product’s identity, classification, content, attributes, relationships, and publication readiness.
+- **Ownership:** Catalog; supported by Inventory, Pricing, Marketing, Compatibility, Reviews, and Admin Platform
+- **Audience / access / shell:** Authorized catalog operators and reviewers / Field- and action-restricted / Admin
+- **Entry / URL:** Products, operational search, and linked Admin resources / `/admin/products/{product-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links Category, Brand, Attributes, Compatibility, Inventory, Pricing, reviews, and customer Product Detail preview; actions include edit, validate, submit, approve, publish, retire, and inspect audit history
+- **Required states:** Draft, validation failure, approval pending, published, scheduled, retired, concurrent edit, missing governed relation, partial service failure, and forbidden field
+- **Lifecycle / journeys:** Operate and govern catalog / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-004 — Categories
+
+- **Type / class:** Resource list and hierarchy page / Administrative Dashboard
+- **Purpose:** Inspect and govern the canonical category hierarchy.
+- **Ownership:** Catalog; supported by Discovery, Marketing, Compatibility, and Admin Platform
+- **Audience / access / shell:** Authorized taxonomy operators and reviewers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Products, operational search, and related workspaces / `/admin/categories`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Category Workspace and affected products; actions include navigate hierarchy, find, compare impact, and initiate an authorized change
+- **Required states:** Empty branch, orphan warning, unresolved product assignments, stale impact count, invalid hierarchy, and restricted change
+- **Lifecycle / journeys:** Govern taxonomy / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-005 — Category Workspace
+
+- **Type / class:** Durable resource detail and editor / Administrative Dashboard
+- **Purpose:** Govern one canonical category, its parent relationship, eligible attributes, discovery metadata, and lifecycle.
+- **Ownership:** Catalog; supported by Discovery, Marketing, Compatibility, and Admin Platform
+- **Audience / access / shell:** Authorized taxonomy operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Categories, Product Workspace, operational search, and impact links / `/admin/categories/{category-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links parent and child categories, products, Attribute Definitions, and customer Category preview; actions include edit, validate impact, submit, approve, publish, and retire
+- **Required states:** Root category, empty category, assigned products, invalid parent, circular hierarchy, approval pending, concurrent edit, and retirement blocked
+- **Lifecycle / journeys:** Govern taxonomy / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-006 — Brands
+
+- **Type / class:** Resource list page / Administrative Dashboard
+- **Purpose:** Find and govern catalog brands as a parallel product dimension.
+- **Ownership:** Catalog; supported by Marketing, Discovery, and Admin Platform
+- **Audience / access / shell:** Authorized catalog and brand-content operators / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Products, operational search, and related workspaces / `/admin/brands`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Brand Workspace and affected products; actions include find, filter, merge proposal, and authorized lifecycle transition
+- **Required states:** No brands, no matches, possible duplicate, unassigned brand, merge conflict, and partial product count
+- **Lifecycle / journeys:** Govern catalog / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-007 — Brand Workspace
+
+- **Type / class:** Durable resource detail and editor / Administrative Dashboard
+- **Purpose:** Govern one brand’s identity, aliases, public content, product relationships, and lifecycle.
+- **Ownership:** Catalog; supported by Marketing, Discovery, and Admin Platform
+- **Audience / access / shell:** Authorized catalog and brand-content operators / Field- and action-restricted / Admin
+- **Entry / URL:** Brands, Product Workspace, operational search, and impact links / `/admin/brands/{brand-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links products and customer Brand preview; actions include edit, manage aliases, validate, publish content, merge through governed flow, and retire
+- **Required states:** Draft content, active without products, possible duplicate, merge pending, concurrent edit, and retirement blocked
+- **Lifecycle / journeys:** Govern catalog and public brand content / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-008 — Attribute Definitions
+
+- **Type / class:** Resource list page / Administrative Dashboard
+- **Purpose:** Find and govern reusable product attributes, units, value types, and category eligibility.
+- **Ownership:** Catalog; supported by Discovery, Compatibility, and Admin Platform
+- **Audience / access / shell:** Authorized catalog-schema operators and reviewers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Categories, Products, Compatibility, and operational search / `/admin/attributes`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Attribute Workspace and impacted categories, products, filters, and rules; actions include find, filter, compare usage, and initiate a governed definition
+- **Required states:** Unused attribute, duplicate candidate, inconsistent unit, invalid value coverage, stale usage count, and restricted schema change
+- **Lifecycle / journeys:** Govern catalog schema / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-009 — Attribute Workspace
+
+- **Type / class:** Durable schema-resource detail and editor / Administrative Dashboard
+- **Purpose:** Govern one attribute’s semantics, type, units, allowed values, filter behavior, and category applicability.
+- **Ownership:** Catalog; supported by Discovery, Compatibility, and Admin Platform
+- **Audience / access / shell:** Authorized catalog-schema operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Attribute Definitions, Category Workspace, Product Workspace, Compatibility Rules, and operational search / `/admin/attributes/{attribute-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links affected categories, products, filters, and compatibility rules; actions include edit, validate impact, submit, approve, migrate values, deprecate, and inspect audit history
+- **Required states:** Draft, in use, migration required, invalid unit conversion, conflicting values, approval pending, concurrent edit, and deprecation blocked
+- **Lifecycle / journeys:** Govern catalog schema / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-010 — Compatibility Rules
+
+- **Type / class:** Resource list page / Administrative Dashboard
+- **Purpose:** Find and govern deterministic compatibility rules across the shared model.
+- **Ownership:** PC Builder and Compatibility; supported by Catalog and Admin Platform
+- **Audience / access / shell:** Authorized compatibility engineers and reviewers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Product and Attribute workspaces, PC Builder diagnostics, and operational search / `/admin/compatibility-rules`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Compatibility Rule Workspace and impacted products or builds; actions include filter, inspect coverage, compare conflicts, and initiate a rule
+- **Required states:** No rules, uncovered relation, conflicting rules, stale evaluation count, disabled rule, and partial diagnostics
+- **Lifecycle / journeys:** Govern compatibility / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-011 — Compatibility Rule Workspace
+
+- **Type / class:** Durable rule detail and editor / Administrative Dashboard
+- **Purpose:** Define, test, approve, and audit one deterministic compatibility rule.
+- **Ownership:** PC Builder and Compatibility; supported by Catalog and Admin Platform
+- **Audience / access / shell:** Authorized compatibility engineers and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Compatibility Rules, Product and Attribute workspaces, diagnostics, and operational search / `/admin/compatibility-rules/{rule-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links inputs, governed attributes, affected products and sample builds; actions include edit, test, inspect explanation output, submit, approve, activate, deactivate, and version
+- **Required states:** Draft, test failure, conflict, insufficient coverage, approval pending, scheduled activation, active, superseded, concurrent edit, and rollback candidate
+- **Lifecycle / journeys:** Govern compatibility / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-012 — Inventory
+
+- **Type / class:** Resource list and operational queue / Administrative Dashboard
+- **Purpose:** Find and monitor sellable inventory positions and exceptions.
+- **Ownership:** Inventory; supported by Catalog, Purchase, Pricing, and Admin Platform
+- **Audience / access / shell:** Authorized inventory and commerce operators / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Overview, Product Workspace, operational search, and alerts / `/admin/inventory`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Inventory Item Workspace, Product Workspace, and affected Orders; actions include filter, saved view, export, reconcile, and governed bulk updates
+- **Required states:** No stock, low stock, reserved imbalance, synchronization delay, conflicting source, stale quantity, bulk failure, and export pending
+- **Lifecycle / journeys:** Operate inventory / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-013 — Inventory Item Workspace
+
+- **Type / class:** Durable inventory-position detail / Administrative Dashboard
+- **Purpose:** Inspect and govern one product or SKU inventory position, reservations, adjustments, and synchronization history.
+- **Ownership:** Inventory; supported by Catalog, Purchase, Pricing, and Admin Platform
+- **Audience / access / shell:** Authorized inventory operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Inventory, Product Workspace, Order Workspace, alerts, and operational search / `/admin/inventory/{inventory-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links product, reservations, orders, locations or sources when governed, and audit events; actions include reconcile, adjust with reason, hold, release, and inspect history
+- **Required states:** In stock, low stock, out of stock, over-reserved, stale source, adjustment pending, concurrent change, synchronization failure, and restricted source
+- **Lifecycle / journeys:** Operate inventory / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-014 — Pricing
+
+- **Type / class:** Resource list and operational queue / Administrative Dashboard
+- **Purpose:** Find and govern base prices, scheduled changes, and pricing exceptions separately from inventory and promotions.
+- **Ownership:** Pricing; supported by Catalog, Purchase, Marketing, and Admin Platform
+- **Audience / access / shell:** Authorized pricing operators and approvers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Overview, Product Workspace, operational search, and alerts / `/admin/pricing`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Pricing Rule Workspace and Product Workspace; actions include filter, compare, schedule, export, and governed bulk updates
+- **Required states:** Missing price, invalid range, scheduled conflict, stale source, approval pending, bulk validation failure, and publication delay
+- **Lifecycle / journeys:** Govern pricing / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-015 — Pricing Rule Workspace
+
+- **Type / class:** Durable price or rule detail and editor / Administrative Dashboard
+- **Purpose:** Define, validate, approve, schedule, and audit one governed price or reusable pricing rule.
+- **Ownership:** Pricing; supported by Catalog, Purchase, Marketing, Legal, and Admin Platform
+- **Audience / access / shell:** Authorized pricing operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Pricing, Product Workspace, operational search, and alerts / `/admin/pricing/{pricing-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links affected products, price history, promotions, and audit events; actions include edit, simulate impact, submit, approve, schedule, activate, expire, and rollback through a governed version
+- **Required states:** Draft, invalid price, overlap conflict, approval pending, scheduled, active, expired, publication failure, concurrent edit, and rollback candidate
+- **Lifecycle / journeys:** Govern pricing / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-016 — Orders
+
+- **Type / class:** Resource list and operational queue / Administrative Dashboard
+- **Purpose:** Find, monitor, and route orders through authorized operational views.
+- **Ownership:** Purchase; supported by Customer, Payments, Delivery, Inventory, Support, and Admin Platform
+- **Audience / access / shell:** Authorized commerce, fulfillment, finance, and service operators / Role- and record-restricted / Admin
+- **Entry / URL:** Admin navigation, Overview, operational search, alerts, and related resources / `/admin/orders`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Leads to Order Workspace, Customer Workspace, Support Case Workspace, and Inventory; actions include filter, saved view, export, assign, and authorized bulk transitions
+- **Required states:** No orders, no matches, payment exception, fulfillment exception, delayed synchronization, restricted records, bulk transition failure, and export pending
+- **Lifecycle / journeys:** Operate purchase and fulfillment / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-017 — Order Workspace
+
+- **Type / class:** Durable resource detail and operational workspace / Administrative Dashboard
+- **Purpose:** Coordinate one order’s payment, inventory, fulfillment, delivery, cancellation, invoice, customer, PC Build, and linked case context.
+- **Ownership:** Purchase; supported by Customer, Payments, Delivery, Inventory, Support, Compatibility, PC Builder, Notifications, and Admin Platform
+- **Audience / access / shell:** Authorized commerce operators / Field-, action-, and record-restricted / Admin
+- **Entry / URL:** Orders, operational search, Customer Workspace, Support Case Workspace, Inventory, and alerts / `/admin/orders/{order-reference}`
+- **Search participation:** Operational search target, permission-filtered
+- **Relationships / actions:** Links customer, items, payments, shipments, invoice, build, inventory reservations, and typed Support cases; actions depend on state and permission and require reason capture for consequential changes
+- **Required states:** Payment pending or failed, partially allocated, partially fulfilled, shipped, delivered, cancellation requested, cancelled, case linked, synchronization delay, concurrent action, forbidden panel, and partial dependency failure
+- **Lifecycle / journeys:** Operate purchase, fulfillment, Support, and Return / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 6A embedded experience units
+
+The following remain modules within list pages and resource workspaces:
+
+- Filters, saved views, exports, bulk selection, and bulk-action review
+- Validation, impact analysis, approval, scheduling, publication, and audit panels
+- Product previews and customer-facing destination links
+- Order payment, fulfillment, delivery, cancellation, invoice, PC Build, and linked-case panels
+- Compatibility testing and explanation previews
+
+No list, workspace, or module grants authority by being visible. Every read and action is independently permission-checked and audited where required.
 
 ## Protected architectural boundaries
 
