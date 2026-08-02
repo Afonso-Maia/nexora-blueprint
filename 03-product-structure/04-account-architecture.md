@@ -86,11 +86,53 @@ Cross-surface links make the destination clear before or at transition. The targ
 
 Returning to Account restores relevant navigation and safe continuation context without carrying sensitive workspace data in URLs.
 
+## Account Dashboard prioritization
+
+Account Dashboard is a **state-driven continuation hub**. It does not use a fixed collection of equally weighted modules.
+
+Applicable modules follow this priority:
+
+1. Account or security action required
+2. Order, payment, delivery, return, warranty, or Support exception
+3. Active orders and shipments
+4. Active Support cases
+5. Resumable Cart, Comparison, or PC Build
+6. Wishlist and recently viewed continuity
+7. Relevant recommendations
+8. Preferences and general management
+
+Within the same tier, governed urgency and recency determine order.
+
+### Priority governance
+
+- Priority is deterministic and explainable, not AI-controlled.
+- Source domains own status, urgency, eligibility, and resolution facts.
+- Dashboard summarizes an item; the target page owns its action.
+- Marketing and recommendations cannot outrank active customer obligations or resumable owned work.
+- Critical items remain until resolved, expired, or superseded.
+- Dismissal is available only for genuinely optional items.
+- Empty modules are omitted or reduced to useful first-use guidance.
+- Duplicate events from several sources resolve into one clear continuation when they represent the same underlying object.
+- A stale or unavailable source is identified rather than silently presented as current.
+
+### Fallback behavior
+
+If personalization or aggregation is unavailable, Dashboard prioritizes:
+
+1. Known account or security requirements
+2. Available active-order and case summaries
+3. Stable navigation to Orders, Wishlist, PC Builds, Support Cases, and Preferences
+
+It does not fill missing owned state with additional merchandising.
+
+### Responsive behavior
+
+Mobile preserves the same priority order. Critical status and primary continuation remain ahead of recommendations and Preferences. Lower-priority modules may collapse, but their priority cannot be raised merely because they fit a compact presentation.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Dashboard prioritization and continuation rules
 - Guest-order claim and consolidation
 - Order lifecycle and action eligibility
 - Account restriction and recovery behavior
@@ -103,4 +145,3 @@ The following remain pending:
 ## Next decision
 
 Define Account Dashboard prioritization and post-purchase continuation behavior, followed by order lifecycle, guest-order access, preference management, and account lifecycle controls.
-

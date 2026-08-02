@@ -50,6 +50,7 @@
 - Approved the complete 89-page archetype mapping.
 - Completed Page-Level Information Hierarchy.
 - Approved the federated continuity Account architecture.
+- Approved deterministic state-driven Account Dashboard prioritization.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
