@@ -42,6 +42,32 @@ Every page will map to exactly one primary archetype:
 
 Embedded experience units inherit the host page’s archetype and hierarchy. They do not establish a competing page hierarchy.
 
+## Archetype specification contract
+
+Each archetype specification is enforceable and must define:
+
+- Required regions
+- Optional regions
+- Prohibited patterns
+- Hierarchy-layer emphasis
+- Primary-action behavior
+- Status and critical-constraint placement
+- Responsive transformation
+- Accessibility obligations
+- Representative approved pages
+
+Wireframes may choose visual composition, density, components, and breakpoint mechanics only after satisfying the semantic contract.
+
+A required region may be compact, progressive, sticky, or conditionally rendered when its underlying data is not applicable. It cannot be omitted when applicable. An optional region must still obey hierarchy and cannot displace required content.
+
+Prohibited patterns are architectural constraints, not stylistic preferences. They prevent a page from changing its approved purpose, obscuring consequential facts, fragmenting a destination into unnecessary routes, or elevating promotional and AI content over the primary outcome.
+
+Archetypes will be specified in three review groups:
+
+1. Customer discovery: Hub, Results/List, and Detail
+2. Task completion: Workspace, Transaction, Content/Document, and Recovery
+3. Operations: Admin Queue and Admin Resource Workspace
+
 ## Global hierarchy rules
 
 1. The primary goal remains visible or readily recoverable throughout the page.
@@ -83,4 +109,3 @@ The shell determines global navigation and persistent utilities. The archetype d
 ## Next decision
 
 Specify the nine archetypes, including required regions, optional regions, prohibited patterns, responsive behavior, and representative approved pages. Then map all 89 Page Inventory entries to exactly one primary archetype.
-
