@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and Blocks 1–3 approved; remaining inventory pending
+**Status:** Approved in part — governing model, Blocks 1–3, and Support inventory approved; remaining inventory pending
 
 ## Purpose
 
@@ -619,6 +619,115 @@ The following remain within AIS-001:
 - Context removal, reset, and deletion controls
 
 Contextual AI panels remain embedded within their host pages and are not additional AI destinations. Conversation sharing and proactive autonomous actions are not approved capabilities.
+
+### Block 4A — Support
+
+Support pages use the shared customer-facing case model. Exact eligibility, state transitions, service levels, internal queues, and agent permissions remain provisional.
+
+#### SUP-001 — Support Center
+
+- **Type / class:** Fixed hub page / Support
+- **Purpose:** Provide search-first issue resolution, contextual routing, and continuation of active cases.
+- **Ownership:** Support; supported by Discovery, Customer, Purchase, Catalog, PC Builder, AI, and Notifications
+- **Audience / access / shell:** Guest and customer / Public with authenticated continuation modules / Support
+- **Entry / URL:** Primary navigation, footer, Universal Search, Order Detail, Product Detail, Account, and contextual help / `/support`
+- **Search participation:** Indexed as the canonical Support destination and eligible as a primary-task result
+- **Relationships / actions:** Leads to Support Article, Returns and Refunds, Warranty and Repairs, Contact and Case Start, My Support Cases, Order Detail, and contextual AI; actions are search, select an issue path, and resume a case
+- **Required states:** No query, zero support results, no active cases, unavailable order context, partial article index, case service unavailable, and degraded AI
+- **Lifecycle / journeys:** Support and Return / all Tier 1 journeys after or during evaluation and purchase
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-002 — Support Article
+
+- **Type / class:** Reusable content template / Support
+- **Purpose:** Provide governed procedural guidance or a focused FAQ answer with relevant next actions.
+- **Ownership:** Support; supported by Catalog, Purchase, Customer, Legal, Discovery, and AI
+- **Audience / access / shell:** Guest and customer / Public when published; restricted variants require explicit governance / Support
+- **Entry / URL:** Universal Search, Support Center, Product Detail, Order Detail, case context, and contextual AI / `/support/articles/{article-slug}`
+- **Search participation:** Indexed and eligible in the separated Support result group
+- **Relationships / actions:** Leads to relevant product, order, policy, hub, or case-initiation destination; primary actions are follow guidance, provide feedback, and escalate when unresolved
+- **Required states:** Unpublished or retired article, stale product or policy reference, missing localization, partial media, and escalation service unavailable
+- **Lifecycle / journeys:** Evaluate, Purchase, Track, Support, and Return / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-003 — Returns and Refunds Hub
+
+- **Type / class:** Fixed policy-and-task hub / Support
+- **Purpose:** Explain return eligibility and initiate an order-linked return without creating a case prematurely.
+- **Ownership:** Support; supported by Customer, Purchase, Delivery, Payments, Inventory, Legal, and Notifications
+- **Audience / access / shell:** Guest and customer / Public guidance with verified order context for initiation / Support
+- **Entry / URL:** Support Center, Order Detail, Support Article, footer policy links, and Universal Search / `/support/returns`
+- **Search participation:** Indexed and eligible in the separated Support result group
+- **Relationships / actions:** Leads to Order Detail, relevant policy content, Contact and Case Start, and a created Support Case Detail; actions are understand eligibility, identify an order or item, and initiate an eligible return
+- **Required states:** No eligible order, outside return window, non-returnable item, verification required, partial-order eligibility, initiation failure, and refund service degradation
+- **Lifecycle / journeys:** Support and Return / post-purchase J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-004 — Warranty and Repairs Hub
+
+- **Type / class:** Fixed policy-and-task hub / Support
+- **Purpose:** Explain warranty or repair coverage and initiate a product-linked claim.
+- **Ownership:** Support; supported by Customer, Purchase, Catalog, Legal, Notifications, and external repair operations when governed
+- **Audience / access / shell:** Guest and customer / Public guidance with verified product or order context for initiation / Support
+- **Entry / URL:** Support Center, Order Detail, Product Detail, Support Article, footer policy links, and Universal Search / `/support/warranty`
+- **Search participation:** Indexed and eligible in the separated Support result group
+- **Relationships / actions:** Leads to Order Detail, Product Detail, relevant policy content, Contact and Case Start, and a created Support Case Detail; actions are understand coverage, identify a product, provide initial evidence, and initiate an eligible claim
+- **Required states:** Product not found, coverage expired or unknown, manufacturer-only route, verification required, evidence incomplete, initiation failure, and repair service degradation
+- **Lifecycle / journeys:** Support and Return / post-purchase J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-005 — Contact and Case Start
+
+- **Type / class:** Adaptive triage page / Support
+- **Purpose:** Resolve routing and collect the minimum information needed to create a persistent case.
+- **Ownership:** Support; supported by Customer, Purchase, Catalog, PC Builder, AI, Authentication, and Notifications
+- **Audience / access / shell:** Guest and customer / Public triage with verification or authentication before sensitive case creation / Support
+- **Entry / URL:** Support Center, Support Article, Returns and Refunds, Warranty and Repairs, Order Detail, Product Detail, and contextual help / `/support/contact`
+- **Search participation:** Surfaced contextually but excluded from public result indexing
+- **Relationships / actions:** May return to self-service content or create and lead to Support Case Detail; actions are select issue context, identify relevant order or product, choose an available channel, and submit
+- **Required states:** Insufficient context, authentication or verification required, duplicate-case warning, channel unavailable, outside service hours, attachment failure, submission failure, and emergency-scope redirection
+- **Lifecycle / journeys:** Support and Return / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-006 — My Support Cases
+
+- **Type / class:** Authenticated collection page / Support
+- **Purpose:** Find, filter, and resume the customer’s persistent support cases.
+- **Ownership:** Support; supported by Customer, Purchase, Notifications, and Authentication
+- **Audience / access / shell:** Customer / Authenticated / Support
+- **Entry / URL:** Support Center, Account Dashboard, Account navigation, notifications, and case completion / `/account/support-cases`
+- **Search participation:** Excluded from public indexing; entries may participate in authenticated personal search
+- **Relationships / actions:** Leads to Support Case Detail and associated Order Detail; actions are filter, find, open, and resume a case
+- **Required states:** No cases, no filtered matches, archived case, restricted case, delayed synchronization, and partial status data
+- **Lifecycle / journeys:** Support and Return / all Tier 1 journeys with persistent customer context
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SUP-007 — Support Case Detail
+
+- **Type / class:** Reusable typed case template / Support
+- **Purpose:** Coordinate the timeline, evidence, communication, and next actions for one persistent support, return, refund, warranty, or repair case.
+- **Ownership:** Support; specialized operational ownership varies by case type; supported by Customer, Purchase, Delivery, Payments, Catalog, Inventory, Notifications, and Authentication
+- **Audience / access / shell:** Verified participant / Authenticated or securely verified case access / Support
+- **Entry / URL:** Case creation, My Support Cases, Order Detail, notification, agent communication, and secure deep link / `/support/cases/{case-reference}`
+- **Search participation:** Excluded from public indexing; owned cases may participate in authenticated personal search
+- **Relationships / actions:** Links associated Order Detail, products, PC Build, policies, and articles; actions depend on case state and may include message, upload evidence, confirm logistics, review refund or repair progress, withdraw when eligible, and close
+- **Required states:** Awaiting customer, awaiting Nexora, awaiting carrier or repair provider, resolved, closed, cancelled, escalated, overdue, missing evidence, failed upload, delayed external update, unauthorized access, and partial case-service degradation
+- **Lifecycle / journeys:** Track, Receive, Support, and Return / all post-purchase Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 4A embedded experience units
+
+The following remain embedded within Support destinations:
+
+- Support-scoped search and zero-result recovery
+- Issue routing and self-service recommendations
+- Eligibility checks
+- Order and product identification
+- Case initiation
+- Case status, timeline, messaging, attachments, logistics, refund, warranty, and repair modules
+- Channel availability and escalation controls
+
+Separate customer-facing detail templates for returns, refunds, warranties, and repairs are not approved. Type-specific modules extend SUP-007.
 
 ## Protected architectural boundaries
 
