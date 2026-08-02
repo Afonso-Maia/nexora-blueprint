@@ -57,6 +57,8 @@
 - Approved capability-based Account restriction and recovery with protected post-purchase continuity.
 - Approved source-owned notification events with a unified Account notification center.
 - Approved a governed privacy-request and Account-closure lifecycle.
+- Approved task-prioritized mobile Account navigation and safe cross-surface restoration.
+- Completed the Account and Post-Purchase Architecture.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

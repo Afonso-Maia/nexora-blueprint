@@ -1,6 +1,6 @@
 # Account and Post-Purchase Architecture
 
-**Status:** Approved in part — federated continuity model approved; detailed behavior pending
+**Status:** Approved
 
 ## Purpose
 
@@ -469,12 +469,46 @@ Authentication ends only when closure is eligible to complete. Retained records 
 9. Customers receive an understandable outcome for completed, partial, rejected, and cancelled requests.
 10. Failure in one source is exposed as pending, partial, or failed work rather than hidden behind a completed status.
 
-## Provisional dependencies
+## Mobile navigation and cross-surface continuity
 
-The following remain pending:
+On mobile, Account uses a task-prioritized hub with contextual subnavigation.
 
-- Mobile navigation interaction details
+- Account Dashboard remains the Account entry point.
+- A compact Account switcher exposes Orders, Wishlist, PC Builds, Support Cases, and Preferences.
+- Detail pages preserve a clear parent relationship, such as `Orders → Order Detail`.
+- Applicable high-priority status and continuation actions appear before general Account navigation.
+- Account navigation does not duplicate the global Storefront navigation.
 
-## Next decision
+Cross-surface links open the destination's approved mobile shell. PC Builder, Support, Comparison, and AI retain their own navigation, ownership, and interaction model rather than appearing to be Account-owned tabs.
 
-Define mobile Account navigation and cross-surface continuation details, then validate the complete Account and post-purchase architecture.
+### Continuation and restoration rules
+
+1. Returning from another surface restores the relevant Account destination and safe context when available.
+2. Filter, scroll, and source-object context may be restored; sensitive data and committed actions are never replayed.
+3. The owning surface preserves unsaved work or requests explicit confirmation before discarding it.
+4. Sensitive state is held in protected application context and is not exposed in URLs.
+5. Deep links independently recheck authentication, authorization, restriction state, object ownership, and current eligibility.
+6. Expired or invalid context falls back to the nearest safe parent with a clear explanation and recovery action.
+7. Browser and system back behavior remains predictable and does not cross an authentication boundary with exposed content.
+8. Focus moves to the destination heading or restored control as appropriate; labels communicate the current hierarchy and surface transition.
+9. Mobile compaction may collapse secondary controls but cannot reorder critical obligations beneath recommendations or general preferences.
+
+## Architecture validation
+
+The Account and post-purchase architecture passes its Phase 2B topic validation:
+
+- All eight Account-owned inventory entries have a defined role.
+- Federated destinations retain the owners and shells defined in the page ownership ledger.
+- Dashboard priority, order state, and Notifications derive from authoritative source state without creating competing records.
+- Guest post-purchase access does not require Account creation, and permanent claiming requires verified explicit consent.
+- Preference changes use consequence-based assurance and cannot rewrite historical commerce records.
+- Restrictions preserve existing obligations and remedies wherever safely possible.
+- Privacy requests and closure have durable, auditable lifecycles.
+- Mobile navigation preserves task priority, surface ownership, safe context, and accessible recovery.
+- Loading, empty, error, offline, and degraded-state presentation remains governed by the later cross-product state architecture.
+
+No unresolved Account architecture alternative is recorded as approved. Detailed legal periods, channel policies, risk thresholds, and interaction copy remain governed implementation or policy inputs within these constraints.
+
+## Next phase topic
+
+Define the Support Center Architecture.
