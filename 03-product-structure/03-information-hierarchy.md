@@ -263,6 +263,219 @@ The shell determines global navigation and persistent utilities. The archetype d
 
 **Representative pages:** EVA-001 Product Detail, ACC-003 Order Detail, PCB-004 Shared Build, SUP-007 Support Case Detail, and other approved durable-object destinations that are not active workspaces.
 
+### Workspace
+
+**Purpose:** Support persistent, non-linear decision-making or configuration.
+
+**Layer emphasis:** The working canvas, critical constraints, and consequence summary remain concurrently understandable. State persistence is part of identity.
+
+**Required regions:**
+
+1. Workspace identity, ownership, save state, and status
+2. Primary working canvas
+3. Critical constraints and validation
+4. Persistent summary of consequences
+5. Contextual tools and supporting panels
+6. Save, resume, share, convert, or complete actions
+7. Conflict and recovery handling
+
+**Optional regions:**
+
+- AI Copilot
+- History
+- Collaboration controls if later approved
+- Performance or scenario views
+- Share controls
+
+**Prohibited patterns:**
+
+- Routed wizard after initialization
+- Hidden hard incompatibilities
+- AI replacing deterministic validation
+- Lost work when switching panels
+- Sequential completion without a genuine dependency
+- Silent overwrite of concurrent changes
+
+**Primary-action behavior:** Save, convert, or complete actions reflect the latest validated state and disclose their effect on the persistent object.
+
+**State and constraint placement:** Blocking constraints stay adjacent to affected work and are summarized globally. Unsaved, stale, conflicting, or read-only state remains visible.
+
+**Responsive transformation:**
+
+- Preserve the active object, critical summary, and blocking constraints.
+- Secondary panels may become drawers or tabs.
+- Switching panels cannot reset selection or scroll context unexpectedly.
+- Persistent actions reflect the latest validated state.
+
+**Accessibility obligations:**
+
+- Panel relationships and active state are programmatically exposed.
+- Validation links to the affected control or object.
+- Dynamic recalculation is announced without overwhelming the user.
+- Keyboard operation supports the complete non-linear workflow.
+
+**Representative pages:** EVA-002 Comparison Workspace, PCB-002 Engineering Workspace, and AIS-001 AI Assistant Conversation.
+
+### Transaction
+
+**Purpose:** Complete a consequential, validated action with informed consent.
+
+**Layer emphasis:** Scope, constraints, totals, terms, and review precede commitment. Pending and completion states are authoritative.
+
+**Required regions:**
+
+1. Transaction identity and current state
+2. Items, scope, or action summary
+3. Consequential modules and required inputs
+4. Price, totals, eligibility, permissions, and warnings
+5. Review and confirmation
+6. Primary commit action
+7. Failure, pending, and completion handling
+
+**Optional regions:**
+
+- Financing
+- Warranty
+- Promotion entry
+- Contextual AI
+- Save and resume where safe
+
+**Prohibited patterns:**
+
+- Surprise costs or terms at commitment
+- Preselected optional paid additions without explicit consent
+- Confirmation before the authoritative object exists
+- Automatic retry of payment or another consequential mutation
+- Lost valid inputs after a recoverable failure
+- Unified Checkout split into route-based steps
+
+**Primary-action behavior:** The commit action is bound to the exact reviewed state, prevents duplicate submission, and changes clearly when validation or terms change.
+
+**State and constraint placement:** Totals, eligibility, terms, validation, and pending state appear before or adjacent to commitment. Errors remain associated with their source module.
+
+**Responsive transformation:**
+
+- Summary and total remain accessible while editing modules.
+- The commit action stays associated with the exact reviewed state.
+- Keyboard appearance and validation cannot hide the affected field.
+- Back navigation preserves valid work without duplicating submission.
+
+**Accessibility obligations:**
+
+- Error summaries link to invalid fields.
+- Required inputs and consent are explicit.
+- Pending submission communicates progress and blocks duplicate activation.
+- Completion and failure receive focus at the appropriate heading.
+
+**Representative pages:** PUR-001 Cart, PUR-002 Unified Checkout, PUR-003 Order Confirmation, and focused Authentication destinations whose primary goal is a consequential identity action.
+
+### Content/Document
+
+**Purpose:** Communicate governed information with clear authority and useful continuation.
+
+**Layer emphasis:** Purpose, authority, version, and structured content precede related tasks and commercial continuation.
+
+**Required regions:**
+
+1. Title, content type, owner, and publication status
+2. Summary or purpose
+3. Effective date or version where applicable
+4. Structured body with navigable sections
+5. Authoritative references
+6. Relevant next action or related task
+7. Feedback, correction, or escalation path
+
+**Optional regions:**
+
+- Table of contents
+- Media
+- Related products
+- Printable view
+- Prior-version access
+- Localization selector
+
+**Prohibited patterns:**
+
+- Promotional interruption of legal or Support content
+- Missing owner or effective date on policies
+- AI-generated text presented as authoritative content
+- Related products outranking the document purpose
+- Silent replacement of a versioned document
+- Broken references without recovery
+
+**Primary-action behavior:** Continuation follows the document’s purpose, such as applying criteria, beginning a governed Support task, managing a right, or viewing an authoritative reference.
+
+**State and constraint placement:** Owner, status, effective date, supersession, missing localization, and stale references appear before affected content or actions.
+
+**Responsive transformation:**
+
+- Preserve heading hierarchy and readable measure.
+- Tables and technical content remain operable without losing relationships.
+- Anchor navigation accounts for persistent headers.
+- Prior versions and authority metadata remain accessible.
+
+**Accessibility obligations:**
+
+- Heading levels reflect document structure.
+- Tables identify headers and relationships.
+- Media has equivalent alternatives.
+- Anchor and prior-version navigation is keyboard operable.
+
+**Representative pages:** STF-006 Buying Guide, SUP-002 Support Article, INF-001 About Nexora, and LEG-002 through LEG-009 policy pages.
+
+### Recovery
+
+**Purpose:** Explain an interruption and help users return safely to a valid goal.
+
+**Layer emphasis:** The condition, preserved state, and primary recovery action become Layers 1–3. Technical detail remains secondary.
+
+**Required regions:**
+
+1. Plain-language condition
+2. Impact and what remains preserved
+3. Primary safe recovery action
+4. Alternative destination or help
+5. Retry limitations
+6. Non-sensitive Support or correlation reference when useful
+
+**Optional regions:**
+
+- Search
+- Available cached context
+- Service-impact information
+- Sign-in or verification
+- Contact Support
+
+**Prohibited patterns:**
+
+- Exposed internal errors or permission rules
+- User-blaming language
+- Dead ends
+- Automatic retry of consequential actions
+- Claims that data is preserved when uncertain
+- Unverified restoration estimates
+- Generic recovery that discards usable host context
+
+**Primary-action behavior:** Recovery is safe, specific, and does not repeat a consequential mutation. Retry communicates scope and limitations.
+
+**State and constraint placement:** Preserved, stale, lost, pending, and inaccessible state is explicit before recovery selection.
+
+**Responsive transformation:**
+
+- The primary recovery action remains immediately visible.
+- Copy stays concise at narrow widths.
+- Available cached context is distinguishable from current data.
+- Reconnection or retry feedback is announced without focus loss.
+
+**Accessibility obligations:**
+
+- The condition heading receives appropriate focus after routing.
+- Recovery actions use descriptive labels.
+- Status updates are announced without repeated interruption.
+- Correlation references are selectable and understandable without revealing internals.
+
+**Representative pages:** SYS-001 Not Found, SYS-002 Access Denied, SYS-003 Unexpected Error, SYS-004 Service Unavailable, SYS-005 Offline, AUT-003 Account Recovery, and expired verification or recovery states within their host page.
+
 ## Next decision
 
-Specify Workspace, Transaction, Content/Document, Recovery, Admin Queue, and Admin Resource Workspace. Then map all 89 Page Inventory entries to exactly one primary archetype.
+Specify Admin Queue and Admin Resource Workspace. Then map all 89 Page Inventory entries to exactly one primary archetype.
