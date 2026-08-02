@@ -55,6 +55,7 @@
 - Approved verified explicit guest-order access and permanent Account claiming.
 - Approved risk-tiered assurance for Account preference and lifecycle actions.
 - Approved capability-based Account restriction and recovery with protected post-purchase continuity.
+- Approved source-owned notification events with a unified Account notification center.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

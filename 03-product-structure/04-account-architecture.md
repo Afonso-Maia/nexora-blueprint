@@ -342,14 +342,67 @@ The Account experience explains what is affected, what remains available, and th
 11. Support may coordinate recovery but does not become the authority for Identity, Risk, Payments, Purchase, or Delivery records.
 12. All destinations independently enforce the current effective restriction; Dashboard visibility alone never grants access.
 
+## Unified notification center
+
+ACC-007 Notifications is a governed customer-facing projection of events owned by authoritative source domains. It provides one coherent history and preference experience without becoming the source of order, payment, delivery, Support, security, or marketing facts.
+
+### Notification classes
+
+| Class | Examples | Preference behavior |
+| --- | --- | --- |
+| Security | Sign-in, credential, recovery, restriction, and high-risk Account events | Required notices cannot be disabled; channel may be constrained by security policy |
+| Transactional | Payment, order, shipment, return, refund, warranty, and Support-case updates | Required service notices cannot be disabled; optional supplemental channels may be configurable |
+| Continuity | Saved Cart, Comparison, PC Build, or Wishlist reminders | Optional by topic and channel |
+| Advisory | Compatibility, product-service, safety, or Account-action guidance | Required only when governed obligation or material risk applies; otherwise configurable |
+| Marketing | Deals, launches, collections, and recommendations | Optional and controlled by distinct marketing consent |
+
+The source event's class is governed. Delivery systems and presentation surfaces cannot reclassify a required service notice as marketing or use a service class to bypass marketing consent.
+
+### Event, delivery, and interaction state
+
+The model separates:
+
+- **Source event state:** the authoritative fact and its current validity
+- **Delivery state:** queued, delivered, failed, or otherwise governed by the Messaging domain per channel
+- **Interaction state:** unread, read, dismissed, or actioned in the customer experience
+
+These states do not overwrite one another. Reading or dismissing a notification does not resolve its source event, and delivery success does not imply that the customer read or acted on it.
+
+Notifications link to the authoritative destination. That destination rechecks identity, authorization, restriction state, source status, and current action eligibility. A notification never grants access or preserves an expired action.
+
+### Preferences and channels
+
+1. Customer owns the unified preference experience.
+2. Source domains declare the event class, urgency, destination, validity, and whether notice is required.
+3. Messaging owns channel delivery, retry behavior, and delivery status.
+4. Customers may configure eligible topics, channels, and frequencies for optional classes.
+5. Required security, service, legal, or operational communications remain available under governed channel rules.
+6. Marketing consent is independent of service communication and is recorded with its own provenance and history.
+7. Preference changes affect future eligible delivery and do not rewrite historical consent or delivery evidence.
+8. Channel unavailability triggers an honest fallback or failure state; it never silently changes consent.
+
+### Retention and lifecycle
+
+Retention is class- and purpose-based:
+
+- Security and audit evidence follows the governing security and audit policy.
+- Commerce, payment, delivery, remedy, and Support events follow their source-record obligations.
+- Optional continuity and marketing reminders use shorter governed expiry periods.
+- In-app presentation may expire before the authoritative source record.
+
+Dismissal removes an eligible item from the active presentation but is not record deletion. Expired, superseded, or retracted actions remain understandable when retention requires history, but cannot be executed. Duplicate channel deliveries and source updates resolve to one customer-understandable event thread where they represent the same underlying fact.
+
+### Degraded behavior
+
+If aggregation is delayed or a source is unavailable, Notifications identifies stale or incomplete status. It does not invent a current state, mark an action complete, or replace missing operational notices with marketing content. Authoritative destination pages remain the final reference.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Notification categories, retention, and preferences
 - Privacy requests, export, closure, and retention
 - Mobile navigation interaction details
 
 ## Next decision
 
-Define notification categories, retention, and preference behavior, followed by privacy requests, Account lifecycle controls, and mobile navigation details.
+Define privacy requests, export, closure, and retention behavior, followed by mobile Account navigation details.
