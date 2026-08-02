@@ -209,11 +209,51 @@ Eligibility is rechecked at action start and commitment. A stale button or prior
 7. Dashboard, Notifications, and Support reference the same authoritative dimensions.
 8. No customer-facing label implies a completed payment, delivery, refund, or remedy before its owner confirms it.
 
+## Verified guest-order access and claim
+
+Guest customers can complete post-purchase tasks without being forced to create an Account. Guest-order access uses a secure, expiring context established through verification of a governed contact factor associated with the order.
+
+An order number alone is never sufficient. Before verification, Nexora does not disclose whether an order exists or expose order, customer, payment, delivery, or Support data.
+
+### Guest access
+
+A verified guest may receive the minimum scope needed to:
+
+- View the applicable order and fulfillment status
+- Track eligible shipments
+- Access invoices or other eligible order documents
+- Start or resume eligible return, warranty, or Support tasks
+- Contact Support with the verified order context
+
+The access context is short-lived, single-purpose where practical, and restricted to the verified order and requested task. Sensitive actions may require stronger or renewed verification.
+
+### Permanent Account claim
+
+Attaching a guest order permanently to an Account requires:
+
+1. Authentication or Account creation
+2. Verification of control over a governed order contact factor
+3. Explicit customer confirmation of the claim
+4. Duplicate, conflict, and existing-attachment checks
+5. A recorded, idempotent outcome
+
+Successful claiming makes the same order available in Orders and eligible Dashboard summaries. It does not create a duplicate order or parallel history.
+
+### Conflict and integrity rules
+
+1. Matching an Account email address, phone number, or profile attribute never claims an order automatically.
+2. If the order is already attached to another Account, the flow returns a secure conflict outcome and does not reveal that Account or reassign the order.
+3. Support agents cannot bypass proof of control or silently transfer an order between Accounts.
+4. A claim changes access association only. It never changes historical customer, invoice, delivery, payment, tax, or consent facts.
+5. Declining Account creation or permanent attachment does not remove verified guest access to eligible post-purchase tasks.
+6. Claim requests and outcomes are auditable without exposing verification secrets.
+7. Repeated successful requests resolve to the existing attachment; repeated conflicting requests cannot create additional associations.
+8. Every destination independently rechecks current authorization and action eligibility.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Guest-order claim and consolidation
 - Account restriction and recovery behavior
 - Address and payment assurance
 - Notification categories, retention, and preferences
@@ -223,4 +263,4 @@ The following remain pending:
 
 ## Next decision
 
-Define Account Dashboard prioritization and post-purchase continuation behavior, followed by order lifecycle, guest-order access, preference management, and account lifecycle controls.
+Define risk and assurance levels for preference management, followed by account restriction and recovery, notifications, privacy requests, and account lifecycle controls.
