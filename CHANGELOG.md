@@ -6,6 +6,8 @@
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
 - Approved the Phase 3 mission, principles, scope, federated governance, contribution lifecycle, and completion gates.
+- Approved the reference, semantic, and component Design Token architecture with theme and density modes.
+- Accepted ADR-0005 establishing semantic token consumption and governance.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
