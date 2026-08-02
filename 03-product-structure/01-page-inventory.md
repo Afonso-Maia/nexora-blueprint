@@ -237,6 +237,32 @@ Support content may explain policies and help users act, but it cannot redefine 
 
 Consent capture, prior-version retention, jurisdictional variants, policy ownership, translation, effective-date rules, and change-notification obligations remain provisional until legal, content ownership, Account, and Administrative Dashboard architecture are approved.
 
+## Host-owned system states
+
+Loading, empty, validation, partial failure, offline mutation, and degraded-service states belong to their host page or embedded experience unit.
+
+A system condition becomes a separate route-level destination only when the user cannot remain meaningfully within the requested destination. This threshold applies to:
+
+- An unknown or retired route
+- A valid destination the user is not authorized to access
+- An unrecoverable destination failure
+- Broad maintenance or service unavailability
+- A global offline condition where no useful cached destination can be shown
+
+Host-owned examples include:
+
+- Zero Search results in Universal Search Results
+- Empty Cart in Cart
+- Payment decline in Unified Checkout
+- Discontinued or unavailable product in Product Detail
+- Expired verification context in Verification
+- Empty support history in My Support Cases
+- Compatibility warning or hard conflict in the Engineering Workspace
+
+Host pages preserve relevant context and provide recovery actions appropriate to the user’s goal. They must not redirect routine empty or error states to generic system pages.
+
+The later error, empty, loading, offline, and degraded-state architecture will define behavioral requirements for every page and embedded unit. This decision establishes page boundaries only.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
