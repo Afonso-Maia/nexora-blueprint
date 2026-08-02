@@ -184,11 +184,80 @@ AI may summarize, translate within governed localization controls, or explain pu
 
 AI does not cite drafts or retired guidance as current, invent missing steps, or turn an explanatory summary into an approved operational decision.
 
+## Deterministic self-service gateway
+
+Support routes each task through the least persistent safe resolution. Exploring guidance or eligibility does not create an operational record unless a durable process is required and the customer explicitly submits it.
+
+### Resolution levels
+
+1. **Guidance only:** an article, concise answer, or troubleshooting path explains the task; no Support case is created.
+2. **Source-owned direct action:** an authoritative destination completes tracking, invoice access, an eligible preference change, or another bounded action; no Support case is created.
+3. **Eligibility check:** the owning domain evaluates return, refund, warranty, repair, cancellation, or other remedy eligibility; checking alone creates no case.
+4. **Persistent remedy:** explicit submission creates a typed Support Case when evidence, logistics, communication, review, or operational follow-up must persist.
+5. **Human escalation:** a case is created or an existing case is continued when self-service cannot safely resolve the issue, policy requires review, or the customer requests governed assistance.
+
+The gateway may move directly to the appropriate level when the incoming context already establishes the task. It does not force customers through irrelevant guidance before an urgent or clearly persistent issue.
+
+### Eligibility contract
+
+Every self-service eligibility result identifies:
+
+- Evaluated object and item scope
+- Authoritative decision owner
+- Inputs and current source-state timestamp
+- Eligible or ineligible outcome
+- Material reason and applicable policy reference
+- Available action, alternative, or review path
+- Assurance required to commit the next action
+
+Eligibility is rechecked at commitment. A prior article, notification, AI response, saved draft, or earlier check cannot preserve an expired right or grant an unavailable remedy.
+
+Unknown, stale, partial, or unavailable source data produces an honest indeterminate or unavailable result. Support does not translate missing evidence into approval or denial.
+
+### Case-creation threshold
+
+Before creating a case, SUP-005 Contact and Case Start shows:
+
+- Case type and customer-visible issue summary
+- Associated order, item, product, build, or other governed object
+- Context and evidence that will become persistent
+- Expected next step and responsible party
+- Available communication or service channel
+- Applicable identity assurance and consent
+
+The customer can correct or remove optional context and must explicitly submit. Temporary draft context may be preserved under a governed expiry policy, but it is not shown as an open case and does not enter operational queues.
+
+### Duplicate and escalation behavior
+
+Potential duplicates are evaluated using governed customer, object, case-type, and active-state signals.
+
+- A likely duplicate offers safe continuation of the existing case.
+- The customer can explain why a separate case is needed when permitted.
+- Cases are never silently merged solely because they share an order, product, or topic.
+- Merge, link, or split operations require governed authority and preserve provenance.
+- Escalation carries completed troubleshooting and verified context when safe, reducing repetition without transferring unsupported conclusions.
+
+### Failure and recovery
+
+Failed eligibility, case-creation, attachment, or channel services preserve only safely collected draft context and identify what did not complete. The customer receives retry, alternate channel, or Contact and Case Start recovery appropriate to the failure.
+
+A technical failure does not create a case unless durable creation is confirmed. Nexora does not promise a refund, repair, return, response time, or other outcome merely because a customer attempted submission.
+
+### Governance rules
+
+1. Source domains own facts, eligibility, and direct actions.
+2. Support owns triage, escalation, and persistent Support cases.
+3. AI may collect context and explain a result but cannot determine or override eligibility.
+4. Case creation requires applicable authentication or secure verification and explicit submission.
+5. Sensitive actions apply the approved risk-tiered assurance model.
+6. Customer-facing ineligibility includes an understandable reason and available review path when policy permits disclosure.
+7. Self-service completion and case resolution are distinct outcomes; one is not recorded as the other.
+8. Analytics and draft storage do not become shadow case systems.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Self-service eligibility and escalation boundaries
 - Support Case taxonomy and lifecycle
 - Case communication, evidence, and participant model
 - Service level, escalation, and ownership-transfer behavior
@@ -197,4 +266,4 @@ The following remain pending:
 
 ## Next decision
 
-Define self-service eligibility and escalation boundaries, followed by the persistent Support Case architecture.
+Define the Support Case taxonomy and lifecycle, followed by communication, evidence, service levels, escalation, and external participation.
