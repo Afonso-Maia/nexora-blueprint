@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model, Blocks 1–3, and Support inventory approved; remaining inventory pending
+**Status:** Approved in part — governing model, Blocks 1–3, Support, and Authentication approved; remaining inventory pending
 
 ## Purpose
 
@@ -746,6 +746,101 @@ The following remain embedded within Support destinations:
 - Channel availability and escalation controls
 
 Separate customer-facing detail templates for returns, refunds, warranties, and repairs are not approved. Type-specific modules extend SUP-007.
+
+### Block 4B — Authentication
+
+Authentication pages use one minimal shell, accessible recovery paths, non-disclosing identity responses, abuse controls, and validated return destinations. Exact authentication methods remain provisional.
+
+#### AUT-001 — Sign In
+
+- **Type / class:** Focused fixed page / Authentication
+- **Purpose:** Establish a customer session and safely resume the initiating task.
+- **Ownership:** Customer Authentication; supported by Customer, Security, Legal, and relevant return-destination domains
+- **Audience / access / shell:** Guest; authenticated customers receive a safe redirect / Public / Authentication
+- **Entry / URL:** Account utility, protected destination, Checkout, save or persistence action, and explicit link / `/sign-in` with a validated return reference
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to the validated return destination, Account Dashboard, Create Account, Account Recovery, Verification, or Security Challenge; actions are authenticate and choose an approved identity method
+- **Required states:** Invalid credential, unknown identity without disclosure, verification required, security challenge required, rate limit, locked or restricted account, provider unavailable, stale return context, and existing session
+- **Lifecycle / journeys:** Any lifecycle stage requiring identity persistence / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### AUT-002 — Create Account
+
+- **Type / class:** Focused fixed page / Authentication
+- **Purpose:** Register a customer identity with the minimum required information and consent.
+- **Ownership:** Customer Authentication; supported by Customer, Legal, Notifications, and Security
+- **Audience / access / shell:** Guest / Public / Authentication
+- **Entry / URL:** Sign In, Checkout, persistence action, and explicit link / `/create-account` with a validated return reference
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to Verification, Security Challenge when required, or the validated return destination; action is create an account
+- **Required states:** Identity already associated without unsafe disclosure, invalid data, consent missing, verification delivery failure, rate limit, registration unavailable, and stale return context
+- **Lifecycle / journeys:** Purchase and Manage relationship, or any stage requiring persistence / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### AUT-003 — Account Recovery
+
+- **Type / class:** Focused fixed page / Authentication
+- **Purpose:** Begin secure account recovery without revealing whether an identity exists.
+- **Ownership:** Customer Authentication; supported by Security, Customer, Notifications, Legal, and Support
+- **Audience / access / shell:** Guest or customer unable to authenticate / Public / Authentication
+- **Entry / URL:** Sign In, failed authentication, Support guidance, and explicit link / `/account-recovery`
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to a neutral submission outcome, Verification, Credential Reset, Support, or Sign In; action is request a governed recovery method
+- **Required states:** Neutral accepted response, invalid input, rate limit, delivery delay, recovery unavailable, insufficient assurance, and support escalation
+- **Lifecycle / journeys:** Authenticate and Manage relationship / all Tier 1 journeys where account access is required
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### AUT-004 — Credential Reset
+
+- **Type / class:** Focused resumable page / Authentication
+- **Purpose:** Set a new credential from a verified, expiring recovery context.
+- **Ownership:** Customer Authentication; supported by Security, Customer, Notifications, and Legal
+- **Audience / access / shell:** Verified recovery participant / Valid recovery context / Authentication
+- **Entry / URL:** Governed recovery link or completed verification / `/credential-reset/{recovery-reference}`
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to Sign In, Security Challenge, or a safe account destination; action is set and confirm a new credential
+- **Required states:** Invalid, used, or expired reference; credential-policy failure; compromised credential warning; rate limit; save failure; and session revocation pending
+- **Lifecycle / journeys:** Authenticate and Manage relationship / all authenticated journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### AUT-005 — Verification
+
+- **Type / class:** Focused resumable page / Authentication
+- **Purpose:** Verify a governed identity or contact factor for registration, recovery, or sensitive account activity.
+- **Ownership:** Customer Authentication; supported by Security, Customer, Notifications, and the initiating domain
+- **Audience / access / shell:** Holder of a valid verification context / Context-bound / Authentication
+- **Entry / URL:** Create Account, Account Recovery, sensitive Account action, Checkout, Support, or verification link / `/verify/{verification-reference}`
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Returns to the validated initiating destination or proceeds to Credential Reset or Security Challenge; actions are submit, resend when eligible, or choose an approved alternative
+- **Required states:** Invalid, used, or expired reference; incorrect code; retry exhaustion; delivery delay; resend cooldown; factor unavailable; and context mismatch
+- **Lifecycle / journeys:** Authenticate, Purchase, Support, and Manage relationship / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### AUT-006 — Security Challenge
+
+- **Type / class:** Focused resumable page / Authentication
+- **Purpose:** Establish stronger assurance for authentication or a sensitive action.
+- **Ownership:** Customer Authentication; supported by Security and the initiating domain
+- **Audience / access / shell:** Customer or verified transaction participant / Existing authentication or transaction context / Authentication
+- **Entry / URL:** Sign In, Payment Methods, Account Settings, Checkout, Support case access, or another governed sensitive action / `/security-challenge/{challenge-reference}`
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Returns only to the validated initiating destination or a safe fallback; actions are complete an approved challenge, retry, or choose an eligible recovery path
+- **Required states:** Incorrect response, expired challenge, retry exhaustion, unavailable factor, trusted-device conflict, suspicious context, session expiry, recovery required, and challenge service unavailable
+- **Lifecycle / journeys:** Authenticate, Purchase, Support, and Manage relationship / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 4B embedded experience units
+
+The following remain within authentication pages or their initiating host experiences:
+
+- Password visibility and strength feedback
+- Identity-provider selection
+- Consent controls
+- Resend and cooldown feedback
+- Session-timeout and reauthentication prompts
+- Sign-out
+
+Provider callbacks, token exchanges, and session endpoints are not pages. Authentication assurance and abuse-state details will be refined in later Account, roles-and-permissions, legal, and engineering work.
 
 ## Protected architectural boundaries
 
