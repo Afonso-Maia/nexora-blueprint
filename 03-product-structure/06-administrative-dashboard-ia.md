@@ -106,11 +106,83 @@ High-density, comparison-heavy, or bulk operations may require a guarded larger-
 7. Permission changes take effect across navigation, search, recents, saved views, deep links, and active workspaces.
 8. AI may help locate or summarize permitted operational context but cannot expand discovery or action scope.
 
+## Exception-and-work Operations Overview
+
+ADM-001 Operations Overview is an actionable operational hub rather than a KPI-first executive dashboard. It aggregates permission-filtered conditions and routes the user to the authoritative queue or workspace where work occurs.
+
+### Priority order
+
+Applicable modules follow this deterministic order:
+
+1. Security, compliance, or platform-critical action
+2. Customer-impacting order, payment, delivery, or Support exception
+3. Breached or at-risk operational obligation
+4. Inventory, pricing, catalog, compatibility, or publication blocker
+5. Pending approval or review
+6. Scheduled work and expiring configuration
+7. Trends and health summaries
+
+Within a tier, governed severity, due expectation, customer impact, assignment, and recency determine order. Permission and data scope filter eligibility before prioritization.
+
+### Module contract
+
+Every Overview module declares:
+
+- Authoritative source domain and source timestamp
+- Personal, team, or organization scope
+- Severity and prioritization reason
+- Affected object count or explicitly unavailable count
+- Responsible capability
+- Primary queue or workspace destination
+- Permitted primary action
+- Stale, partial, restricted, or degraded state
+
+Counts and summaries use the same scope as their destination. A module cannot imply access to restricted objects or include inaccessible records in a visible total.
+
+### Scope and personalization
+
+Personalization may use:
+
+- Current permissions and data scope
+- Accepted assignments
+- Saved operational scope
+- Recent eligible work
+- Explicitly followed queues
+
+Personalization cannot hide a critical governed obligation that the user is accountable for. Personal, team, and organization scopes are visibly distinguished, and switching scope does not grant broader access.
+
+The Overview omits empty optional modules. A user with no assigned work receives stable capability navigation, eligible followed queues, and useful setup guidance rather than fabricated urgency or additional vanity metrics.
+
+### Actions and dismissal
+
+Overview supports inspection, acknowledgement where governed, and continuation to the owning destination. Complex editing, bulk mutation, approval, exception handling, and case work occur in their queue or resource workspace.
+
+Only genuinely optional items can be dismissed. Acknowledging or hiding an Overview presentation does not resolve, satisfy, approve, or cancel the underlying source condition.
+
+Critical and required items remain until their authoritative owner reports resolution, expiry, reassignment, or supersession.
+
+### Analytics boundary
+
+Compact trends may provide operational context after actionable work. Exploratory, historical, comparative, and executive analysis remains owned by ADM-033 Reports and Analytics.
+
+Overview does not create parallel metric definitions. Each displayed measure identifies its source, scope, and freshness, and links to governed analysis when available.
+
+### Degraded behavior
+
+If a source is delayed or unavailable:
+
+- The module identifies stale, partial, or unavailable status.
+- Missing data is never presented as zero.
+- Confirmed prior state includes an as-of timestamp.
+- Unaffected modules remain usable.
+- The Overview does not fill missing operational content with marketing, generic charts, or AI estimates.
+
+AI may summarize permitted modules and explain prioritization, but it cannot assign severity, dismiss obligations, change scope, or execute the linked action.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Operations Overview composition and prioritization
 - Collection, queue, saved-view, and bulk-action model
 - Resource workspace editing, validation, approval, and publication model
 - Cross-domain order, customer, and Support operations
@@ -121,4 +193,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the Operations Overview composition and prioritization, followed by queues, workspaces, cross-domain operations, and governance behavior.
+Define the collection, queue, saved-view, and bulk-action model, followed by resource workspaces, cross-domain operations, and governance behavior.
