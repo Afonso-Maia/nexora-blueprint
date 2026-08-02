@@ -33,6 +33,7 @@
 - Approved 33 consequential Authentication, Legal, and System recovery relationship edges.
 - Approved an explicit page-level ownership ledger covering all 89 inventory entries.
 - Approved ownership-ledger entries for 22 Storefront, Discovery, Evaluation, Purchase, and Account pages.
+- Approved ownership-ledger entries for 18 PC Builder, AI, Support, and Authentication pages.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
