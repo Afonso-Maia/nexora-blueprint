@@ -8,6 +8,7 @@
 - Approved the Phase 3 mission, principles, scope, federated governance, contribution lifecycle, and completion gates.
 - Approved the reference, semantic, and component Design Token architecture with theme and density modes.
 - Accepted ADR-0005 establishing semantic token consumption and governance.
+- Approved the neutral-led Precision Gold palette, functional color semantics, and equivalent light and dark theme behavior.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
