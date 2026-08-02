@@ -499,15 +499,118 @@ Retry uses the original idempotency and correlation contract or starts a clearly
 7. Cross-domain operations preserve historical records and use append-only corrections where required.
 8. AI may summarize permitted context or draft a proposed orchestration, but cannot invoke gateways, approve steps, reconcile outcomes, or expand scope.
 
+## Federated operational search
+
+The Admin shell provides one permission-filtered entry to operational discovery. Search federates eligible indexes and source lookups without creating a competing resource store.
+
+### Search scope
+
+Search may return permitted:
+
+- Resources and their workspaces
+- Queues and saved views
+- Reports
+- Configuration destinations
+- Draft changes and approval work
+- Asynchronous operations and reconciliation tasks
+
+Results are grouped by owning capability. Every result declares its resource type, permitted identifying fields, relevant current status, scope, and source freshness.
+
+Search does not return an object merely because the user could navigate to its capability. Object discoverability, field visibility, and action permission are evaluated separately.
+
+### Query and result behavior
+
+Users can search across eligible capabilities or apply a visible capability, resource-type, status, owner, or identifier scope. Query interpretation never hides the active scope.
+
+1. Exact governed identifiers receive deterministic handling before fuzzy matching.
+2. Sensitive fields participate only when the user's purpose and permission allow them.
+3. Snippets, highlights, suggestions, and zero-result guidance follow the same field restrictions as the destination.
+4. Counts exclude inaccessible objects and do not reveal restricted existence through totals or facets.
+5. Opening a result rechecks current authorization and object state.
+6. Personal and public operational scopes remain clearly separated where both exist.
+
+Index lag is exposed with source freshness. An indexed result cannot preserve stale action eligibility. Where authorized, direct source lookup may confirm an exact identifier without broadening search disclosure.
+
+### Constrained command launcher
+
+The related command launcher supports:
+
+- Navigation to a permitted destination
+- Opening a permitted resource, queue, saved view, report, draft, or operation
+- Starting a permitted draft or governed workflow
+- Applying local presentation or navigation preferences
+- Invoking approved non-consequential utilities
+
+It cannot directly execute a consequential mutation.
+
+Refunds, replacements, publication, pricing changes, inventory adjustments, access grants, bulk actions, deletion, customer communications, case decisions, and similar actions open their governed workspace or action gateway. Validation, consequence preview, assurance, approval, and confirmation remain intact.
+
+Commands are labeled by owning capability and target scope. Keyboard acceleration cannot bypass focus, confirmation, or accessibility requirements.
+
+### Natural-language and AI assistance
+
+Natural-language interpretation or AI may:
+
+- Reformulate a query
+- Suggest a capability or resource type
+- Construct a visible draft filter or saved view
+- Navigate to an eligible destination
+- Explain why a result or command is unavailable
+
+The interpreted scope remains inspectable and editable. AI cannot search inaccessible fields, infer hidden object existence, select concealed records, execute a mutation, approve work, or broaden permissions.
+
+### Recent work
+
+Recent work stores references to eligible:
+
+- Resource and case destinations
+- Saved views and queues
+- Draft changes
+- Approvals
+- Asynchronous operations and reconciliation tasks
+
+It does not copy sensitive resource content into an independent history. Each entry records its type, owning capability, safe display label, last access time, and applicable continuation reference.
+
+Permission or resource-state changes are applied when recents render and open. Ineligible entries are removed or safely redacted without exposing why a protected object exists. Users can clear eligible personal history according to policy.
+
+Recents never imply assignment, approval, ownership, or current action eligibility.
+
+### Shared links and return context
+
+Shared Admin links carry stable resource or governed-view references and safe origin context. They never carry the sender's permission, selected sensitive fields, action confirmation, or executable command.
+
+Recipients resolve their own permitted representation. Invalid or inaccessible links return to the nearest safe capability destination without disclosing protected object details.
+
+### Degraded behavior
+
+If one index or source is unavailable:
+
+- Affected scope is identified.
+- Unaffected capabilities remain searchable.
+- Stale results include an as-of time.
+- Results are not silently omitted and presented as complete.
+- Commands dependent on unavailable validation route to a safe blocked or retry state.
+- Recent eligible direct destinations remain usable when their source can authorize access.
+
+### Governance rules
+
+1. Admin Platform owns the shared search, launcher, recents, and return-context interaction.
+2. Source domains own indexable fields, discoverability, source lookup, eligibility, and actions.
+3. Search visibility, field visibility, and action permission are independent checks.
+4. Recents, saved views, suggestions, and shared links never preserve another user or earlier session's authority.
+5. Query and command telemetry follows sensitive-data and workforce-monitoring policy.
+6. Consequential actions always leave the launcher for their governed confirmation surface.
+7. Permission revocation applies to index results, cached suggestions, recents, direct links, and open destinations.
+8. Search and launcher behavior is keyboard- and assistive-technology accessible.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Admin search, command, and recent-work behavior
 - Audit and high-risk action presentation
 - Exact roles, permissions, and segregation of duties
 - Admin degraded and continuity behavior
 
 ## Next decision
 
-Define Admin search, command, and recent-work behavior, followed by audit, high-risk actions, permissions, and degraded behavior.
+Define audit and high-risk action presentation, followed by permissions boundaries and Admin degraded behavior.
