@@ -18,6 +18,7 @@
 - Approved focused authentication destinations within a shared minimal shell.
 - Approved the six-page Authentication inventory.
 - Approved stable, independently versioned legal policy destinations with a Legal and Policies Hub.
+- Approved the ten-page Legal and Informational inventory.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

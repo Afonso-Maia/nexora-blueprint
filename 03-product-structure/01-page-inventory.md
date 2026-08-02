@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model, Blocks 1–3, Support, and Authentication approved; remaining inventory pending
+**Status:** Approved in part — governing model and customer-facing inventory through Legal and Informational approved; System and Admin pending
 
 ## Purpose
 
@@ -861,6 +861,153 @@ The following remain within authentication pages or their initiating host experi
 - Sign-out
 
 Provider callbacks, token exchanges, and session endpoints are not pages. Authentication assurance and abuse-state details will be refined in later Account, roles-and-permissions, legal, and engineering work.
+
+### Block 5A — Legal and Informational
+
+Legal entries require accountable ownership, version or effective date, publication status, accessible presentation, and prior-version access when legally required. Exact Brazilian legal content is not defined by this inventory.
+
+#### INF-001 — About Nexora
+
+- **Type / class:** Fixed informational page / Legal and Informational
+- **Purpose:** Explain Nexora’s identity, first-party retail model, product promise, and responsible contact paths.
+- **Ownership:** Marketing; supported by Legal and Support
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Footer, Home context, external link, and Legal and Policies Hub / `/about`
+- **Search participation:** Indexed as informational content; lower priority than commercial and Support results
+- **Relationships / actions:** Leads to Support Center, Legal and Policies Hub, and relevant public commitments; primary action is understand Nexora and find the right contact path
+- **Required states:** Partial content, unavailable supporting media, and localization fallback
+- **Lifecycle / journeys:** Land and Manage relationship / supporting all journeys
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### LEG-001 — Legal and Policies Hub
+
+- **Type / class:** Fixed index page / Legal and Informational
+- **Purpose:** Index current authoritative policies and their applicable status.
+- **Ownership:** Legal; supported by Marketing, Support, Customer, and Purchase
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Footer, Account Settings, Checkout, Authentication, Support, and direct link / `/legal`
+- **Search participation:** Indexed as the canonical legal index
+- **Relationships / actions:** Leads to every current policy destination and governed prior-version access; action is locate the applicable document
+- **Required states:** Document temporarily unavailable, superseded reference, missing translation, and partial policy index
+- **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-002 — Terms of Use
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Publish the authoritative terms governing use of Nexora’s customer-facing products.
+- **Ownership:** Legal; supported by Customer Authentication, Customer, Purchase, AI, PC Builder, and Support
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, Authentication, Checkout, Account Settings, and footer / `/legal/terms`
+- **Search participation:** Indexed as authoritative legal content
+- **Relationships / actions:** References related policies and prior versions where required; action is read and navigate the document
+- **Required states:** Superseded version, prior-version request, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-003 — Privacy Notice
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Explain personal-data processing, retention, sharing, safeguards, and customer rights.
+- **Ownership:** Legal; supported by Security, Customer, Customer Authentication, AI, Marketing, Support, and Admin
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, Authentication, Account Settings, cookie controls, AI Assistant, Support, and footer / `/legal/privacy`
+- **Search participation:** Indexed as authoritative legal content
+- **Relationships / actions:** Leads to relevant privacy controls, Support contact paths, Cookie Notice, and prior versions; action is understand rights and reach governed controls
+- **Required states:** Superseded version, prior-version request, missing translation, unavailable rights-request path, and document retrieval failure
+- **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-004 — Cookie Notice
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Explain cookies and similar technologies, purposes, duration, and available controls.
+- **Ownership:** Legal; supported by Marketing, Security, Customer, and Analytics when governed
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, cookie controls, Privacy Notice, and footer / `/legal/cookies`
+- **Search participation:** Indexed as authoritative legal content
+- **Relationships / actions:** Leads to governed cookie controls, Privacy Notice, and prior versions; action is understand technologies and manage available choices
+- **Required states:** Superseded version, control service unavailable, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-005 — Accessibility Statement
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** State accessibility commitments, known limitations, standards target, and an accessible feedback path.
+- **Ownership:** Legal; supported by Design, Engineering, Product, and Support
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, footer, and accessibility feedback references / `/legal/accessibility`
+- **Search participation:** Indexed as authoritative informational content
+- **Relationships / actions:** Leads to an accessible Support contact path and prior versions; action is understand commitments and report a barrier
+- **Required states:** Contact path unavailable, missing alternate format, missing translation, superseded version, and document retrieval failure
+- **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### LEG-006 — Delivery Policy
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Publish authoritative delivery conditions, responsibilities, constraints, and exception handling.
+- **Ownership:** Legal; supported by Purchase, Delivery, Support, and Customer
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, Checkout, Order Detail, Support Center, Support Article, and footer / `/legal/delivery`
+- **Search participation:** Indexed as authoritative legal and Support-adjacent content
+- **Relationships / actions:** References relevant Support guidance and prior versions; action is understand applicable delivery terms
+- **Required states:** Superseded version, jurisdiction or service-area mismatch, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** Purchase, Track, Receive, and Support / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-007 — Returns and Refund Policy
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Publish authoritative return eligibility, timing, condition, logistics, and refund rules.
+- **Ownership:** Legal; supported by Support, Purchase, Payments, Delivery, and Customer
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, Returns and Refunds Hub, Order Detail, Checkout, Support Article, and footer / `/legal/returns`
+- **Search participation:** Indexed as authoritative legal and Support-adjacent content
+- **Relationships / actions:** Leads to actionable Returns and Refunds guidance and prior versions; action is understand applicable rules
+- **Required states:** Superseded version, policy-version mismatch with an order, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** Purchase, Receive, Support, and Return / post-purchase J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-008 — Warranty Policy
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Publish authoritative coverage, exclusions, evidence, remedies, and warranty-process rules.
+- **Ownership:** Legal; supported by Support, Catalog, Purchase, Customer, and repair operations when governed
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Legal and Policies Hub, Warranty and Repairs Hub, Product Detail, Order Detail, Support Article, and footer / `/legal/warranty`
+- **Search participation:** Indexed as authoritative legal and Support-adjacent content
+- **Relationships / actions:** Leads to actionable Warranty and Repairs guidance and prior versions; action is understand applicable coverage
+- **Required states:** Superseded version, product-policy mismatch, manufacturer-only coverage, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** Evaluate, Purchase, Receive, Support, and Return / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### LEG-009 — Financing Terms
+
+- **Type / class:** Versioned fixed document / Legal and Informational
+- **Purpose:** Publish applicable financing disclosures, eligibility conditions, costs, obligations, and provider terms.
+- **Ownership:** Legal; supported by Purchase, Payments, Customer, and financing providers when governed
+- **Audience / access / shell:** Guest and customer / Public when financing is offered / Storefront
+- **Entry / URL:** Legal and Policies Hub, Product Detail financing information, Cart, Checkout, Order Detail, and Support / `/legal/financing`
+- **Search participation:** Indexed only while applicable financing is available
+- **Relationships / actions:** References provider disclosures, Checkout, Support, and prior versions; action is understand financing before selection
+- **Required states:** Financing unavailable, provider-specific variant, superseded version, offer mismatch, missing translation, and document retrieval failure
+- **Lifecycle / journeys:** Evaluate, Purchase, and Support / J-01 through J-06
+- **Horizon / maturity / status:** Foundation when financing launches; otherwise Future / Provisional / Approved
+
+### Block 5A embedded experience units
+
+The following remain embedded within legal or initiating product experiences:
+
+- Document table of contents and section navigation
+- Version and effective-date disclosure
+- Prior-version selector when required
+- Consent acknowledgement
+- Cookie controls
+- Policy excerpts and contextual links
+
+Contextual excerpts never replace the authoritative policy destination. Exact legal content, consent events, and retention rules require specialist legal review.
 
 ## Protected architectural boundaries
 

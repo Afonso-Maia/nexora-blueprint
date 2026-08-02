@@ -6,7 +6,7 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 
 Phase 2B will define:
 
-1. [Page Inventory](01-page-inventory.md) — governing model, Blocks 1–3, Support, and Authentication approved; remaining inventory pending
+1. [Page Inventory](01-page-inventory.md) — customer-facing inventory through Legal and Informational approved; System and Admin pending
 2. Information Hierarchy
 3. Account Architecture
 4. Support Center Architecture
