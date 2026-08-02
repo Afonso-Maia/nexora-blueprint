@@ -6,7 +6,7 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 
 Phase 2B will define:
 
-1. [Page Inventory](01-page-inventory.md) — governing model and Block 1 approved; remaining inventory pending
+1. [Page Inventory](01-page-inventory.md) — governing model and Blocks 1–2 approved; remaining inventory pending
 2. Information Hierarchy
 3. Account Architecture
 4. Support Center Architecture

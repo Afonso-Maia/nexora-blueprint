@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and Block 1 inventory approved; remaining inventory pending
+**Status:** Approved in part — governing model and Blocks 1–2 approved; remaining inventory pending
 
 ## Purpose
 
@@ -298,6 +298,166 @@ The following are required interaction units within approved host pages, not ind
 - Home continuation, recommendation, category, collection, and editorial modules
 
 Embedded units inherit the host page’s access and shell but must define their own loading, empty, error, and degraded behavior during the later system-state review.
+
+### Block 2 — Purchase and Customer Account
+
+Account entries are authenticated unless an explicitly governed guest-order recovery path applies. Exact authentication assurance, action eligibility, retention, and permissions remain provisional until the Account and roles-and-permissions architecture decisions.
+
+#### PUR-001 — Cart
+
+- **Type / class:** Stateful fixed destination / Purchase
+- **Purpose:** Review and prepare selected products or a validated PC Build for checkout.
+- **Ownership:** Purchase; supported by Catalog, Pricing, Inventory, Promotions, Compatibility, Customer, and AI
+- **Audience / access / shell:** Guest and customer / Public session with optional authenticated persistence / Storefront
+- **Entry / URL:** Cart utility, Product Detail, PC Builder, Comparison, and direct resume / `/cart`
+- **Search participation:** Excluded from indexing and search results
+- **Relationships / actions:** Leads to Product Detail, PC Builder, Checkout, and contextual AI; actions are adjust quantity, remove or save items, inspect compatibility, apply eligible promotion, and proceed
+- **Required states:** Empty cart, unavailable item, changed price, insufficient stock, expired promotion, compatibility warning or hard conflict, merge conflict after sign-in, and degraded recommendations
+- **Lifecycle / journeys:** Evaluate, Configure, and Purchase / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### PUR-002 — Unified Checkout
+
+- **Type / class:** Stateful fixed destination / Purchase
+- **Purpose:** Complete a purchase on one page through progressively disclosed modules.
+- **Ownership:** Purchase; supported by Customer, Inventory, Pricing, Promotions, Payments, Delivery, Compatibility, Notifications, and AI
+- **Audience / access / shell:** Guest and customer / Public session with elevated verification when required / Focused purchase
+- **Entry / URL:** Valid Cart / `/checkout`; sensitive state is not represented in the URL
+- **Search participation:** Excluded from indexing and search results
+- **Relationships / actions:** Receives Cart and leads to Order Confirmation or recoverable Cart; actions cover Contact, Delivery, Payment, Review, Promotions, Financing, Warranty, and Place Order
+- **Required states:** Missing or invalid contact, no delivery option, address failure, payment decline or timeout, financing ineligibility, inventory change, price change, promotion expiry, duplicate-submission protection, compatibility change, and partial service degradation
+- **Lifecycle / journeys:** Purchase / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### PUR-003 — Order Confirmation
+
+- **Type / class:** Transaction outcome page / Purchase
+- **Purpose:** Confirm the order exactly once, communicate next steps, and provide a safe transition to persistent order access.
+- **Ownership:** Purchase; supported by Customer, Payments, Delivery, Notifications, Compatibility, and Support
+- **Audience / access / shell:** Purchasing guest or customer / Transaction-bound access / Focused purchase
+- **Entry / URL:** Successful order placement / `/order-confirmation/{confirmation-reference}` using a non-sensitive, expiring reference
+- **Search participation:** Excluded from indexing and search results
+- **Relationships / actions:** Leads to Order Detail or secure guest-order access, Home, Support, and PC Build context; actions are review confirmation, obtain receipt, and continue
+- **Required states:** Confirmation delayed, notification delayed, payment pending, duplicate revisit, expired guest reference, and partial order-summary degradation
+- **Lifecycle / journeys:** Purchase and Track / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-001 — Account Dashboard
+
+- **Type / class:** Fixed page / Customer Account
+- **Purpose:** Summarize the customer relationship and provide prioritized continuation points.
+- **Ownership:** Customer; supported by Purchase, Support, PC Builder, Discovery, and Notifications
+- **Audience / access / shell:** Customer / Authenticated / Storefront account
+- **Entry / URL:** Account utility, post-authentication return, and contextual links / `/account`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Leads to Orders, Wishlist, Addresses, Payment Methods, Notifications, Settings, Comparison, Saved Builds, and Support; actions prioritize current orders and meaningful resumptions
+- **Required states:** New account, no activity, partial order or recommendation service, stale continuation, and restricted account
+- **Lifecycle / journeys:** Manage relationship, Track, and Support / all journeys where authenticated context persists
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-002 — Orders
+
+- **Type / class:** Collection page / Customer Account
+- **Purpose:** Provide the customer’s durable, filterable order history.
+- **Ownership:** Customer; supported by Purchase, Delivery, Payments, and Support
+- **Audience / access / shell:** Customer / Authenticated / Storefront account
+- **Entry / URL:** Account navigation, Dashboard, and notifications / `/account/orders`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Leads to Order Detail and relevant Support cases; actions are filter, find, and open an order
+- **Required states:** No orders, no filtered matches, delayed order synchronization, partial shipment data, and restricted order
+- **Lifecycle / journeys:** Track, Receive, Support, and Return / J-01 through J-06 after purchase
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-003 — Order Detail
+
+- **Type / class:** Reusable authenticated entity template / Customer Account
+- **Purpose:** Act as the durable hub for one order and its post-purchase activity.
+- **Ownership:** Customer; supported by Purchase, Delivery, Payments, Support, Compatibility, PC Builder, and Notifications
+- **Audience / access / shell:** Owning customer; governed guest access remains provisional / Authenticated or securely verified / Storefront account
+- **Entry / URL:** Orders, Order Confirmation, notification, Support, and secure deep link / `/account/orders/{order-reference}`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Coordinates tracking, items, PC Build summary, payment summary, delivery address, invoice, cancellation eligibility, return or warranty initiation, and Support; persistent cases lead to their own detail pages
+- **Required states:** Processing, payment pending, partially shipped, delivered, cancelled, returned, delayed tracking, missing invoice, action ineligible, partial service failure, and unauthorized access
+- **Lifecycle / journeys:** Track, Receive, Support, and Return / J-01 through J-06 after purchase
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-004 — Wishlist
+
+- **Type / class:** Stateful collection page / Customer Account
+- **Purpose:** Persist products for later evaluation or purchase.
+- **Ownership:** Customer; supported by Catalog, Pricing, Inventory, Discovery, and Purchase
+- **Audience / access / shell:** Customer / Authenticated, with optional pre-authentication merge / Storefront account
+- **Entry / URL:** Wishlist utility, Account navigation, Dashboard, Product Detail, and contextual links / `/account/wishlist`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Leads to Product Detail, Comparison, Cart, and Category Discovery; actions are remove, compare, and add available products to Cart
+- **Required states:** Empty wishlist, unavailable or discontinued product, changed price, merge conflict, and partial catalog data
+- **Lifecycle / journeys:** Evaluate, Compare, and Purchase / J-01, J-02, J-03, J-04
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-005 — Addresses
+
+- **Type / class:** Collection and management page / Customer Account
+- **Purpose:** Manage reusable delivery addresses outside checkout.
+- **Ownership:** Customer; supported by Delivery and Purchase
+- **Audience / access / shell:** Customer / Authenticated with step-up verification for sensitive changes when required / Storefront account
+- **Entry / URL:** Account navigation, Dashboard, and Checkout handoff / `/account/addresses`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Supports Checkout and Order Detail without altering historical order addresses; actions are add, edit, validate, set default, and remove eligible addresses
+- **Required states:** No addresses, invalid or unsupported address, validation unavailable, address in use, removal blocked, and save conflict
+- **Lifecycle / journeys:** Manage relationship and Purchase / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ACC-006 — Payment Methods
+
+- **Type / class:** Collection and management page / Customer Account
+- **Purpose:** Manage eligible stored payment instruments without exposing sensitive payment data.
+- **Ownership:** Customer; supported by Payments and Purchase
+- **Audience / access / shell:** Customer / Authenticated with step-up verification / Storefront account
+- **Entry / URL:** Account navigation, Dashboard, and Checkout handoff / `/account/payment-methods`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Supports Checkout; actions are add through a governed provider flow, label, set default, and remove eligible instruments
+- **Required states:** No stored methods, expired instrument, provider unavailable, verification required, method in use, removal blocked, and tokenization failure
+- **Lifecycle / journeys:** Manage relationship and Purchase / J-01 through J-06
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### ACC-007 — Notifications
+
+- **Type / class:** Stateful collection page / Customer Account
+- **Purpose:** Provide a durable history of actionable customer notifications.
+- **Ownership:** Customer; supported by Notifications, Purchase, Delivery, Support, Marketing, and PC Builder
+- **Audience / access / shell:** Customer / Authenticated / Storefront account
+- **Entry / URL:** Account navigation, Dashboard, notification utility when present, and deep link / `/account/notifications`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Leads to Order Detail, Support cases, Product Detail, PC Builder, and Settings; actions are open, mark read, and manage notification preferences
+- **Required states:** No notifications, expired target, partial channel synchronization, duplicate event, and notification service unavailable
+- **Lifecycle / journeys:** Manage relationship, Track, and Support / all journeys with persistent customer context
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### ACC-008 — Account Settings
+
+- **Type / class:** Fixed settings page / Customer Account
+- **Purpose:** Manage profile, security, privacy, communication preferences, and account lifecycle through governed sections.
+- **Ownership:** Customer; supported by Authentication, Notifications, Legal, and Support
+- **Audience / access / shell:** Customer / Authenticated with step-up verification for sensitive actions / Storefront account
+- **Entry / URL:** Account navigation, Dashboard, authentication prompts, and Notifications / `/account/settings`
+- **Search participation:** Excluded from public and universal search indexing
+- **Relationships / actions:** Coordinates profile, credentials, sessions, privacy controls, notification preferences, and account closure; legally significant actions use explicit confirmation
+- **Required states:** Verification required, stale session, duplicate identity data, save conflict, channel unavailable, export pending, closure blocked, and partial settings failure
+- **Lifecycle / journeys:** Manage relationship / all authenticated journeys
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 2 embedded experience units
+
+The following remain modules or focused interactions within approved pages:
+
+- Cart line items, summary, promotion entry, compatibility summary, and contextual AI
+- Checkout Contact, Delivery, Payment, Review, Promotions, Financing, Warranty, and Place Order modules
+- Address and payment-method editors
+- Order timeline, shipment tracking, invoice access, cancellation eligibility, and case initiation
+- Account overview and continuation cards
+- Profile, security, privacy, communication, and account-lifecycle settings
+
+Persistent returns, warranty claims, and support requests become Support case pages after initiation. Exact system states and embedded-unit behavior remain subject to the later error, empty, loading, offline, and degraded-state review.
 
 ## Protected architectural boundaries
 
