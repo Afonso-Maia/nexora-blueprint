@@ -1,12 +1,12 @@
 # Page Inventory
 
-**Status:** Approved in part — classification and population method approved; complete inventory pending
+**Status:** Approved in part — classification, population method, and page boundaries approved; complete inventory pending
 
 ## Purpose
 
 The Page Inventory is the governed registry of Nexora pages and page templates. It must support wireframing without requiring designers to invent missing pages, relationships, states, access boundaries, or ownership.
 
-This document currently approves the inventory classification model and the comprehensive population method. It does not yet approve the individual entries in the complete page inventory.
+This document currently approves the inventory classification model, comprehensive population method, and page-boundary model. It does not yet approve the individual entries in the complete page inventory.
 
 ## Decision
 
@@ -68,6 +68,35 @@ This structure reflects Nexora’s non-linear, search-first architecture. Search
 8. The inventory is comprehensive rather than limited to Tier 1 journeys. All known product surfaces are mapped before page-level architecture is considered complete.
 9. Inventory inclusion does not establish delivery priority. Delivery horizon is tracked independently as Foundation, Expansion, or Future.
 10. Metadata that depends on later Account, Support, Admin, permissions, or system-state decisions is marked `Provisional` instead of being treated as approved architecture.
+
+## Page-boundary model
+
+Nexora uses **destination-oriented pages**. A separate page or page template requires at least one of these properties:
+
+- An independent user goal
+- A durable or shareable URL
+- A distinct access or permission boundary
+- State that must be resumed securely
+- A distinct lifecycle or ownership boundary
+
+Tabs, drawers, modals, autocomplete, contextual AI, checkout sections, and similar interaction units remain embedded within their host page unless they meet this threshold.
+
+This model preserves meaningful context and limits route proliferation. It aligns with the adaptive customer journeys, unified checkout, Decision Workspace, and non-linear Engineering Workspace.
+
+### Exceptions
+
+1. A subtask becomes a page when it must be securely resumed or deep-linked.
+2. Legally consequential actions may use a focused confirmation destination.
+3. Complex support cases may become persistent case-detail pages after initiation.
+
+### Boundary examples
+
+- Search result types remain grouped within one unified results page.
+- Product specifications, reviews, and compatibility are sections of the Product Detail template.
+- Checkout delivery, payment, financing, warranty, and review are modules of one page.
+- Order tracking, invoices, cancellation, and support entry points are coordinated from Order Detail; a persistent return or support case may have its own detail page.
+- Component selection is contained by the PC Builder Engineering Workspace.
+- Contextual AI remains embedded; the dedicated AI Assistant is a page.
 
 ## Protected architectural boundaries
 
