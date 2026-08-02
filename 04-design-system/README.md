@@ -7,6 +7,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 ## Approved decisions
 
 1. [System Architecture](01-system-architecture.md) — approved; six-layer dependency and governance model
+2. [Mission, Principles, and Governance](02-mission-principles-and-governance.md) — approved; federated stewardship with central system gates
 
 ## Architectural inputs
 
