@@ -89,6 +89,29 @@ Page accountability does not transfer ownership of referenced data. For example:
 - Admin workspaces govern authoritative resources through their owning services rather than storing parallel copies.
 - AI consumes authoritative data and owns neither catalog facts nor deterministic compatibility.
 
+### Ledger granularity
+
+The ownership ledger contains one explicit row for each approved Page Inventory ID. Ownership is not inherited implicitly from a page class or product-surface family.
+
+Each row must make exceptions visible, particularly where:
+
+- The page experience and its primary durable object have different owners
+- Several domains contribute consequential data or actions
+- A customer and Admin page expose the same authoritative object
+- Mutation requires another domain’s validation
+- Approval or escalation crosses an operational boundary
+- A later Phase 2B decision must resolve provisional authority
+
+The ledger will be reviewed in four slices matching the customer relationship graph, followed by Admin pages. Completion requires:
+
+- All 89 approved page IDs exactly once
+- Exactly one accountable page domain per page
+- Authoritative data ownership for every consequential object
+- Mutation authority for every mutable object
+- Explicit approval authority or `Not applicable`
+- An escalation owner
+- Visible provisional dependencies rather than inferred decisions
+
 ## Governance rules
 
 1. Every page has at least one valid inbound relationship or a documented deep-link-only justification.
