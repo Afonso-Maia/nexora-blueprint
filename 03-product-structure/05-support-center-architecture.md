@@ -446,14 +446,106 @@ AI-generated material is attributable in the operational record, cites its case 
 7. Export, legal hold, redaction, and deletion actions preserve the governing policy and audit requirements.
 8. Degraded channel or evidence services preserve confirmed events and identify unconfirmed work without duplicating it.
 
+## Obligation-based service tracking
+
+Support tracks service expectations as explicit obligations rather than one generic case timer. A case may have several concurrent or sequential obligations with different owners, policies, and due expectations.
+
+### Obligation contract
+
+Every tracked obligation records:
+
+- Obligation type and affected case scope
+- Accountable owner
+- Responsible participant or team
+- Start time and due expectation
+- Governing service policy and policy version
+- Current state
+- Governed pause reason when applicable
+- Satisfaction evidence or cancellation reason
+- Escalation route
+
+Initial response, customer evidence review, Nexora follow-up, external-provider update, refund or replacement coordination, and resolution review are representative obligation types. New types follow the same contract.
+
+Obligation state is:
+
+- **Active:** time and work are progressing under the service policy.
+- **Satisfied:** the defined obligation has been fulfilled with evidence.
+- **Paused:** a governed dependency temporarily stops the applicable clock.
+- **Breached:** the applicable due expectation passed without satisfaction or an eligible pause.
+- **Cancelled:** the obligation no longer applies for a recorded reason.
+
+These states do not replace case lifecycle, responsibility, or linked operational state.
+
+### Customer expectations
+
+Customers see the next meaningful action, responsible party, and an honest expected date or range supported by the governing policy. A material expectation change produces a customer-visible timeline event and explanation.
+
+Internal operating targets are not presented as contractual guarantees unless Nexora has explicitly made that commitment. Missing or uncertain external estimates are shown as unknown or awaiting confirmation rather than converted into false precision.
+
+### Pause governance
+
+A pause requires:
+
+- An eligible policy reason
+- The obligation and clock affected
+- Start time
+- Responsible owner
+- Customer action or external dependency, when applicable
+- Resume, expiry, or review condition
+
+Awaiting-customer and awaiting-external-party pauses cannot conceal work that remains Nexora's responsibility. Receiving the requested input resumes or re-evaluates the obligation; it does not automatically satisfy it.
+
+### Escalation
+
+Escalation is a governed flag and workflow attached to a case or obligation. It does not change lifecycle, responsibility, eligibility, or operational outcome by itself.
+
+Escalation may be triggered by:
+
+- A breached or at-risk obligation
+- Customer vulnerability, safety, security, or material-impact criteria
+- Repeated failed resolution
+- Policy exception requiring higher authority
+- Cross-domain or external-provider blockage
+- Authorized manual review
+
+Automated escalation may alert, prioritize, or route. Refunds, replacements, warranties, policy exceptions, and other consequential outcomes still require the authorized owning role.
+
+Customers see material escalation effects and revised expectations without exposure of security-sensitive or internal personnel information.
+
+### Ownership and handoff
+
+Each case always has one accountable Support owner, even when another domain or external participant performs the current task.
+
+A handoff records:
+
+1. Current owner and proposed target
+2. Transfer reason and requested scope
+3. Current case summary, evidence, commitments, obligations, and blockers
+4. Target acceptance or governed routing assignment
+5. Effective timestamp and customer-visible effect
+
+The case is not left unowned between request and acceptance. History, evidence, obligation clocks, breaches, and prior commitments remain intact. Transfer never resets service measurement or hides delay.
+
+Changing the responsible participant for one obligation does not necessarily transfer overall case accountability. Transfers and reassignments are auditable and reversible only through another governed handoff.
+
+### Governance rules
+
+1. Support Operations owns service policies, obligation definitions, and escalation governance.
+2. A specialized domain owns an obligation only after accepting it through the governed contract.
+3. Nexora retains customer-facing case accountability when an external participant performs work unless policy explicitly defines another relationship.
+4. One obligation's pause or satisfaction cannot pause or satisfy unrelated obligations.
+5. Case resolution exposes active external or operational dependencies and cannot use closure to erase them.
+6. Breached expectations remain in history after reassignment, escalation, resolution, or closure.
+7. Manual due-date changes require permission, reason, policy basis, and audit history.
+8. Degraded service-level calculation identifies uncertainty and does not mark an obligation satisfied or paused automatically.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Service level, escalation, and ownership-transfer behavior
 - External carrier, repair-provider, and manufacturer participation
 - Mobile Support navigation details
 
 ## Next decision
 
-Define service-level, escalation, and ownership-transfer behavior, followed by external participation and mobile behavior.
+Define external carrier, repair-provider, and manufacturer participation, followed by mobile Support behavior and topic validation.
