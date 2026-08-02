@@ -9,3 +9,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0003](ADR-0003-scoped-capability-based-access-control.md) | Accepted | Scoped capability-based access control |
 | [ADR-0004](ADR-0004-layered-design-system-architecture.md) | Accepted | Layered Design System architecture |
 | [ADR-0005](ADR-0005-semantic-design-token-architecture.md) | Accepted | Semantic Design Token architecture |
+| [ADR-0006](ADR-0006-unified-variable-typography.md) | Accepted | Unified variable typography |
