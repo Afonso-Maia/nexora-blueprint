@@ -11,7 +11,7 @@ Phase 2B will define:
 3. [Page-Level Information Hierarchy](03-information-hierarchy.md) — approved; nine contracts and 89-page mapping
 4. [Account and Post-Purchase Architecture](04-account-architecture.md) — approved; federated continuity, post-purchase state, assurance, restrictions, notifications, privacy lifecycle, and mobile continuity
 5. [Support Center Architecture](05-support-center-architecture.md) — approved; routing, governed content, self-service, typed cases, communication, obligations, external work, and mobile behavior
-6. Administrative Dashboard IA
+6. [Administrative Dashboard IA](06-administrative-dashboard-ia.md) — stable capability navigation approved; details pending
 7. Roles and Permissions
 8. Error and Empty States
 9. Scalability
