@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — classification, population method, and page boundaries approved; complete inventory pending
+**Status:** Approved in part — governing model and Category Discovery boundary approved; complete inventory pending
 
 ## Purpose
 
@@ -97,6 +97,24 @@ This model preserves meaningful context and limits route proliferation. It align
 - Order tracking, invoices, cancellation, and support entry points are coordinated from Order Detail; a persistent return or support case may have its own detail page.
 - Component selection is contained by the PC Builder Engineering Workspace.
 - Contextual AI remains embedded; the dedicated AI Assistant is a page.
+
+## Category Discovery template
+
+Nexora uses one **unified Category Discovery template** for each canonical category. It combines:
+
+- Concise category orientation
+- Optional, visible intent controls
+- Quick and technical filters
+- Sorting
+- The product grid
+- Relevant buying guidance
+- Explainable recommendations
+
+Guided and Expert interactions modify the same product grid and represented filter state. They do not lead to separate category landing and product-listing pages.
+
+This boundary preserves the fast path and supports the approved Intent-Driven Discovery journey. Category orientation and merchandising remain subordinate to product discovery, preventing category pages from becoming banner-heavy campaign destinations.
+
+Exact layout, responsive interactions, and visual treatment remain deferred to wireframing and Design System work.
 
 ## Protected architectural boundaries
 
