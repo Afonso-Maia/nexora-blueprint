@@ -295,15 +295,61 @@ Recovery safeguards, customer notification, cooling periods, or delayed executio
 9. Sensitive values and verification evidence are not exposed in URLs, analytics, or general-purpose logs.
 10. Tier assignments are governed policy and must be reviewed when a capability's consequences change.
 
+## Capability-based restriction and recovery
+
+Account restrictions apply to governed capabilities rather than operating as one undifferentiated lock. Each request evaluates the customer's current restriction state, the requested capability, and the assurance required for that action.
+
+### Restriction states
+
+| State | New commerce and payment changes | Existing orders and documents | Support and remedies | Account changes and recovery |
+| --- | --- | --- | --- | --- |
+| Normal | Available when otherwise eligible | Available | Available | Available at the governed assurance tier |
+| Verification required | Safe browsing and unaffected actions continue; sensitive actions require verification | Available with appropriate verification | Available | Sensitive changes pause until verification succeeds |
+| Commerce restricted | Purchasing, financing, and payment changes pause | Tracking, invoices, delivery status, and eligible order actions remain available | Returns, warranties, and Support remain available when safely possible | Unaffected settings remain available; recovery path is prominent |
+| Security restricted | Unavailable | Minimum protected access through secure recovery or verified task-specific paths | Minimum protected access for unresolved obligations | Secure recovery is primary; other mutations pause |
+| Closure pending | New commerce and new financial commitments stop | Access continues for outstanding and retained obligations | Existing remedies and cases continue | Closure status, cancellation where eligible, and required controls remain |
+| Closed | Unavailable | Retained records use a separate verified access path when required | Unresolved or retained obligations use verified non-Account channels | Authentication ends; reopening is not implied |
+
+Restrictions can coexist. The effective result is the most protective rule for the requested capability, not necessarily the most restrictive label for the entire Account.
+
+### Restriction contract
+
+Every restriction records:
+
+- A stable reason category without unnecessary security-sensitive detail
+- Affected capabilities
+- Authoritative owner
+- Start time and source
+- Recovery or review path
+- Expiry, review, or resolution condition
+- Customer-notification requirements
+- Auditable changes and administrative actions
+
+The Account experience explains what is affected, what remains available, and the next safe action. When detailed disclosure would create security or fraud risk, Nexora may limit the explanation but still provides actionable recovery guidance.
+
+### Recovery and continuity rules
+
+1. Identity or Security owns identity restrictions and recovery assurance.
+2. Risk or Payments owns commerce and payment restrictions within its governed scope.
+3. Customer owns the Account-facing explanation, capability routing, and continuity experience.
+4. Purchase, Delivery, and Support preserve access to existing obligations whenever the governing risk permits it.
+5. A restriction cannot erase, rewrite, or conceal the existence of historical records the customer remains entitled to access.
+6. Recovery uses the risk-tiered assurance model and may require a stronger tier than the interrupted action.
+7. Successful recovery re-evaluates current restrictions; it does not blindly restore every prior capability.
+8. Failed or abandoned recovery preserves the restriction and offers a safe retry or Support route without disclosing verification secrets.
+9. Administrative overrides require explicit permission, a reason, bounded scope, and an audit record.
+10. No administrative override bypasses required proof of identity or transfers ownership of customer objects.
+11. Support may coordinate recovery but does not become the authority for Identity, Risk, Payments, Purchase, or Delivery records.
+12. All destinations independently enforce the current effective restriction; Dashboard visibility alone never grants access.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Account restriction and recovery behavior
 - Notification categories, retention, and preferences
 - Privacy requests, export, closure, and retention
 - Mobile navigation interaction details
 
 ## Next decision
 
-Define Account restriction and recovery behavior, followed by notifications, privacy requests, and Account lifecycle controls.
+Define notification categories, retention, and preference behavior, followed by privacy requests, Account lifecycle controls, and mobile navigation details.

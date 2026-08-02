@@ -54,6 +54,7 @@
 - Approved the composite order-state and action-eligibility model.
 - Approved verified explicit guest-order access and permanent Account claiming.
 - Approved risk-tiered assurance for Account preference and lifecycle actions.
+- Approved capability-based Account restriction and recovery with protected post-purchase continuity.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
