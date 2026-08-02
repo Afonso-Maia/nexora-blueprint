@@ -62,6 +62,7 @@
 - Approved intent-and-context routing for the Support Center.
 - Approved structured task-oriented Support Articles with governed content lifecycles.
 - Approved a deterministic self-service gateway with explicit persistent-case thresholds.
+- Approved a shared Support Case envelope with type-specific workflows.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

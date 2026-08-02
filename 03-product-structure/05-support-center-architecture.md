@@ -254,11 +254,103 @@ A technical failure does not create a case unless durable creation is confirmed.
 7. Self-service completion and case resolution are distinct outcomes; one is not recorded as the other.
 8. Analytics and draft storage do not become shadow case systems.
 
+## Shared Support Case envelope
+
+SUP-007 Support Case Detail uses one common customer-facing envelope extended by governed type-specific workflows.
+
+### Case contract
+
+Every persistent case records:
+
+- Stable case reference and governed type
+- Customer-visible issue summary
+- Verified participants and their roles
+- Associated order, item, product, PC Build, shipment, payment, or other governed objects
+- Submission context and applicable policy references
+- Timeline, messages, and evidence
+- Current lifecycle state
+- Current responsible party
+- Next expected action and due expectation
+- Linked operational processes and their authoritative owners
+- Resolution summary and closure provenance
+
+General support, return, refund, warranty, and repair are initial governed case types. A type controls applicable modules, evidence, routing, and valid transitions; it does not create a separate customer-facing detail template.
+
+### Shared lifecycle
+
+The primary case lifecycle is:
+
+`Submitted → Active → Resolved → Closed`
+
+- **Submitted:** durable creation is confirmed and initial routing is pending or underway.
+- **Active:** investigation, communication, or operational coordination is in progress.
+- **Resolved:** Support has provided or coordinated the case-level resolution and exposes the outcome.
+- **Closed:** the case is complete under the governing closure rule and no active case action remains.
+
+`Cancelled` is a governed alternate terminal state when cancellation is eligible. A resolved case may return to Active within the applicable policy. A closed or cancelled case requires a new linked case unless an explicit, auditable reopening rule permits otherwise.
+
+Lifecycle transitions record actor, timestamp, reason, and relevant evidence. Type changes, merges, splits, links, reopening, cancellation, and closure preserve the original provenance.
+
+### Responsibility dimension
+
+Current responsibility is separate from lifecycle:
+
+- Awaiting Nexora
+- Awaiting customer
+- Awaiting carrier, repair provider, manufacturer, or another governed participant
+- No action currently required
+
+The customer sees who is expected to act, what action is expected, and the material blocker or dependency. A responsibility change does not imply lifecycle progression.
+
+`Escalated` and `Overdue` are governed flags, not lifecycle states. They can coexist with Submitted, Active, or Resolved and must identify the affected obligation.
+
+### Type-specific workflows
+
+Type-specific modules extend the shared envelope. Examples include:
+
+- **General support:** diagnosis, guidance, and specialist handoff
+- **Return:** item scope, authorization, logistics, inspection, and receipt
+- **Refund:** approved amount or scope and linked payment execution
+- **Warranty:** coverage, evidence, assessment, and remedy determination
+- **Repair:** device intake, diagnosis, approval, repair progress, and return logistics
+
+Specialized workflow state remains distinct from the shared case lifecycle. A return item can be in transit while its case is Active; a case can be Resolved while a separately authoritative refund is still processing only if the customer-facing resolution states that remaining dependency explicitly.
+
+### Operational links and truth boundaries
+
+Support coordinates and presents linked processes without absorbing their authority:
+
+- Payments owns refund execution state.
+- Delivery, Fulfillment, or the carrier integration owns shipment and logistics state.
+- Inventory owns received-item disposition where applicable.
+- Catalog owns product identity and governed facts.
+- Compatibility owns deterministic compatibility facts.
+- Repair operations or a governed provider owns repair execution facts.
+- Legal or the designated policy owner owns policy meaning and approved versions.
+
+No case label implies payment, delivery, item receipt, replacement, repair, or refund completion before its authoritative owner confirms it.
+
+### Case-list and notification projections
+
+SUP-006 My Support Cases groups and filters cases by lifecycle, type, responsibility, associated object, and recency without inventing parallel status. Notifications reference the same case and linked operational state.
+
+Duplicate events from linked systems resolve into one understandable case timeline entry when they represent the same underlying change. Delayed or conflicting source data is identified rather than flattened into a false final state.
+
+### Governance rules
+
+1. Support owns the shared envelope, case type, case lifecycle, and customer-facing coordination.
+2. Specialized domains own their process facts, eligibility, and outcomes.
+3. Lifecycle, responsibility, escalation, overdue state, and linked-process state remain separate dimensions.
+4. Case resolution records rationale, outcome, remaining dependencies, and available review or follow-up.
+5. Closure requires the governing completion rule; inactivity alone does not silently close a case.
+6. Customers retain access to eligible case history after resolution or closure under the governing retention and access policy.
+7. Support cannot use a lifecycle transition to bypass another domain's authorization or evidence requirements.
+8. AI may summarize the case but cannot change type, lifecycle, responsibility, eligibility, or linked operational state.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Support Case taxonomy and lifecycle
 - Case communication, evidence, and participant model
 - Service level, escalation, and ownership-transfer behavior
 - External carrier, repair-provider, and manufacturer participation
@@ -266,4 +358,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the Support Case taxonomy and lifecycle, followed by communication, evidence, service levels, escalation, and external participation.
+Define the case communication, evidence, and participant model, followed by service levels, escalation, external participation, and mobile behavior.
