@@ -65,6 +65,7 @@
 - Approved a shared Support Case envelope with type-specific workflows.
 - Approved a case-centered communication record with governed evidence and scoped participants.
 - Approved obligation-based Support service tracking, escalation, and accountable handoffs.
+- Approved bounded external Support work packages with explicit Nexora accountability.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

@@ -539,13 +539,97 @@ Changing the responsible participant for one obligation does not necessarily tra
 7. Manual due-date changes require permission, reason, policy basis, and audit history.
 8. Degraded service-level calculation identifies uncertainty and does not mark an obligation satisfied or paused automatically.
 
+## Bounded external work packages
+
+Carriers, repair providers, manufacturers, and other approved external organizations participate through scoped work packages linked to a Support Case. They do not receive full-case access or operate as equivalent Nexora agents.
+
+### Work-package contract
+
+Every external work package records:
+
+- Provider organization and verified organizational participant
+- Assigned task and affected order, shipment, item, or product scope
+- Minimum required customer, logistics, and evidence data
+- Allowed actions, messages, and structured updates
+- Start time, due expectation, expiry, and revocation conditions
+- Governing service, contract, and data-sharing policy
+- Nexora accountable owner
+- Completion criteria and evidence
+- Synchronization and reconciliation state
+
+The package is purpose-limited. Completion, expiry, revocation, case closure, or provider-relationship termination removes access according to the governing policy without deleting required history.
+
+### Permitted participation
+
+A provider may report facts within its accepted scope, such as:
+
+- Pickup scheduling and execution
+- Shipment or delivery status
+- Item receipt and chain-of-custody events
+- Diagnostic findings
+- Repair estimate or approval request
+- Repair progress and completion
+- Return-shipment details
+- Manufacturer-owned reference and status
+
+Providers cannot:
+
+- Change customer identity, Account ownership, or authentication state
+- View unrelated orders, payments, cases, evidence, or internal notes
+- Change the Support Case type, lifecycle, or overall accountable owner
+- Approve Nexora refunds, replacements, warranties, or policy exceptions unless a later permission decision explicitly grants a bounded authority
+- Rewrite customer or Nexora communication
+- Expand their own task, participant list, access, or retention
+
+Exact external permissions remain subject to the later Roles and Permissions architecture.
+
+### Timeline and communication
+
+Validated provider updates enter the case timeline with provider, source, and source timestamp attribution. Nexora maps provider-specific states into customer-understandable language without replacing the original execution fact.
+
+Direct customer-provider communication is available only through an approved channel and within the work-package scope. Applicable messages or governed interaction summaries become part of the appropriate case record. Providers cannot move communication to an unrecorded channel when that would break required provenance or customer protection.
+
+External completion satisfies only the work package and its accepted obligations. It does not automatically resolve or close the Support Case.
+
+### Manufacturer-only handoff
+
+Nexora clearly distinguishes:
+
+1. **Nexora-coordinated work:** the manufacturer or provider operates through a bounded work package while Nexora retains accountable case ownership.
+2. **Manufacturer-owned process:** Nexora provides a transparent handoff to a separately owned process, records the external reference when available, and does not imply control over that process.
+
+A manufacturer-owned handoff explains what context will transfer, who becomes responsible, which Nexora obligations remain, how the customer returns for help, and what status Nexora can or cannot observe.
+
+### Synchronization and reconciliation
+
+Provider integration state is separate from provider execution state.
+
+- Confirmed updates retain their source timestamp and provenance.
+- Delayed synchronization is visible and does not fabricate a current status.
+- Duplicate events are reconciled without duplicating customer-visible progress.
+- Conflicts remain identified until an authorized source or reviewer resolves them.
+- Manual reconciliation requires permission, reason, supporting evidence, and an audit record.
+- A manual correction does not silently overwrite the provider's original event.
+
+Provider outage or access revocation preserves confirmed history and routes outstanding obligations to the Nexora accountable owner. The customer receives a revised honest expectation rather than an unsupported promise.
+
+### Governance rules
+
+1. Nexora retains one accountable Support owner for every coordinated case.
+2. Provider identity, contract, purpose, and data-processing basis are verified before access.
+3. Shared data is limited to the minimum necessary work-package scope.
+4. Provider participants use individual or otherwise attributable identities; shared anonymous access is not sufficient.
+5. Customer consent or notice is captured when required by the governing policy.
+6. External work does not transfer source-domain authority unless a later explicit decision establishes that bounded delegation.
+7. Access reviews, expiry, revocation, and provider offboarding are auditable.
+8. Provider performance reporting uses the obligation model and does not alter customer-facing case history.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- External carrier, repair-provider, and manufacturer participation
 - Mobile Support navigation details
 
 ## Next decision
 
-Define external carrier, repair-provider, and manufacturer participation, followed by mobile Support behavior and topic validation.
+Define mobile Support navigation and case interaction behavior, then validate the complete Support Center Architecture.
