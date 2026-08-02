@@ -16,6 +16,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 8. [Iconography and Imagery](08-iconography-and-imagery.md) — approved; Lucide-based icons and factual product media
 9. [Motion and Interaction Feedback](09-motion-and-interaction-feedback.md) — approved; functional, interruptible motion
 10. [Accessibility Foundations](10-accessibility-foundations.md) — approved; WCAG 2.2 AA with enhanced critical-path requirements
+11. [Primitive Components](11-primitive-components.md) — approved; semantic structural and interaction substrate
 
 ## Architectural inputs
 

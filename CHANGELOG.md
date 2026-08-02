@@ -17,6 +17,7 @@
 - Approved functional motion tokens, interaction feedback, asynchronous progress, drag alternatives, and reduced-motion equivalence.
 - Approved WCAG 2.2 AA as the product-wide accessibility baseline with enhanced critical-path requirements.
 - Accepted ADR-0007 establishing accessibility scope, blocking authority, and validation gates.
+- Approved the semantic structural, surface, content, media, interaction, and internal-state primitive catalog.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
