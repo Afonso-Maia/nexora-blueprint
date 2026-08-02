@@ -603,14 +603,123 @@ If one index or source is unavailable:
 7. Permission revocation applies to index results, cached suggestions, recents, direct links, and open destinations.
 8. Search and launcher behavior is keyboard- and assistive-technology accessible.
 
+## Risk-tiered Admin actions
+
+Every Admin action has a governed risk class based on consequence, scope, sensitivity, reversibility, and abuse potential.
+
+### Risk classes
+
+| Class | Typical characteristics | Applicable controls |
+| --- | --- | --- |
+| Routine | Narrow, low-impact, readily reversible | Clear action label, current-state validation, outcome feedback, and audit where policy requires |
+| Significant | Material customer or operational effect | Consequence preview, required reason, explicit confirmation, and stronger audit context |
+| High | Financial, pricing, inventory, publication, privacy, access, or broad-scope effect | Recent or step-up authentication, evidence, reduced batch scope, independent approval or scheduled execution where governed |
+| Critical | Irreversible, systemic, exceptional, or segregation-of-duties-sensitive effect | Strongest assurance, independent authorization, bounded execution plan, recovery or compensation plan, and explicit monitoring |
+
+The source domain and Governance define the class. Operators, UI clients, workflow automation, and AI cannot lower it.
+
+Risk may increase because of amount, object count, customer impact, data sensitivity, current incident state, unusual timing, or other governed context. A higher contextual class applies without changing the action's normal baseline policy.
+
+### Proportional safeguards
+
+Depending on risk, an action may require:
+
+- Before-and-after or consequence preview
+- Required reason, evidence, and policy basis
+- Recent or step-up authentication
+- Reduced batch size or single-resource execution
+- Independent approval
+- Delayed, scheduled, or monitored execution
+- Customer, stakeholder, or security notification
+- Recovery, rollback, or compensation plan
+- Narrowly justified typed confirmation
+
+The confirmation surface names the exact action, target objects, scope, affected customers or systems, effective time, and reversibility. Generic “Are you sure?” prompts are insufficient for consequential actions.
+
+Routine work does not receive unnecessary repeated confirmation. Avoiding confirmation fatigue cannot remove required validation, audit, approval, or outcome reporting.
+
+### Approval and execution separation
+
+Approval and execution are independent authorizations:
+
+1. The approval applies only to the reviewed proposal, scope, risk, and conditions.
+2. Material change invalidates or requires renewal of approval.
+3. The executor must independently retain permission and assurance at commitment.
+4. An approver does not automatically become the executor.
+5. A requestor cannot approve their own work where segregation policy prohibits it.
+6. Approval does not guarantee successful or synchronous execution.
+
+Exact role assignments, approval thresholds, and segregation constraints remain governed by the later Roles and Permissions architecture.
+
+## Correlated audit history
+
+ADM-032 Audit Log presents permission-filtered, append-only records correlated across:
+
+`Request → Validation → Approval → Execution → Outcome → Reconciliation or correction`
+
+### Audit record contract
+
+Applicable records include:
+
+- Attributable human, service, provider, or AI-assisted actor
+- Actor role, permission scope, delegation, and assurance at the time
+- Owning domain and action type
+- Target resource, field, item, amount, and batch scope
+- Request reason, evidence, and policy basis
+- Baseline and source-state references
+- Validation and consequence-preview result
+- Approval decision, conditions, and approver
+- Execution idempotency and correlation references
+- Timestamp and effective time
+- Confirmed, pending, failed, skipped, superseded, or indeterminate outcome
+- Before-and-after revision or event references where applicable
+- Reconciliation, correction, compensation, or rollback links
+
+Sensitive values may be protected or referenced rather than copied into the general audit record. Redaction follows policy and cannot erase the existence, actor, target class, action, outcome, or required provenance of a governed event.
+
+### Audit presentation
+
+Audit Log supports authorized filtering by actor, capability, action, target, risk class, outcome, time, approval, and correlation reference.
+
+- Summary rows remain factual and avoid interpreting an event as successful when its outcome is pending or unknown.
+- Correlated detail reconstructs the action chain without merging distinct source events.
+- Source and ingestion timestamps remain separate.
+- Delayed ingestion is identified.
+- Corrections add linked records and never rewrite earlier events.
+- Export follows the governed worklist export and sensitive-data rules.
+
+Resource workspaces may show a scoped audit projection. ADM-032 remains the cross-capability audit destination and does not become the authoritative owner of source-domain facts.
+
+### Failed and incomplete actions
+
+Validation failures, denied approvals, rejected step-up, execution failures, timeouts, partial bulk results, and indeterminate downstream outcomes are audited according to policy. Audit is not limited to successful mutations.
+
+An audit event is evidence that an action was requested or observed; it is not proof that every downstream effect completed. Operational status remains owned by the executing domain.
+
+### AI and automation
+
+AI-assisted drafts and summaries retain attribution to the assistance and the human or service actor that accepted consequential use. Automated actions identify the automation identity, triggering policy or event, delegated scope, and accountable owner.
+
+AI and automation cannot alter audit history, approve their own expanded authority, or classify an outcome as confirmed without authoritative evidence.
+
+### Governance rules
+
+1. Source domains own action consequence, reversibility, and authoritative outcome.
+2. Security and Governance own assurance, risk, retention, and audit policy.
+3. Admin Platform owns shared risk presentation, confirmation, correlation, and Audit Log experience.
+4. Failed, denied, partial, and indeterminate work receives appropriate audit coverage.
+5. Permission to perform an action does not imply permission to inspect every audit field about it.
+6. Audit access and export are themselves auditable high-risk capabilities.
+7. Corrections, reconciliation, and rollback create new linked events.
+8. Degraded audit ingestion blocks an action when policy requires confirmed audit durability before execution.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Audit and high-risk action presentation
 - Exact roles, permissions, and segregation of duties
 - Admin degraded and continuity behavior
 
 ## Next decision
 
-Define audit and high-risk action presentation, followed by permissions boundaries and Admin degraded behavior.
+Define the Admin IA boundary with the later Roles and Permissions architecture, followed by Admin degraded and continuity behavior.
