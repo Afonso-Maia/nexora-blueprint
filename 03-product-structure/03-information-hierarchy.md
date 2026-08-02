@@ -106,6 +106,35 @@ The shell determines global navigation and persistent utilities. The archetype d
 - Dynamic updates announce meaningful changes without interrupting unrelated work.
 - Keyboard and assistive-technology users retain equivalent access to primary and recovery actions.
 
+### Admin responsive specialization
+
+Administrative Dashboard pages provide **responsive operational continuity with guarded specialization**.
+
+Mobile-supported capabilities include:
+
+- Monitoring and status inspection
+- Operational search, filtering, and saved-view access
+- Assignment and routing
+- Messaging and evidence upload
+- Approval review
+- Emergency suspension or revocation
+- Safe, bounded single-record actions
+
+Complex schema editing, compatibility-rule authoring, high-volume bulk changes, role-definition editing, deep audit investigation, pricing simulation, and multi-panel impact analysis may require a supported larger workspace.
+
+The restriction is based on interaction safety and available context, not device identity alone.
+
+When a larger workspace is required:
+
+- The action remains visible with a clear explanation.
+- Permission, risk, validation, and impact context remains visible.
+- Existing drafts and reviewed context persist during handoff.
+- A safe return path is provided.
+- Emergency protective actions remain available when they can be implemented safely.
+- The page does not present a broken or misleading approximation of the workflow.
+
+Accessibility remains mandatory at every supported viewport. Specialization cannot be used to avoid keyboard, assistive-technology, zoom, reflow, or input requirements.
+
 ## Approved archetype specifications
 
 ### Hub
