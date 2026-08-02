@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and Blocks 1–2 approved; remaining inventory pending
+**Status:** Approved in part — governing model, Blocks 1–2, and PC Builder inventory approved; remaining inventory pending
 
 ## Purpose
 
@@ -477,6 +477,75 @@ The following remain modules or focused interactions within approved pages:
 - Profile, security, privacy, communication, and account-lifecycle settings
 
 Persistent returns, warranty claims, and support requests become Support case pages after initiation. Exact system states and embedded-unit behavior remain subject to the later error, empty, loading, offline, and degraded-state review.
+
+### Block 3A — PC Builder
+
+Every PC Builder destination preserves the deterministic compatibility model as authoritative. AI guidance remains distinguishable from compatibility facts.
+
+#### PCB-001 — PC Builder Start
+
+- **Type / class:** Fixed entry and initialization page / PC Builder
+- **Purpose:** Explain the Builder, let users choose Guided or Expert initialization, and create a build.
+- **Ownership:** PC Builder; supported by Catalog, Compatibility, Customer, AI, Pricing, and Inventory
+- **Audience / access / shell:** Guest and customer / Public / Workspace entry
+- **Entry / URL:** Primary navigation, Home, Search, Product Detail, Comparison, Saved Builds, and contextual links / `/pc-builder`
+- **Search participation:** Indexed as the canonical PC Builder destination and eligible as a primary-task result
+- **Relationships / actions:** Creates and leads to Engineering Workspace; may resume eligible local or saved context; primary action is initialize a build
+- **Required states:** No prior build, resumable draft, unavailable catalog, compatibility service unavailable, initialization conflict, and authentication handoff
+- **Lifecycle / journeys:** Configure / J-04, J-05
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### PCB-002 — Engineering Workspace
+
+- **Type / class:** Stateful persistent-object template / PC Builder
+- **Purpose:** Configure, validate, save, share, and purchase one non-linear PC Build.
+- **Ownership:** PC Builder; supported by Compatibility, Catalog, Pricing, Inventory, Customer, Purchase, and AI
+- **Audience / access / shell:** Guest draft or owning customer / Session-bound or authenticated owner / Workspace
+- **Entry / URL:** PC Builder Start, Saved Builds, Shared Build duplication, Order Detail upgrade action, and resume link / `/pc-builder/builds/{build-reference}`
+- **Search participation:** Excluded from public indexing; owned saved builds may surface only in authenticated search context
+- **Relationships / actions:** Leads to Saved Builds, Shared Build, Cart, Product Detail, and contextual AI; actions include select components, inspect constraints, save, duplicate, share, convert to Cart, and create an upgrade variant
+- **Required states:** Empty slots, warning, hard incompatibility, budget conflict, unavailable component, changed price, insufficient stock, stale compatibility result, recalculation in progress, unsaved guest draft, save conflict, and partial AI or performance degradation
+- **Lifecycle / journeys:** Evaluate, Compare, Configure, and Purchase / J-03, J-04, J-05, J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### PCB-003 — Saved Builds
+
+- **Type / class:** Authenticated collection page / PC Builder
+- **Purpose:** Manage the customer’s persistent PC Builds across their lifecycle.
+- **Ownership:** PC Builder; supported by Customer, Compatibility, Catalog, Pricing, and Inventory
+- **Audience / access / shell:** Customer / Authenticated / Workspace
+- **Entry / URL:** Account navigation, Account Dashboard, PC Builder Start, Engineering Workspace, and notifications / `/account/builds`
+- **Search participation:** Excluded from public indexing; entries may participate in authenticated search
+- **Relationships / actions:** Leads to Engineering Workspace and Shared Build; actions are resume, duplicate, rename, share, archive, purchase, and start an upgrade variant
+- **Required states:** No builds, locally recoverable draft, unavailable component, compatibility changed, price or stock changed, archive conflict, and partial metadata failure
+- **Lifecycle / journeys:** Configure, Purchase, and Upgrade later / J-04, J-05, J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### PCB-004 — Shared Build
+
+- **Type / class:** Read-only shared-object template / PC Builder
+- **Purpose:** Let a recipient inspect an explainable build snapshot and optionally duplicate it into their own workspace.
+- **Ownership:** PC Builder; supported by Compatibility, Catalog, Pricing, Inventory, Customer, and AI
+- **Audience / access / shell:** Guest and customer / Governed share-link access / Workspace
+- **Entry / URL:** Share link and contextual references / `/pc-builder/shared/{share-reference}`
+- **Search participation:** Excluded from indexing and universal search
+- **Relationships / actions:** Leads to Product Detail, PC Builder Start, and a duplicated Engineering Workspace; actions are inspect components and compatibility, duplicate, and begin purchase through an owned copy
+- **Required states:** Invalid, revoked, or expired link; unavailable component; changed compatibility; stale price or stock; owner-deleted build; and partial catalog data
+- **Lifecycle / journeys:** Evaluate, Configure, and Purchase / J-03, J-04, J-05
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 3A embedded experience units
+
+The following remain inside the PC Builder destinations:
+
+- Guided and Expert initialization controls
+- Component list and component selection
+- Compatibility, Budget, and Performance panels
+- AI Copilot
+- Constraint explanations and recalculation feedback
+- Save, rename, duplicate, share, archive, purchase, and upgrade actions
+
+Collaboration, ownership transfer, version history, and public discoverability are not approved capabilities. They require later decisions before they may change the inventory.
 
 ## Protected architectural boundaries
 
