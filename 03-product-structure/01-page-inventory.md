@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model, Blocks 1–2, and PC Builder inventory approved; remaining inventory pending
+**Status:** Approved in part — governing model and Blocks 1–3 approved; remaining inventory pending
 
 ## Purpose
 
@@ -566,6 +566,34 @@ The following remain inside the PC Builder destinations:
 - Save, rename, duplicate, share, archive, purchase, and upgrade actions
 
 Collaboration, ownership transfer, version history, and public discoverability are not approved capabilities. They require later decisions before they may change the inventory.
+
+### Block 3B — AI Shopping Assistant
+
+#### AIS-001 — AI Assistant Conversation
+
+- **Type / class:** Stateful conversation template / AI Shopping Assistant
+- **Purpose:** Support open-ended, explainable shopping conversations without replacing deterministic product systems.
+- **Ownership:** AI; supported by Discovery, Catalog, Compatibility, Pricing, Inventory, Customer, PC Builder, Purchase, Marketing, and Support
+- **Audience / access / shell:** Guest and customer / Session-bound guest or authenticated customer / Workspace
+- **Entry / URL:** AI utility, contextual AI handoff, prior conversation, and deep link / `/assistant` for a new conversation and `/assistant/{conversation-reference}` for a persisted conversation
+- **Search participation:** Excluded from public indexing; owned conversations may participate only in authenticated personal search
+- **Relationships / actions:** Receives visible context from Search, Category Discovery, Product Detail, Comparison, PC Builder, or Checkout and may return users to those destinations; actions are ask, refine, inspect evidence and context, compare recommendations, remove context, reset, and manage conversations
+- **Required states:** New conversation, no history, response generation, partial evidence, low confidence, conflicting requirements, unavailable source system, stale referenced product, interrupted response, usage limitation, guest persistence boundary, and deletion pending
+- **Lifecycle / journeys:** Discover, Evaluate, Compare, Configure, Purchase, and Support / J-01 through J-06
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 3B embedded experience units
+
+The following remain within AIS-001:
+
+- Conversation history and conversation management
+- Context inspector
+- Source and evidence presentation
+- Rationale, trade-off, and confidence disclosures
+- Product, comparison, and build recommendations
+- Context removal, reset, and deletion controls
+
+Contextual AI panels remain embedded within their host pages and are not additional AI destinations. Conversation sharing and proactive autonomous actions are not approved capabilities.
 
 ## Protected architectural boundaries
 
