@@ -400,11 +400,109 @@ Rollback is not assumed safe or complete. The owning domain revalidates current 
 7. Session interruption preserves eligible drafts but never assumes an unconfirmed commit.
 8. AI may propose or explain a draft but cannot submit, approve, schedule, publish, execute, or resolve conflicts.
 
+## Coordinated cross-domain operations
+
+ADM-017 Order Workspace, ADM-019 Customer Workspace, and ADM-021 Support Case Workspace coordinate related context without becoming shared mutable owners of every contributing record.
+
+### Order Workspace
+
+Order Workspace presents eligible:
+
+- Order lifecycle, items, totals, and historical events
+- Payment and refund state
+- Fulfillment, shipment, and delivery state
+- Customer and verified contact context
+- Invoice and tax-document references
+- Compatibility or PC Build context
+- Linked Support cases, remedies, and operational obligations
+
+Purchase owns the Order Workspace and order lifecycle. Payments, Delivery or Fulfillment, Customer, Compatibility, PC Builder, Support, and other domains retain authority for their records and actions.
+
+Historical order, invoice, payment, delivery, tax, and consent facts are append-only or corrected through their owning domain's governed operation. They are not directly overwritten from the Order Workspace.
+
+### Customer Workspace
+
+Customer Workspace presents eligible:
+
+- Customer identity and governed profile
+- Account assurance, restriction, and lifecycle state
+- Current preferences with historical boundaries
+- Orders, Support cases, communication state, and privacy requests
+- Relevant risk or verification requirements
+- Auditable customer-service history
+
+Customer owns current profile and Account-facing records within its scope. Customer Workspace is not a universal mutable master record.
+
+Changing a current name, address, contact factor, or preference does not rewrite historical orders, invoices, deliveries, payments, Support evidence, consent, or communication events. Access to sensitive identity, risk, payment, and privacy context remains purpose- and field-restricted.
+
+### Support Case Workspace
+
+Support Case Workspace implements the approved Support case architecture for authorized operators. It coordinates:
+
+- Shared case envelope and typed workflow
+- Customer-visible timeline and separate internal notes
+- Evidence and review outcomes
+- Lifecycle, responsibility, escalation, and obligations
+- External work packages
+- Linked order, payment, fulfillment, product, and customer context
+- Governed action gateways and case audit history
+
+Support owns the case and coordination. It cannot infer or approve a refund, replacement, warranty, payment change, inventory movement, or delivery outcome merely because that operation is linked to the case.
+
+### Domain-owned action gateway
+
+A consequential action initiated from a coordinated workspace opens an owning-domain gateway that declares:
+
+- Owning domain and authoritative operation
+- Target object, item, amount, and scope
+- Current eligibility and source-state timestamp
+- Required reason, evidence, and policy basis
+- Required assurance, permissions, and approvals
+- Customer and downstream consequence preview
+- Idempotency and execution contract
+- Confirmed, pending, failed, superseded, or indeterminate outcome behavior
+- Audit and orchestration correlation
+
+The gateway can appear contextually inside the initiating workspace, but its ownership and boundary remain explicit. It rechecks authorization, state, eligibility, approval, and restrictions at commitment.
+
+### Durable multi-step orchestration
+
+Cross-domain remedies that require several operations use a durable orchestration record. Examples include a replacement requiring return logistics, inventory reservation, new fulfillment, and customer notification, or an approved return leading to inspection and refund processing.
+
+Every orchestration records:
+
+- Requested customer or operational outcome
+- Participating operations and authoritative owners
+- Dependency order and compensation rules where valid
+- Current state of each step
+- Overall confirmed, partial, pending, failed, or indeterminate state
+- Accountable coordinator
+- Customer communication requirement
+- Recovery and reconciliation path
+
+The interface never claims atomic completion unless the participating systems guarantee it. Confirmed steps remain visible when another step fails. Compensation is an explicit governed operation and is not assumed to reverse irreversible customer, financial, delivery, or external-provider effects.
+
+### Failure and retry
+
+Unknown or timed-out execution remains indeterminate until reconciled. Operators cannot blindly retry an operation that may have succeeded.
+
+Retry uses the original idempotency and correlation contract or starts a clearly linked new operation when the owner requires it. Manual reconciliation records source evidence, actor, reason, and effect without rewriting the original response.
+
+### Governance rules
+
+1. Source domains own facts, eligibility, operations, and outcomes.
+2. Admin Platform owns coordinated presentation, gateway framing, and safe cross-workspace continuity.
+3. Coordinated views label source, freshness, restrictions, and unavailable context.
+4. Permission to view a related record does not imply permission to act on it.
+5. Approval of a Support case outcome does not automatically approve a linked financial or fulfillment operation.
+6. Customer communication reflects confirmed outcomes and honest pending dependencies.
+7. Cross-domain operations preserve historical records and use append-only corrections where required.
+8. AI may summarize permitted context or draft a proposed orchestration, but cannot invoke gateways, approve steps, reconcile outcomes, or expand scope.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Cross-domain order, customer, and Support operations
 - Admin search, command, and recent-work behavior
 - Audit and high-risk action presentation
 - Exact roles, permissions, and segregation of duties
@@ -412,4 +510,4 @@ The following remain pending:
 
 ## Next decision
 
-Define cross-domain Order, Customer, and Support operations, followed by operational discovery, audit, high-risk actions, and degraded behavior.
+Define Admin search, command, and recent-work behavior, followed by audit, high-risk actions, permissions, and degraded behavior.
