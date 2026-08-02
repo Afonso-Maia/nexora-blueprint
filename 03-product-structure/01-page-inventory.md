@@ -154,6 +154,26 @@ Component categories, compatibility review, budget review, performance review, a
 
 Authentication requirements for persistence, share-link controls, ownership transfer, collaboration, version history, and retention remain provisional until Account and roles-and-permissions architecture are approved.
 
+## Conversation-centered AI Assistant
+
+The dedicated AI Shopping Assistant uses one reusable **Assistant Conversation** page template.
+
+The template supports:
+
+- A new-conversation state
+- A durable route for each persisted conversation
+- Conversation history as an embedded sidebar or drawer
+- Transparent context received from Search, Category Discovery, Product Detail, Comparison, PC Builder, or Checkout
+- Controls to inspect, remove, replace, or reset imported context
+
+An AI landing page and a separate conversation-history page are not independent destinations. Starting a conversation and finding or managing prior conversations occur within the Assistant template.
+
+Contextual AI elsewhere remains embedded in its host page. Opening the dedicated Assistant may carry visible context forward, but it must not conceal the resulting scope or changes. Returning to the host experience preserves meaningful non-sensitive state where appropriate.
+
+The Assistant does not replace deterministic search results, governed product data, compatibility facts, pricing, availability, or checkout controls. Recommendations must remain optional and explain their rationale, trade-offs, and confidence.
+
+Conversation retention, deletion, sharing, privacy controls, guest persistence, and authenticated access remain provisional until Account, legal, and roles-and-permissions architecture are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation

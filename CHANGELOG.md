@@ -11,6 +11,7 @@
 - Approved the 11-page Purchase and Customer Account inventory block.
 - Approved a build-centered PC Builder architecture with one persistent Engineering Workspace.
 - Approved the four-page PC Builder inventory.
+- Approved a conversation-centered dedicated AI Assistant with embedded history.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
