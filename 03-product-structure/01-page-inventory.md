@@ -116,6 +116,25 @@ This boundary preserves the fast path and supports the approved Intent-Driven Di
 
 Exact layout, responsive interactions, and visual treatment remain deferred to wireframing and Design System work.
 
+## Order-centric post-purchase architecture
+
+Order Detail is the durable coordination point for post-purchase activity. It brings together:
+
+- Order status and shipment tracking
+- Purchased items and any PC Build summary
+- Payment summary
+- Delivery address
+- Invoice access
+- Cancellation eligibility
+- Return and warranty initiation
+- Contextual support entry points
+
+Tracking, invoice access, cancellation eligibility, and case initiation do not become independent pages before a persistent case exists. A return, warranty claim, or support request may become a separate case-detail page after initiation because it then has its own lifecycle, resumable state, and ownership boundary.
+
+This model preserves order context, gives customers one reliable place to resume, and prevents fragmented post-purchase navigation. Exact action eligibility, case ownership, guest-order access, and status models remain provisional until Account, Support, and roles-and-permissions architecture are approved.
+
+Comparison remains the Product Evaluation Decision Workspace, and Saved Builds remain part of PC Builder. Account navigation may link to these capabilities but does not create duplicate Account pages.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
