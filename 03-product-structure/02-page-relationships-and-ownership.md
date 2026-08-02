@@ -29,6 +29,25 @@ Each graph edge declares a source page, relationship type, target page, trigger 
 
 Relationship types describe architectural intent, not a particular visual control. A link, button, notification, redirect, contextual panel, or system transition may implement an edge later.
 
+## Graph granularity
+
+The canonical graph records **consequential relationships**, not every navigational link.
+
+An edge belongs in the graph when the transition does one or more of the following:
+
+- Changes lifecycle stage
+- Creates, resumes, or converts a durable object
+- Crosses a product surface or accountable domain
+- Transfers meaningful context
+- Requires authentication, verification, or permission evaluation
+- Initiates a consequential action
+- Defines recovery from failure
+- Connects customer and Admin views of the same authoritative object
+
+Footer links, breadcrumbs, repeated global navigation, and ordinary related-content links remain governed by the Page Inventory, sitemap, navigation architecture, and later wireframes unless they also meet a consequential criterion.
+
+This threshold keeps the graph focused on context, authority, lifecycle, and recovery. A UI link does not automatically require an edge, and the absence of a routine edge does not prohibit ordinary navigation already allowed by the approved page metadata.
+
 ## Edge record
 
 Every consequential edge records:
@@ -98,5 +117,11 @@ The completed graph and ledger must demonstrate:
 
 ## Next decision
 
-Populate and review the relationship graph and ownership ledger using the approved Page Inventory. Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
+Populate and review consequential relationships in four slices:
 
+1. Discovery, evaluation, and purchase
+2. Account, PC Builder, AI, and Support
+3. Authentication, legal, and system recovery
+4. Admin management edges and the ownership ledger
+
+Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
