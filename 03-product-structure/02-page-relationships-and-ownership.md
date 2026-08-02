@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — relationship graph through System and ownership ledger through Account approved; Admin graph and remaining ledger pending
+**Status:** Approved in part — 89-page ownership ledger complete; Admin relationship graph pending
 
 ## Purpose
 
@@ -411,10 +411,34 @@ The following rules apply throughout this slice:
 | ADM-020 | Support | Customer, Purchase, Delivery, Payments, Catalog, Notifications, Admin Platform | Support for case queue and assignment; source domains for referenced facts | Support for routing and assignment | Support; specialized authority for governed bulk routing | Support | Service levels, queue permissions, and escalation model |
 | ADM-021 | Support | Customer, Purchase, Delivery, Payments, Catalog, Inventory, Notifications, Legal, Admin Platform | Support for case; source owners for referenced orders, products, payments, delivery, inventory, and policies | Support for case; specialist owners for remedies and referenced objects | Specialized remedy owner by case type | Support | Remedy matrix, internal/external providers, escalation, and segregation of duties |
 
+### Ledger Slice 4B — Administrative Dashboard: Content, Governance, Access, and Insights
+
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ADM-022 | Marketing | Catalog, Discovery, Pricing, Inventory, Admin Platform | Marketing for collection; source domains for product facts | Marketing for collection; source owners for facts | Marketing | Marketing | Approval, schedule, membership rules, and bulk lifecycle |
+| ADM-023 | Marketing | Catalog, Discovery, Pricing, Inventory, Admin Platform | Marketing for collection record, membership, content, and schedule; source domains for facts | Marketing for collection; source owners for facts | Marketing | Marketing | Rule evaluation, publication workflow, and preview |
+| ADM-024 | Marketing | Pricing, Purchase, Catalog, Inventory, Legal, Admin Platform | Marketing for promotion definition; Pricing, Purchase, Catalog, and Inventory for commercial facts | Marketing for promotion; affected source owners for their data | Marketing plus affected commercial authority | Marketing | Financial thresholds, overlap rules, limits, and schedule approval |
+| ADM-025 | Marketing | Pricing, Purchase, Catalog, Inventory, Legal, Admin Platform | Marketing for promotion; Pricing for price effects; Purchase for eligibility; Inventory for availability | Owner of each governed component | Marketing plus affected commercial authority | Marketing | Simulation, legal review, exhaustion, pause, and rollback |
+| ADM-026 | Admin Platform | Marketing, Legal, Support, Discovery, content-type owners | Active content-type owner for records, versions, and publication state | Active content-type owner; Admin Platform for shared tooling | Active content-type owner | Admin Platform for tooling; content owner for workflow | Content taxonomy, locale scope, search, and review queues |
+| ADM-027 | Admin Platform | Marketing, Legal, Support, Catalog, Discovery, content-type owners | Active content-type owner for content, versions, and references; source owners for referenced facts | Active content-type owner; source owners correct facts; Admin Platform owns tooling | Active content-type owner and required specialist reviewers | Admin Platform for tooling; content owner for workflow | Approval workflow, localization, version retention, and publication |
+| ADM-028 | Discovery | Catalog, Marketing, Support, AI, PC Builder, Analytics when governed, Admin Platform | Discovery for search configuration and diagnostics; entity owners for source data | Discovery for synonyms, aliases, participation, and bounded ranking controls | Discovery | Discovery | Experiment governance, ranking approval, rollback, and diagnostic retention |
+| ADM-029 | Reviews | Legal, Support, Security, Catalog, Customer, Admin Platform | Reviews for review and moderation state; Legal for policy; source owners for customer and product facts | Reviews for moderation state; Legal for policy | Reviews under policy; Legal for policy changes | Reviews | Appeals, automation, evidence access, and moderator permissions |
+| ADM-030 | Platform Security | Admin Platform, People Operations, Legal, domain owners | Platform Security for workforce identity and access state; domain owners for scoped resource authority | Platform Security for access mechanics and assignments | Platform Security plus affected domain owner where required | Platform Security | Provisioning source, self-change controls, approval, and deprovisioning |
+| ADM-031 | Platform Security | Admin Platform, Legal, accountable domain owners | Platform Security for role definitions and assignments; domain owners for resource-specific permission meaning | Platform Security for role configuration | Platform Security plus affected domain owners | Platform Security | Permission taxonomy, segregation rules, versioning, and rollback |
+| ADM-032 | Platform Security | Admin Platform and event-source domains | Platform Security for audit platform and integrity; source domains for event semantics | Append-only ingestion by governed sources; no interface mutation | Not applicable for events | Platform Security | Event taxonomy, retention, redaction, integrity verification, and exports |
+| ADM-033 | Admin Platform | Accountable metric and source-data domains | Source domains for metric definitions and data; Admin Platform for reporting composition | Source owner for metric/data; Admin Platform for report configuration | Source metric owner | Admin Platform for tooling; source owner for metric | Metric catalog, privacy thresholds, freshness, exports, and future Analytics domain |
+| ADM-034 | Admin Platform | Named setting owners, Security, affected domains | Named domain owner for each setting value and behavior; Admin Platform for shared tooling | Named setting owner; Admin Platform for tooling | Named setting owner under applicable risk tier | Admin Platform for tooling; setting owner for behavior | Setting registry, risk tiers, scheduling, rollback, and segregation of duties |
+
+### Ledger completion
+
+The ownership ledger covers all **89 approved Page Inventory IDs exactly once**.
+
+Ledger completion does not resolve every operational detail. Items in the `Provisional dependencies` column remain mandatory inputs to later Account, Support Center, Administrative Dashboard, roles-and-permissions, legal, engineering, and system-state decisions.
+
 ## Next decision
 
 Populate and review consequential relationships in four slices:
 
-1. Admin management edges and the ownership ledger
+1. Admin management edges
 
 Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
