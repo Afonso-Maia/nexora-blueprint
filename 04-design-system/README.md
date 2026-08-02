@@ -13,6 +13,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 5. [Typography](05-typography.md) — approved; unified variable-sans system with technical-data roles
 6. [Layout, Spacing, Sizing, and Density](06-layout-spacing-sizing-and-density.md) — approved; content-driven responsive layout
 7. [Shape, Borders, Elevation, and Depth](07-shape-borders-elevation-and-depth.md) — approved; restrained architectural depth
+8. [Iconography and Imagery](08-iconography-and-imagery.md) — approved; Lucide-based icons and factual product media
 
 ## Architectural inputs
 
