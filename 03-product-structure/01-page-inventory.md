@@ -199,6 +199,24 @@ Support search remains part of Universal Search with a visible Support scope. FA
 
 The precise case taxonomy, statuses, escalation rules, ownership transfer, refund authority, repair-provider access, service levels, and agent permissions remain provisional until Support Center, Administrative Dashboard, and roles-and-permissions architecture are approved.
 
+## Focused authentication destinations
+
+Authentication uses separate focused destinations within one minimal shared shell.
+
+Sign-in, account creation, recovery request, credential reset, identity-factor verification, and security challenge are distinct pages because they have different:
+
+- Security contexts and assurance requirements
+- Expiration and retry behavior
+- Resumable entry links
+- Success and failure outcomes
+- Eligibility and abuse controls
+
+Every authentication page may preserve a validated return destination. Return context must not expose sensitive state, permit open redirects, or bypass authorization. A successful authentication or verification returns the user to the initiating destination when it remains valid; otherwise it uses a safe account or storefront fallback.
+
+Sign-out, session-timeout warnings, password visibility, provider selection, consent controls, and reauthentication prompts remain embedded interactions. Identity-provider callbacks and token exchanges are system endpoints, not user-facing page inventory entries.
+
+Exact identity factors, social providers, password policy, passkeys, multi-factor methods, recovery assurance, session duration, and abuse controls remain provisional until Account, engineering, legal, and roles-and-permissions decisions are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation

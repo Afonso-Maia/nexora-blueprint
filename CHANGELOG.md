@@ -15,6 +15,7 @@
 - Approved the AI Assistant Conversation page inventory entry.
 - Approved a typed unified customer-facing Support Case model.
 - Approved the seven-page Support inventory.
+- Approved focused authentication destinations within a shared minimal shell.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
