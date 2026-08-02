@@ -396,13 +396,85 @@ Dismissal removes an eligible item from the active presentation but is not recor
 
 If aggregation is delayed or a source is unavailable, Notifications identifies stale or incomplete status. It does not invent a current state, mark an action complete, or replace missing operational notices with marketing content. Authoritative destination pages remain the final reference.
 
+## Governed privacy-request lifecycle
+
+Privacy export, correction, restriction, consent withdrawal, and Account closure are durable request objects. ACC-008 Account Settings initiates and tracks them without introducing a separate canonical page.
+
+Simple preference or consent changes may complete immediately when policy permits. They still produce the required provenance and history. Requests that require verification, coordination, review, or asynchronous fulfillment use the governed lifecycle.
+
+### Request contract
+
+Every privacy request records:
+
+- Request type and requested scope
+- Identity-assurance requirement and verification state
+- Submitted and effective timestamps
+- Current status and customer-visible next step
+- Responsible policy owner
+- Participating source domains
+- Dependencies, exclusions, or blocked obligations
+- Outcome and completion evidence
+- Governing retention-policy reference
+
+Exact legal periods, disclosures, and jurisdiction-specific fulfillment rules are policy inputs. The architecture does not invent or hard-code them.
+
+### Lifecycle
+
+The primary lifecycle is:
+
+`Draft → Verification required → Submitted → In review or processing → Completed, Partially completed, Rejected, or Cancelled`
+
+- **Draft:** scope is being selected and no request has been committed.
+- **Verification required:** the request cannot be submitted or advanced until its governed assurance succeeds.
+- **Submitted:** the request is durable, timestamped, and awaiting processing.
+- **In review or processing:** policy and source domains are evaluating or executing applicable actions.
+- **Completed:** the approved scope has been fulfilled.
+- **Partially completed:** fulfilled and retained or excluded scope is explained separately.
+- **Rejected:** the governed reason and available review or Support path are presented.
+- **Cancelled:** cancellation provenance and any already-effective consequences remain recorded.
+
+Status is deterministic and auditable. Support conversations and Notifications may reference the request but do not become its authoritative status.
+
+### Export delivery
+
+Privacy exports are generated from the approved scope and delivered through a time-limited, access-controlled mechanism. Export access requires the governed assurance level and is independent from an ordinary authenticated browsing session when policy requires stronger protection.
+
+The package identifies its generation time and scope. It is a point-in-time export, not a parallel live Account. Expiry removes delivery access without implying deletion of the authoritative records or request evidence.
+
+### Account closure
+
+Initiating closure requires Tier 3 assurance and explicit confirmation. The Account enters the approved **Closure pending** restriction state while Nexora evaluates and completes the request.
+
+Closure does not:
+
+- Cancel, erase, or abandon open orders, payments, deliveries, refunds, returns, warranties, disputes, or Support obligations
+- Rewrite historical order, invoice, tax, delivery, consent, or audit records
+- Imply immediate deletion of records governed by another valid purpose or retention policy
+- Transfer ownership of customer objects
+
+New commerce and financial commitments stop during Closure pending. Required access to outstanding obligations continues through the safest eligible Account or verified task-specific path.
+
+Authentication ends only when closure is eligible to complete. Retained records remain purpose-limited and governed by policy. Required post-closure records or unresolved obligations use a separate verified access route; the closed Account is not silently reopened.
+
+### Ownership and governance
+
+1. Privacy or Governance owns request policy, scope rules, status determination, and completion evidence.
+2. Identity owns verification, authentication state, and closure of login capability.
+3. Customer owns initiation, explanation, status presentation, and safe continuation.
+4. Source domains execute approved export, correction, restriction, retention, or deletion actions for their records.
+5. A source domain reports its outcome without independently declaring the whole request complete.
+6. Legal retention policy governs retained scope; retention must have a recorded purpose and policy reference.
+7. Support may explain, collect context, or escalate but cannot silently change scope, status, or outcome.
+8. Administrative action requires explicit permission, stated reason, bounded scope, and auditability.
+9. Customers receive an understandable outcome for completed, partial, rejected, and cancelled requests.
+10. Failure in one source is exposed as pending, partial, or failed work rather than hidden behind a completed status.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Privacy requests, export, closure, and retention
 - Mobile navigation interaction details
 
 ## Next decision
 
-Define privacy requests, export, closure, and retention behavior, followed by mobile Account navigation details.
+Define mobile Account navigation and cross-surface continuation details, then validate the complete Account and post-purchase architecture.
