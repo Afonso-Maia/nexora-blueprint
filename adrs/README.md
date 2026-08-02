@@ -6,3 +6,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | --- | --- | --- |
 | [ADR-0001](ADR-0001-search-first-information-architecture.md) | Accepted | Search-first information architecture |
 | [ADR-0002](ADR-0002-shared-compatibility-domain.md) | Accepted | Shared Compatibility domain |
+| [ADR-0003](ADR-0003-scoped-capability-based-access-control.md) | Accepted | Scoped capability-based access control |

@@ -12,7 +12,7 @@ Phase 2B will define:
 4. [Account and Post-Purchase Architecture](04-account-architecture.md) — approved; federated continuity, post-purchase state, assurance, restrictions, notifications, privacy lifecycle, and mobile continuity
 5. [Support Center Architecture](05-support-center-architecture.md) — approved; routing, governed content, self-service, typed cases, communication, obligations, external work, and mobile behavior
 6. [Administrative Dashboard IA](06-administrative-dashboard-ia.md) — approved; navigation, operational work, governed changes, cross-domain actions, discovery, risk, audit, permissions boundary, and continuity
-7. Roles and Permissions
+7. [Roles and Permissions](07-roles-and-permissions.md) — scoped capability-based RBAC approved; detailed roles and policies pending
 8. Error and Empty States
 9. Scalability
 10. Architecture Validation
