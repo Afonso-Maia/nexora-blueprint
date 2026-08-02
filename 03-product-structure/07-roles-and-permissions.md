@@ -422,11 +422,81 @@ Assignments bind:
 
 Changing a role definition does not silently obscure its historical meaning. Active assignments follow an explicit migration, reapproval, or version policy.
 
+## Initial workforce role catalog
+
+Nexora begins with stable job-family roles for ordinary work and separately assigned independent-duty roles for consequential approval or supervision.
+
+The catalog defines role purpose and boundaries. Concrete capabilities, scopes, fields, thresholds, incompatibilities, and approval rules are governed separately and do not derive from the role name alone.
+
+### Operational roles
+
+| Role | Primary purpose | Boundary |
+| --- | --- | --- |
+| Operations Coordinator | Triage permitted cross-domain exceptions, obligations, and handoffs | Does not inherit mutation rights in every contributing domain |
+| Catalog Editor | Maintain permitted product and brand content and relationships | Cannot approve publication solely through this role |
+| Taxonomy and Attribute Steward | Govern permitted categories, hierarchy, and attribute definitions | Top-level taxonomy changes remain subject to approved ADR governance and independent approval |
+| Compatibility Rule Author | Draft, test, and submit deterministic compatibility rules | Cannot activate or approve authored rules solely through this role |
+| Inventory Operator | Perform permitted inventory review and governed adjustments | Cannot redefine product, pricing, or financial records |
+| Pricing Author | Draft and validate permitted prices and pricing rules | Cannot approve or activate authored pricing solely through this role |
+| Order Operations Agent | Inspect and coordinate eligible order operations | Cannot infer payment, refund, delivery, or Support authority from order access |
+| Customer Care Agent | Access eligible customer context and coordinate bounded Account or order assistance | Cannot rewrite historical commerce facts or administer roles |
+| Support Agent | Work assigned Support queues and cases | Cannot execute linked financial or fulfillment remedies solely through this role |
+| Merchandising Editor | Draft permitted collections and promotions | Cannot publish authored merchandising solely through this role |
+| Content Editor | Draft and revise permitted governed content | Cannot publish authored content solely through this role |
+| Search Governance Analyst | Inspect and propose governed search configuration and evaluation changes | Cannot alter Catalog truth or bypass approval for material ranking changes |
+| Review Moderator | Review and moderate permitted customer reviews under policy | Cannot alter product facts or fabricate customer content |
+| Reporting Analyst | Explore and export permitted governed reports | Does not inherit source-record mutation or unrestricted sensitive-data access |
+| Audit Reviewer | Inspect permitted correlated audit history | Cannot alter audit events or administer the audited access through this role |
+| Access Administrator | Prepare and maintain eligible subjects, roles, assignments, and scopes | Cannot approve their own access changes or bypass segregation policy |
+| Platform Settings Operator | Draft and operate permitted platform settings | Does not inherit general Admin or source-domain authority |
+
+### Independent-duty roles
+
+| Role | Primary purpose | Boundary |
+| --- | --- | --- |
+| Catalog Publisher | Approve or publish eligible catalog and taxonomy changes | Does not automatically include authoring; cannot self-approve where prohibited |
+| Compatibility Rule Approver | Independently review and activate eligible compatibility rules | Cannot approve personally authored rules where prohibited |
+| Pricing Approver | Approve eligible pricing changes within assigned thresholds | Does not automatically include price authoring or execution |
+| Commerce Remedy Approver | Approve eligible refunds, replacements, credits, or similar remedies within scope | Does not create source eligibility or execute every approved operation |
+| Content Publisher | Approve or publish eligible content, collections, and promotions | Does not automatically include authorship; material policy content retains its designated owner |
+| Support Supervisor | Review escalations, case exceptions, obligations, and eligible Support decisions | Does not inherit Payments, Delivery, Access, or policy-owner authority |
+| Access Approver | Independently approve eligible access and role assignments | Cannot approve their own request or role design where prohibited |
+| Platform Settings Approver | Independently approve eligible high-risk settings changes | Does not automatically execute or author the approved change |
+
+An independent-duty role may be assigned without its related author role. Approval capability never implies request, edit, publish, execute, or administer unless those capabilities are explicitly and compatibly assigned.
+
+### Role composition rules
+
+1. Every assignment includes concrete scope and a review or expiry policy.
+2. Role names are not page entitlements; the capability contract determines eligible page regions and actions.
+3. Similar jobs use the same role template with different scopes rather than cloned role definitions.
+4. A person may hold compatible operational and duty roles, but effective-access segregation is evaluated for each operation.
+5. High-risk and independent-duty assignments require stronger approval and review than ordinary narrow access.
+6. Reporting and audit roles remain field- and sensitivity-scoped.
+7. Access Administrator and Access Approver remain separate duties.
+8. Platform Settings authority does not imply general Admin authority.
+9. No permanent all-powerful Super Admin role is approved for ordinary work.
+10. Emergency capability elevation, if approved, uses the later break-glass model and never becomes an ordinary role assignment.
+
+### Catalog governance
+
+The initial catalog is versioned and intentionally minimal. A new role requires:
+
+- Durable job purpose not served by an existing scoped role
+- Accountable owner
+- Capability and scope analysis
+- Field and sensitive-data analysis
+- Risk and segregation analysis
+- Assignment, review, and expiry policy
+- Migration and deprecation behavior
+
+Temporary projects and unusual tasks use scoped delegation or just-in-time access rather than permanent role proliferation.
+
 ## Example authorization outcomes
 
 - A Catalog Editor can edit permitted product content for assigned categories but cannot approve publication.
 - A Support Agent can read and work cases in an assigned queue but cannot execute a refund merely because it is linked to the case.
-- A Finance Approver can approve a refund inside a governed amount threshold but cannot request and approve the same operation when segregation policy prohibits it.
+- A Commerce Remedy Approver can approve a refund inside a governed amount threshold but cannot request and approve the same operation when segregation policy prohibits it.
 - An external repair provider can update only its assigned, unexpired work packages and cannot inspect the full customer case.
 - An AI assistant can draft permitted content under an attributable user but cannot submit, approve, publish, or expand its delegated scope.
 
@@ -524,7 +594,6 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Initial workforce role catalog
 - Scope hierarchy and combination rules
 - Permission evaluation and conflict precedence
 - Delegation, temporary access, and just-in-time access workflow
@@ -535,4 +604,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the initial workforce role catalog, followed by scope semantics, permission precedence, delegation, segregation, access review, and emergency controls.
+Define scope hierarchy and combination semantics, followed by permission precedence, delegation, segregation, access review, and emergency controls.
