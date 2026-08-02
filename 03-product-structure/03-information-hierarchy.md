@@ -1,6 +1,6 @@
 # Page-Level Information Hierarchy
 
-**Status:** Approved in part — hierarchy contract approved; archetype specifications and page mapping pending
+**Status:** Approved
 
 ## Purpose
 
@@ -620,6 +620,37 @@ Accessibility remains mandatory at every supported viewport. Specialization cann
 
 **Representative pages:** ADM-003 Product Workspace, ADM-005 Category Workspace, ADM-007 Brand Workspace, ADM-009 Attribute Workspace, ADM-011 Compatibility Rule Workspace, ADM-013 Inventory Item Workspace, ADM-015 Pricing Rule Workspace, ADM-017 Order Workspace, ADM-019 Customer Workspace, ADM-021 Support Case Workspace, ADM-023 Collection Workspace, ADM-025 Promotion Workspace, ADM-027 Content Workspace, ADM-028 Search Governance, ADM-031 Role Workspace, ADM-032 Audit Log, ADM-033 Reports and Analytics, and ADM-034 Operational Settings.
 
+## Approved page-to-archetype mapping
+
+Every Page Inventory entry maps to exactly one primary archetype.
+
+| Archetype | Count | Page IDs |
+| --- | ---: | --- |
+| Hub | 9 | STF-001, STF-007, ACC-001, PCB-001, SUP-001, SUP-003, SUP-004, LEG-001, ADM-001 |
+| Results/List | 13 | STF-002, STF-003, STF-004, STF-005, DSC-001, DSC-002, ACC-002, ACC-004, ACC-005, ACC-006, ACC-007, PCB-003, SUP-006 |
+| Detail | 4 | EVA-001, ACC-003, PCB-004, SUP-007 |
+| Workspace | 4 | EVA-002, ACC-008, PCB-002, AIS-001 |
+| Transaction | 9 | PUR-001, PUR-002, PUR-003, SUP-005, AUT-001, AUT-002, AUT-004, AUT-005, AUT-006 |
+| Content/Document | 11 | STF-006, SUP-002, INF-001, LEG-002, LEG-003, LEG-004, LEG-005, LEG-006, LEG-007, LEG-008, LEG-009 |
+| Recovery | 6 | AUT-003, SYS-001, SYS-002, SYS-003, SYS-004, SYS-005 |
+| Admin Queue | 15 | ADM-002, ADM-004, ADM-006, ADM-008, ADM-010, ADM-012, ADM-014, ADM-016, ADM-018, ADM-020, ADM-022, ADM-024, ADM-026, ADM-029, ADM-030 |
+| Admin Resource Workspace | 18 | ADM-003, ADM-005, ADM-007, ADM-009, ADM-011, ADM-013, ADM-015, ADM-017, ADM-019, ADM-021, ADM-023, ADM-025, ADM-027, ADM-028, ADM-031, ADM-032, ADM-033, ADM-034 |
+
+### Mapping boundary decisions
+
+- Campaign Landing is a Hub because it routes a bounded campaign into governed destinations.
+- Account Settings is a Workspace because it contains persistent, non-linear settings and sensitive actions.
+- Contact and Case Start is a Transaction because it creates a durable case.
+- Order Confirmation is a Transaction because it represents the authoritative transaction outcome.
+- Search Governance, Audit Log, Reports and Analytics, and Operational Settings are Admin Resource Workspaces because they govern durable configuration or investigative context.
+- Workforce Users is an Admin Queue. No separate workforce-identity workspace page is approved.
+
+## Completion
+
+Page-Level Information Hierarchy is approved and complete for all 89 current pages and templates.
+
+Wireframing must apply the primary archetype contract together with the page’s approved purpose, shell, constraints, relationships, access posture, and required states. A new page or a changed page purpose requires archetype review.
+
 ## Next decision
 
-Map all 89 Page Inventory entries to exactly one primary archetype and validate every mapping against page purpose, shell, constraints, and required states.
+Proceed to Account and post-purchase architecture. Later Phase 2B validation must confirm that wireframe-ready page requirements preserve these hierarchy contracts.
