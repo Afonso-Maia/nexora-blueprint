@@ -85,6 +85,7 @@
 - Approved typed authorization scopes with complete non-composable grants.
 - Approved deterministic deny-overrides permission evaluation and conflict precedence.
 - Approved governed time-bound delegation and just-in-time access.
+- Approved action-specific approval thresholds and the segregation-of-duties matrix.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

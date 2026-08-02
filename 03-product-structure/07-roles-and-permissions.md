@@ -776,19 +776,74 @@ Denial follows non-disclosure policy. Explanations distinguish recoverable assur
 
 ## Segregation of duties
 
-Segregation policy can constrain:
+Nexora uses an action-specific segregation matrix. Approval and independence depend on operation risk and scope rather than organizational seniority alone.
 
-- Request and approval
-- Approval and execution
-- Resource creation and publication
-- Role design and role assignment
-- Access request and access grant
-- Financial adjustment and reconciliation
-- Audit administration and audit review
+### Threshold bands
 
-A segregation constraint is evaluated across effective assignments and delegated access, not only the role currently selected in the interface.
+| Band | Approval model |
+| --- | --- |
+| Routine | An authorized operator may execute without independent approval |
+| Significant | Independent review or approval applies when the source-domain policy requires it |
+| High | At least one independent approver; requestor or author cannot be the sole approver or executor where prohibited |
+| Critical | Multiple independent controls, strongest assurance, bounded execution, monitoring, and explicit recovery or compensation planning |
 
-Exact incompatible duties, thresholds, exception paths, and emergency controls remain pending.
+Threshold inputs may include financial amount, margin impact, customer count, product or inventory scope, publication reach, data sensitivity, reversibility, policy exception, access privilege, batch size, and incident context.
+
+Exact monetary, volume, reach, and sensitivity values are governed policy data rather than fixed architecture constants.
+
+### Initial segregation matrix
+
+| Operation | Duties kept separate |
+| --- | --- |
+| Access assignment | Request or preparation ↔ approval |
+| Role or authorization policy change | Design ↔ approval or activation |
+| Product or taxonomy publication | Authoring ↔ approval or publication where risk requires |
+| Compatibility activation | Rule authoring or testing ↔ approval or activation |
+| Pricing activation | Authoring ↔ approval; execution remains separate where governed |
+| Refund, replacement, or credit | Request or case handling ↔ financial approval; execution remains source-owned |
+| Content or promotion publication | Authoring ↔ publication where risk requires |
+| Platform settings | Preparation ↔ approval or activation |
+| Audit governance | Audit administration ↔ independent audit review |
+| Financial reconciliation | Original adjustment ↔ independent reconciliation where required |
+
+Segregation evaluates effective roles, complete grants, delegations, JIT access, authorship, approvals, prior actions, and relevant relationships. Switching roles, sessions, or devices does not make the same subject independent.
+
+### Approval contract
+
+Every required approval records:
+
+- Proposed operation and exact scope
+- Risk and threshold band
+- Requestor and author
+- Eligible approver and independence result
+- Baseline, validation, evidence, and consequence preview
+- Decision, rationale, and conditions
+- Policy and role versions
+- Expiry or invalidation condition
+- Audit correlation
+
+Approval is limited to the reviewed scope. Material change, expiry, policy change, resource-state conflict, or loss of approver independence invalidates or requires renewal of approval.
+
+Approval does not grant execution authority or guarantee successful execution.
+
+### Evasion and conflict rules
+
+1. Splitting transactions, batches, campaigns, assignments, or time windows to avoid a threshold is prohibited.
+2. Related operations may aggregate for threshold and independence evaluation according to source-domain policy.
+3. A management relationship does not by itself establish domain authority or independence.
+4. Seniority cannot override a missing eligible approver.
+5. Temporary or delegated access cannot bypass an incompatible duty.
+6. Automation cannot request, approve, and execute its own expanded authority.
+7. Missing segregation context blocks the governed action safely.
+8. Emergency exceptions use the separate break-glass process and never rewrite the ordinary matrix.
+
+### Ownership
+
+- Source domains own consequence inputs, eligibility, and operation-specific thresholds.
+- Governance owns the matrix, independence rules, aggregation policy, and exception boundaries.
+- Roles and Permissions evaluates effective access and duty conflicts.
+- Admin Platform presents the required approval and independence state.
+- Audit preserves request, review, approval, execution, and reconciliation as separate attributed events.
 
 ## Governed time-bound access
 
@@ -945,11 +1000,10 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Approval thresholds and segregation-of-duties matrix
 - Break-glass and emergency access
 - Access review, revocation, and offboarding
 - Roles and Permissions validation
 
 ## Next decision
 
-Define approval thresholds and the segregation-of-duties matrix, followed by access review, revocation, offboarding, and emergency controls.
+Define continuous access review, revocation, and offboarding, followed by break-glass emergency access and topic validation.
