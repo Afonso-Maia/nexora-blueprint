@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and customer-facing inventory through Legal and Informational approved; System and Admin pending
+**Status:** Approved in part — governing model and customer-facing inventory approved; Administrative Dashboard pending
 
 ## Purpose
 
@@ -1034,6 +1034,91 @@ The following remain embedded within legal or initiating product experiences:
 - Policy excerpts and contextual links
 
 Contextual excerpts never replace the authoritative policy destination. Exact legal content, consent events, and retention rules require specialist legal review.
+
+### Block 5B — System and Utility
+
+Route-level system destinations use concise, actionable language and disclose no sensitive internal details. They preserve safe context when possible and never replace a meaningful host-owned state.
+
+#### SYS-001 — Not Found
+
+- **Type / class:** Route-level recovery page / System and Utility States
+- **Purpose:** Recover from an unknown, malformed, removed, or retired route.
+- **Ownership:** Platform; supported by Discovery, Marketing, Catalog, Support, and the originating domain when known
+- **Audience / access / shell:** Any user / Public / Minimal recovery with safe global navigation and Search
+- **Entry / URL:** Unresolved route; rendered at the requested URL with a not-found response
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to Universal Search, Home, Categories, Support, or a governed successor when known; actions are search, return safely, and choose a known destination
+- **Required states:** Unknown route, retired entity without successor, malformed share reference, and partial recovery recommendations
+- **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### SYS-002 — Access Denied
+
+- **Type / class:** Route-level authorization recovery page / System and Utility States
+- **Purpose:** Explain that a valid destination cannot be accessed without exposing its protected content or permission model.
+- **Ownership:** Platform Security; supported by Customer Authentication, Customer, Admin, Support, and the protected owning domain
+- **Audience / access / shell:** Guest, customer, or workforce user / Context-dependent / Minimal recovery appropriate to the product surface
+- **Entry / URL:** Authorization failure at a valid destination / `/access-denied` or an equivalent surface-scoped destination with a non-sensitive return reference
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to Sign In, Security Challenge, safe account switching when approved, Support, or a safe fallback; actions depend on whether identity or permission can be remediated
+- **Required states:** Authentication required, wrong account, insufficient role, suspended access, expired share permission, and protected resource no longer available
+- **Lifecycle / journeys:** Any protected lifecycle stage / all Tier 1 journeys and Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SYS-003 — Unexpected Error
+
+- **Type / class:** Route-level recovery page / System and Utility States
+- **Purpose:** Recover from an unrecoverable destination failure without duplicating consequential actions.
+- **Ownership:** Platform; supported by Observability, Security, Support, and the failed owning domain
+- **Audience / access / shell:** Any user / Matches the failed surface without exposing protected context / Minimal recovery
+- **Entry / URL:** Unhandled destination failure / stable error destination or in-place error response with a non-sensitive correlation reference
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to a safe retry, previous stable destination, Home or Admin home as appropriate, and Support; retry must respect idempotency for purchase and operational actions
+- **Required states:** Retry permitted, retry unsafe, persistent failure, support reference available, and degraded diagnostic service
+- **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SYS-004 — Service Unavailable
+
+- **Type / class:** Route-level service status page / System and Utility States
+- **Purpose:** Explain planned maintenance or broad degradation and expose unaffected paths when known.
+- **Ownership:** Platform Operations; supported by Communications, Support, Security, and affected domains
+- **Audience / access / shell:** Any user / Public or authenticated as appropriate without relying on unavailable services / Minimal recovery
+- **Entry / URL:** Maintenance gate, broad dependency failure, or service-health routing / `/service-unavailable`
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to retry, unaffected read-only destinations, Support information, or an externally governed status resource if introduced; actions must not promise a restoration time without authoritative data
+- **Required states:** Planned maintenance, partial degradation, broad outage, unknown restoration time, and recovery in progress
+- **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### SYS-005 — Offline
+
+- **Type / class:** Route-level connectivity recovery page / System and Utility States
+- **Purpose:** Provide global recovery when connectivity is absent and no useful cached destination can remain visible.
+- **Ownership:** Platform; supported by the current surface and Customer where local context exists
+- **Audience / access / shell:** Any user / Local session context only / Minimal recovery
+- **Entry / URL:** Connectivity loss without a viable host-owned offline state / `/offline` or application-managed fallback
+- **Search participation:** Excluded from indexing and Universal Search
+- **Relationships / actions:** Leads to retry and any explicitly safe cached or read-only destination; actions are reconnect, preserve local work where possible, and return safely
+- **Required states:** Fully offline, intermittent connection, stale cached data, local changes pending, retrying, and restored connection
+- **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 5B embedded and host-owned states
+
+Every approved page and embedded unit must later define applicable:
+
+- Initial loading and incremental loading
+- Empty and first-use
+- Validation and correction
+- Recoverable error
+- Partial-data degradation
+- Offline read and offline mutation
+- Permission and authentication interruption
+- Stale state and conflict
+- Successful completion
+
+Route-level system pages are a final recovery boundary, not a substitute for these states.
 
 ## Protected architectural boundaries
 

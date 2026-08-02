@@ -20,6 +20,7 @@
 - Approved stable, independently versioned legal policy destinations with a Legal and Policies Hub.
 - Approved the ten-page Legal and Informational inventory.
 - Approved host-owned system states with a limited set of route-level recovery destinations.
+- Approved the five-page System and Utility inventory.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
