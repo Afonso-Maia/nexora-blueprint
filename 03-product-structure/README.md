@@ -13,7 +13,7 @@ Phase 2B will define:
 5. [Support Center Architecture](05-support-center-architecture.md) — approved; routing, governed content, self-service, typed cases, communication, obligations, external work, and mobile behavior
 6. [Administrative Dashboard IA](06-administrative-dashboard-ia.md) — approved; navigation, operational work, governed changes, cross-domain actions, discovery, risk, audit, permissions boundary, and continuity
 7. [Roles and Permissions](07-roles-and-permissions.md) — approved; subjects, lifecycle, roles, scopes, evaluation, temporary access, segregation, review, offboarding, and emergency access
-8. Error and Empty States
+8. [Error, Empty, Loading, Offline, and Degraded States](08-error-empty-and-degraded-states.md) — approved; host-owned state semantics, operation truth, recovery, accessibility, and route-level boundaries
 9. Scalability
 10. Architecture Validation
 
