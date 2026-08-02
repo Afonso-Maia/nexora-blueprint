@@ -9,6 +9,7 @@
 - Approved the 11-page Storefront, Discovery, and Product Evaluation inventory block.
 - Approved Order Detail as the durable hub for order-centric post-purchase activity.
 - Approved the 11-page Purchase and Customer Account inventory block.
+- Approved a build-centered PC Builder architecture with one persistent Engineering Workspace.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

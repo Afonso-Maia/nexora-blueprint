@@ -135,6 +135,25 @@ This model preserves order context, gives customers one reliable place to resume
 
 Comparison remains the Product Evaluation Decision Workspace, and Saved Builds remain part of PC Builder. Account navigation may link to these capabilities but does not create duplicate Account pages.
 
+## Build-centered Engineering Workspace
+
+Each PC Build is a persistent object coordinated through one non-linear **Engineering Workspace**.
+
+Guided and Expert modes are initialization choices, not separate workspace types. Both establish initial constraints or selections and converge on the same build object and workspace. The workspace contains the component list, compatibility panel, budget panel, performance panel, AI Copilot, and component-selection interactions.
+
+The page model distinguishes four destination responsibilities:
+
+1. Entry and initialization
+2. Editing one persistent build in the Engineering Workspace
+3. Managing Saved Builds
+4. Viewing a read-only Shared Build
+
+Save, resume, duplicate, share, purchase, and upgrade-later actions operate on the persistent build. Upgrade-later reopens or duplicates an eligible build rather than creating another page type.
+
+Component categories, compatibility review, budget review, performance review, and purchase preparation do not become routed steps. This preserves immediate recalculation, makes non-linear editing possible, and prevents the Builder from becoming a wizard after initialization.
+
+Authentication requirements for persistence, share-link controls, ownership transfer, collaboration, version history, and retention remain provisional until Account and roles-and-permissions architecture are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
