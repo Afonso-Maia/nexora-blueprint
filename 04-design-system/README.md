@@ -11,6 +11,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 3. [Design Token Architecture](03-design-token-architecture.md) — approved; reference, semantic, and component token tiers
 4. [Precision Gold Color and Themes](04-precision-gold-color-and-themes.md) — approved; neutral-led color system with light and dark parity
 5. [Typography](05-typography.md) — approved; unified variable-sans system with technical-data roles
+6. [Layout, Spacing, Sizing, and Density](06-layout-spacing-sizing-and-density.md) — approved; content-driven responsive layout
 
 ## Architectural inputs
 
