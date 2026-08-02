@@ -76,6 +76,8 @@
 - Approved federated Admin operational search, constrained commands, and permission-safe recent work.
 - Approved risk-tiered Admin action controls with correlated append-only audit history.
 - Approved the Admin capability-contract boundary with Roles and Permissions.
+- Approved operation-aware Admin recovery and responsive continuity.
+- Completed the Administrative Dashboard Information Architecture.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

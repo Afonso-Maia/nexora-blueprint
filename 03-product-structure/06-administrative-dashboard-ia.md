@@ -1,6 +1,6 @@
 # Administrative Dashboard Information Architecture
 
-**Status:** Approved in part — navigation model approved; detailed behavior pending
+**Status:** Approved
 
 ## Purpose
 
@@ -819,12 +819,127 @@ They cannot:
 7. Authorization decisions and high-risk denials are auditable according to policy.
 8. New Admin capabilities declare their resource, field, scope, assurance, approval, and risk contract before release.
 
-## Provisional dependencies
+## Operation-aware resilient continuity
 
-The following remain pending:
+Admin recovery follows the work unit and its authoritative state rather than treating every interruption as a page-level retry.
 
-- Admin degraded and continuity behavior
+### Continuity units
 
-## Next decision
+The Admin shell distinguishes:
 
-Define Admin degraded, interruption, and responsive continuity behavior, then validate the complete Administrative Dashboard IA.
+- Read and query state
+- Selection and saved-view state
+- Draft revision
+- Approval request
+- Bulk or asynchronous operation
+- Cross-domain orchestration
+- Export
+- Audit correlation
+
+Each unit has its own continuation reference and confirmed state. A page refresh or navigation event cannot resubmit a mutation.
+
+### State semantics
+
+Recovery clearly distinguishes:
+
+- **Not submitted:** no durable request or operation exists.
+- **Pending:** durable work exists and its outcome is not final.
+- **Confirmed:** the authoritative owner confirms the applicable result.
+- **Failed:** the authoritative owner confirms failure and exposes eligible recovery.
+- **Indeterminate:** execution may have occurred, but the outcome cannot yet be confirmed.
+
+Indeterminate is not treated as failed. Retry waits for reconciliation or uses the owning operation's explicit idempotency contract.
+
+### Reads and partial sources
+
+Read surfaces may show confirmed stale data with owner, source timestamp, and affected scope. Missing data is not displayed as empty, zero, current, or successfully resolved.
+
+A workspace with partial source failure:
+
+- Keeps unaffected permitted regions usable.
+- Labels unavailable relationships, checks, counts, and actions.
+- Blocks mutations that depend on unavailable authorization, validation, authoritative state, or audit durability.
+- Preserves a safe draft without claiming it is valid against current state.
+- Provides retry or owning-capability recovery.
+
+Stale reads cannot satisfy current mutation validation.
+
+### Session and permission interruption
+
+On session expiry, eligible server-side drafts, safe navigation origin, view configuration, and durable operation references remain available. After authentication, the destination rechecks permission, scope, assurance, baseline, validation, approval, and object state before restoring actionability.
+
+Sensitive values, evidence, selection data, and executable state are not placed in URLs or unsafe client storage.
+
+Permission revocation immediately removes actionable access. Historical authorship and audit attribution remain. Draft transfer, reduced read-only access, or loss of visibility follows the capability and retention policy.
+
+### Mutation and asynchronous recovery
+
+Before leaving a consequential submission surface, the system establishes whether:
+
+- Submission was not accepted
+- A durable request exists
+- Execution is pending
+- A confirmed outcome exists
+- Reconciliation is required
+
+Unknown or timed-out operations retain their original correlation and idempotency references. Operators cannot create a replacement operation merely to escape an uncertain state.
+
+Asynchronous work remains discoverable through its owning workspace, eligible recent work, queue, or notification after navigation or handoff. Completion notices link to the authoritative outcome and do not grant access.
+
+### Offline behavior
+
+Offline Admin use is read-only and limited to explicitly eligible cached material. Consequential mutations, approvals, customer communication, evidence changes, exports, access changes, and audit-dependent work are not queued for later execution by default.
+
+Locally prepared non-sensitive input may become a new draft only after reconnection, authentication, permission checks, baseline comparison, and explicit user review. It never auto-submits.
+
+### Responsive continuity
+
+Compact devices preserve the same navigation, ownership, capability, and risk model.
+
+They may safely support:
+
+- Monitoring and triage
+- Search and navigation
+- Communication
+- Bounded review and approval
+- Narrow, low-density edits
+- Inspection of pending or indeterminate work
+
+High-density comparison, broad bulk work, complex conflict resolution, critical execution, or tasks requiring simultaneous context may use the approved guarded larger-workspace mode.
+
+The guard explains why the current viewport is insufficient and preserves the draft, operation reference, source object, and safe return context. It does not move the resource to another IA or weaken the action so that it fits.
+
+### Governance rules
+
+1. Source domains own operation state, idempotency, reconciliation, and authoritative outcome.
+2. Admin Platform owns continuation references, recovery presentation, safe restoration, and responsive handoff.
+3. Draft continuity never implies current validity, permission, approval, or successful submission.
+4. Offline and reconnect behavior cannot auto-execute a consequential action.
+5. Audit-required work blocks when required audit durability cannot be confirmed.
+6. Permission, assurance, validation, and state are rechecked after every material interruption.
+7. Recovery preserves confirmed history and never duplicates a mutation for presentation convenience.
+8. Detailed cross-product loading, empty, error, offline, and degraded presentation remains governed by the later state architecture.
+
+## Architecture validation
+
+The Administrative Dashboard IA passes its Phase 2B topic validation across all 34 approved Admin destinations:
+
+- **ADM-001:** Operations Overview has deterministic exception-and-work priority, source scope, and degraded behavior.
+- **ADM-002 through ADM-017:** Catalog and Commerce collections, hierarchies, queues, resource workspaces, validations, previews, bulk work, and cross-domain Order operations follow shared contracts while retaining domain ownership.
+- **ADM-018 through ADM-021:** Customer and Support worklists and workspaces preserve identity, commerce, case, evidence, obligation, participant, and action-gateway boundaries.
+- **ADM-022 through ADM-029:** Collections, Promotions, Content, Search Governance, and Review Moderation use governed revisions, publication, operational discovery, and risk controls without creating competing product or search truth.
+- **ADM-030 and ADM-031:** Workforce and Role workspaces consume the capability contract without pre-empting the later subject, role, scope, delegation, and segregation decisions.
+- **ADM-032:** Audit Log presents permission-filtered correlated history without becoming the source of operational outcomes.
+- **ADM-033:** Reports and Analytics owns exploratory and historical analysis; Overview retains the actionable operational boundary.
+- **ADM-034:** Operational Settings uses the same staged change, risk, approval, audit, and recovery contracts.
+- Navigation, search, recents, shared views, counts, previews, exports, and active workspaces consistently apply current permission and field scope.
+- Consequential mutations use domain-owned gateways, proportional controls, immutable history, and safe indeterminate-state reconciliation.
+- Responsive behavior preserves the same IA and uses guarded larger-workspace continuation only when task risk or density requires it.
+- Exact role assignments, permission mappings, approval thresholds, and segregation rules remain intentionally owned by the next Phase 2B topic.
+- Detailed cross-product state presentation remains intentionally owned by the later Error and Empty States topic.
+
+No unresolved Administrative Dashboard alternative is recorded as approved.
+
+## Next phase topic
+
+Define Roles and Permissions.
