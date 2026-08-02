@@ -7,13 +7,14 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 Phase 2B will define:
 
 1. [Page Inventory](01-page-inventory.md) — approved; 89 canonical pages and templates
-2. Information Hierarchy
-3. Account Architecture
-4. Support Center Architecture
-5. Administrative Dashboard IA
-6. Roles and Permissions
-7. Error and Empty States
-8. Scalability
-9. Architecture Validation
+2. [Page Relationships and Domain Ownership](02-page-relationships-and-ownership.md) — model approved; graph and ledger pending
+3. Information Hierarchy
+4. Account Architecture
+5. Support Center Architecture
+6. Administrative Dashboard IA
+7. Roles and Permissions
+8. Error and Empty States
+9. Scalability
+10. Architecture Validation
 
 Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).
