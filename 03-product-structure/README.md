@@ -7,7 +7,7 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 Phase 2B will define:
 
 1. [Page Inventory](01-page-inventory.md) — approved; 89 canonical pages and templates
-2. [Page Relationships and Domain Ownership](02-page-relationships-and-ownership.md) — model approved; graph and ledger pending
+2. [Page Relationships and Domain Ownership](02-page-relationships-and-ownership.md) — approved; 133 edges and 89 ownership entries
 3. Information Hierarchy
 4. Account Architecture
 5. Support Center Architecture

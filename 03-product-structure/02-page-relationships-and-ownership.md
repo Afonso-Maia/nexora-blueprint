@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — 89-page ownership ledger complete; Admin relationship graph pending
+**Status:** Approved
 
 ## Purpose
 
@@ -311,6 +311,73 @@ The following rules apply throughout this slice:
 - Admin recovery does not disclose restricted navigation or resource existence.
 - Host-owned states remain preferred whenever the original page can still serve the user.
 
+### Slice 4 — Administrative Dashboard management
+
+All Admin edges are permission-filtered, independently authorize each mutation, preserve audit context, and use authoritative services. Visibility never grants mutation authority.
+
+| Edge | Relationship | Trigger | Context carried | Context excluded | Access transition | Failure behavior | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| REL-AD-001 | `ADM-001` `leads-to` `ADM-012` | Open inventory exception | Authorized view or exception category | Restricted metrics and unrelated alerts | Inventory permission rechecked | Return to Overview with unavailable-module notice | Approved |
+| REL-AD-002 | `ADM-001` `leads-to` `ADM-016` | Open order exception | Authorized view or exception category | Restricted metrics and unrelated alerts | Order permission rechecked | Return to Overview with unavailable-module notice | Approved |
+| REL-AD-003 | `ADM-001` `leads-to` `ADM-020` | Open support exception | Authorized queue or service-level category | Restricted metrics and case details | Queue and record scope rechecked | Return to Overview with unavailable-module notice | Approved |
+| REL-AD-004 | `ADM-003` `manages` `EVA-001` | Publish or preview product change | Product reference and approved version | Draft-only fields and restricted audit data | Catalog mutation permission rechecked | Keep draft with validation or publication failure | Approved |
+| REL-AD-005 | `ADM-005` `manages` `DSC-002` | Publish category change | Category reference, hierarchy, and eligible attributes | Draft hierarchy and internal impact data | Catalog approval rechecked; top-level category requires ADR | Keep draft and block unsafe publication | Approved |
+| REL-AD-006 | `ADM-007` `manages` `STF-004` | Publish brand change | Brand reference and approved public content | Merge evidence and internal notes | Catalog and delegated content permissions rechecked | Keep draft and preserve current public Brand | Approved |
+| REL-AD-007 | `ADM-009` `manages` `DSC-002` | Activate attribute definition | Attribute version and approved category applicability | Draft values and restricted diagnostics | Catalog schema authority rechecked | Block activation and retain current filter schema | Approved |
+| REL-AD-008 | `ADM-009` `manages` `EVA-001` | Activate attribute definition | Attribute version, units, and approved values | Draft values and migration internals | Catalog schema authority rechecked | Block activation and retain current product schema | Approved |
+| REL-AD-009 | `ADM-011` `manages` `EVA-001` | Activate compatibility rule | Approved rule version and explanation contract | Test secrets and draft rules | Compatibility approval rechecked | Keep current rule and report activation failure | Approved |
+| REL-AD-010 | `ADM-011` `manages` `EVA-002` | Activate compatibility rule | Approved rule version and explanation contract | Test secrets and draft rules | Compatibility approval rechecked | Keep current rule and report activation failure | Approved |
+| REL-AD-011 | `ADM-011` `manages` `PCB-002` | Activate compatibility rule | Approved rule version, severity, and explanation | Test fixtures and draft rules | Compatibility approval rechecked | Keep current rule; Workspace shows governed degradation | Approved |
+| REL-AD-012 | `ADM-011` `manages` `PUR-001` | Activate compatibility rule | Approved rule version and severity | Test fixtures and draft rules | Compatibility approval rechecked | Keep current rule and prevent partial activation | Approved |
+| REL-AD-013 | `ADM-011` `manages` `PUR-002` | Activate compatibility rule | Approved rule version and severity | Test fixtures and draft rules | Compatibility approval rechecked | Keep current rule and prevent unsafe Checkout change | Approved |
+| REL-AD-014 | `ADM-013` `manages` `EVA-001` | Commit inventory adjustment | Product or SKU and authoritative availability | Internal adjustment detail | Inventory authority rechecked | Preserve prior quantity and flag synchronization failure | Approved |
+| REL-AD-015 | `ADM-013` `references` `ADM-017` | Inspect reservation context | Authorized order and reservation references | Customer data and unrelated order fields | Order permission rechecked | Keep Inventory usable without restricted order context | Approved |
+| REL-AD-016 | `ADM-015` `manages` `EVA-001` | Activate approved price | Product reference, effective price, and schedule | Approval notes and financial thresholds | Pricing authority rechecked | Preserve current price and report failure | Approved |
+| REL-AD-017 | `ADM-015` `manages` `PUR-001` | Activate approved price | Product reference, effective price, and schedule | Approval notes and financial thresholds | Pricing authority rechecked | Cart revalidates; no direct client-state mutation | Approved |
+| REL-AD-018 | `ADM-015` `manages` `PUR-002` | Activate approved price | Product reference, effective price, and schedule | Approval notes and financial thresholds | Pricing authority rechecked | Checkout revalidates and exposes price change | Approved |
+| REL-AD-019 | `ADM-017` `manages` `ACC-003` | Apply order transition | Order reference, state, reason category, and audit reference | Internal notes, secrets, and restricted risk data | Action-specific authority rechecked | Preserve prior state and prevent partial transition | Approved |
+| REL-AD-020 | `ADM-019` `manages` `ACC-001` | Apply customer-state change | Customer reference and approved outcome | Internal risk detail and unrelated personal data | Purpose, field, action, and record scope rechecked | Preserve prior state and audit failure when required | Approved |
+| REL-AD-021 | `ADM-019` `manages` `ACC-008` | Apply profile, restriction, or privacy workflow | Customer reference and approved outcome | Hidden risk data, credentials, and unrelated fields | Strong assurance and action authority rechecked | Preserve prior state and keep workflow recoverable | Approved |
+| REL-AD-022 | `ADM-021` `manages` `SUP-007` | Apply case transition or remedy | Case reference, visible update, status, and remedy outcome | Internal notes, approval rationale, unrelated customer data | Queue, record, field, and remedy permissions rechecked | Preserve case state and prevent partial remedy | Approved |
+| REL-AD-023 | `ADM-023` `manages` `STF-003` | Publish or schedule collection | Collection, membership, rationale, and schedule | Draft notes and internal merchandising rules | Marketing approval rechecked | Keep current published version or safe unpublished state | Approved |
+| REL-AD-024 | `ADM-025` `manages` `STF-002` | Activate promotion presentation | Promotion, public terms, and schedule | Financial thresholds and internal limits | Marketing and commercial authority rechecked | Keep prior Deals state and suppress invalid promotion | Approved |
+| REL-AD-025 | `ADM-025` `manages` `PUR-001` | Activate promotion behavior | Promotion, eligibility, benefit, limits, and schedule | Budget, fraud, and approval data | Purchase, Pricing, and Marketing authority rechecked | Cart ignores invalid promotion and preserves items | Approved |
+| REL-AD-026 | `ADM-025` `manages` `PUR-002` | Activate promotion behavior | Promotion, eligibility, benefit, limits, and schedule | Budget, fraud, and approval data | Purchase, Pricing, and Marketing authority rechecked | Checkout revalidates and explains eligibility change | Approved |
+| REL-AD-027 | `ADM-027` `manages` `STF-006` | Publish buying guide | Content, version, links, and schedule | Draft notes and restricted review comments | Marketing content authority rechecked | Preserve current version and retain draft | Approved |
+| REL-AD-028 | `ADM-027` `manages` `STF-007` | Publish campaign | Content, version, links, and schedule | Draft notes and commercial approval internals | Marketing and commercial authority rechecked | Preserve current version or keep campaign unavailable | Approved |
+| REL-AD-029 | `ADM-027` `manages` `SUP-002` | Publish Support article | Content, version, links, and schedule | Internal procedure and review notes | Support content authority rechecked | Preserve current article and retain draft | Approved |
+| REL-AD-030 | `ADM-027` `manages` `LEG-001` | Publish legal index | Approved document index and status | Draft policies and privileged notes | Legal authority rechecked | Preserve current legal index | Approved |
+| REL-AD-031 | `ADM-027` `manages` `LEG-002` | Publish Terms | Version, effective date, and supersession metadata | Draft text and privileged notes | Legal authority rechecked | Preserve current Terms and retain draft | Approved |
+| REL-AD-032 | `ADM-027` `manages` `LEG-003` | Publish Privacy Notice | Version, effective date, and supersession metadata | Draft text and privileged notes | Legal and privacy authority rechecked | Preserve current notice and retain draft | Approved |
+| REL-AD-033 | `ADM-027` `manages` `LEG-004` | Publish Cookie Notice | Version, effective date, and supersession metadata | Draft text and privileged notes | Legal and privacy authority rechecked | Preserve current notice and retain draft | Approved |
+| REL-AD-034 | `ADM-027` `manages` `LEG-005` | Publish Accessibility Statement | Version, effective date, and supersession metadata | Draft text and restricted review notes | Legal and accessibility authority rechecked | Preserve current statement and retain draft | Approved |
+| REL-AD-035 | `ADM-027` `manages` `LEG-006` | Publish Delivery Policy | Version, effective date, and supersession metadata | Draft text and operational review notes | Legal and Delivery authority rechecked | Preserve current policy and retain draft | Approved |
+| REL-AD-036 | `ADM-027` `manages` `LEG-007` | Publish Returns Policy | Version, effective date, and supersession metadata | Draft text and remedy review notes | Legal and remedy authority rechecked | Preserve current policy and retain draft | Approved |
+| REL-AD-037 | `ADM-027` `manages` `LEG-008` | Publish Warranty Policy | Version, effective date, and supersession metadata | Draft text and provider review notes | Legal and warranty authority rechecked | Preserve current policy and retain draft | Approved |
+| REL-AD-038 | `ADM-027` `manages` `LEG-009` | Publish Financing Terms | Applicable version, date, provider, and supersession metadata | Application data and privileged notes | Legal and financing authority rechecked | Keep financing unavailable if terms cannot publish | Approved |
+| REL-AD-039 | `ADM-028` `manages` `DSC-001` | Activate search configuration | Approved synonyms, aliases, participation, or ranking version | Restricted query logs and draft controls | Discovery authority rechecked | Preserve current configuration and allow rollback | Approved |
+| REL-AD-040 | `ADM-028` `manages` `DSC-002` | Activate category-search configuration | Approved search and ranking version | Restricted query data and draft controls | Discovery authority rechecked | Preserve current configuration and allow rollback | Approved |
+| REL-AD-041 | `ADM-029` `manages` `EVA-001` | Apply moderation outcome | Review, publication state, and policy reason | Restricted moderator and customer data | Reviews permission and policy rechecked | Preserve review state and retain appeal path | Approved |
+| REL-AD-042 | `ADM-030` `manages` `ADM-001` | Change workforce access | Workforce identity and approved access outcome | Credentials and unrelated personnel data | Security and domain approval rechecked | Preserve prior access; emergency revocation remains explicit | Approved |
+| REL-AD-043 | `ADM-031` `manages` `ADM-001` | Activate role version | Permission set, assignments, and effective version | Draft role and restricted assignments | Security and affected-domain approval rechecked | Preserve current role and block conflicts | Approved |
+| REL-AD-044 | `ADM-032` `references` `ADM-030` | Investigate access event | Authorized actor, action, target, time, correlation | Credentials and unrelated personnel data | Audit scope rechecked | Keep Audit usable with redacted context | Approved |
+| REL-AD-045 | `ADM-032` `references` `ADM-031` | Investigate role event | Authorized role, version, action, time, correlation | Assignments outside scope | Audit scope rechecked | Keep Audit usable with redacted role context | Approved |
+| REL-AD-046 | `ADM-032` `references` `ADM-017` | Investigate order operation | Order, action, actor, time, correlation | Customer and payment data outside purpose | Audit and order scope rechecked | Keep Audit usable with redacted order context | Approved |
+| REL-AD-047 | `ADM-032` `references` `ADM-021` | Investigate case operation | Case, action, actor, time, correlation | Message content and unrelated case data | Audit and case scope rechecked | Keep Audit usable with redacted case context | Approved |
+| REL-AD-048 | `ADM-033` `references` `ADM-002` | Open product report | Metric definition, authorized data, and freshness | Unauthorized fields and customer data | Source and metric permissions rechecked | Show partial-data or unavailable-source state | Approved |
+| REL-AD-049 | `ADM-033` `references` `ADM-016` | Open order report | Metric definition, authorized data, and freshness | Unauthorized order, payment, and customer fields | Source and metric permissions rechecked | Show partial-data or unavailable-source state | Approved |
+| REL-AD-050 | `ADM-033` `references` `ADM-020` | Open support report | Metric definition, authorized data, and freshness | Unauthorized case content and customer data | Source and metric permissions rechecked | Show partial-data or unavailable-source state | Approved |
+
+### Slice 4 invariants
+
+- `manages` governs the object or behavior represented by the target; it does not transfer target-page ownership.
+- Every mutation is revalidated by its authoritative domain and audited where required.
+- Legal remains mutation and approval authority for legal content.
+- Admin pages never push client-displayed prices, inventory, order, or case state directly.
+- Permission changes use ADM-001 as the shell node rather than duplicating 34 edges.
+- Audit and reporting relationships are read-only and permission-filtered.
+- Failed actions retain the workspace safely and do not partially mutate targets.
+
 ## Approved ownership ledger
 
 `Not applicable` means no separate human approval beyond normal validation by the authoritative domain. It does not remove authentication, authorization, audit, or business-rule enforcement.
@@ -435,10 +502,15 @@ The ownership ledger covers all **89 approved Page Inventory IDs exactly once**.
 
 Ledger completion does not resolve every operational detail. Items in the `Provisional dependencies` column remain mandatory inputs to later Account, Support Center, Administrative Dashboard, roles-and-permissions, legal, engineering, and system-state decisions.
 
-## Next decision
+## Completion
 
-Populate and review consequential relationships in four slices:
+The canonical relationship graph contains **133 approved consequential edges**:
 
-1. Admin management edges
+- 18 Discovery, Evaluation, and Purchase edges
+- 32 Account, PC Builder, AI, and Support edges
+- 33 Authentication, Legal, and System recovery edges
+- 50 Administrative Dashboard management edges
 
-Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
+The ownership ledger covers all **89 approved pages and templates**. Unresolved responsibilities remain explicit in `Provisional dependencies` and must be resolved by later Phase 2B topics.
+
+Page relationships and domain ownership are approved and complete for the current Page Inventory. New pages, relationship types, consequential edges, or ownership transfers require explicit review and Blueprint updates.
