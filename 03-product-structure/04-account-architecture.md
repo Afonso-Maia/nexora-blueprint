@@ -250,17 +250,60 @@ Successful claiming makes the same order available in Orders and eligible Dashbo
 7. Repeated successful requests resolve to the existing attachment; repeated conflicting requests cannot create additional associations.
 8. Every destination independently rechecks current authorization and action eligibility.
 
+## Risk-tiered preference assurance
+
+Account management uses assurance proportional to the consequence of the requested action. Every mutable preference or identity action declares a governed assurance tier; interface placement alone never determines its protection.
+
+### Tier 1 — Routine
+
+A valid authenticated session is sufficient for low-risk, readily reversible changes such as:
+
+- Notification-channel and topic preferences
+- Non-sensitive personalization preferences
+- Interface preferences
+
+### Tier 2 — Sensitive
+
+Recent authentication or targeted verification is required for changes that can redirect customer communication, fulfillment, or future commerce behavior, including:
+
+- Adding or editing saved addresses
+- Changing personal or governed contact information
+- Selecting a default payment method
+- Other changes with comparable fraud or privacy impact
+
+### Tier 3 — Critical
+
+Step-up authentication, explicit confirmation, and an audit record are required for high-impact identity, financial, privacy, or lifecycle actions, including:
+
+- Adding or removing payment instruments
+- Changing credentials or authentication factors
+- Requesting a privacy export
+- Initiating Account closure
+
+Recovery safeguards, customer notification, cooling periods, or delayed execution apply where the later lifecycle or regulatory decision requires them.
+
+### Assurance governance
+
+1. Authentication owns session recency, verification methods, and step-up assurance.
+2. Customer owns the preference-management experience and communicates why additional assurance is required.
+3. Payments owns payment-instrument validation, tokenization, storage, and payment-specific controls.
+4. Purchase owns checkout-specific address and contact snapshots.
+5. Current preferences do not rewrite historical orders, invoices, deliveries, Support cases, or consent records.
+6. A source domain may require a higher tier because of current risk, account restriction, or action context; no consumer may lower the governed minimum.
+7. Assurance is rechecked when the change is committed, not inferred from an earlier page visit.
+8. Failed or abandoned verification preserves the current value and provides a safe recovery path.
+9. Sensitive values and verification evidence are not exposed in URLs, analytics, or general-purpose logs.
+10. Tier assignments are governed policy and must be reviewed when a capability's consequences change.
+
 ## Provisional dependencies
 
 The following remain pending:
 
 - Account restriction and recovery behavior
-- Address and payment assurance
 - Notification categories, retention, and preferences
 - Privacy requests, export, closure, and retention
-- Session and step-up assurance
 - Mobile navigation interaction details
 
 ## Next decision
 
-Define risk and assurance levels for preference management, followed by account restriction and recovery, notifications, privacy requests, and account lifecycle controls.
+Define Account restriction and recovery behavior, followed by notifications, privacy requests, and Account lifecycle controls.
