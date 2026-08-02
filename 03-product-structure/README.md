@@ -6,7 +6,7 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 
 Phase 2B will define:
 
-1. [Page Inventory](01-page-inventory.md) — classification model approved; complete inventory pending
+1. [Page Inventory](01-page-inventory.md) — classification and population method approved; complete inventory pending
 2. Information Hierarchy
 3. Account Architecture
 4. Support Center Architecture
@@ -17,4 +17,3 @@ Phase 2B will define:
 9. Architecture Validation
 
 Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).
-

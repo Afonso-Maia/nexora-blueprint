@@ -1,12 +1,12 @@
 # Page Inventory
 
-**Status:** Approved in part — classification model approved; complete inventory pending
+**Status:** Approved in part — classification and population method approved; complete inventory pending
 
 ## Purpose
 
 The Page Inventory is the governed registry of Nexora pages and page templates. It must support wireframing without requiring designers to invent missing pages, relationships, states, access boundaries, or ownership.
 
-This document currently approves the inventory classification model. It does not yet approve the complete page inventory.
+This document currently approves the inventory classification model and the comprehensive population method. It does not yet approve the individual entries in the complete page inventory.
 
 ## Decision
 
@@ -52,6 +52,8 @@ This structure reflects Nexora’s non-linear, search-first architecture. Search
 | URL pattern | Conceptual route and parameter strategy |
 | Responsive obligation | Mobile equivalence or an explicitly specialized behavior |
 | Lifecycle and journey references | Relevant lifecycle stages and Tier 1 journeys |
+| Delivery horizon | Foundation, Expansion, or Future; independent from architectural approval |
+| Metadata maturity | Confirmed or Provisional |
 | Decision status | Proposed, Approved, Superseded, or Deprecated |
 
 ## Classification rules
@@ -63,6 +65,9 @@ This structure reflects Nexora’s non-linear, search-first architecture. Search
 5. Page classification does not create navigation. Navigation remains governed by the approved [Navigation](../02-information-architecture/03-navigation.md).
 6. Search participation follows the approved [Universal Search](../02-information-architecture/05-search.md) and must be explicit for every page or template.
 7. Conceptual URL patterns do not approve implementation routing.
+8. The inventory is comprehensive rather than limited to Tier 1 journeys. All known product surfaces are mapped before page-level architecture is considered complete.
+9. Inventory inclusion does not establish delivery priority. Delivery horizon is tracked independently as Foundation, Expansion, or Future.
+10. Metadata that depends on later Account, Support, Admin, permissions, or system-state decisions is marked `Provisional` instead of being treated as approved architecture.
 
 ## Protected architectural boundaries
 
@@ -72,7 +77,12 @@ This structure reflects Nexora’s non-linear, search-first architecture. Search
 - Search result groups remain one unified results experience unless a later decision approves separate landing templates.
 - System states are not duplicated as standalone pages unless they have their own route-level purpose.
 
+## Population method
+
+The complete inventory will be assembled as one canonical registry across all 12 product-surface classes. This allows cross-surface gaps, duplicated responsibilities, missing relationships, and ownership conflicts to be identified before wireframing.
+
+A journey-first subset is insufficient as the canonical inventory because it would underrepresent post-purchase, operational, legal, and system surfaces. Tier 1 journey coverage remains a validation lens over the comprehensive registry.
+
 ## Next decision
 
-Populate the complete Page Inventory using this model, then validate coverage, relationships, domain ownership, access, search participation, and required states.
-
+Review and approve the individual entries in the complete Page Inventory, then validate coverage, relationships, domain ownership, access, search participation, required states, metadata maturity, and delivery horizons.
