@@ -217,6 +217,26 @@ Sign-out, session-timeout warnings, password visibility, provider selection, con
 
 Exact identity factors, social providers, password policy, passkeys, multi-factor methods, recovery assurance, session duration, and abuse controls remain provisional until Account, engineering, legal, and roles-and-permissions decisions are approved.
 
+## Versioned legal document architecture
+
+Nexora maintains independently versioned legal and policy documents with stable destinations. A Legal and Policies Hub indexes the current authoritative documents.
+
+Each policy destination must support:
+
+- A stable canonical URL
+- Document title and accountable owner
+- Current version or effective date
+- Publication and supersession status
+- Direct links from relevant product tasks
+- Accessible reading and navigation
+- A governed method for accessing prior versions when legally required
+
+Separate documents allow registration, Checkout, Account Settings, Support, and other consequential tasks to reference the exact policy and version that applies without linking into an unrelated consolidated page.
+
+Support content may explain policies and help users act, but it cannot redefine them. The Returns and Refunds Hub and Warranty and Repairs Hub must reference the authoritative Returns and Refund Policy and Warranty Policy. If guidance and policy conflict, the policy owner must resolve the inconsistency rather than allowing parallel interpretations.
+
+Consent capture, prior-version retention, jurisdictional variants, policy ownership, translation, effective-date rules, and change-notification obligations remain provisional until legal, content ownership, Account, and Administrative Dashboard architecture are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
