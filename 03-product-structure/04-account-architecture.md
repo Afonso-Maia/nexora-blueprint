@@ -505,7 +505,7 @@ The Account and post-purchase architecture passes its Phase 2B topic validation:
 - Restrictions preserve existing obligations and remedies wherever safely possible.
 - Privacy requests and closure have durable, auditable lifecycles.
 - Mobile navigation preserves task priority, surface ownership, safe context, and accessible recovery.
-- Loading, empty, error, offline, and degraded-state presentation remains governed by the later cross-product state architecture.
+- Loading, empty, error, offline, and degraded-state presentation follows the approved [cross-product state architecture](08-error-empty-and-degraded-states.md).
 
 No unresolved Account architecture alternative is recorded as approved. Detailed legal periods, channel policies, risk thresholds, and interaction copy remain governed implementation or policy inputs within these constraints.
 

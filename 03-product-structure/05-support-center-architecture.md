@@ -581,7 +581,7 @@ Providers cannot:
 - Rewrite customer or Nexora communication
 - Expand their own task, participant list, access, or retention
 
-Exact external permissions remain subject to the later Roles and Permissions architecture.
+External permissions follow the approved [Roles and Permissions](07-roles-and-permissions.md) architecture.
 
 ### Timeline and communication
 
@@ -666,7 +666,7 @@ The full timeline remains available. Long history cannot push the current obliga
 9. Account, Order Detail, PC Builder, AI, and external destinations retain their own shells and safe return context.
 10. Mobile compaction changes presentation priority but cannot change lifecycle, responsibility, eligibility, ownership, or service obligations.
 
-Offline, loading, and cross-product degraded-state details remain governed by the later Error and Empty States architecture.
+Offline, loading, and cross-product degraded-state details follow the approved [state architecture](08-error-empty-and-degraded-states.md).
 
 ## Architecture validation
 
@@ -683,8 +683,8 @@ The Support Center Architecture passes its Phase 2B topic validation:
 - Guests retain public and securely verified post-purchase paths without forced Account creation.
 - AI remains explanatory and assistive; it cannot determine eligibility, approve remedies, alter cases, or expand access.
 - External participation is bounded, attributable, expiring, and accountable to a Nexora case owner.
-- Exact role permissions remain intentionally governed by the later Roles and Permissions architecture.
-- Cross-product loading, empty, error, offline, and degraded-state presentation remains governed by the later state architecture.
+- Role permissions follow the approved Roles and Permissions architecture.
+- Cross-product loading, empty, error, offline, and degraded-state presentation follows the approved state architecture.
 
 No unresolved Support architecture alternative is recorded as approved.
 

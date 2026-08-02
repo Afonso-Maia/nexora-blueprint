@@ -50,7 +50,7 @@ A subject is an attributable actor evaluated for access. Initial subject classes
 
 Shared anonymous operational identities are not acceptable for consequential work.
 
-The exact subject lifecycle, identity proofing, service ownership, and offboarding workflow remain pending.
+Subject lifecycle, service ownership, and offboarding are defined below. Exact authentication methods and identity-proofing mechanisms remain Security and Engineering inputs.
 
 ### Capability
 
@@ -540,7 +540,7 @@ For an action to proceed, at least one grant must independently satisfy:
 - Assurance
 - Threshold and time bounds
 
-Explicit denial, lifecycle restriction, risk policy, and segregation constraints then apply to the proposed action. Their conflict precedence is defined by the next decision.
+Explicit denial, lifecycle restriction, risk policy, and segregation constraints then apply through the approved deterministic precedence defined below.
 
 ### Hierarchy inheritance
 

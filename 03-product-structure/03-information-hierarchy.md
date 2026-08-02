@@ -651,6 +651,6 @@ Page-Level Information Hierarchy is approved and complete for all 89 current pag
 
 Wireframing must apply the primary archetype contract together with the page’s approved purpose, shell, constraints, relationships, access posture, and required states. A new page or a changed page purpose requires archetype review.
 
-## Next decision
+## Completion validation
 
-Proceed to Account and post-purchase architecture. Later Phase 2B validation must confirm that wireframe-ready page requirements preserve these hierarchy contracts.
+Phase 2B validation confirmed that the Account, Support, Admin, Roles and Permissions, state, and scalability architectures preserve these wireframe-ready hierarchy contracts.

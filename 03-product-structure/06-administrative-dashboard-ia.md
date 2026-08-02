@@ -60,7 +60,7 @@ Section names, resource ownership, and canonical routes remain stable across wor
 6. A user with partial field access can reach an eligible workspace without receiving restricted values in navigation labels, previews, search, or counts.
 7. Temporary assignments can add queues or saved views without renaming or relocating the canonical capability.
 
-Exact roles, permissions, field restrictions, approvals, and segregation-of-duties rules remain governed by the later Roles and Permissions architecture.
+Roles, permissions, field restrictions, approvals, and segregation-of-duties rules follow the approved [Roles and Permissions](07-roles-and-permissions.md) architecture.
 
 ## Object-centered transitions
 
@@ -649,7 +649,7 @@ Approval and execution are independent authorizations:
 5. A requestor cannot approve their own work where segregation policy prohibits it.
 6. Approval does not guarantee successful or synchronous execution.
 
-Exact role assignments, approval thresholds, and segregation constraints remain governed by the later Roles and Permissions architecture.
+Role assignments, approval thresholds, and segregation constraints follow the approved Roles and Permissions architecture.
 
 ## Correlated audit history
 
@@ -715,7 +715,7 @@ AI and automation cannot alter audit history, approve their own expanded authori
 
 ## Capability contract boundary
 
-Admin IA defines the permission-aware presentation contract for every destination and operation. The later Roles and Permissions architecture defines which subjects receive capabilities, under which scopes and conditions.
+Admin IA defines the permission-aware presentation contract for every destination and operation. Roles and Permissions defines which subjects receive capabilities, under which scopes and conditions.
 
 ### Capability declaration
 
@@ -783,7 +783,7 @@ Previously approved or scheduled work is re-evaluated according to its execution
 
 ### Roles and Permissions ownership
 
-The later Roles and Permissions architecture will define:
+The approved Roles and Permissions architecture defines:
 
 - Human, service, provider, and automation subjects
 - Role and capability composition
@@ -918,7 +918,7 @@ The guard explains why the current viewport is insufficient and preserves the dr
 5. Audit-required work blocks when required audit durability cannot be confirmed.
 6. Permission, assurance, validation, and state are rechecked after every material interruption.
 7. Recovery preserves confirmed history and never duplicates a mutation for presentation convenience.
-8. Detailed cross-product loading, empty, error, offline, and degraded presentation remains governed by the later state architecture.
+8. Detailed cross-product loading, empty, error, offline, and degraded presentation follows the approved [state architecture](08-error-empty-and-degraded-states.md).
 
 ## Architecture validation
 

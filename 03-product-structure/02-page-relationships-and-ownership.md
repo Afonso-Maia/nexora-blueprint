@@ -80,7 +80,7 @@ Every page records:
 | Mutation authority | Domain responsible for validating and applying changes |
 | Approval authority | Required owner for governed or high-risk changes |
 | Escalation owner | Domain responsible when normal processing cannot complete |
-| Provisional dependencies | Responsibilities awaiting later Phase 2B decisions |
+| Downstream policy and implementation inputs | Legal, Design, Security, Engineering, operational-policy, or configuration details that must preserve the approved ownership boundary |
 
 Page accountability does not transfer ownership of referenced data. For example:
 
@@ -124,9 +124,9 @@ Each row must make exceptions visible, particularly where:
 - A customer and Admin page expose the same authoritative object
 - Mutation requires another domain’s validation
 - Approval or escalation crosses an operational boundary
-- A later Phase 2B decision must resolve provisional authority
+- A downstream input must preserve the approved authority boundary
 
-The ledger will be reviewed in four slices matching the customer relationship graph, followed by Admin pages. Completion requires:
+The ledger was reviewed in four slices matching the customer relationship graph, followed by Admin pages. Completion requires:
 
 - All 89 approved page IDs exactly once
 - Exactly one accountable page domain per page
@@ -134,7 +134,7 @@ The ledger will be reviewed in four slices matching the customer relationship gr
 - Mutation authority for every mutable object
 - Explicit approval authority or `Not applicable`
 - An escalation owner
-- Visible provisional dependencies rather than inferred decisions
+- Visible downstream inputs rather than inferred implementation decisions
 
 ## Governance rules
 
@@ -384,7 +384,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 ### Ledger Slice 1 — Storefront, Discovery, Evaluation, Purchase, and Account
 
-| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Downstream policy and implementation inputs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | STF-001 | Marketing | Discovery, Catalog, Customer, AI, PC Builder | Each source domain for its module | Marketing for composition; source owner for data | Marketing | Marketing | Personalization and module-governance detail |
 | STF-002 | Marketing | Catalog, Pricing, Inventory, Discovery | Marketing for promotion; Catalog, Pricing, and Inventory for commercial facts | Respective source owner | Marketing and Pricing for applicable changes | Marketing | Promotion approval workflow |
@@ -411,7 +411,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 ### Ledger Slice 2 — PC Builder, AI, Support, and Authentication
 
-| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Downstream policy and implementation inputs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | PCB-001 | PC Builder | Catalog, Compatibility, Customer, AI, Pricing, Inventory | PC Builder for initialization; source owners for product facts | PC Builder | Not applicable | PC Builder | Guest draft persistence and initialization constraints |
 | PCB-002 | PC Builder | Compatibility, Catalog, Pricing, Inventory, Customer, Purchase, AI | PC Builder for build; Compatibility for rules; Catalog, Pricing, and Inventory for facts | PC Builder for build; source owners for facts | Compatibility owner for rule changes | PC Builder | Save conflicts, performance model, ownership, and collaboration |
@@ -434,7 +434,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 ### Ledger Slice 3 — Legal, Informational, and System
 
-| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Downstream policy and implementation inputs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | INF-001 | Marketing | Legal, Support | Marketing for company content; Legal for regulated claims | Marketing; Legal corrects regulated claims | Marketing and Legal where applicable | Marketing | Regulated-claim review and responsible contact ownership |
 | LEG-001 | Legal | Marketing, Support, Customer, Purchase | Legal for policy index and publication status | Legal | Legal | Legal | Prior-version access and jurisdictional variants |
@@ -454,7 +454,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 ### Ledger Slice 4A — Administrative Dashboard: Operations
 
-| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Downstream policy and implementation inputs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ADM-001 | Admin Platform | Catalog, Inventory, Pricing, Purchase, Support, Marketing, Platform Operations | Each source domain for operational data; Admin Platform for composition | Source domain for each object; Admin Platform for dashboard configuration | Not applicable | Admin Platform | Alert ownership, metric definitions, and module permissions |
 | ADM-002 | Catalog | Inventory, Pricing, Marketing, Compatibility, Admin Platform | Catalog for products; source domains for related facts | Catalog for product lifecycle; source owners for facts | Catalog | Catalog | Bulk-action limits, exports, and approval states |
@@ -480,7 +480,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 ### Ledger Slice 4B — Administrative Dashboard: Content, Governance, Access, and Insights
 
-| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Downstream policy and implementation inputs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ADM-022 | Marketing | Catalog, Discovery, Pricing, Inventory, Admin Platform | Marketing for collection; source domains for product facts | Marketing for collection; source owners for facts | Marketing | Marketing | Approval, schedule, membership rules, and bulk lifecycle |
 | ADM-023 | Marketing | Catalog, Discovery, Pricing, Inventory, Admin Platform | Marketing for collection record, membership, content, and schedule; source domains for facts | Marketing for collection; source owners for facts | Marketing | Marketing | Rule evaluation, publication workflow, and preview |
@@ -500,7 +500,7 @@ All Admin edges are permission-filtered, independently authorize each mutation, 
 
 The ownership ledger covers all **89 approved Page Inventory IDs exactly once**.
 
-Ledger completion does not resolve every operational detail. Items in the `Provisional dependencies` column remain mandatory inputs to later Account, Support Center, Administrative Dashboard, roles-and-permissions, legal, engineering, and system-state decisions.
+Ledger completion does not resolve every operational detail. Items in the `Downstream policy and implementation inputs` column remain mandatory Legal, Design, Security, Engineering, operational-policy, or configuration inputs and cannot alter the recorded accountability or authority silently.
 
 ## Completion
 
@@ -511,6 +511,6 @@ The canonical relationship graph contains **133 approved consequential edges**:
 - 33 Authentication, Legal, and System recovery edges
 - 50 Administrative Dashboard management edges
 
-The ownership ledger covers all **89 approved pages and templates**. Unresolved responsibilities remain explicit in `Provisional dependencies` and must be resolved by later Phase 2B topics.
+The ownership ledger covers all **89 approved pages and templates**. Phase 2B topic decisions resolve the architectural responsibilities; remaining downstream inputs are explicit and subordinate to those approved boundaries.
 
 Page relationships and domain ownership are approved and complete for the current Page Inventory. New pages, relationship types, consequential edges, or ownership transfers require explicit review and Blueprint updates.

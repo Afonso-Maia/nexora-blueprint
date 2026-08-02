@@ -1,8 +1,8 @@
 # Product Structure Architecture
 
-**Status:** In progress
+**Status:** Approved and complete
 
-Phase 2B is proceeding through explicit decision gates. Approval of one topic does not imply approval of the remaining architecture.
+Phase 2B Product Structure Architecture is approved and complete.
 
 Phase 2B will define:
 
@@ -15,6 +15,6 @@ Phase 2B will define:
 7. [Roles and Permissions](07-roles-and-permissions.md) — approved; subjects, lifecycle, roles, scopes, evaluation, temporary access, segregation, review, offboarding, and emergency access
 8. [Error, Empty, Loading, Offline, and Degraded States](08-error-empty-and-degraded-states.md) — approved; host-owned state semantics, operation truth, recovery, accessibility, and route-level boundaries
 9. [Scalability Guidelines](09-scalability-guidelines.md) — approved; governed extension, stable contracts, lifecycle, capacity, and change triggers
-10. Architecture Validation
+10. [Phase 2B Architecture Validation](10-phase-2b-validation.md) — approved; completeness, consistency, journey, ownership, state, access, scalability, and wireframing readiness
 
 Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).

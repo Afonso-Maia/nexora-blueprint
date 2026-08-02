@@ -1,12 +1,12 @@
 # Page Inventory
 
-**Status:** Approved — canonical inventory complete; identified metadata remains provisional
+**Status:** Approved
 
 ## Purpose
 
 The Page Inventory is the governed registry of Nexora pages and page templates. It must support wireframing without requiring designers to invent missing pages, relationships, states, access boundaries, or ownership.
 
-This document currently approves the inventory classification model, comprehensive population method, and page-boundary model. It does not yet approve the individual entries in the complete page inventory.
+This document approves the inventory classification model, comprehensive population method, page-boundary model, and all 89 canonical entries.
 
 ## Decision
 
@@ -67,7 +67,7 @@ This structure reflects Nexora’s non-linear, search-first architecture. Search
 7. Conceptual URL patterns do not approve implementation routing.
 8. The inventory is comprehensive rather than limited to Tier 1 journeys. All known product surfaces are mapped before page-level architecture is considered complete.
 9. Inventory inclusion does not establish delivery priority. Delivery horizon is tracked independently as Foundation, Expansion, or Future.
-10. Metadata that depends on later Account, Support, Admin, permissions, or system-state decisions is marked `Provisional` instead of being treated as approved architecture.
+10. Metadata refined by Account, Support, Admin, permissions, and system-state decisions must remain consistent with those approved topic documents.
 
 ## Page-boundary model
 
@@ -131,7 +131,7 @@ Order Detail is the durable coordination point for post-purchase activity. It br
 
 Tracking, invoice access, cancellation eligibility, and case initiation do not become independent pages before a persistent case exists. A return, warranty claim, or support request may become a separate case-detail page after initiation because it then has its own lifecycle, resumable state, and ownership boundary.
 
-This model preserves order context, gives customers one reliable place to resume, and prevents fragmented post-purchase navigation. Exact action eligibility, case ownership, guest-order access, and status models remain provisional until Account, Support, and roles-and-permissions architecture are approved.
+This model preserves order context, gives customers one reliable place to resume, and prevents fragmented post-purchase navigation. Action eligibility, guest-order access, state ownership, and case relationships follow the approved [Account](04-account-architecture.md), [Support](05-support-center-architecture.md), and [Roles and Permissions](07-roles-and-permissions.md) architectures.
 
 Comparison remains the Product Evaluation Decision Workspace, and Saved Builds remain part of PC Builder. Account navigation may link to these capabilities but does not create duplicate Account pages.
 
@@ -152,7 +152,7 @@ Save, resume, duplicate, share, purchase, and upgrade-later actions operate on t
 
 Component categories, compatibility review, budget review, performance review, and purchase preparation do not become routed steps. This preserves immediate recalculation, makes non-linear editing possible, and prevents the Builder from becoming a wizard after initialization.
 
-Authentication requirements for persistence, share-link controls, ownership transfer, collaboration, version history, and retention remain provisional until Account and roles-and-permissions architecture are approved.
+Authentication, ownership, sharing, history, and retention behavior follow the approved Account, Roles and Permissions, Scalability, and state contracts. Detailed collaboration policy remains a later product input and cannot change the approved four-page Builder boundary silently.
 
 ## Conversation-centered AI Assistant
 
@@ -172,7 +172,7 @@ Contextual AI elsewhere remains embedded in its host page. Opening the dedicated
 
 The Assistant does not replace deterministic search results, governed product data, compatibility facts, pricing, availability, or checkout controls. Recommendations must remain optional and explain their rationale, trade-offs, and confidence.
 
-Conversation retention, deletion, sharing, privacy controls, guest persistence, and authenticated access remain provisional until Account, legal, and roles-and-permissions architecture are approved.
+Conversation access, privacy, retention, deletion, and sharing must follow the approved Account, Roles and Permissions, Legal, Scalability, and state contracts. Detailed conversation-retention periods remain governed policy data.
 
 ## Typed unified support case model
 
@@ -197,7 +197,7 @@ Case initiation may begin contextually from Order Detail, Product Detail, Suppor
 
 Support search remains part of Universal Search with a visible Support scope. FAQs use the Support Article template rather than a separate page type.
 
-The precise case taxonomy, statuses, escalation rules, ownership transfer, refund authority, repair-provider access, service levels, and agent permissions remain provisional until Support Center, Administrative Dashboard, and roles-and-permissions architecture are approved.
+Case taxonomy, lifecycle, responsibility, escalation, ownership transfer, refund boundaries, provider access, obligations, and permissions follow the approved Support Center, Administrative Dashboard, and Roles and Permissions architectures.
 
 ## Focused authentication destinations
 
@@ -215,7 +215,7 @@ Every authentication page may preserve a validated return destination. Return co
 
 Sign-out, session-timeout warnings, password visibility, provider selection, consent controls, and reauthentication prompts remain embedded interactions. Identity-provider callbacks and token exchanges are system endpoints, not user-facing page inventory entries.
 
-Exact identity factors, social providers, password policy, passkeys, multi-factor methods, recovery assurance, session duration, and abuse controls remain provisional until Account, engineering, legal, and roles-and-permissions decisions are approved.
+Exact identity factors, social providers, password policy, passkeys, multi-factor methods, session durations, and abuse thresholds remain Security and Engineering inputs. They must implement the approved Account assurance, non-disclosure, Roles and Permissions, and state contracts.
 
 ## Versioned legal document architecture
 
@@ -235,7 +235,7 @@ Separate documents allow registration, Checkout, Account Settings, Support, and 
 
 Support content may explain policies and help users act, but it cannot redefine them. The Returns and Refunds Hub and Warranty and Repairs Hub must reference the authoritative Returns and Refund Policy and Warranty Policy. If guidance and policy conflict, the policy owner must resolve the inconsistency rather than allowing parallel interpretations.
 
-Consent capture, prior-version retention, jurisdictional variants, policy ownership, translation, effective-date rules, and change-notification obligations remain provisional until legal, content ownership, Account, and Administrative Dashboard architecture are approved.
+Consent, prior-version retention, jurisdictional applicability, policy ownership, translation, effective dates, and change notification follow the approved ownership, Account, Admin, Scalability, and state contracts. Exact legal periods and disclosures remain governed Legal inputs.
 
 ## Host-owned system states
 
@@ -261,7 +261,7 @@ Host-owned examples include:
 
 Host pages preserve relevant context and provide recovery actions appropriate to the user’s goal. They must not redirect routine empty or error states to generic system pages.
 
-The later error, empty, loading, offline, and degraded-state architecture will define behavioral requirements for every page and embedded unit. This decision establishes page boundaries only.
+The approved [Error, Empty, Loading, Offline, and Degraded States](08-error-empty-and-degraded-states.md) architecture defines behavioral requirements for every page and embedded unit.
 
 ## Object-centered Administrative Dashboard
 
@@ -292,7 +292,7 @@ Roles and permissions control which resources, records, fields, panels, and acti
 7. Admin search is operational and permission-aware. It is separate from customer Universal Search.
 8. Restricted navigation items may be absent, but a deep link still enforces authorization and uses the appropriate Access Denied state.
 
-Exact Admin modules, role definitions, field-level permissions, approval workflows, bulk-action limits, segregation of duties, and audit retention remain provisional until Administrative Dashboard IA and roles-and-permissions architecture are approved.
+Admin modules, field-level permissions, approvals, bulk operations, segregation, audit, and continuity follow the approved [Administrative Dashboard IA](06-administrative-dashboard-ia.md) and [Roles and Permissions](07-roles-and-permissions.md).
 
 ## Approved canonical inventory
 
@@ -389,7 +389,7 @@ All Block 1 pages require mobile-equivalent access to their primary goal. Layout
 - **Relationships / actions:** Leads to Collection, Category Discovery, and Product Detail; actions depend on the governed campaign goal
 - **Required states:** Scheduled, expired, withdrawn, empty assortment, partial promotion service, and standard content states
 - **Lifecycle / journeys:** Land, Discover, and Evaluate / J-01, J-02
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### DSC-001 — Universal Search Results
 
@@ -460,7 +460,7 @@ Embedded units inherit the host page’s access and shell but must define their 
 
 ### Block 2 — Purchase and Customer Account
 
-Account entries are authenticated unless an explicitly governed guest-order recovery path applies. Exact authentication assurance, action eligibility, retention, and permissions remain provisional until the Account and roles-and-permissions architecture decisions.
+Account entries are authenticated unless the approved verified guest-order path applies. Assurance, action eligibility, retention, and permissions follow the Account and Roles and Permissions architectures.
 
 #### PUR-001 — Cart
 
@@ -499,7 +499,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Leads to Order Detail or secure guest-order access, Home, Support, and PC Build context; actions are review confirmation, obtain receipt, and continue
 - **Required states:** Confirmation delayed, notification delayed, payment pending, duplicate revisit, expired guest reference, and partial order-summary degradation
 - **Lifecycle / journeys:** Purchase and Track / J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-001 — Account Dashboard
 
@@ -512,7 +512,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Leads to Orders, Wishlist, Addresses, Payment Methods, Notifications, Settings, Comparison, Saved Builds, and Support; actions prioritize current orders and meaningful resumptions
 - **Required states:** New account, no activity, partial order or recommendation service, stale continuation, and restricted account
 - **Lifecycle / journeys:** Manage relationship, Track, and Support / all journeys where authenticated context persists
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-002 — Orders
 
@@ -525,20 +525,20 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Leads to Order Detail and relevant Support cases; actions are filter, find, and open an order
 - **Required states:** No orders, no filtered matches, delayed order synchronization, partial shipment data, and restricted order
 - **Lifecycle / journeys:** Track, Receive, Support, and Return / J-01 through J-06 after purchase
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-003 — Order Detail
 
 - **Type / class:** Reusable authenticated entity template / Customer Account
 - **Purpose:** Act as the durable hub for one order and its post-purchase activity.
 - **Ownership:** Customer; supported by Purchase, Delivery, Payments, Support, Compatibility, PC Builder, and Notifications
-- **Audience / access / shell:** Owning customer; governed guest access remains provisional / Authenticated or securely verified / Storefront account
+- **Audience / access / shell:** Owning customer or securely verified eligible guest / Authenticated or securely verified / Storefront account
 - **Entry / URL:** Orders, Order Confirmation, notification, Support, and secure deep link / `/account/orders/{order-reference}`
 - **Search participation:** Excluded from public and universal search indexing
 - **Relationships / actions:** Coordinates tracking, items, PC Build summary, payment summary, delivery address, invoice, cancellation eligibility, return or warranty initiation, and Support; persistent cases lead to their own detail pages
 - **Required states:** Processing, payment pending, partially shipped, delivered, cancelled, returned, delayed tracking, missing invoice, action ineligible, partial service failure, and unauthorized access
 - **Lifecycle / journeys:** Track, Receive, Support, and Return / J-01 through J-06 after purchase
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-004 — Wishlist
 
@@ -551,7 +551,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Leads to Product Detail, Comparison, Cart, and Category Discovery; actions are remove, compare, and add available products to Cart
 - **Required states:** Empty wishlist, unavailable or discontinued product, changed price, merge conflict, and partial catalog data
 - **Lifecycle / journeys:** Evaluate, Compare, and Purchase / J-01, J-02, J-03, J-04
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-005 — Addresses
 
@@ -564,7 +564,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Supports Checkout and Order Detail without altering historical order addresses; actions are add, edit, validate, set default, and remove eligible addresses
 - **Required states:** No addresses, invalid or unsupported address, validation unavailable, address in use, removal blocked, and save conflict
 - **Lifecycle / journeys:** Manage relationship and Purchase / J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ACC-006 — Payment Methods
 
@@ -577,7 +577,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Supports Checkout; actions are add through a governed provider flow, label, set default, and remove eligible instruments
 - **Required states:** No stored methods, expired instrument, provider unavailable, verification required, method in use, removal blocked, and tokenization failure
 - **Lifecycle / journeys:** Manage relationship and Purchase / J-01 through J-06
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### ACC-007 — Notifications
 
@@ -590,7 +590,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Leads to Order Detail, Support cases, Product Detail, PC Builder, and Settings; actions are open, mark read, and manage notification preferences
 - **Required states:** No notifications, expired target, partial channel synchronization, duplicate event, and notification service unavailable
 - **Lifecycle / journeys:** Manage relationship, Track, and Support / all journeys with persistent customer context
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### ACC-008 — Account Settings
 
@@ -603,7 +603,7 @@ Account entries are authenticated unless an explicitly governed guest-order reco
 - **Relationships / actions:** Coordinates profile, credentials, sessions, privacy controls, notification preferences, and account closure; legally significant actions use explicit confirmation
 - **Required states:** Verification required, stale session, duplicate identity data, save conflict, channel unavailable, export pending, closure blocked, and partial settings failure
 - **Lifecycle / journeys:** Manage relationship / all authenticated journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 2 embedded experience units
 
@@ -646,7 +646,7 @@ Every PC Builder destination preserves the deterministic compatibility model as 
 - **Relationships / actions:** Leads to Saved Builds, Shared Build, Cart, Product Detail, and contextual AI; actions include select components, inspect constraints, save, duplicate, share, convert to Cart, and create an upgrade variant
 - **Required states:** Empty slots, warning, hard incompatibility, budget conflict, unavailable component, changed price, insufficient stock, stale compatibility result, recalculation in progress, unsaved guest draft, save conflict, and partial AI or performance degradation
 - **Lifecycle / journeys:** Evaluate, Compare, Configure, and Purchase / J-03, J-04, J-05, J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### PCB-003 — Saved Builds
 
@@ -659,7 +659,7 @@ Every PC Builder destination preserves the deterministic compatibility model as 
 - **Relationships / actions:** Leads to Engineering Workspace and Shared Build; actions are resume, duplicate, rename, share, archive, purchase, and start an upgrade variant
 - **Required states:** No builds, locally recoverable draft, unavailable component, compatibility changed, price or stock changed, archive conflict, and partial metadata failure
 - **Lifecycle / journeys:** Configure, Purchase, and Upgrade later / J-04, J-05, J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### PCB-004 — Shared Build
 
@@ -672,7 +672,7 @@ Every PC Builder destination preserves the deterministic compatibility model as 
 - **Relationships / actions:** Leads to Product Detail, PC Builder Start, and a duplicated Engineering Workspace; actions are inspect components and compatibility, duplicate, and begin purchase through an owned copy
 - **Required states:** Invalid, revoked, or expired link; unavailable component; changed compatibility; stale price or stock; owner-deleted build; and partial catalog data
 - **Lifecycle / journeys:** Evaluate, Configure, and Purchase / J-03, J-04, J-05
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 3A embedded experience units
 
@@ -700,7 +700,7 @@ Collaboration, ownership transfer, version history, and public discoverability a
 - **Relationships / actions:** Receives visible context from Search, Category Discovery, Product Detail, Comparison, PC Builder, or Checkout and may return users to those destinations; actions are ask, refine, inspect evidence and context, compare recommendations, remove context, reset, and manage conversations
 - **Required states:** New conversation, no history, response generation, partial evidence, low confidence, conflicting requirements, unavailable source system, stale referenced product, interrupted response, usage limitation, guest persistence boundary, and deletion pending
 - **Lifecycle / journeys:** Discover, Evaluate, Compare, Configure, Purchase, and Support / J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 3B embedded experience units
 
@@ -717,7 +717,7 @@ Contextual AI panels remain embedded within their host pages and are not additio
 
 ### Block 4A — Support
 
-Support pages use the shared customer-facing case model. Exact eligibility, state transitions, service levels, internal queues, and agent permissions remain provisional.
+Support pages use the approved shared customer-facing case model, deterministic eligibility gateway, obligation tracking, governed queues, and scoped agent permissions.
 
 #### SUP-001 — Support Center
 
@@ -730,7 +730,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Leads to Support Article, Returns and Refunds, Warranty and Repairs, Contact and Case Start, My Support Cases, Order Detail, and contextual AI; actions are search, select an issue path, and resume a case
 - **Required states:** No query, zero support results, no active cases, unavailable order context, partial article index, case service unavailable, and degraded AI
 - **Lifecycle / journeys:** Support and Return / all Tier 1 journeys after or during evaluation and purchase
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-002 — Support Article
 
@@ -743,7 +743,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Leads to relevant product, order, policy, hub, or case-initiation destination; primary actions are follow guidance, provide feedback, and escalate when unresolved
 - **Required states:** Unpublished or retired article, stale product or policy reference, missing localization, partial media, and escalation service unavailable
 - **Lifecycle / journeys:** Evaluate, Purchase, Track, Support, and Return / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-003 — Returns and Refunds Hub
 
@@ -756,7 +756,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Leads to Order Detail, relevant policy content, Contact and Case Start, and a created Support Case Detail; actions are understand eligibility, identify an order or item, and initiate an eligible return
 - **Required states:** No eligible order, outside return window, non-returnable item, verification required, partial-order eligibility, initiation failure, and refund service degradation
 - **Lifecycle / journeys:** Support and Return / post-purchase J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-004 — Warranty and Repairs Hub
 
@@ -769,7 +769,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Leads to Order Detail, Product Detail, relevant policy content, Contact and Case Start, and a created Support Case Detail; actions are understand coverage, identify a product, provide initial evidence, and initiate an eligible claim
 - **Required states:** Product not found, coverage expired or unknown, manufacturer-only route, verification required, evidence incomplete, initiation failure, and repair service degradation
 - **Lifecycle / journeys:** Support and Return / post-purchase J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-005 — Contact and Case Start
 
@@ -782,7 +782,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** May return to self-service content or create and lead to Support Case Detail; actions are select issue context, identify relevant order or product, choose an available channel, and submit
 - **Required states:** Insufficient context, authentication or verification required, duplicate-case warning, channel unavailable, outside service hours, attachment failure, submission failure, and emergency-scope redirection
 - **Lifecycle / journeys:** Support and Return / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-006 — My Support Cases
 
@@ -795,7 +795,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Leads to Support Case Detail and associated Order Detail; actions are filter, find, open, and resume a case
 - **Required states:** No cases, no filtered matches, archived case, restricted case, delayed synchronization, and partial status data
 - **Lifecycle / journeys:** Support and Return / all Tier 1 journeys with persistent customer context
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SUP-007 — Support Case Detail
 
@@ -808,7 +808,7 @@ Support pages use the shared customer-facing case model. Exact eligibility, stat
 - **Relationships / actions:** Links associated Order Detail, products, PC Build, policies, and articles; actions depend on case state and may include message, upload evidence, confirm logistics, review refund or repair progress, withdraw when eligible, and close
 - **Required states:** Awaiting customer, awaiting Nexora, awaiting carrier or repair provider, resolved, closed, cancelled, escalated, overdue, missing evidence, failed upload, delayed external update, unauthorized access, and partial case-service degradation
 - **Lifecycle / journeys:** Track, Receive, Support, and Return / all post-purchase Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 4A embedded experience units
 
@@ -826,7 +826,7 @@ Separate customer-facing detail templates for returns, refunds, warranties, and 
 
 ### Block 4B — Authentication
 
-Authentication pages use one minimal shell, accessible recovery paths, non-disclosing identity responses, abuse controls, and validated return destinations. Exact authentication methods remain provisional.
+Authentication pages use one minimal shell, accessible recovery paths, non-disclosing identity responses, abuse controls, and validated return destinations. Exact authentication methods remain governed Security and Engineering inputs.
 
 #### AUT-001 — Sign In
 
@@ -839,7 +839,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Leads to the validated return destination, Account Dashboard, Create Account, Account Recovery, Verification, or Security Challenge; actions are authenticate and choose an approved identity method
 - **Required states:** Invalid credential, unknown identity without disclosure, verification required, security challenge required, rate limit, locked or restricted account, provider unavailable, stale return context, and existing session
 - **Lifecycle / journeys:** Any lifecycle stage requiring identity persistence / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### AUT-002 — Create Account
 
@@ -852,7 +852,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Leads to Verification, Security Challenge when required, or the validated return destination; action is create an account
 - **Required states:** Identity already associated without unsafe disclosure, invalid data, consent missing, verification delivery failure, rate limit, registration unavailable, and stale return context
 - **Lifecycle / journeys:** Purchase and Manage relationship, or any stage requiring persistence / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### AUT-003 — Account Recovery
 
@@ -865,7 +865,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Leads to a neutral submission outcome, Verification, Credential Reset, Support, or Sign In; action is request a governed recovery method
 - **Required states:** Neutral accepted response, invalid input, rate limit, delivery delay, recovery unavailable, insufficient assurance, and support escalation
 - **Lifecycle / journeys:** Authenticate and Manage relationship / all Tier 1 journeys where account access is required
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### AUT-004 — Credential Reset
 
@@ -878,7 +878,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Leads to Sign In, Security Challenge, or a safe account destination; action is set and confirm a new credential
 - **Required states:** Invalid, used, or expired reference; credential-policy failure; compromised credential warning; rate limit; save failure; and session revocation pending
 - **Lifecycle / journeys:** Authenticate and Manage relationship / all authenticated journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### AUT-005 — Verification
 
@@ -891,7 +891,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Returns to the validated initiating destination or proceeds to Credential Reset or Security Challenge; actions are submit, resend when eligible, or choose an approved alternative
 - **Required states:** Invalid, used, or expired reference; incorrect code; retry exhaustion; delivery delay; resend cooldown; factor unavailable; and context mismatch
 - **Lifecycle / journeys:** Authenticate, Purchase, Support, and Manage relationship / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### AUT-006 — Security Challenge
 
@@ -904,7 +904,7 @@ Authentication pages use one minimal shell, accessible recovery paths, non-discl
 - **Relationships / actions:** Returns only to the validated initiating destination or a safe fallback; actions are complete an approved challenge, retry, or choose an eligible recovery path
 - **Required states:** Incorrect response, expired challenge, retry exhaustion, unavailable factor, trusted-device conflict, suspicious context, session expiry, recovery required, and challenge service unavailable
 - **Lifecycle / journeys:** Authenticate, Purchase, Support, and Manage relationship / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 4B embedded experience units
 
@@ -934,7 +934,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to Support Center, Legal and Policies Hub, and relevant public commitments; primary action is understand Nexora and find the right contact path
 - **Required states:** Partial content, unavailable supporting media, and localization fallback
 - **Lifecycle / journeys:** Land and Manage relationship / supporting all journeys
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### LEG-001 — Legal and Policies Hub
 
@@ -947,7 +947,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to every current policy destination and governed prior-version access; action is locate the applicable document
 - **Required states:** Document temporarily unavailable, superseded reference, missing translation, and partial policy index
 - **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-002 — Terms of Use
 
@@ -960,7 +960,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** References related policies and prior versions where required; action is read and navigate the document
 - **Required states:** Superseded version, prior-version request, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-003 — Privacy Notice
 
@@ -973,7 +973,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to relevant privacy controls, Support contact paths, Cookie Notice, and prior versions; action is understand rights and reach governed controls
 - **Required states:** Superseded version, prior-version request, missing translation, unavailable rights-request path, and document retrieval failure
 - **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-004 — Cookie Notice
 
@@ -986,7 +986,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to governed cookie controls, Privacy Notice, and prior versions; action is understand technologies and manage available choices
 - **Required states:** Superseded version, control service unavailable, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-005 — Accessibility Statement
 
@@ -999,7 +999,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to an accessible Support contact path and prior versions; action is understand commitments and report a barrier
 - **Required states:** Contact path unavailable, missing alternate format, missing translation, superseded version, and document retrieval failure
 - **Lifecycle / journeys:** All lifecycle stages / all Tier 1 journeys
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### LEG-006 — Delivery Policy
 
@@ -1012,7 +1012,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** References relevant Support guidance and prior versions; action is understand applicable delivery terms
 - **Required states:** Superseded version, jurisdiction or service-area mismatch, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** Purchase, Track, Receive, and Support / J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-007 — Returns and Refund Policy
 
@@ -1025,7 +1025,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to actionable Returns and Refunds guidance and prior versions; action is understand applicable rules
 - **Required states:** Superseded version, policy-version mismatch with an order, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** Purchase, Receive, Support, and Return / post-purchase J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-008 — Warranty Policy
 
@@ -1038,7 +1038,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** Leads to actionable Warranty and Repairs guidance and prior versions; action is understand applicable coverage
 - **Required states:** Superseded version, product-policy mismatch, manufacturer-only coverage, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** Evaluate, Purchase, Receive, Support, and Return / J-01 through J-06
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### LEG-009 — Financing Terms
 
@@ -1051,7 +1051,7 @@ Legal entries require accountable ownership, version or effective date, publicat
 - **Relationships / actions:** References provider disclosures, Checkout, Support, and prior versions; action is understand financing before selection
 - **Required states:** Financing unavailable, provider-specific variant, superseded version, offer mismatch, missing translation, and document retrieval failure
 - **Lifecycle / journeys:** Evaluate, Purchase, and Support / J-01 through J-06
-- **Horizon / maturity / status:** Foundation when financing launches; otherwise Future / Provisional / Approved
+- **Horizon / maturity / status:** Foundation when financing launches; otherwise Future / Confirmed / Approved
 
 ### Block 5A embedded experience units
 
@@ -1094,7 +1094,7 @@ Route-level system destinations use concise, actionable language and disclose no
 - **Relationships / actions:** Leads to Sign In, Security Challenge, safe account switching when approved, Support, or a safe fallback; actions depend on whether identity or permission can be remediated
 - **Required states:** Authentication required, wrong account, insufficient role, suspended access, expired share permission, and protected resource no longer available
 - **Lifecycle / journeys:** Any protected lifecycle stage / all Tier 1 journeys and Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SYS-003 — Unexpected Error
 
@@ -1107,7 +1107,7 @@ Route-level system destinations use concise, actionable language and disclose no
 - **Relationships / actions:** Leads to a safe retry, previous stable destination, Home or Admin home as appropriate, and Support; retry must respect idempotency for purchase and operational actions
 - **Required states:** Retry permitted, retry unsafe, persistent failure, support reference available, and degraded diagnostic service
 - **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SYS-004 — Service Unavailable
 
@@ -1120,7 +1120,7 @@ Route-level system destinations use concise, actionable language and disclose no
 - **Relationships / actions:** Leads to retry, unaffected read-only destinations, Support information, or an externally governed status resource if introduced; actions must not promise a restoration time without authoritative data
 - **Required states:** Planned maintenance, partial degradation, broad outage, unknown restoration time, and recovery in progress
 - **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### SYS-005 — Offline
 
@@ -1133,7 +1133,7 @@ Route-level system destinations use concise, actionable language and disclose no
 - **Relationships / actions:** Leads to retry and any explicitly safe cached or read-only destination; actions are reconnect, preserve local work where possible, and return safely
 - **Required states:** Fully offline, intermittent connection, stale cached data, local changes pending, retrying, and restored connection
 - **Lifecycle / journeys:** Any lifecycle stage / all Tier 1 journeys and Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 5B embedded and host-owned states
 
@@ -1153,7 +1153,7 @@ Route-level system pages are a final recovery boundary, not a substitute for the
 
 ### Block 6A — Administrative Dashboard: Commerce Operations
 
-All Admin pages use the permission-aware Admin shell, are excluded from public indexing and customer Universal Search, and participate only in operational search when the user is authorized. Roles, field permissions, approvals, bulk-action limits, and segregation of duties remain provisional.
+All Admin pages use the permission-aware Admin shell, are excluded from public indexing and customer Universal Search, and participate only in operational search when the user is authorized. Roles, fields, approvals, bulk actions, and segregation follow the approved Admin and Roles and Permissions contracts.
 
 #### ADM-001 — Operations Overview
 
@@ -1166,7 +1166,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to authorized queues, saved views, alerts, and workspaces; actions are inspect exceptions and continue to governed work
 - **Required states:** No assigned work, partial metric source, stale data, restricted modules, and broad service degradation
 - **Lifecycle / journeys:** Operate and govern / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-002 — Products
 
@@ -1179,7 +1179,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Product Workspace, Inventory Item Workspace, and related governance pages; actions include filter, saved view, export, and authorized bulk transition
 - **Required states:** No products, no matches, partial index, stale view, selection conflict, bulk validation failure, and export pending
 - **Lifecycle / journeys:** Operate and govern catalog / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-003 — Product Workspace
 
@@ -1192,7 +1192,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links Category, Brand, Attributes, Compatibility, Inventory, Pricing, reviews, and customer Product Detail preview; actions include edit, validate, submit, approve, publish, retire, and inspect audit history
 - **Required states:** Draft, validation failure, approval pending, published, scheduled, retired, concurrent edit, missing governed relation, partial service failure, and forbidden field
 - **Lifecycle / journeys:** Operate and govern catalog / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-004 — Categories
 
@@ -1205,7 +1205,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Category Workspace and affected products; actions include navigate hierarchy, find, compare impact, and initiate an authorized change
 - **Required states:** Empty branch, orphan warning, unresolved product assignments, stale impact count, invalid hierarchy, and restricted change
 - **Lifecycle / journeys:** Govern taxonomy / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-005 — Category Workspace
 
@@ -1218,7 +1218,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links parent and child categories, products, Attribute Definitions, and customer Category preview; actions include edit, validate impact, submit, approve, publish, and retire
 - **Required states:** Root category, empty category, assigned products, invalid parent, circular hierarchy, approval pending, concurrent edit, and retirement blocked
 - **Lifecycle / journeys:** Govern taxonomy / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-006 — Brands
 
@@ -1231,7 +1231,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Brand Workspace and affected products; actions include find, filter, merge proposal, and authorized lifecycle transition
 - **Required states:** No brands, no matches, possible duplicate, unassigned brand, merge conflict, and partial product count
 - **Lifecycle / journeys:** Govern catalog / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-007 — Brand Workspace
 
@@ -1244,7 +1244,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links products and customer Brand preview; actions include edit, manage aliases, validate, publish content, merge through governed flow, and retire
 - **Required states:** Draft content, active without products, possible duplicate, merge pending, concurrent edit, and retirement blocked
 - **Lifecycle / journeys:** Govern catalog and public brand content / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-008 — Attribute Definitions
 
@@ -1257,7 +1257,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Attribute Workspace and impacted categories, products, filters, and rules; actions include find, filter, compare usage, and initiate a governed definition
 - **Required states:** Unused attribute, duplicate candidate, inconsistent unit, invalid value coverage, stale usage count, and restricted schema change
 - **Lifecycle / journeys:** Govern catalog schema / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-009 — Attribute Workspace
 
@@ -1270,7 +1270,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links affected categories, products, filters, and compatibility rules; actions include edit, validate impact, submit, approve, migrate values, deprecate, and inspect audit history
 - **Required states:** Draft, in use, migration required, invalid unit conversion, conflicting values, approval pending, concurrent edit, and deprecation blocked
 - **Lifecycle / journeys:** Govern catalog schema / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-010 — Compatibility Rules
 
@@ -1283,7 +1283,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Compatibility Rule Workspace and impacted products or builds; actions include filter, inspect coverage, compare conflicts, and initiate a rule
 - **Required states:** No rules, uncovered relation, conflicting rules, stale evaluation count, disabled rule, and partial diagnostics
 - **Lifecycle / journeys:** Govern compatibility / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-011 — Compatibility Rule Workspace
 
@@ -1296,7 +1296,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links inputs, governed attributes, affected products and sample builds; actions include edit, test, inspect explanation output, submit, approve, activate, deactivate, and version
 - **Required states:** Draft, test failure, conflict, insufficient coverage, approval pending, scheduled activation, active, superseded, concurrent edit, and rollback candidate
 - **Lifecycle / journeys:** Govern compatibility / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-012 — Inventory
 
@@ -1309,7 +1309,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Inventory Item Workspace, Product Workspace, and affected Orders; actions include filter, saved view, export, reconcile, and governed bulk updates
 - **Required states:** No stock, low stock, reserved imbalance, synchronization delay, conflicting source, stale quantity, bulk failure, and export pending
 - **Lifecycle / journeys:** Operate inventory / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-013 — Inventory Item Workspace
 
@@ -1322,7 +1322,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links product, reservations, orders, locations or sources when governed, and audit events; actions include reconcile, adjust with reason, hold, release, and inspect history
 - **Required states:** In stock, low stock, out of stock, over-reserved, stale source, adjustment pending, concurrent change, synchronization failure, and restricted source
 - **Lifecycle / journeys:** Operate inventory / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-014 — Pricing
 
@@ -1335,7 +1335,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Pricing Rule Workspace and Product Workspace; actions include filter, compare, schedule, export, and governed bulk updates
 - **Required states:** Missing price, invalid range, scheduled conflict, stale source, approval pending, bulk validation failure, and publication delay
 - **Lifecycle / journeys:** Govern pricing / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-015 — Pricing Rule Workspace
 
@@ -1348,7 +1348,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links affected products, price history, promotions, and audit events; actions include edit, simulate impact, submit, approve, schedule, activate, expire, and rollback through a governed version
 - **Required states:** Draft, invalid price, overlap conflict, approval pending, scheduled, active, expired, publication failure, concurrent edit, and rollback candidate
 - **Lifecycle / journeys:** Govern pricing / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-016 — Orders
 
@@ -1361,7 +1361,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Leads to Order Workspace, Customer Workspace, Support Case Workspace, and Inventory; actions include filter, saved view, export, assign, and authorized bulk transitions
 - **Required states:** No orders, no matches, payment exception, fulfillment exception, delayed synchronization, restricted records, bulk transition failure, and export pending
 - **Lifecycle / journeys:** Operate purchase and fulfillment / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-017 — Order Workspace
 
@@ -1374,7 +1374,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 - **Relationships / actions:** Links customer, items, payments, shipments, invoice, build, inventory reservations, and typed Support cases; actions depend on state and permission and require reason capture for consequential changes
 - **Required states:** Payment pending or failed, partially allocated, partially fulfilled, shipped, delivered, cancellation requested, cancelled, case linked, synchronization delay, concurrent action, forbidden panel, and partial dependency failure
 - **Lifecycle / journeys:** Operate purchase, fulfillment, Support, and Return / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 6A embedded experience units
 
@@ -1403,7 +1403,7 @@ Customer and case access is permission- and record-filtered, uses data minimizat
 - **Relationships / actions:** Leads to Customer Workspace and authorized related Orders or Support cases; actions are find, filter, open, and export only through governed purpose-specific workflows
 - **Required states:** No matches, ambiguous identity, masked results, restricted record, suspended account, stale index, partial relationship data, and export denied or pending
 - **Lifecycle / journeys:** Operate customer relationships, privacy, and Support / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-019 — Customer Workspace
 
@@ -1416,7 +1416,7 @@ Customer and case access is permission- and record-filtered, uses data minimizat
 - **Relationships / actions:** Links authorized identity status, orders, cases, builds, notifications, privacy requests, restrictions, and audit events; sensitive actions use explicit workflows and stronger assurance
 - **Required states:** Masked field, verification required, restricted or high-risk account, deletion or export pending, retention hold, identity conflict, concurrent change, partial dependency failure, and forbidden panel
 - **Lifecycle / journeys:** Operate customer relationships, privacy, and Support / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-020 — Support Queue
 
@@ -1429,7 +1429,7 @@ Customer and case access is permission- and record-filtered, uses data minimizat
 - **Relationships / actions:** Leads to Support Case Workspace, Customer Workspace, and Order Workspace; actions include filter, saved view, assign, reprioritize, escalate, export when permitted, and governed bulk routing
 - **Required states:** No assigned cases, no matches, unassigned backlog, breached or at-risk service level, restricted queue, stale assignment, bulk conflict, and partial external-provider data
 - **Lifecycle / journeys:** Operate Support and Return / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-021 — Support Case Workspace
 
@@ -1442,7 +1442,7 @@ Customer and case access is permission- and record-filtered, uses data minimizat
 - **Relationships / actions:** References authoritative Customer, Order, Product, Build, payment, delivery, and policy resources; actions may include communicate, add internal note, request evidence, route, approve governed remedies, coordinate logistics, escalate, and resolve
 - **Required states:** Unassigned, awaiting customer, awaiting internal function, awaiting carrier or repair provider, escalated, overdue, resolved, closed, missing evidence, conflicting ownership, external update delayed, concurrent action, and forbidden module
 - **Lifecycle / journeys:** Operate Support and Return / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 ### Block 6B embedded experience units
 
@@ -1470,7 +1470,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Leads to Collection Workspace and affected products; actions include filter, saved view, duplicate, schedule review, and governed lifecycle transitions
 - **Required states:** No collections, empty collection, expired collection, invalid product membership, stale availability, schedule conflict, and bulk action failure
 - **Lifecycle / journeys:** Govern merchandising / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-023 — Collection Workspace
 
@@ -1483,7 +1483,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links products, campaign content, and customer Collection preview; actions include edit, validate membership, preview, submit, approve, schedule, publish, expire, and archive
 - **Required states:** Draft, empty membership, invalid rule, unavailable products, approval pending, schedule conflict, published, expired, concurrent edit, and publication failure
 - **Lifecycle / journeys:** Govern merchandising / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-024 — Promotions
 
@@ -1496,7 +1496,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Leads to Promotion Workspace and affected collections, products, and content; actions include filter, calendar review, duplicate, and governed lifecycle transitions
 - **Required states:** No promotions, schedule overlap, budget or limit warning, expired promotion, publication delay, and restricted financial detail
 - **Lifecycle / journeys:** Govern promotions / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-025 — Promotion Workspace
 
@@ -1509,7 +1509,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links eligibility resources, pricing impact, collection or campaign content, and customer preview; actions include edit, simulate, validate, submit, approve, schedule, activate, pause when governed, expire, and inspect audit history
 - **Required states:** Draft, invalid eligibility, pricing conflict, insufficient inventory warning, legal review required, approval pending, scheduled, active, exhausted, expired, concurrent edit, and publication failure
 - **Lifecycle / journeys:** Govern promotions / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-026 — Content Library
 
@@ -1522,7 +1522,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Leads to Content Workspace and linked product or operational resources; actions include filter by type, owner, status, locale, and schedule, then create or open when authorized
 - **Required states:** No content, no matches, missing owner, missing locale, approval backlog, scheduled conflict, stale index, and restricted content type
 - **Lifecycle / journeys:** Govern content / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-027 — Content Workspace
 
@@ -1535,7 +1535,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links referenced products, categories, collections, promotions, policies, and customer preview; actions include edit, validate links, compare versions, translate, submit, approve, schedule, publish, supersede, retire, and restore a governed draft
 - **Required states:** Draft, missing owner, invalid reference, legal review required, translation incomplete, approval pending, scheduled, published, superseded, concurrent edit, and publication failure
 - **Lifecycle / journeys:** Govern content / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-028 — Search Governance
 
@@ -1548,7 +1548,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links governed entities and diagnostic queries; actions include inspect quality, manage synonyms and aliases, configure approved participation, test bounded changes, submit, approve, schedule, and rollback
 - **Required states:** No diagnostic data, zero-result spike, stale index, conflicting synonym, invalid redirect, ranking experiment unavailable, approval pending, and rollback required
 - **Lifecycle / journeys:** Govern Discovery / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-029 — Review Moderation
 
@@ -1561,7 +1561,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links Product Workspace, governed policy, customer context when permitted, and audit history; actions include inspect, classify, request review, uphold, remove for policy reason, restore, and escalate
 - **Required states:** No flagged reviews, ambiguous policy, restricted customer context, appeal pending, duplicate flag, automation unavailable, concurrent moderation, and publication delay
 - **Lifecycle / journeys:** Govern reviews / Admin operations
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### ADM-030 — Workforce Users
 
@@ -1574,7 +1574,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Leads to governed workforce identity detail within the page and Role Workspace; actions include invite when approved, activate, suspend, revoke sessions, assign or remove roles through governed flow, and inspect access history
 - **Required states:** Pending invitation, active, suspended, deprovisioned, identity-provider mismatch, orphaned assignment, approval required, self-change restriction, and synchronization failure
 - **Lifecycle / journeys:** Govern workforce access / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-031 — Role Workspace
 
@@ -1587,7 +1587,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links assigned workforce users, affected resources and actions, conflicts, approvals, and audit events; actions include edit a draft version, simulate impact, submit, approve, activate, supersede, and revoke through governed workflow
 - **Required states:** Draft, no assignments, excessive permission warning, segregation conflict, approval pending, active, superseded, concurrent edit, self-approval blocked, and rollback candidate
 - **Lifecycle / journeys:** Govern workforce access / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-032 — Audit Log
 
@@ -1600,7 +1600,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links authorized actors, resources, approvals, and correlation context; actions are filter, inspect, correlate, and export through governed audit workflow
 - **Required states:** No events, no matches, redacted field, retention boundary, delayed ingestion, integrity verification unavailable, export pending, and restricted event
 - **Lifecycle / journeys:** Audit and investigate / Admin operations
-- **Horizon / maturity / status:** Foundation / Provisional / Approved
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
 
 #### ADM-033 — Reports and Analytics
 
@@ -1613,7 +1613,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links governed definitions and authorized source workspaces; actions include select approved report, filter, compare periods, inspect definition, and export when permitted
 - **Required states:** No available reports, insufficient permission, delayed data, partial source, definition changed, privacy threshold applied, stale result, and export pending
 - **Lifecycle / journeys:** Analyze and govern operations / Admin operations
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 #### ADM-034 — Operational Settings
 
@@ -1626,7 +1626,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 - **Relationships / actions:** Links setting definitions, owners, impact, dependencies, versions, and audit events; actions include edit, validate, submit, approve, schedule, activate, and rollback when supported
 - **Required states:** No authorized settings, unknown owner, invalid value, dependency conflict, approval pending, scheduled change, concurrent edit, activation failure, and rollback required
 - **Lifecycle / journeys:** Configure platform operations / Admin operations
-- **Horizon / maturity / status:** Expansion / Provisional / Approved
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
 
 ### Block 6C embedded experience units
 
@@ -1647,7 +1647,7 @@ Campaigns and legal documents are typed content objects, not separate Admin page
 
 The canonical Page Inventory contains **89 approved pages and reusable page templates** across all 12 product-surface classes.
 
-Approval establishes page identity, purpose, primary class, accountable domain, access posture, shell, search participation, relationships, actions, required-state coverage, conceptual URL, lifecycle references, and delivery horizon. Metadata marked `Provisional` must be refined by the remaining Phase 2B decisions without silently changing page identity or approved boundaries.
+Approval establishes page identity, purpose, primary class, accountable domain, access posture, shell, search participation, relationships, actions, required-state coverage, conceptual URL, lifecycle references, and delivery horizon. Later Design, Legal, Security, and Engineering inputs must implement this metadata without silently changing page identity or approved boundaries.
 
 Any new page requires:
 
@@ -1658,7 +1658,7 @@ Any new page requires:
 5. Impact review against navigation, search, taxonomy, filters, permissions, mobile behavior, and existing journeys
 6. Explicit approval and Blueprint update
 
-The next Phase 2B topic is page relationships and domain ownership validation, followed by page-level information hierarchy.
+Phase 2B validation confirmed complete relationship, ownership, archetype, state, permission, and scalability coverage for this inventory.
 
 ## Protected architectural boundaries
 
@@ -1670,10 +1670,10 @@ The next Phase 2B topic is page relationships and domain ownership validation, f
 
 ## Population method
 
-The complete inventory will be assembled as one canonical registry across all 12 product-surface classes. This allows cross-surface gaps, duplicated responsibilities, missing relationships, and ownership conflicts to be identified before wireframing.
+The complete inventory is one canonical registry across all 12 product-surface classes. This allows cross-surface gaps, duplicated responsibilities, missing relationships, and ownership conflicts to be identified before wireframing.
 
 A journey-first subset is insufficient as the canonical inventory because it would underrepresent post-purchase, operational, legal, and system surfaces. Tier 1 journey coverage remains a validation lens over the comprehensive registry.
 
-## Next decision
+## Completion
 
-Review and approve the individual entries in the complete Page Inventory, then validate coverage, relationships, domain ownership, access, search participation, required states, metadata maturity, and delivery horizons.
+The canonical Page Inventory contains 89 approved pages and templates. Phase 2B validation confirmed unique IDs, complete ownership and archetype coverage, and consistency with all approved Product Structure topic architectures.
