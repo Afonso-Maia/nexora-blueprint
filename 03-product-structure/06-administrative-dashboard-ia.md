@@ -713,13 +713,118 @@ AI and automation cannot alter audit history, approve their own expanded authori
 7. Corrections, reconciliation, and rollback create new linked events.
 8. Degraded audit ingestion blocks an action when policy requires confirmed audit durability before execution.
 
+## Capability contract boundary
+
+Admin IA defines the permission-aware presentation contract for every destination and operation. The later Roles and Permissions architecture defines which subjects receive capabilities, under which scopes and conditions.
+
+### Capability declaration
+
+Every governed Admin operation declares:
+
+- Owning resource type and target scope
+- Required capability: discover, read, create, edit, transition, approve, execute, export, or administer
+- Field-level read and write requirements
+- Data scope
+- Contextual conditions
+- Required assurance
+- Required independent approval
+- Risk class
+- Denial, restriction, and recovery behavior
+
+A route or workspace can require several declarations for different fields, sections, relationships, and actions. Access to the page shell does not imply access to every region.
+
+### Permission-aware presentation states
+
+An Admin surface may resolve to:
+
+- **Full eligible access:** permitted fields and actions are available.
+- **Read-only access:** the resource is visible but mutation is unavailable.
+- **Field-restricted access:** eligible fields render while restricted fields are omitted or safely redacted.
+- **Action-restricted access:** the resource is visible while one or more actions are unavailable.
+- **Approval-required action:** the user may request or prepare work but cannot independently approve or execute it.
+- **Safely unavailable:** access is denied without exposing protected object existence, fields, or policy detail.
+
+An omitted or redacted field is not presented as empty, false, zero, or absent in the authoritative record.
+
+Disabled controls appear only when the user may know the capability exists and an explanation provides a valid next step. Otherwise the control is omitted. Explanations distinguish missing permission, required assurance, required approval, incompatible state, and unavailable dependency only to the degree disclosure policy permits.
+
+### Enforcement boundary
+
+Navigation visibility, search filtering, result redaction, disabled controls, and confirmation surfaces are usability and disclosure controls. They are not authorization enforcement.
+
+The authoritative source service rechecks:
+
+- Actor and attributable session
+- Capability and field access
+- Resource and data scope
+- Current contextual conditions
+- Assurance and approval
+- Risk and segregation requirements
+- Current object state and action eligibility
+
+Every request uses deny-by-default behavior when required authorization context is absent, invalid, stale, or unavailable.
+
+### Permission change during work
+
+Permission and scope changes apply to:
+
+- Open navigation and workspaces
+- Search, suggestions, recents, and shared links
+- Saved views and result counts
+- Current selections
+- Drafts and proposed changes
+- Pending approvals
+- Exports and export artifacts
+- Asynchronous and scheduled operations
+
+Losing execution authority does not silently delete a draft or historical contribution. Policy determines whether it becomes read-only, transfers through a governed handoff, remains visible in reduced scope, or becomes inaccessible. The former user cannot commit, approve, export, or recover restricted content through cached state.
+
+Previously approved or scheduled work is re-evaluated according to its execution policy. Revocation does not automatically cancel or preserve it.
+
+### Roles and Permissions ownership
+
+The later Roles and Permissions architecture will define:
+
+- Human, service, provider, and automation subjects
+- Role and capability composition
+- Resource, field, organizational, regional, and case scope
+- Delegation and temporary access
+- Approval thresholds
+- Segregation of duties
+- Break-glass or emergency access
+- Access review, expiry, revocation, and offboarding
+
+Those decisions must map to this capability contract rather than redefining the Admin page hierarchy or creating role-specific copies of pages.
+
+### AI and delegated tools
+
+AI and automation operate only through an attributable subject and explicitly delegated capability, scope, duration, and purpose.
+
+They cannot:
+
+- Inherit broader service access merely because an integration possesses it
+- Reveal a restricted result through summaries, counts, suggestions, or errors
+- Lower assurance, approval, risk, or segregation requirements
+- Turn a draft suggestion into execution without the governed human or service authorization
+- Retain usable access after delegation expiry or revocation
+
+### Governance rules
+
+1. Admin IA owns permission-aware presentation states and recovery behavior.
+2. Roles and Permissions owns subject-to-capability assignment, scope, delegation, and segregation policy.
+3. Source domains enforce resource, field, and action authorization.
+4. Admin Platform consistently consumes permission decisions across every discovery and workspace surface.
+5. Discover, read, mutate, approve, execute, export, and administer are distinct capabilities.
+6. Permission-denial responses follow non-disclosure policy.
+7. Authorization decisions and high-risk denials are auditable according to policy.
+8. New Admin capabilities declare their resource, field, scope, assurance, approval, and risk contract before release.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Exact roles, permissions, and segregation of duties
 - Admin degraded and continuity behavior
 
 ## Next decision
 
-Define the Admin IA boundary with the later Roles and Permissions architecture, followed by Admin degraded and continuity behavior.
+Define Admin degraded, interruption, and responsive continuity behavior, then validate the complete Administrative Dashboard IA.
