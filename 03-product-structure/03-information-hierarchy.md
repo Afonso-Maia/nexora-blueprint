@@ -505,6 +505,121 @@ Accessibility remains mandatory at every supported viewport. Specialization cann
 
 **Representative pages:** SYS-001 Not Found, SYS-002 Access Denied, SYS-003 Unexpected Error, SYS-004 Service Unavailable, SYS-005 Offline, AUT-003 Account Recovery, and expired verification or recovery states within their host page.
 
+### Admin Queue
+
+**Purpose:** Find, prioritize, route, and act on operational work safely.
+
+**Layer emphasis:** Permission scope, actionable exceptions, freshness, selection state, and risk precede aggregate reporting and secondary insight.
+
+**Required regions:**
+
+1. Queue identity, ownership, and permission scope
+2. Actionable health or exception summary
+3. Filters, saved view, sorting, and freshness
+4. Consistent record list
+5. Selection and authorized bulk-action state
+6. Priority, assignment, service-level, or risk context
+7. Detail-workspace handoff
+8. Partial-data and recovery state
+
+**Optional regions:**
+
+- Actionable charts
+- Exports
+- Saved views
+- Queue assignment
+- Scheduled work
+- Density controls
+
+**Prohibited patterns:**
+
+- Vanity metrics without operational continuation
+- Counts that include unauthorized records
+- Destructive bulk action without scope review
+- Hidden active filters or stale-data state
+- Separate copies of a queue for each role
+- Silent automated assignment
+- Export that bypasses record or field permissions
+
+**Primary-action behavior:** Actions operate on an explicit, permission-filtered selection. Scope, consequences, validation, and required approval appear before execution.
+
+**State and constraint placement:** Permission scope, active filters, freshness, selection count, partial data, assignment, service level, and risk remain visible around the list and action bar.
+
+**Responsive transformation:**
+
+- Mobile preserves monitoring, filtering, assignment, messaging, and safe bounded actions.
+- Bulk actions expose exact scope before execution.
+- High-volume or multi-record impact analysis may require a larger workspace.
+- Selection and draft filters survive the handoff.
+
+**Accessibility obligations:**
+
+- Tables and lists expose headers, sort state, selection, and row actions.
+- Updates do not move focus unexpectedly.
+- Bulk selection and review are fully keyboard operable.
+- Charts have equivalent actionable summaries.
+
+**Representative pages:** ADM-002 Products, ADM-004 Categories, ADM-012 Inventory, ADM-014 Pricing, ADM-016 Orders, ADM-018 Customers, ADM-020 Support Queue, ADM-022 Collections, ADM-024 Promotions, ADM-026 Content Library, ADM-029 Review Moderation, and ADM-030 Workforce Users.
+
+### Admin Resource Workspace
+
+**Purpose:** Understand, validate, govern, and audit one durable resource or configuration.
+
+**Layer emphasis:** Resource state, permission scope, validation, impact, and approval precede mutation. Audit context remains available but does not crowd out active work.
+
+**Required regions:**
+
+1. Resource identity, owner, lifecycle state, and version
+2. Permission scope and read-only restrictions
+3. Operational summary
+4. Validation, conflicts, dependencies, and impact
+5. Governed editing or action area
+6. Preview, test, or simulation when applicable
+7. Approval, schedule, and publication state
+8. Audit context and history
+9. Primary mutation and safe recovery
+
+**Optional regions:**
+
+- Comments or review notes
+- Version comparison
+- Rollback
+- Related-resource panels
+- Customer-facing preview
+- Export
+- AI assistance that cannot authorize changes
+
+**Prohibited patterns:**
+
+- Direct mutation that bypasses the authoritative service
+- Self-approval where segregation of duties applies
+- Hidden downstream impact
+- Silent concurrent overwrite
+- Editable or deletable audit history
+- Customer data shown without operational purpose
+- AI-generated changes activated without validation and approval
+- Unsafe narrow-screen approximation of a complex workflow
+
+**Primary-action behavior:** The mutation identifies the exact object, version, scope, impact, reason, and approval state. It fails atomically and leaves a recoverable draft when possible.
+
+**State and constraint placement:** Lifecycle, permission, validation, conflicts, dependencies, concurrent state, and downstream impact remain visible before mutation.
+
+**Responsive transformation:**
+
+- Mobile supports inspection, approval review, evidence, messaging, and emergency protective actions.
+- Complex authoring, simulation, schema work, role editing, or impact analysis may require a larger workspace.
+- Draft, validation, and reviewed context persist across handoff.
+- Restricted actions remain visible with a reason and safe continuation.
+
+**Accessibility obligations:**
+
+- Editing regions, validation summaries, and audit context use explicit landmarks.
+- Errors link to affected fields or modules.
+- Version and approval changes are announced.
+- Complex diagrams, matrices, and previews have equivalent structured representations.
+
+**Representative pages:** ADM-003 Product Workspace, ADM-005 Category Workspace, ADM-007 Brand Workspace, ADM-009 Attribute Workspace, ADM-011 Compatibility Rule Workspace, ADM-013 Inventory Item Workspace, ADM-015 Pricing Rule Workspace, ADM-017 Order Workspace, ADM-019 Customer Workspace, ADM-021 Support Case Workspace, ADM-023 Collection Workspace, ADM-025 Promotion Workspace, ADM-027 Content Workspace, ADM-028 Search Governance, ADM-031 Role Workspace, ADM-032 Audit Log, ADM-033 Reports and Analytics, and ADM-034 Operational Settings.
+
 ## Next decision
 
-Specify Admin Queue and Admin Resource Workspace. Then map all 89 Page Inventory entries to exactly one primary archetype.
+Map all 89 Page Inventory entries to exactly one primary archetype and validate every mapping against page purpose, shell, constraints, and required states.

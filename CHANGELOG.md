@@ -46,6 +46,7 @@
 - Approved Hub, Results/List, and Detail archetype specifications.
 - Approved Workspace, Transaction, Content/Document, and Recovery archetype specifications.
 - Approved responsive Admin continuity with guarded large-workspace specialization.
+- Approved Admin Queue and Admin Resource Workspace archetype specifications.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
