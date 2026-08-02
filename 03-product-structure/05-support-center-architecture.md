@@ -1,6 +1,6 @@
 # Support Center Architecture
 
-**Status:** Approved in part — entry and routing model approved; detailed behavior pending
+**Status:** Approved
 
 ## Purpose
 
@@ -624,12 +624,70 @@ Provider outage or access revocation preserves confirmed history and routes outs
 7. Access reviews, expiry, revocation, and provider offboarding are auditable.
 8. Provider performance reporting uses the obligation model and does not alter customer-facing case history.
 
-## Provisional dependencies
+## Next-action-first mobile Support
 
-The following remain pending:
+Mobile preserves the approved Support architecture while prioritizing the customer's current task.
 
-- Mobile Support navigation details
+### Support Center hierarchy
 
-## Next decision
+SUP-001 presents applicable regions in this order:
 
-Define mobile Support navigation and case interaction behavior, then validate the complete Support Center Architecture.
+1. Support-scoped search
+2. Urgent or required action
+3. Active case, order, or purchased-product continuation
+4. Issue intents
+5. General guidance and Contact and Case Start
+
+This is a responsive presentation of the approved routing model, not a separate mobile taxonomy.
+
+### Support Case Detail hierarchy
+
+SUP-007 presents applicable regions in this order:
+
+1. Case summary and current outcome or status
+2. Responsible party, next action, and due expectation
+3. Required customer action or evidence
+4. Message or action composer
+5. Type-specific operational module
+6. Progressively disclosed timeline, references, and secondary history
+
+The full timeline remains available. Long history cannot push the current obligation beneath general references or inactive events.
+
+### Interaction and restoration rules
+
+1. Returning from Case Detail restores eligible My Support Cases filters, position, and context.
+2. Back navigation never resubmits a message, evidence item, case, or remedy.
+3. Messages and evidence distinguish draft, pending, confirmed, failed, and retry states.
+4. Leaving with unsent content follows a governed safe-draft policy or requires explicit discard confirmation.
+5. A draft is not a customer-visible message, evidence submission, or open case.
+6. Sensitive case content and draft data are not exposed in URLs or unsafe system previews.
+7. Critical actions use descriptive labels and do not depend on icons, color, or gesture alone.
+8. Focus restoration and assistive-technology reading order follow the visible task hierarchy.
+9. Account, Order Detail, PC Builder, AI, and external destinations retain their own shells and safe return context.
+10. Mobile compaction changes presentation priority but cannot change lifecycle, responsibility, eligibility, ownership, or service obligations.
+
+Offline, loading, and cross-product degraded-state details remain governed by the later Error and Empty States architecture.
+
+## Architecture validation
+
+The Support Center Architecture passes its Phase 2B topic validation:
+
+- **SUP-001 Support Center:** intent-and-context routing, Support search, guest access, and active-work continuation are defined.
+- **SUP-002 Support Article:** structured content, applicability, versioning, policy references, localization, retirement, escalation, and AI boundaries are defined.
+- **SUP-003 Returns and Refunds Hub:** deterministic eligibility precedes explicit creation of a persistent typed case.
+- **SUP-004 Warranty and Repairs Hub:** product and coverage context remains source-owned while evidence and durable coordination use the shared case model.
+- **SUP-005 Contact and Case Start:** minimum context, assurance, duplicate detection, safe drafts, and explicit submission are defined.
+- **SUP-006 My Support Cases:** lifecycle, type, responsibility, association, recency, restoration, and degraded projection behavior are defined.
+- **SUP-007 Support Case Detail:** shared envelope, typed modules, separate state dimensions, communication, evidence, participants, obligations, external work, and mobile hierarchy are defined.
+- Support does not become a competing owner for orders, payments, delivery, products, compatibility, policies, or provider execution facts.
+- Guests retain public and securely verified post-purchase paths without forced Account creation.
+- AI remains explanatory and assistive; it cannot determine eligibility, approve remedies, alter cases, or expand access.
+- External participation is bounded, attributable, expiring, and accountable to a Nexora case owner.
+- Exact role permissions remain intentionally governed by the later Roles and Permissions architecture.
+- Cross-product loading, empty, error, offline, and degraded-state presentation remains governed by the later state architecture.
+
+No unresolved Support architecture alternative is recorded as approved.
+
+## Next phase topic
+
+Define the Administrative Dashboard Information Architecture.
