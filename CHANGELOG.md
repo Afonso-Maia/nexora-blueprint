@@ -13,6 +13,7 @@
 - Approved the four-page PC Builder inventory.
 - Approved a conversation-centered dedicated AI Assistant with embedded history.
 - Approved the AI Assistant Conversation page inventory entry.
+- Approved a typed unified customer-facing Support Case model.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

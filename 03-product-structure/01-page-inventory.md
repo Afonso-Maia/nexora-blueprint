@@ -174,6 +174,31 @@ The Assistant does not replace deterministic search results, governed product da
 
 Conversation retention, deletion, sharing, privacy controls, guest persistence, and authenticated access remain provisional until Account, legal, and roles-and-permissions architecture are approved.
 
+## Typed unified support case model
+
+General support, returns and refunds, and warranties and repairs use one customer-facing **Support Case** model with a governed case type.
+
+Every case shares:
+
+- A stable case identity
+- Customer-visible status
+- Timeline
+- Communication history
+- Attachments and evidence
+- Associated order, products, and PC Build where applicable
+- Current owner or responsible function
+- Required next actions
+
+Type-specific modules extend the shared case with return logistics, refund status, warranty evidence, repair events, replacement information, or other governed workflow data.
+
+This model gives customers one coherent support history while allowing specialized operational workflows and ownership behind it. General inquiries, returns, and warranty cases may have different internal queues, permissions, service-level expectations, and state transitions without becoming separate customer-facing case systems.
+
+Case initiation may begin contextually from Order Detail, Product Detail, Support Center, Returns and Refunds, Warranty and Repairs, or Contact and Case Start. A case receives its own detail page only after it becomes persistent.
+
+Support search remains part of Universal Search with a visible Support scope. FAQs use the Support Article template rather than a separate page type.
+
+The precise case taxonomy, statuses, escalation rules, ownership transfer, refund authority, repair-provider access, service levels, and agent permissions remain provisional until Support Center, Administrative Dashboard, and roles-and-permissions architecture are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
