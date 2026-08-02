@@ -82,6 +82,7 @@
 - Approved distinct attributable human and non-human subject classes.
 - Approved source-driven subject lifecycle and revocation-first joiner, mover, leaver, provider, and non-human controls.
 - Approved the initial scoped workforce role catalog with separate independent-duty roles.
+- Approved typed authorization scopes with complete non-composable grants.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.

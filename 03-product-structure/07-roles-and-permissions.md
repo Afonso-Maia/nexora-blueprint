@@ -492,6 +492,129 @@ The initial catalog is versioned and intentionally minimal. A new role requires:
 
 Temporary projects and unusual tasks use scoped delegation or just-in-time access rather than permanent role proliferation.
 
+## Typed scope semantics
+
+Scopes are governed typed dimensions. Every assignment produces one or more complete grants in which capability, resource scope, field scope, conditions, assurance, and limits remain bound together.
+
+### Scope types
+
+Initial scope types include:
+
+| Scope type | Examples | Authoritative owner |
+| --- | --- | --- |
+| Organization or provider | Nexora workforce organization, approved repair provider | Workforce or provider directory |
+| Capability domain | Catalog, Compatibility, Pricing, Support, Access | Owning product domain and Roles and Permissions |
+| Resource hierarchy or set | Category branch, brand set, explicit product set | Owning source domain |
+| Queue, assignment, case, or work package | Support queue, assigned case, external repair task | Support or owning workflow domain |
+| Field set | Customer contact fields, pricing cost fields, audit-sensitive fields | Owning source domain and data policy |
+| Region or operational territory | Governed geographic or operational scope | Owning operational domain |
+| Threshold | Refund amount, discount limit, item count, batch size | Owning policy domain |
+| Time window | Temporary assignment, shift, campaign, task period | Roles and Permissions or owning workflow |
+
+Scope types use stable governed identifiers and versioned semantics. Free-form labels, UI folders, saved views, search filters, or navigation groups are not authorization scopes.
+
+### Complete non-composable grants
+
+Each grant is evaluated as a complete unit. Components from different grants cannot be recombined to create authority that no grant provides independently.
+
+For example:
+
+- Grant A: `Edit products` in Category A
+- Grant B: `Approve products` in Category B
+
+The subject can edit Category A and approve Category B. The grants do not permit approving Category A or editing Category B.
+
+Likewise, a broad Read grant cannot lend its resource scope to a narrow Export grant, and a high financial threshold on one capability cannot expand another capability's threshold.
+
+### Multiple grants
+
+Effective allow access is the union of independently valid complete grants.
+
+For an action to proceed, at least one grant must independently satisfy:
+
+- Subject and lifecycle eligibility
+- Required capability
+- Resource scope
+- Field scope
+- Conditions
+- Assurance
+- Threshold and time bounds
+
+Explicit denial, lifecycle restriction, risk policy, and segregation constraints then apply to the proposed action. Their conflict precedence is defined by the next decision.
+
+### Hierarchy inheritance
+
+Scope inheritance is explicit per scope type:
+
+- A category scope includes descendant categories only if the governed category-scope definition says so.
+- A provider-organization scope includes provider users only through current verified membership and eligible work packages.
+- A team scope includes assignments, queues, or resources only through its defined relationship.
+- A regional scope includes resources only through the owning domain's governed regional mapping.
+
+Parent access does not automatically include every related or descendant object. Related-object links, aggregates, reports, object ownership, and organizational reporting lines do not create inheritance unless the scope definition explicitly declares it.
+
+Hierarchy version and source timestamp participate in consequential evaluation. A moved resource is evaluated against current authoritative placement at commitment.
+
+### Explicit resource and relationship scope
+
+An explicit resource scope grants only the named eligible objects and declared relationships.
+
+Assignment-based access is conditional:
+
+- Assignment must be current and attributable.
+- The assignment type declares which capabilities and fields it can constrain.
+- Losing assignment ends that path to access.
+- Assignment does not grant broader queue, customer, order, or related-resource access.
+
+A Support case assignment, for example, can grant scoped case work without granting general access to the customer's full order history or every linked payment field.
+
+### Field and derived-data scope
+
+Field restrictions apply to:
+
+- Source values
+- Derived and calculated values
+- Aggregates and counts
+- Search indexes, suggestions, and snippets
+- Saved views and previews
+- Reports and exports
+- Audit projections
+- Logs and telemetry
+- AI context, summaries, and outputs
+
+A derived value that would reveal a protected field or small protected population is restricted according to policy. Redaction does not convert the value to empty, zero, or false.
+
+### Threshold and time scope
+
+Thresholds and time bounds belong to the specific complete grant that authorizes the action.
+
+- Several smaller thresholds do not add together.
+- Repeated actions cannot intentionally split a governed amount or batch to evade a threshold.
+- Time expiry is evaluated at commitment and, where policy requires, at execution.
+- A scheduled action does not retain an expired grant unless its approved execution policy explicitly establishes durable delegated authority.
+
+### Scope change and degradation
+
+Changes to a hierarchy, provider relationship, assignment, region, field policy, or threshold definition trigger access impact analysis for affected active assignments, approvals, drafts, exports, and scheduled work.
+
+When required scope data is stale, conflicting, or unavailable:
+
+- Consequential access denies safely or blocks pending confirmation.
+- Existing read access may show permitted confirmed data with freshness where policy allows.
+- The system does not fall back to a broader parent or global scope.
+- Recovery identifies the owning scope source without disclosing protected objects.
+
+### Governance rules
+
+1. Authoritative source domains own scope identifiers, hierarchy, and resource relationships.
+2. Roles and Permissions owns assignment of concrete scopes and evaluation composition.
+3. Every grant retains its capability, resource, field, condition, assurance, threshold, and time boundaries.
+4. Grants combine only as a union of independently sufficient grants.
+5. Scope components cannot fuse across assignments.
+6. Inheritance must be explicitly defined and testable per scope type.
+7. Scope moves and hierarchy changes are auditable and trigger access impact analysis.
+8. AI, search, exports, reports, and aggregates cannot bypass field or resource scope.
+
 ## Example authorization outcomes
 
 - A Catalog Editor can edit permitted product content for assigned categories but cannot approve publication.
@@ -594,7 +717,6 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Scope hierarchy and combination rules
 - Permission evaluation and conflict precedence
 - Delegation, temporary access, and just-in-time access workflow
 - Approval thresholds and segregation-of-duties matrix
@@ -604,4 +726,4 @@ The following remain pending:
 
 ## Next decision
 
-Define scope hierarchy and combination semantics, followed by permission precedence, delegation, segregation, access review, and emergency controls.
+Define permission evaluation and conflict precedence, followed by delegation, segregation, access review, and emergency controls.
