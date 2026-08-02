@@ -14,6 +14,7 @@
 - Approved the four-point spacing scale, content-driven containers, responsive grids, control sizing, and comfortable and compact density behavior.
 - Approved restrained radii, structural borders, semantic elevation, overlay behavior, and light/dark depth parity.
 - Approved Lucide-based iconography, governed custom extensions, factual product imagery, and restrained explanatory illustration.
+- Approved functional motion tokens, interaction feedback, asynchronous progress, drag alternatives, and reduced-motion equivalence.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.

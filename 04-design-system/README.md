@@ -14,6 +14,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 6. [Layout, Spacing, Sizing, and Density](06-layout-spacing-sizing-and-density.md) — approved; content-driven responsive layout
 7. [Shape, Borders, Elevation, and Depth](07-shape-borders-elevation-and-depth.md) — approved; restrained architectural depth
 8. [Iconography and Imagery](08-iconography-and-imagery.md) — approved; Lucide-based icons and factual product media
+9. [Motion and Interaction Feedback](09-motion-and-interaction-feedback.md) — approved; functional, interruptible motion
 
 ## Architectural inputs
 
