@@ -19,3 +19,4 @@
 
 PC Components, Laptops, Smartphones, TVs, Monitors, Gaming, Networking, Smart Home, and Accessories.
 
+The shared model is owned by the Compatibility domain; Catalog owns its governed attribute inputs. See [ADR-0002](../adrs/ADR-0002-shared-compatibility-domain.md).

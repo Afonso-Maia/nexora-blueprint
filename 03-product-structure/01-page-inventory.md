@@ -1276,7 +1276,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 
 - **Type / class:** Resource list page / Administrative Dashboard
 - **Purpose:** Find and govern deterministic compatibility rules across the shared model.
-- **Ownership:** PC Builder and Compatibility; supported by Catalog and Admin Platform
+- **Ownership:** Compatibility; supported by PC Builder, Catalog, and Admin Platform
 - **Audience / access / shell:** Authorized compatibility engineers and reviewers / Role-restricted / Admin
 - **Entry / URL:** Admin navigation, Product and Attribute workspaces, PC Builder diagnostics, and operational search / `/admin/compatibility-rules`
 - **Search participation:** Operational search target, permission-filtered
@@ -1289,7 +1289,7 @@ All Admin pages use the permission-aware Admin shell, are excluded from public i
 
 - **Type / class:** Durable rule detail and editor / Administrative Dashboard
 - **Purpose:** Define, test, approve, and audit one deterministic compatibility rule.
-- **Ownership:** PC Builder and Compatibility; supported by Catalog and Admin Platform
+- **Ownership:** Compatibility; supported by PC Builder, Catalog, and Admin Platform
 - **Audience / access / shell:** Authorized compatibility engineers and approvers / Field- and action-restricted / Admin
 - **Entry / URL:** Compatibility Rules, Product and Attribute workspaces, diagnostics, and operational search / `/admin/compatibility-rules/{rule-reference}`
 - **Search participation:** Operational search target, permission-filtered

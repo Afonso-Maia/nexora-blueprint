@@ -8,6 +8,8 @@ Guided and Expert initialization modes lead to the same non-linear workspace: Co
 
 The shared compatibility model evaluates sockets, memory generations, power requirements, physical clearance, cooling, and form factors. Hard incompatibilities are blocked with explanations; warnings may be overridden. Changes recalculate relevant constraints immediately. AI acts as an engineering assistant.
 
+PC Builder consumes the model but does not own compatibility truth. Compatibility owns deterministic rules and evaluations, while Catalog owns governed input facts. See [ADR-0002](../adrs/ADR-0002-shared-compatibility-domain.md).
+
 Lifecycle: `Create → Save → Resume → Duplicate → Share → Purchase → Upgrade later`
 
 A build converts directly into a cart. Validation remains active through checkout, which displays a build summary.
@@ -18,4 +20,3 @@ A build converts directly into a cart. Validation remains active through checkou
 2. Every compatibility decision must be explainable.
 3. Users may override warnings, but not hard incompatibilities.
 4. A build is a persistent object, not a temporary session.
-

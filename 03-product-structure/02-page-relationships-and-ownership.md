@@ -89,6 +89,16 @@ Page accountability does not transfer ownership of referenced data. For example:
 - Admin workspaces govern authoritative resources through their owning services rather than storing parallel copies.
 - AI consumes authoritative data and owns neither catalog facts nor deterministic compatibility.
 
+### Shared Compatibility ownership
+
+Compatibility is an independent shared domain under [ADR-0002](../adrs/ADR-0002-shared-compatibility-domain.md).
+
+- Catalog owns governed product attributes and facts used as rule inputs.
+- Compatibility owns deterministic rules, evaluations, explanations, versions, and Admin rule-governance pages.
+- PC Builder owns build state and the Engineering Workspace.
+- Other consuming domains own their page experience but cannot alter compatibility truth.
+- AI may explain or supplement guidance but cannot override deterministic results.
+
 ### Ledger granularity
 
 The ownership ledger contains one explicit row for each approved Page Inventory ID. Ownership is not inherited implicitly from a page class or product-surface family.
