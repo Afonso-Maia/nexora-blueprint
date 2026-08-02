@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — governing model and Category Discovery boundary approved; complete inventory pending
+**Status:** Approved in part — governing model and Block 1 inventory approved; remaining inventory pending
 
 ## Purpose
 
@@ -115,6 +115,170 @@ Guided and Expert interactions modify the same product grid and represented filt
 This boundary preserves the fast path and supports the approved Intent-Driven Discovery journey. Category orientation and merchandising remain subordinate to product discovery, preventing category pages from becoming banner-heavy campaign destinations.
 
 Exact layout, responsive interactions, and visual treatment remain deferred to wireframing and Design System work.
+
+## Approved canonical inventory
+
+### Block 1 — Storefront, Discovery, and Product Evaluation
+
+All Block 1 pages require mobile-equivalent access to their primary goal. Layout adaptation is deferred to wireframing. Unless stated otherwise, required states include loading, partial-data degradation, recoverable error, and relevant empty content.
+
+#### STF-001 — Home
+
+- **Type / class:** Fixed page / Public Storefront
+- **Purpose:** Provide the global discovery hub and the most useful continuation point.
+- **Ownership:** Marketing; supported by Discovery, Catalog, Customer, AI, and PC Builder
+- **Audience / access / shell:** Guest and customer / Public with optional personalization / Storefront
+- **Entry / URL:** Primary navigation and logo / `/`
+- **Search participation:** Indexed as the Nexora root, not as a commercial result
+- **Relationships / actions:** Leads to Search, Category Discovery, Deals, Collections, Product Detail, PC Builder, and AI; primary action is search, with contextual resume and discovery actions
+- **Required states:** Anonymous, personalized, no-history, unavailable recommendation source, and degraded personalization
+- **Lifecycle / journeys:** Land and Discover / J-01, J-02, J-04, J-05
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### STF-002 — Deals Hub
+
+- **Type / class:** Fixed page / Public Storefront
+- **Purpose:** Provide governed promotional discovery without displacing search or categories.
+- **Ownership:** Marketing; supported by Catalog, Pricing, Inventory, and Discovery
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Primary navigation, search, campaigns, and contextual links / `/deals`
+- **Search participation:** Indexed and eligible as a separated supporting result
+- **Relationships / actions:** Leads to Collection, Category Discovery, and Product Detail; primary actions are filter, sort, and select an offer
+- **Required states:** No active deals, expired promotion recovery, price or availability degradation, and standard result states
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### STF-003 — Collection
+
+- **Type / class:** Reusable entity template / Public Storefront
+- **Purpose:** Present a governed curated assortment without replacing canonical categories.
+- **Ownership:** Marketing; supported by Catalog, Pricing, Inventory, and Discovery
+- **Audience / access / shell:** Guest and customer / Public when published / Storefront
+- **Entry / URL:** Search, Home, Deals, campaigns, and contextual links / `/collections/{collection-slug}`
+- **Search participation:** Indexed when published and eligible as a separated supporting result
+- **Relationships / actions:** References Category Discovery and Product Detail; primary actions are inspect collection rationale, filter, sort, and select a product
+- **Required states:** Unpublished or expired recovery, empty assortment, partial availability, and standard result states
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### STF-004 — Brand
+
+- **Type / class:** Reusable entity template / Public Storefront
+- **Purpose:** Combine governed brand context with the brand’s available products.
+- **Ownership:** Catalog; supported by Marketing, Discovery, Pricing, and Inventory
+- **Audience / access / shell:** Guest and customer / Public when active / Storefront
+- **Entry / URL:** Search, Product Detail, Category Discovery, and contextual links / `/brands/{brand-slug}`
+- **Search participation:** Indexed and eligible as a separated supporting result
+- **Relationships / actions:** Leads to Category Discovery and Product Detail; primary actions are browse, filter, sort, and select a product
+- **Required states:** Brand with no active products, incomplete brand content, partial availability, and standard result states
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### STF-005 — Buying Guides Hub
+
+- **Type / class:** Fixed page / Public Storefront
+- **Purpose:** Provide a browsable library of decision-support content without elevating editorial content above product discovery.
+- **Ownership:** Marketing; supported by Catalog, Support, and Discovery
+- **Audience / access / shell:** Guest and customer / Public / Storefront
+- **Entry / URL:** Footer, search, contextual guidance, and Buying Guides / `/guides`
+- **Search participation:** Indexed; the hub is lower priority than products, categories, and individual relevant guides
+- **Relationships / actions:** Leads to Buying Guide, Category Discovery, and Product Detail; primary actions are find and open a guide
+- **Required states:** No matching guides, unavailable taxonomy mapping, and standard content states
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02, J-04
+- **Horizon / maturity / status:** Expansion / Confirmed / Approved
+
+#### STF-006 — Buying Guide
+
+- **Type / class:** Reusable entity template / Public Storefront
+- **Purpose:** Explain a purchase decision and connect governed guidance to relevant products.
+- **Ownership:** Marketing; supported by Catalog, Support, Discovery, and AI
+- **Audience / access / shell:** Guest and customer / Public when published / Storefront
+- **Entry / URL:** Search, Buying Guides Hub, Product Detail, Category Discovery, and contextual AI / `/guides/{guide-slug}`
+- **Search participation:** Indexed and eligible as a separated supporting result
+- **Relationships / actions:** References Category Discovery, Product Detail, and Comparison; primary actions are understand criteria and continue to relevant products
+- **Required states:** Unpublished recovery, stale product references, partial supporting content, and standard content states
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02, J-04
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### STF-007 — Campaign Landing
+
+- **Type / class:** Reusable bounded template / Public Storefront
+- **Purpose:** Support time-bounded campaigns without creating permanent navigation or a competing taxonomy.
+- **Ownership:** Marketing; supported by Catalog, Pricing, Inventory, and Discovery
+- **Audience / access / shell:** Guest and customer / Public only while published / Storefront
+- **Entry / URL:** External campaign, Home, Deals, notification, and contextual link / `/campaigns/{campaign-slug}`
+- **Search participation:** Conditional; indexed only when the campaign has durable discovery value
+- **Relationships / actions:** Leads to Collection, Category Discovery, and Product Detail; actions depend on the governed campaign goal
+- **Required states:** Scheduled, expired, withdrawn, empty assortment, partial promotion service, and standard content states
+- **Lifecycle / journeys:** Land, Discover, and Evaluate / J-01, J-02
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### DSC-001 — Universal Search Results
+
+- **Type / class:** Stateful page template / Discovery
+- **Purpose:** Return unified, grouped results with products first for commercial queries.
+- **Ownership:** Discovery; supported by Catalog, Marketing, Support, PC Builder, AI, Pricing, and Inventory
+- **Audience / access / shell:** Guest and customer / Public with optional personalized context / Storefront
+- **Entry / URL:** Persistent search, submitted suggestion, recent query, and deep link / `/search?q={query}` with represented filter, sort, and intent state
+- **Search participation:** The page itself is not indexed as arbitrary query content; governed result entities retain their own index behavior
+- **Relationships / actions:** Leads to Category, Collection, Brand, Buying Guide, Product Detail, PC Build, Support Article, promotion, Comparison, and AI follow-up; actions are refine, filter, sort, compare, and select
+- **Required states:** Empty query, zero results with recovery, corrected query, partial result-type failure, stale query state, and degraded ranking or personalization
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02, J-03, J-04
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### DSC-002 — Category Discovery
+
+- **Type / class:** Reusable entity and stateful result template / Discovery
+- **Purpose:** Orient users and provide one shared product grid for guided and expert category discovery.
+- **Ownership:** Discovery; supported by Catalog, Marketing, Pricing, Inventory, Compatibility, and AI
+- **Audience / access / shell:** Guest and customer / Public with optional personalized context / Storefront
+- **Entry / URL:** Categories mega menu, search, Home, related pages, and deep links / `/categories/{category-slug}` with represented filter, sort, and intent state
+- **Search participation:** Canonical category page is indexed and eligible as a separated supporting result
+- **Relationships / actions:** Leads to Product Detail, Comparison, Brand, Collection, Buying Guide, and contextual AI; actions are inspect visible intent effects, clear or modify them, filter, sort, compare, and select
+- **Required states:** No matching products, no applicable filters, invalid or retired filter state, partial inventory or compatibility data, and degraded recommendations
+- **Lifecycle / journeys:** Discover and Evaluate / J-01, J-02, J-03, J-04
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### EVA-001 — Product Detail
+
+- **Type / class:** Reusable sellable-entity template / Product Evaluation
+- **Purpose:** Enable confident evaluation and movement to purchase, comparison, or configuration.
+- **Ownership:** Catalog; supported by Pricing, Inventory, Reviews, Compatibility, Marketing, Purchase, Discovery, and AI
+- **Audience / access / shell:** Guest and customer / Public for active or recoverable products / Storefront
+- **Entry / URL:** Search, Category, Brand, Collection, Buying Guide, Comparison, PC Builder, recommendation, and deep link / `/products/{product-slug}`
+- **Search participation:** Indexed while active; discontinued products follow an explicit recovery and successor policy
+- **Relationships / actions:** Leads to Cart, Comparison, PC Builder, related products, Support content, and contextual AI; actions are choose an offer or variant, inspect evidence, compare, save, and add to cart
+- **Required states:** Out of stock, discontinued, unknown price, partial specifications, review outage, compatibility uncertainty, invalid variant, and degraded recommendations
+- **Lifecycle / journeys:** Evaluate, Compare, Configure, and Purchase / J-01 through J-05
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+#### EVA-002 — Comparison Workspace
+
+- **Type / class:** Stateful Decision Workspace / Product Evaluation
+- **Purpose:** Reduce cognitive load through layered comparison and explainable recommendations.
+- **Ownership:** Catalog; supported by Discovery, Pricing, Inventory, Reviews, Compatibility, AI, and Customer
+- **Audience / access / shell:** Guest and customer / Public session with optional authenticated persistence / Workspace
+- **Entry / URL:** Compare utility, Product Detail, Category Discovery, Search, and share link / `/compare` with validated shareable comparison state
+- **Search participation:** Excluded from public indexing
+- **Relationships / actions:** Leads to Product Detail, Cart, PC Builder where relevant, and contextual AI; actions are add or remove products, inspect differences, change comparison focus, save or share, and select a product
+- **Required states:** Empty comparison, single product, unsupported cross-category comparison, removed or unavailable product, partial attributes, price or inventory degradation, and AI unavailable
+- **Lifecycle / journeys:** Evaluate, Compare, Configure, and Purchase / J-01, J-02, J-03, J-04, J-05
+- **Horizon / maturity / status:** Foundation / Confirmed / Approved
+
+### Block 1 embedded experience units
+
+The following are required interaction units within approved host pages, not independent pages:
+
+- Search suggestions, autocomplete, trending searches, and recent searches
+- Filter, sort, and intent controls
+- Product grid and product cards
+- Product media, specifications, reviews, compatibility, financing, warranty, and recommendation sections
+- Comparison layers and optional AI summary
+- Contextual AI panels
+- Quick view
+- Home continuation, recommendation, category, collection, and editorial modules
+
+Embedded units inherit the host page’s access and shell but must define their own loading, empty, error, and degraded behavior during the later system-state review.
 
 ## Protected architectural boundaries
 
