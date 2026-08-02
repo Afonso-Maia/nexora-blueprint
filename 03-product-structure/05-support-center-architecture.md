@@ -117,11 +117,77 @@ If a contributing source is unavailable, Support identifies which status or acti
 
 Support does not infer eligibility, mark a case resolved, promise a refund or repair outcome, or substitute AI-generated guidance for unavailable authoritative data.
 
+## Structured Support Article model
+
+SUP-002 Support Article is a governed, task-oriented content template. It supports both procedural guidance and concise FAQ answers without creating a separate FAQ page type.
+
+### Required content contract
+
+Every article declares:
+
+- Customer intent and intended outcome
+- Applicable products, categories, order states, case types, or other governed scope
+- Audience and access level
+- Prerequisites and required assurance
+- Ordered guidance or concise answer
+- Expected result and how the customer can recognize it
+- Known exceptions, limitations, and stop conditions
+- Authoritative product, policy, or operational references
+- Escalation or recovery path when unresolved
+- Content owner and required reviewers
+- Version, publication state, review date, and localization status
+
+Optional media, troubleshooting branches, structured data, and contextual actions may extend the template. They cannot replace the required outcome, applicability, references, or escalation information.
+
+### Lifecycle
+
+The primary lifecycle is:
+
+`Draft → Review → Published → Revised or Retired`
+
+- **Draft:** editable and excluded from customer discovery.
+- **Review:** awaiting required content, product, operational, accessibility, localization, or policy approval.
+- **Published:** eligible for its governed audiences, entry points, and search indexes.
+- **Revised:** a new governed version replaces or supplements the prior version with traceable change history.
+- **Retired:** removed from active search and recommendations; inbound references use a governed replacement, redirect, or retirement explanation.
+
+Only published and applicable versions enter public Support search. Restricted variants require explicit access governance and cannot leak titles, excerpts, applicability, or existence through public results.
+
+### Applicability and references
+
+Applicability uses governed Catalog, Purchase, Support, Compatibility, and policy identifiers rather than free-form tags where an authoritative identifier exists.
+
+1. Catalog owns product facts and identifiers.
+2. Purchase and other operational domains own state and eligibility facts.
+3. Legal or the designated policy owner owns policy meaning, effective versions, and approval.
+4. Support owns the customer guidance, content lifecycle, and escalation language.
+5. Discovery indexes only eligible published content and preserves the separated Support result group.
+6. Localization inherits the same intent, applicability, references, and governance; it is not an independent policy version.
+7. Material source changes flag dependent articles for review but do not silently rewrite published guidance.
+8. An article with unresolved material conflict is corrected, restricted, or retired rather than left discoverable as current.
+
+### Actions and escalation
+
+Articles may launch a contextual self-service check or carry safe context into another destination. The owning domain re-evaluates current identity, authorization, state, and eligibility before presenting or committing an action.
+
+Escalation preserves the article, issue intent, relevant object reference, and completed troubleshooting steps where safe. The customer can inspect or remove this context, and no article interaction creates a persistent Support case without explicit submission.
+
+### AI use
+
+AI may summarize, translate within governed localization controls, or explain published Support content. It must preserve:
+
+- Source article and authoritative references
+- Applicability and version
+- Limitations and stop conditions
+- Deterministic eligibility boundaries
+- Escalation path
+
+AI does not cite drafts or retired guidance as current, invent missing steps, or turn an explanatory summary into an approved operational decision.
+
 ## Provisional dependencies
 
 The following remain pending:
 
-- Support Article and content-governance model
 - Self-service eligibility and escalation boundaries
 - Support Case taxonomy and lifecycle
 - Case communication, evidence, and participant model
@@ -131,4 +197,4 @@ The following remain pending:
 
 ## Next decision
 
-Define the Support Article and content-governance model, followed by self-service boundaries and the persistent Support Case architecture.
+Define self-service eligibility and escalation boundaries, followed by the persistent Support Case architecture.
