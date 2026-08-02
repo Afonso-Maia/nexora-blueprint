@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — customer-facing inventory and Admin Commerce, Customer, and Support inventory approved; remaining Admin inventory pending
+**Status:** Approved — canonical inventory complete; identified metadata remains provisional
 
 ## Purpose
 
@@ -1454,6 +1454,211 @@ The following remain modules within the approved Admin pages:
 - Case assignment, service-level, timeline, messaging, internal notes, attachments, evidence, logistics, refund, replacement, warranty, and repair modules
 
 Internal notes and customer-visible messages are distinct content types with explicit audience indicators. Impersonation, unrestricted customer export, and unrestricted cross-queue access are not approved capabilities.
+
+### Block 6C — Administrative Dashboard: Content, Governance, Access, and Insights
+
+These pages govern discovery-supporting content, workforce authority, evidence, and bounded configuration. They do not create parallel catalog, pricing, inventory, or customer records.
+
+#### ADM-022 — Collections
+
+- **Type / class:** Resource list page / Administrative Dashboard
+- **Purpose:** Find and govern curated product assortments without replacing canonical categories.
+- **Ownership:** Marketing; supported by Catalog, Discovery, Pricing, Inventory, and Admin Platform
+- **Audience / access / shell:** Authorized merchandising operators and reviewers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Product Workspace, operational search, and campaign context / `/admin/collections`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Leads to Collection Workspace and affected products; actions include filter, saved view, duplicate, schedule review, and governed lifecycle transitions
+- **Required states:** No collections, empty collection, expired collection, invalid product membership, stale availability, schedule conflict, and bulk action failure
+- **Lifecycle / journeys:** Govern merchandising / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-023 — Collection Workspace
+
+- **Type / class:** Durable resource detail and editor / Administrative Dashboard
+- **Purpose:** Govern one collection’s rationale, membership rules or selections, content, schedule, and lifecycle.
+- **Ownership:** Marketing; supported by Catalog, Discovery, Pricing, Inventory, and Admin Platform
+- **Audience / access / shell:** Authorized merchandising operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Collections, Product Workspace, operational search, and Content Workspace / `/admin/collections/{collection-reference}`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Links products, campaign content, and customer Collection preview; actions include edit, validate membership, preview, submit, approve, schedule, publish, expire, and archive
+- **Required states:** Draft, empty membership, invalid rule, unavailable products, approval pending, schedule conflict, published, expired, concurrent edit, and publication failure
+- **Lifecycle / journeys:** Govern merchandising / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-024 — Promotions
+
+- **Type / class:** Resource list and schedule page / Administrative Dashboard
+- **Purpose:** Find and govern promotional programs separately from base pricing and inventory.
+- **Ownership:** Marketing; supported by Pricing, Purchase, Catalog, Inventory, Legal, and Admin Platform
+- **Audience / access / shell:** Authorized promotion operators and reviewers / Role-restricted / Admin
+- **Entry / URL:** Admin navigation, Overview, Pricing, operational search, and campaign context / `/admin/promotions`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Leads to Promotion Workspace and affected collections, products, and content; actions include filter, calendar review, duplicate, and governed lifecycle transitions
+- **Required states:** No promotions, schedule overlap, budget or limit warning, expired promotion, publication delay, and restricted financial detail
+- **Lifecycle / journeys:** Govern promotions / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-025 — Promotion Workspace
+
+- **Type / class:** Durable resource detail and editor / Administrative Dashboard
+- **Purpose:** Define one promotion’s eligibility, benefit, limits, schedule, presentation references, and lifecycle.
+- **Ownership:** Marketing; supported by Pricing, Purchase, Catalog, Inventory, Legal, and Admin Platform
+- **Audience / access / shell:** Authorized promotion operators and approvers / Field- and action-restricted / Admin
+- **Entry / URL:** Promotions, Pricing, Collection Workspace, operational search, and Content Workspace / `/admin/promotions/{promotion-reference}`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Links eligibility resources, pricing impact, collection or campaign content, and customer preview; actions include edit, simulate, validate, submit, approve, schedule, activate, pause when governed, expire, and inspect audit history
+- **Required states:** Draft, invalid eligibility, pricing conflict, insufficient inventory warning, legal review required, approval pending, scheduled, active, exhausted, expired, concurrent edit, and publication failure
+- **Lifecycle / journeys:** Govern promotions / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-026 — Content Library
+
+- **Type / class:** Typed resource list page / Administrative Dashboard
+- **Purpose:** Find and govern buying guides, campaigns, policy documents, Support content, and other approved content types.
+- **Ownership:** Marketing for editorial content; Legal and Support retain authority for their content types; supported by Discovery and Admin Platform
+- **Audience / access / shell:** Authorized content operators, subject owners, and reviewers / Type-, role-, and locale-restricted / Admin
+- **Entry / URL:** Admin navigation, operational search, Collections, Promotions, Search Governance, and linked resources / `/admin/content`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Leads to Content Workspace and linked product or operational resources; actions include filter by type, owner, status, locale, and schedule, then create or open when authorized
+- **Required states:** No content, no matches, missing owner, missing locale, approval backlog, scheduled conflict, stale index, and restricted content type
+- **Lifecycle / journeys:** Govern content / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-027 — Content Workspace
+
+- **Type / class:** Durable typed-content detail and editor / Administrative Dashboard
+- **Purpose:** Edit, version, review, preview, publish, supersede, or retire one governed content object.
+- **Ownership:** Varies by content type; Marketing, Legal, or Support is accountable; supported by Catalog, Discovery, and Admin Platform
+- **Audience / access / shell:** Authorized content operators, subject owners, translators, and approvers / Type-, field-, action-, and locale-restricted / Admin
+- **Entry / URL:** Content Library, linked operational resources, operational search, and review tasks / `/admin/content/{content-reference}`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Links referenced products, categories, collections, promotions, policies, and customer preview; actions include edit, validate links, compare versions, translate, submit, approve, schedule, publish, supersede, retire, and restore a governed draft
+- **Required states:** Draft, missing owner, invalid reference, legal review required, translation incomplete, approval pending, scheduled, published, superseded, concurrent edit, and publication failure
+- **Lifecycle / journeys:** Govern content / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-028 — Search Governance
+
+- **Type / class:** Operational governance workspace / Administrative Dashboard
+- **Purpose:** Govern synonyms, aliases, result-type participation, bounded ranking controls, diagnostics, and zero-result recovery.
+- **Ownership:** Discovery; supported by Catalog, Marketing, Support, AI, PC Builder, Analytics when governed, and Admin Platform
+- **Audience / access / shell:** Authorized search operators, analysts, and approvers / Role- and action-restricted / Admin
+- **Entry / URL:** Admin navigation, Operations Overview, Product and Content workspaces, and search diagnostics / `/admin/search`
+- **Search participation:** Not returned by operational object search; accessible through authorized navigation
+- **Relationships / actions:** Links governed entities and diagnostic queries; actions include inspect quality, manage synonyms and aliases, configure approved participation, test bounded changes, submit, approve, schedule, and rollback
+- **Required states:** No diagnostic data, zero-result spike, stale index, conflicting synonym, invalid redirect, ranking experiment unavailable, approval pending, and rollback required
+- **Lifecycle / journeys:** Govern Discovery / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-029 — Review Moderation
+
+- **Type / class:** Policy-driven operational queue / Administrative Dashboard
+- **Purpose:** Review flagged customer reviews for policy enforcement without suppressing unfavorable opinions.
+- **Ownership:** Reviews; supported by Legal, Support, Security, Catalog, and Admin Platform
+- **Audience / access / shell:** Authorized moderation operators and reviewers / Role-, queue-, and record-restricted / Admin
+- **Entry / URL:** Admin navigation, Operations Overview, Product Workspace, alerts, and operational search / `/admin/reviews`
+- **Search participation:** Permission-aware operational search target for authorized review records
+- **Relationships / actions:** Links Product Workspace, governed policy, customer context when permitted, and audit history; actions include inspect, classify, request review, uphold, remove for policy reason, restore, and escalate
+- **Required states:** No flagged reviews, ambiguous policy, restricted customer context, appeal pending, duplicate flag, automation unavailable, concurrent moderation, and publication delay
+- **Lifecycle / journeys:** Govern reviews / Admin operations
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### ADM-030 — Workforce Users
+
+- **Type / class:** Protected access-identity list / Administrative Dashboard
+- **Purpose:** Manage workforce access identities, status, role assignments, and assurance indicators.
+- **Ownership:** Security and Admin Platform; supported by People Operations and Legal when governed
+- **Audience / access / shell:** Authorized access administrators and auditors / Highly restricted / Admin
+- **Entry / URL:** Admin navigation, Role Workspace, Audit Log, and security tasks / `/admin/workforce-users`
+- **Search participation:** Permission-aware operational search target for authorized access administrators
+- **Relationships / actions:** Leads to governed workforce identity detail within the page and Role Workspace; actions include invite when approved, activate, suspend, revoke sessions, assign or remove roles through governed flow, and inspect access history
+- **Required states:** Pending invitation, active, suspended, deprovisioned, identity-provider mismatch, orphaned assignment, approval required, self-change restriction, and synchronization failure
+- **Lifecycle / journeys:** Govern workforce access / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-031 — Role Workspace
+
+- **Type / class:** Durable permission-definition detail and editor / Administrative Dashboard
+- **Purpose:** Define reusable permissions and inspect assignment and segregation-of-duties impact.
+- **Ownership:** Security and Admin Platform; supported by Legal and accountable domain owners
+- **Audience / access / shell:** Authorized access architects, approvers, and auditors / Highly restricted / Admin
+- **Entry / URL:** Workforce Users, Admin navigation, access review tasks, and Audit Log / `/admin/roles/{role-reference}`
+- **Search participation:** Permission-aware operational search target for authorized access administrators
+- **Relationships / actions:** Links assigned workforce users, affected resources and actions, conflicts, approvals, and audit events; actions include edit a draft version, simulate impact, submit, approve, activate, supersede, and revoke through governed workflow
+- **Required states:** Draft, no assignments, excessive permission warning, segregation conflict, approval pending, active, superseded, concurrent edit, self-approval blocked, and rollback candidate
+- **Lifecycle / journeys:** Govern workforce access / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-032 — Audit Log
+
+- **Type / class:** Append-only investigation page / Administrative Dashboard
+- **Purpose:** Investigate immutable operational and security events within authorized scope.
+- **Ownership:** Security and Admin Platform; contributing domains emit governed events
+- **Audience / access / shell:** Authorized auditors, security operators, and limited accountable managers / Highly restricted and field-filtered / Admin
+- **Entry / URL:** Admin navigation, resource workspaces, access reviews, incident tasks, and deep links / `/admin/audit`
+- **Search participation:** Separate permission-aware audit query; excluded from general operational search by default
+- **Relationships / actions:** Links authorized actors, resources, approvals, and correlation context; actions are filter, inspect, correlate, and export through governed audit workflow
+- **Required states:** No events, no matches, redacted field, retention boundary, delayed ingestion, integrity verification unavailable, export pending, and restricted event
+- **Lifecycle / journeys:** Audit and investigate / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-033 — Reports and Analytics
+
+- **Type / class:** Governed reporting workspace / Administrative Dashboard
+- **Purpose:** Explore approved operational and product-performance reporting under source-level permissions.
+- **Ownership:** Analytics when established; accountable source domains retain metric ownership; supported by Admin Platform
+- **Audience / access / shell:** Authorized operators, analysts, and leaders / Metric-, field-, and record-restricted / Admin
+- **Entry / URL:** Admin navigation, Operations Overview, and linked operational context / `/admin/reports`
+- **Search participation:** Excluded from operational object search
+- **Relationships / actions:** Links governed definitions and authorized source workspaces; actions include select approved report, filter, compare periods, inspect definition, and export when permitted
+- **Required states:** No available reports, insufficient permission, delayed data, partial source, definition changed, privacy threshold applied, stale result, and export pending
+- **Lifecycle / journeys:** Analyze and govern operations / Admin operations
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+#### ADM-034 — Operational Settings
+
+- **Type / class:** Bounded configuration page / Administrative Dashboard
+- **Purpose:** Manage approved platform configuration that does not belong to a governed business resource.
+- **Ownership:** Admin Platform; each setting requires an accountable domain owner
+- **Audience / access / shell:** Authorized platform administrators and approvers / Setting-, field-, and action-restricted / Admin
+- **Entry / URL:** Admin navigation, Operations Overview, and governed configuration links / `/admin/settings`
+- **Search participation:** Excluded from operational object search
+- **Relationships / actions:** Links setting definitions, owners, impact, dependencies, versions, and audit events; actions include edit, validate, submit, approve, schedule, activate, and rollback when supported
+- **Required states:** No authorized settings, unknown owner, invalid value, dependency conflict, approval pending, scheduled change, concurrent edit, activation failure, and rollback required
+- **Lifecycle / journeys:** Configure platform operations / Admin operations
+- **Horizon / maturity / status:** Expansion / Provisional / Approved
+
+### Block 6C embedded experience units
+
+The following remain modules inside the approved pages:
+
+- Publishing calendars, previews, version comparison, localization, and approval panels
+- Search diagnostics, query testing, synonym and alias editing, and rollback controls
+- Review evidence, policy rationale, appeal, and moderation history
+- Workforce identity status, assignments, access review, and session controls
+- Permission matrices, impact simulation, conflict detection, and approval history
+- Audit queries, correlation views, and governed exports
+- Report filters, metric definitions, privacy thresholds, and exports
+- Setting ownership, impact, approval, scheduling, and rollback panels
+
+Campaigns and legal documents are typed content objects, not separate Admin page systems. Audit events cannot be edited or deleted through the interface. Operational Settings cannot own configuration that belongs to Catalog, Pricing, Content, Search, or Access resources.
+
+## Inventory completion
+
+The canonical Page Inventory contains **89 approved pages and reusable page templates** across all 12 product-surface classes.
+
+Approval establishes page identity, purpose, primary class, accountable domain, access posture, shell, search participation, relationships, actions, required-state coverage, conceptual URL, lifecycle references, and delivery horizon. Metadata marked `Provisional` must be refined by the remaining Phase 2B decisions without silently changing page identity or approved boundaries.
+
+Any new page requires:
+
+1. Evidence that it meets the destination-oriented page threshold
+2. A unique stable ID
+3. One primary class and one accountable owning domain
+4. Complete registry metadata
+5. Impact review against navigation, search, taxonomy, filters, permissions, mobile behavior, and existing journeys
+6. Explicit approval and Blueprint update
+
+The next Phase 2B topic is page relationships and domain ownership validation, followed by page-level information hierarchy.
 
 ## Protected architectural boundaries
 
