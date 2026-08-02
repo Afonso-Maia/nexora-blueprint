@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — model and customer connected-experience graph approved; Authentication/System/Admin graph and ownership ledger pending
+**Status:** Approved in part — model and customer, Authentication, Legal, and System graph approved; Admin graph and ownership ledger pending
 
 ## Purpose
 
@@ -210,11 +210,64 @@ The following exclusions apply throughout this slice:
 - Support cases reference authoritative orders, products, and builds rather than copying ownership.
 - Case creation is idempotent and warns about likely duplicates.
 
+### Slice 3 — Authentication, legal, and system recovery
+
+The following rules apply throughout this slice:
+
+- Return references are allowlisted, short-lived, non-sensitive, and independently validated.
+- Authentication and verification responses do not reveal identity or protected-resource existence.
+- A policy reference resolves to the applicable version when consequential consent or terms depend on it.
+- System recovery never automatically retries consequential mutations.
+
+| Edge | Relationship | Trigger | Context carried | Context excluded | Access transition | Failure behavior | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| REL-AS-001 | `ACC-001` `recovers-to` `AUT-001` | Request Account without a valid session | Validated Account return reference | Account data and identity existence | Guest to authentication | Safe storefront fallback if return expires | Approved |
+| REL-AS-002 | `ACC-008` `recovers-to` `AUT-006` | Start sensitive setting action | Action category and validated return reference | Setting value and credentials | Customer session to stronger assurance | Preserve unsaved non-sensitive intent or require restart | Approved |
+| REL-AS-003 | `PCB-002` `recovers-to` `AUT-001` | Persist guest build | Build return reference and local draft handle | Components in authentication URL and private draft data | Guest to authenticated customer | Preserve local draft and resume only after ownership establishment | Approved |
+| REL-AS-004 | `AIS-001` `recovers-to` `AUT-001` | Persist guest conversation | Conversation return reference | Conversation content and model internals | Guest to authenticated customer | Keep guest session available or explain persistence limit | Approved |
+| REL-AS-005 | `SUP-006` `recovers-to` `AUT-001` | Request personal case history | Validated case-list return reference | Case existence and customer data | Guest to authenticated customer | Safe Support fallback if authentication fails | Approved |
+| REL-AS-006 | `SUP-007` `recovers-to` `AUT-005` | Guest case access requires verification | Case-scoped verification reference | Case content and participant identity | Unverified participant to verified case scope | Keep case undisclosed and route to safe Support recovery | Approved |
+| REL-AS-007 | `AUT-001` `leads-to` `AUT-005` | Sign-in requires factor verification | Expiring verification reference and validated final return | Credential and identity detail | Partial authentication to verified factor | Return to Sign In or governed recovery | Approved |
+| REL-AS-008 | `AUT-001` `leads-to` `AUT-006` | Sign-in requires stronger assurance | Expiring challenge reference and validated final return | Credential, risk signals, and factor secrets | Partial authentication to stronger assurance | Return to Sign In or Account Recovery | Approved |
+| REL-AS-009 | `AUT-002` `leads-to` `AUT-005` | Registration requires verification | New-identity verification reference and validated return | Registration secrets and duplicate-identity signals | Pending identity to verified identity | Neutral resend, retry, or safe registration recovery | Approved |
+| REL-AS-010 | `AUT-003` `leads-to` `AUT-005` | Recovery requires factor verification | Recovery-scoped verification reference | Identity existence and recovery evidence | Unverified requester to verified recovery scope | Neutral recovery response or Support escalation | Approved |
+| REL-AS-011 | `AUT-003` `leads-to` `AUT-004` | Open valid recovery link | Expiring recovery reference | Identity data and recovery proof | Verified recovery context | Return to Account Recovery on invalid or expired reference | Approved |
+| REL-AS-012 | `AUT-005` `resumes` `AUT-004` | Recovery verification succeeds | Verified recovery reference | Verification secret and identity detail | Verified factor to credential-reset scope | Return to Account Recovery if reset context cannot be established | Approved |
+| REL-AS-013 | `AUT-005` `resumes` `PUR-002` | Checkout verification succeeds | Validated Checkout return reference and assurance result | Contact, address, payment, and order data | Verified participant to Checkout session | Safe Cart recovery if Checkout context expired | Approved |
+| REL-AS-014 | `AUT-006` `resumes` `ACC-008` | Step-up succeeds | Validated setting action return and assurance result | Challenge secret and setting value | Stronger assurance to sensitive Account action | Require action restart if context expired | Approved |
+| REL-AS-015 | `AUT-006` `resumes` `PUR-002` | Purchase challenge succeeds | Validated Checkout return and assurance result | Payment data, fraud signals, and credentials | Stronger assurance to Checkout session | Safe Cart or Checkout recovery without transaction retry | Approved |
+| REL-AS-016 | `AUT-006` `resumes` `SUP-007` | Sensitive case challenge succeeds | Case return reference and assurance result | Case content and challenge secret | Stronger assurance to authorized case scope | Keep case undisclosed and use Support recovery | Approved |
+| REL-AS-017 | `AUT-002` `references` `LEG-002` | Show registration terms | Applicable Terms version reference | Registration form data | Public policy access | Keep registration usable with explicit policy retrieval error handling | Approved |
+| REL-AS-018 | `AUT-002` `references` `LEG-003` | Show registration privacy notice | Applicable Privacy version reference | Registration form data | Public policy access | Keep registration state and provide policy retrieval recovery | Approved |
+| REL-AS-019 | `PUR-002` `references` `LEG-006` | Review delivery conditions | Applicable Delivery Policy version | Address details and delivery selection | Public policy access without Checkout state transfer | Preserve Checkout while policy opens or report retrieval failure | Approved |
+| REL-AS-020 | `PUR-002` `references` `LEG-007` | Review return conditions | Applicable Returns Policy version | Cart, address, and payment data | Public policy access | Preserve Checkout while policy opens or report retrieval failure | Approved |
+| REL-AS-021 | `PUR-002` `references` `LEG-008` | Review warranty conditions | Applicable Warranty Policy version | Cart, address, and payment data | Public policy access | Preserve Checkout while policy opens or report retrieval failure | Approved |
+| REL-AS-022 | `PUR-002` `references` `LEG-009` | Select or review financing | Applicable financing terms and provider version | Financial application data and eligibility signals | Public applicable-terms access; provider scope separately governed | Disable financing selection if authoritative terms are unavailable | Approved |
+| REL-AS-023 | `ACC-008` `references` `LEG-003` | Inspect privacy rights or controls | Current and applicable Privacy version | Account settings and personal data | Authenticated source to public policy | Preserve Settings and expose rights-request recovery | Approved |
+| REL-AS-024 | `ACC-008` `references` `LEG-004` | Inspect cookie choices | Current Cookie Notice version | Account settings and tracking state | Authenticated source to public policy | Preserve Settings and report control-service failure | Approved |
+| REL-AS-025 | `SUP-003` `references` `LEG-007` | Explain return eligibility | Applicable Returns Policy version | Order details and case draft | Public policy access | Keep Support context and flag policy retrieval failure | Approved |
+| REL-AS-026 | `SUP-004` `references` `LEG-008` | Explain coverage | Applicable Warranty Policy version | Product evidence and case draft | Public policy access | Keep Support context and flag policy retrieval failure | Approved |
+| REL-AS-027 | `SYS-001` `recovers-to` `STF-001` | Choose storefront fallback | No context beyond safe locale or theme | Unknown route contents and sensitive query data | Public | Home opens without unsafe context | Approved |
+| REL-AS-028 | `SYS-001` `recovers-to` `DSC-001` | Search for intended destination | User-entered recovery query only | Unknown route contents and inferred protected resource | Public | Remain on Not Found with actionable search failure | Approved |
+| REL-AS-029 | `SYS-002` `recovers-to` `AUT-001` | Access may be remediated by authentication | Validated non-sensitive return reference | Protected resource detail and permission model | Guest or wrong session to authentication | Safe surface fallback when access remains denied | Approved |
+| REL-AS-030 | `SYS-003` `recovers-to` `STF-001` | Choose safe customer fallback | Non-sensitive correlation reference only when useful | Error internals and failed mutation payload | Public | Remain on error page with Support path | Approved |
+| REL-AS-031 | `SYS-003` `recovers-to` `ADM-001` | Choose safe Admin fallback | Non-sensitive correlation reference | Error internals, restricted navigation, and mutation payload | Workforce session; Overview independently authorizes modules | Remain on error page with governed incident path | Approved |
+| REL-AS-032 | `SYS-004` `recovers-to` `SUP-001` | Support remains available during degradation | Public service-impact category | Internal topology, security data, and unverified restoration time | Public or customer session as available | Remain on Service Unavailable with authoritative status guidance | Approved |
+| REL-AS-033 | `SYS-005` `recovers-to` `STF-001` | Connectivity restored and user chooses fallback | Safe locale, theme, and reconnection result | Pending mutations and stale sensitive data | Public with optional re-established session | Remain Offline and preserve local work when reconnection fails | Approved |
+
+### Slice 3 invariants
+
+- Failed authentication preserves safe task context without preserving secrets.
+- Contextual policy summaries never replace authoritative documents.
+- Financing Terms are referenced only when financing is available and applicable.
+- System recovery never retries orders, payments, refunds, access changes, or Admin mutations.
+- Admin recovery does not disclose restricted navigation or resource existence.
+- Host-owned states remain preferred whenever the original page can still serve the user.
+
 ## Next decision
 
 Populate and review consequential relationships in four slices:
 
-1. Authentication, legal, and system recovery
-2. Admin management edges and the ownership ledger
+1. Admin management edges and the ownership ledger
 
 Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.

@@ -30,6 +30,7 @@
 - Approved consequential-edge granularity for the canonical relationship graph.
 - Approved 18 consequential Discovery, Evaluation, and Purchase relationship edges.
 - Approved 32 consequential Account, PC Builder, AI, and Support relationship edges.
+- Approved 33 consequential Authentication, Legal, and System recovery relationship edges.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
