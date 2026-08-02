@@ -263,6 +263,37 @@ Host pages preserve relevant context and provide recovery actions appropriate to
 
 The later error, empty, loading, offline, and degraded-state architecture will define behavioral requirements for every page and embedded unit. This decision establishes page boundaries only.
 
+## Object-centered Administrative Dashboard
+
+The Administrative Dashboard is organized around governed business objects and durable operational workflows rather than separate page trees for employee roles.
+
+Core resource families include:
+
+- Products and catalog governance
+- Taxonomy, attributes, and compatibility
+- Inventory and pricing
+- Orders and customers
+- Support cases
+- Collections, promotions, and content
+- Search governance and review moderation
+- Workforce access and audit
+- Reporting and operational settings
+
+Roles and permissions control which resources, records, fields, panels, and actions a workforce user may access. They do not create duplicate versions of the same operational page. An Order Detail page, for example, remains one canonical workspace while fulfillment, customer-service, finance, and administrative users receive only the information and actions appropriate to their permissions.
+
+### Admin page rules
+
+1. One canonical Admin page or template exists per operational resource or durable workflow.
+2. List pages support finding, filtering, saved views, and governed bulk actions.
+3. Detail and editor pages own one durable business object and expose its relevant audit context.
+4. High-risk actions require explicit confirmation, reason capture, appropriate assurance, and an audit event.
+5. Customer-facing truth remains owned by authoritative services. Admin pages edit governed data rather than maintaining parallel copies.
+6. Typed Support cases use one operational case workspace with type-specific modules and permission-aware queues.
+7. Admin search is operational and permission-aware. It is separate from customer Universal Search.
+8. Restricted navigation items may be absent, but a deep link still enforces authorization and uses the appropriate Access Denied state.
+
+Exact Admin modules, role definitions, field-level permissions, approval workflows, bulk-action limits, segregation of duties, and audit retention remain provisional until Administrative Dashboard IA and roles-and-permissions architecture are approved.
+
 ## Approved canonical inventory
 
 ### Block 1 — Storefront, Discovery, and Product Evaluation
