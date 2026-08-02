@@ -1,6 +1,6 @@
 # Roles and Permissions
 
-**Status:** Approved in part — authorization model approved; detailed roles and policies pending
+**Status:** Approved
 
 ## Purpose
 
@@ -1102,13 +1102,124 @@ Audit evidence records the applicable role, grant, scope, policy, and hierarchy 
 7. Offboarding remains incomplete while material access or ownership exceptions are unresolved.
 8. Historical attribution survives review, revocation, role retirement, and offboarding.
 
-## Provisional dependencies
+## Bounded break-glass access
 
-The following remain pending:
+Break-glass access is a separate emergency mechanism for an active incident where ordinary access and JIT workflows cannot safely resolve imminent customer, security, legal, financial, or platform harm.
 
-- Break-glass and emergency access
-- Roles and Permissions validation
+It never creates or exposes a permanent Super Admin identity.
 
-## Next decision
+### Activation contract
 
-Define break-glass emergency access, then validate the complete Roles and Permissions architecture.
+Every activation requires:
+
+- Attributable eligible workforce subject
+- Declared incident and incident reference
+- Approved emergency capability pack
+- Exact resource, field, action, and environment scope
+- Reason ordinary access is insufficient
+- Strongest available assurance
+- Start and short maximum duration
+- Accountable incident owner
+- Independent approval when operationally possible
+- Real-time monitoring and notification recipients
+- Automatic expiry and immediate revocation path
+
+Emergency capability packs are defined and reviewed before incidents. They contain only capabilities required for a bounded emergency class and explicitly exclude unrelated access.
+
+### Approval-unavailable path
+
+When delay would create greater governed harm and an eligible independent approver is genuinely unavailable, policy may allow activation with:
+
+- Two attributable participants where technically possible
+- Strongest available assurance
+- Narrower scope and shorter duration
+- Immediate security and governance notification
+- Continuous monitoring
+- Mandatory retrospective independent review
+
+This path cannot be invoked for convenience, staffing shortages, routine deadlines, or to evade a denial or segregation rule.
+
+### Restrictions
+
+Break-glass access cannot:
+
+- Disable, alter, or bypass audit collection
+- Conceal the acting subject or incident
+- Become delegable or renewable silently
+- Create a permanent role assignment
+- Approve its own future access
+- Extract broad customer, payment, audit, credential, or privacy data unless the emergency pack explicitly requires the minimum scope
+- Alter historical attribution
+- Weaken authentication or recovery controls outside the incident scope
+
+Capabilities such as bulk export, role administration, audit administration, credential recovery, financial execution, or destructive platform change require pack-specific justification and the strongest independent controls.
+
+### Operation and expiry
+
+The subject receives persistent visible indication that break-glass mode is active. Every permitted surface identifies the emergency scope and remaining duration.
+
+All actions retain normal source-domain validation, state, idempotency, and outcome handling unless the approved emergency policy explicitly replaces one bounded condition. Source-domain authority is not transferred to the break-glass system.
+
+Access expires automatically. Extension requires a new activation decision with current incident evidence and cannot silently reuse the prior approval.
+
+Expiry or revocation invalidates sessions and authorization caches for the emergency grant while preserving the incident and audit record. Pending work follows its source-domain disposition policy and cannot continue solely because it began during emergency access.
+
+### Monitoring and review
+
+Activation immediately notifies the incident owner, Security, Governance, and other policy-required reviewers.
+
+Monitoring covers:
+
+- Resources and fields accessed
+- Commands and operations attempted
+- Data exported or disclosed
+- Approvals and execution outcomes
+- Scope or denial failures
+- Session, credential, and network context permitted by policy
+- Expiry, revocation, and residual work
+
+Mandatory review determines:
+
+- Whether activation criteria were met
+- Whether scope and duration were minimal
+- Whether actions matched the declared incident
+- Whether customer, provider, workforce, or regulator notification is required
+- Whether access, credentials, data, or operations require remediation
+- Whether the emergency pack or ordinary role model needs correction
+
+A completed incident cannot close its access review while material break-glass exceptions remain unresolved.
+
+### Governance rules
+
+1. Break-glass is for active emergencies, not expedited ordinary access.
+2. Emergency packs are predefined, bounded, versioned, and independently reviewed.
+3. Strong assurance, attribution, monitoring, notification, and auto-expiry are mandatory.
+4. Audit cannot be disabled or modified through break-glass authority.
+5. Approval-unavailable activation is narrower, shorter, monitored, and retrospectively reviewed.
+6. Break-glass does not override source-domain facts or make an unknown operation successful.
+7. Extensions are new decisions.
+8. Use, attempted use, denial, expiry, revocation, review, and remediation are auditable.
+
+## Architecture validation
+
+The Roles and Permissions architecture passes its Phase 2B topic validation:
+
+- Scoped capability-based RBAC is recorded in ADR-0003.
+- Customer, guest, representative, workforce, provider, service, automation, and potential delegated AI subjects are distinct and attributable.
+- Identity, credential, session, assignment, delegation, and object association remain separate.
+- Source-driven lifecycle handles joiners, movers, leavers, providers, non-human identities, and pending work without erasing history.
+- The initial workforce catalog separates ordinary operational roles from independent approval duties and defines no permanent Super Admin role.
+- Typed scopes and complete grants prevent capability and scope fusion.
+- Deny-overrides evaluation has deterministic precedence, stable decision traces, safe degradation, and change simulation.
+- Delegation and JIT access are purpose-bound, non-impersonating, non-composable, expiring, and reviewable.
+- Approval thresholds and segregation evaluate effective duties rather than role labels or seniority.
+- Continuous review examines effective access and tracks revocation through downstream confirmation.
+- Offboarding preserves attribution and remains incomplete while material residual access or ownership is unresolved.
+- Break-glass access is incident-bound, monitored, automatically expiring, and unable to disable audit.
+- Admin discovery, fields, workspaces, actions, exports, audit, AI, and responsive continuity consume the same authorization boundaries.
+
+No unresolved Roles and Permissions alternative is recorded as approved. Exact operational thresholds, review intervals, provider contracts, emergency pack contents, and policy values remain governed configuration within these constraints.
+
+## Next phase topic
+
+Define Error and Empty States.

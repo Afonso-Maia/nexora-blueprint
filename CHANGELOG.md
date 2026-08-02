@@ -87,6 +87,8 @@
 - Approved governed time-bound delegation and just-in-time access.
 - Approved action-specific approval thresholds and the segregation-of-duties matrix.
 - Approved continuous risk-based access review, revocation propagation, and offboarding completion.
+- Approved bounded, monitored, automatically expiring break-glass access.
+- Completed the Roles and Permissions Architecture.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
