@@ -790,21 +790,117 @@ A segregation constraint is evaluated across effective assignments and delegated
 
 Exact incompatible duties, thresholds, exception paths, and emergency controls remain pending.
 
-## Temporary and delegated access
+## Governed time-bound access
 
-Temporary or delegated access records:
+Temporary delegation and just-in-time access use a durable lifecycle:
 
-- Delegating and receiving subjects
-- Capabilities and concrete scope
-- Purpose
-- Start and expiry
-- Approval and assurance
-- Revocation condition
-- Accountable owner
+`Request → Validate → Approve → Activate → Use → Expire or Revoke → Review`
 
-Delegation cannot exceed the delegator's eligible authority or bypass a non-delegable capability. Expiry and revocation apply to active sessions, open workspaces, drafts, selections, exports, scheduled work, and pending operations according to their owning policy.
+They create complete time-bound grants evaluated by the same typed-scope and deny-overrides model as ordinary assignments.
 
-Historical attribution remains after access ends.
+### Temporary-grant contract
+
+Every temporary grant records:
+
+- Requesting and receiving subjects
+- Delegating or sponsoring subject
+- Requested capability and complete concrete scope
+- Purpose and work reference
+- Start and maximum duration
+- Assurance and approval
+- Risk class
+- Non-delegable constraints
+- Monitoring requirements
+- Expiry and revocation conditions
+- Actual use
+- Review outcome
+
+A temporary grant never consists of an unscoped role name or copied session. It identifies the minimum capabilities, resources, fields, conditions, thresholds, and time needed for the task.
+
+### Lifecycle
+
+- **Request:** the recipient, sponsor, or governed workflow states the task, scope, duration, and reason.
+- **Validate:** policy checks subject eligibility, sponsor authority, delegability, scope, risk, incompatible duties, existing access, and maximum duration.
+- **Approve:** an eligible independent approver or pre-approved policy authorizes the exact request.
+- **Activate:** the grant becomes usable at its start time after current assurance and conditions succeed.
+- **Use:** actions remain attributable to the receiving subject and temporary-grant reference.
+- **Expire or Revoke:** authority ends automatically or through an authorized early termination.
+- **Review:** governance evaluates use, exceptions, incidents, renewal patterns, and unused access.
+
+Material scope, capability, duration, subject, sponsor, risk, or purpose change requires a new validation and approval. Extension is a new reviewed decision, not silent renewal.
+
+### Delegation
+
+Delegation allows an eligible subject to delegate a permitted subset of their authority.
+
+- The recipient acts under their own identity.
+- The recipient's action is attributed to the recipient and delegation record.
+- The delegator remains accountable for making an appropriate delegation but does not become the actor for the recipient's work.
+- Delegation cannot exceed or outlive the delegator's eligible complete grant.
+- Revocation or loss of the delegator's underlying authority re-evaluates or ends the delegation.
+- Delegated scope does not fuse with another grant.
+
+Chained delegation is prohibited unless an explicit policy defines the chain, maximum depth, scopes, expiry, approvals, and attribution. No chained delegation is approved by default.
+
+### Just-in-time access
+
+Just-in-time access grants a narrowly requested capability for a limited task and duration.
+
+- Low-risk, pre-approved request patterns may activate automatically after policy validation.
+- Significant, high, or critical access requires the applicable independent approval and assurance.
+- Activation may occur only when needed rather than for the entire approved window.
+- Inactivity can shorten or end the usable period where policy requires.
+- Repeated requests are analyzed for permanent-role mismatch or access-pattern abuse.
+
+JIT access supplements the stable role catalog without becoming an alternative permanent role system.
+
+### Non-delegable duties
+
+Policy may mark capabilities as non-delegable, including eligible:
+
+- Access approval
+- Audit administration or protected audit review
+- Critical platform settings
+- Segregation override
+- Break-glass approval
+- Role or policy ownership
+- High-risk financial or privacy authority
+
+Non-delegable status applies even when the delegator possesses the capability. Temporary access cannot be used to bypass requestor/approver, author/publisher, or administrator/reviewer separation.
+
+### Expiry and revocation
+
+Expiry or revocation invalidates the temporary grant and propagates to:
+
+- Active sessions and authorization caches
+- Navigation, search, recents, and shared links
+- Open workspaces and selections
+- Draft continuation rights
+- Approval eligibility
+- Export generation and recoverable delivery artifacts
+- Scheduled and queued actions
+- Delegations derived from the grant
+
+Historical attribution remains.
+
+Source domains decide whether already accepted asynchronous operations continue, pause, reconcile, or compensate. Pending and scheduled work rechecks current authority at execution unless its approved policy created a durable separately attributable execution grant.
+
+### Emergency boundary
+
+Break-glass access is not a JIT shortcut. Emergency access requires its own later-approved triggers, capability boundaries, monitoring, notification, expiry, and review.
+
+An urgent request that cannot satisfy ordinary JIT policy remains denied unless the approved break-glass process is invoked.
+
+### Governance rules
+
+1. Temporary grants use complete non-composable scopes.
+2. Delegation never becomes impersonation.
+3. Delegators cannot grant more authority, duration, or delegability than they possess.
+4. JIT auto-approval is limited to explicitly pre-approved low-risk patterns.
+5. High-risk grants require independent approval and proportional assurance.
+6. Extensions and material changes require new review.
+7. Expiry and revocation automatically terminate future authority.
+8. Requested duration, actual use, renewal, unused access, and downstream disposition are auditable and reviewable.
 
 ## Non-human and AI access
 
@@ -849,7 +945,6 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Delegation, temporary access, and just-in-time access workflow
 - Approval thresholds and segregation-of-duties matrix
 - Break-glass and emergency access
 - Access review, revocation, and offboarding
@@ -857,4 +952,4 @@ The following remain pending:
 
 ## Next decision
 
-Define delegation, temporary access, and just-in-time access, followed by segregation, access review, and emergency controls.
+Define approval thresholds and the segregation-of-duties matrix, followed by access review, revocation, offboarding, and emergency controls.
