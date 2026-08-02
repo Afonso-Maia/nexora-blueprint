@@ -250,6 +250,150 @@ Passwords, authentication factors, recovery secrets, and active customer session
 6. Suspending identity blocks new eligible sessions according to policy but does not erase historical attribution.
 7. No subject inherits authority merely through organizational membership, contact matching, related-object navigation, sponsorship, or technical connectivity.
 
+## Source-driven subject lifecycle
+
+Subject lifecycle is driven by authoritative identity sources and explicit governed transitions. A source lifecycle signal can restrict or end eligibility, but it does not directly grant a business capability.
+
+### Common lifecycle
+
+The common lifecycle is:
+
+`Pending → Active → Restricted or Suspended → Deactivated → Archived`
+
+- **Pending:** an identity or sponsorship record exists, but operational access is not active.
+- **Active:** the subject is eligible for current approved assignments and sessions.
+- **Restricted:** selected authentication, authorization, data, or action capabilities are limited under a governed reason and recovery path.
+- **Suspended:** new operational access is blocked while the subject or source condition is reviewed.
+- **Deactivated:** eligible sessions, credentials, delegations, temporary access, and new execution authority are revoked.
+- **Archived:** the subject is retained only for governed history, audit, or record obligations.
+
+Restricted and Suspended are alternate controlled states, not required sequential steps. A return to Active requires the authoritative source condition, identity assurance, assignments, and access policy to be re-evaluated.
+
+Lifecycle state, Account restriction, permission assignment, credential state, and session state remain separate. Their effects are coordinated through explicit policy.
+
+### Joiner
+
+Before workforce or provider access becomes Active, the joiner flow verifies:
+
+- Authoritative identity and subject class
+- Sponsor or accountable owner
+- Required employment, contract, or provider relationship
+- Required training, acknowledgement, or policy conditions
+- Approved role and concrete scope
+- Start time and review or expiry
+- Authentication and assurance readiness
+- Incompatible duty and existing-subject checks
+
+Pre-provisioning may prepare an assignment before the start time, but it cannot produce an eligible operational session early.
+
+### Mover
+
+A mover event includes team, duty, geography, provider, ownership, or other material responsibility change.
+
+Mover processing:
+
+1. Computes proposed new effective access.
+2. Identifies old access that must end, continue temporarily, or receive reapproval.
+3. Tests incompatible duties and scope combinations.
+4. Sets coordinated effective times.
+5. Re-evaluates delegations, approvals, drafts, queues, exports, and scheduled work.
+6. Records the before-and-after access decision.
+
+New access is not simply added to old access. Any temporary overlap requires an explicit purpose, approval, expiry, and segregation check.
+
+### Leaver
+
+An authoritative leaver signal triggers revocation-first processing:
+
+- Block new sessions.
+- Terminate or restrict active sessions according to risk.
+- Revoke or disable eligible credentials.
+- End role assignments, delegations, temporary access, and provider work-package access.
+- Revoke export delivery and other recoverable access artifacts.
+- Remove the subject from future approvals, assignments, and routing.
+- Identify owned drafts, queues, obligations, scheduled work, and in-flight operations for governed disposition.
+- Preserve historical attribution and audit evidence.
+
+Deactivation does not delete subject history, rewrite actions, transfer customer or operational objects automatically, or imply that every pending operation should be cancelled.
+
+### Customer and guest lifecycle
+
+Customer Account restriction, closure pending, and closure follow the approved [Account Architecture](04-account-architecture.md). Roles and Permissions evaluates the resulting subject and capability state without creating a competing Account lifecycle.
+
+A securely verified guest subject expires with its approved object, task, assurance, or time boundary. Expiry ends access but does not delete the order, case, evidence, communication, or audit record.
+
+An authorized representative expires or revokes independently from the represented customer's Account.
+
+### Provider lifecycle
+
+External-provider eligibility depends on both the provider organization and the individual provider user.
+
+- Organization suspension blocks new provider work and re-evaluates active access.
+- Individual departure revokes that user's sessions, credentials, delegations, and work packages.
+- Contract or purpose expiry removes eligible provider scope.
+- Active customer obligations transfer to a designated Nexora accountable owner or another explicitly approved provider participant.
+- Confirmed provider events and historical attribution remain.
+
+Provider offboarding cannot silently close a Support case, satisfy an obligation, or erase a work package.
+
+### Service and automation lifecycle
+
+Every service and automation identity has an accountable owner, approved purpose, review date, credential policy, and immediate disable path.
+
+Lifecycle re-evaluation is triggered by:
+
+- Owner departure or loss of eligible ownership
+- Purpose or system retirement
+- Credential compromise or failed rotation
+- Expired approval or review
+- Material scope or behavior change
+- Policy breach or abnormal use
+
+An orphaned, expired, or unreviewed non-human identity is suspended from new execution until ownership and access are explicitly re-established. Replacing credentials does not automatically restore revoked business authority.
+
+Delegated AI execution, if later approved, follows the automation lifecycle plus its shorter task and delegation expiry.
+
+### Pending and scheduled work
+
+Deactivation, suspension, or role removal evaluates each pending artifact according to its owning policy:
+
+- Drafts may become read-only, transfer through a governed handoff, or become inaccessible.
+- Approval requests lose an ineligible approver and return to routing.
+- Scheduled actions recheck the requestor, approver, executor, and policy conditions at execution.
+- Asynchronous operations already accepted continue, pause, reconcile, or compensate according to their source-domain contract.
+- Exports and time-limited artifacts revoke where technically and legally eligible.
+
+Pending work is neither blindly cancelled nor allowed to execute solely because it was created earlier.
+
+### Lifecycle synchronization and exceptions
+
+Lifecycle signals record source, source time, ingestion time, subject, transition, and correlation.
+
+If high-risk lifecycle synchronization is delayed, invalid, or unavailable, affected new access and consequential execution fail safely according to policy. The system does not silently treat an unknown employment, provider, owner, or credential state as Active.
+
+Manual exceptions require:
+
+- Eligible authority
+- Specific subject, capability, and scope
+- Reason and evidence
+- Start and expiry
+- Assurance and approval
+- Monitoring and review
+- Audit record
+
+A manual exception cannot alter the authoritative directory record or become permanent through repeated renewal without review.
+
+### Governance rules
+
+1. Authoritative directories own source identity and relationship signals.
+2. Authentication owns session and credential termination.
+3. Roles and Permissions owns assignment, delegation, effective-access, and segregation response.
+4. Source domains own safe disposition of drafts, operations, approvals, exports, and owned resources.
+5. Deactivation and archive preserve historical attribution.
+6. Mover processing removes or revalidates old access rather than accumulating it.
+7. Provider and non-human identities require active accountable ownership.
+8. Lifecycle transitions, exceptions, failures, and material dispositions are auditable.
+
 ## Role model
 
 A role is a versioned governed bundle containing:
@@ -380,17 +524,15 @@ Audit evidence records the applicable role and policy version. It does not rely 
 
 The following remain pending:
 
-- Subject lifecycle and joiner, mover, leaver, and provider workflows
 - Initial workforce role catalog
 - Scope hierarchy and combination rules
 - Permission evaluation and conflict precedence
 - Delegation, temporary access, and just-in-time access workflow
 - Approval thresholds and segregation-of-duties matrix
-- Service, automation, external-provider, and AI identity lifecycle
 - Break-glass and emergency access
 - Access review, revocation, and offboarding
 - Roles and Permissions validation
 
 ## Next decision
 
-Define subject lifecycle and joiner, mover, leaver, provider, and non-human identity behavior, followed by initial roles, scope semantics, segregation, and emergency controls.
+Define the initial workforce role catalog, followed by scope semantics, permission precedence, delegation, segregation, access review, and emergency controls.

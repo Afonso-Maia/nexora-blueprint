@@ -80,6 +80,7 @@
 - Completed the Administrative Dashboard Information Architecture.
 - Accepted ADR-0003 and approved scoped capability-based RBAC.
 - Approved distinct attributable human and non-human subject classes.
+- Approved source-driven subject lifecycle and revocation-first joiner, mover, leaver, provider, and non-human controls.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
