@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — model and customer, Authentication, Legal, and System graph approved; Admin graph and ownership ledger pending
+**Status:** Approved in part — relationship graph through System and ownership ledger through Account approved; Admin graph and remaining ledger pending
 
 ## Purpose
 
@@ -286,6 +286,37 @@ The following rules apply throughout this slice:
 - System recovery never retries orders, payments, refunds, access changes, or Admin mutations.
 - Admin recovery does not disclose restricted navigation or resource existence.
 - Host-owned states remain preferred whenever the original page can still serve the user.
+
+## Approved ownership ledger
+
+`Not applicable` means no separate human approval beyond normal validation by the authoritative domain. It does not remove authentication, authorization, audit, or business-rule enforcement.
+
+### Ledger Slice 1 — Storefront, Discovery, Evaluation, Purchase, and Account
+
+| Page | Accountable page domain | Supporting domains | Authoritative data owner | Mutation authority | Approval authority | Escalation owner | Provisional dependencies |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| STF-001 | Marketing | Discovery, Catalog, Customer, AI, PC Builder | Each source domain for its module | Marketing for composition; source owner for data | Marketing | Marketing | Personalization and module-governance detail |
+| STF-002 | Marketing | Catalog, Pricing, Inventory, Discovery | Marketing for promotion; Catalog, Pricing, and Inventory for commercial facts | Respective source owner | Marketing and Pricing for applicable changes | Marketing | Promotion approval workflow |
+| STF-003 | Marketing | Catalog, Pricing, Inventory, Discovery | Marketing for collection; source owners for product facts | Marketing for membership and content; source owners for facts | Marketing | Marketing | Scheduling and approval workflow |
+| STF-004 | Catalog | Marketing, Discovery, Pricing, Inventory | Catalog for brand and products; Marketing for delegated public content | Catalog; Marketing for delegated content | Catalog | Catalog | Brand merge and content delegation |
+| STF-005 | Marketing | Catalog, Support, Discovery | Marketing for guide index; source owners for references | Marketing | Marketing | Marketing | Editorial review and localization |
+| STF-006 | Marketing | Catalog, Support, Discovery, AI | Marketing for content; source owners for referenced facts | Marketing; source owner corrects facts | Marketing and specialist review when required | Marketing | Specialist-review triggers |
+| STF-007 | Marketing | Catalog, Pricing, Inventory, Discovery | Marketing for campaign; source owners for offers and products | Marketing; source owners validate commercial facts | Marketing plus affected commercial owner | Marketing | Campaign review, indexing, and expiry |
+| DSC-001 | Discovery | Catalog, Marketing, Support, PC Builder, AI, Pricing, Inventory | Discovery for index and ranking; result-source domains for entities | Discovery for search configuration; source owners for entities | Discovery for governed ranking changes | Discovery | Ranking approval and authenticated personal search |
+| DSC-002 | Discovery | Catalog, Marketing, Pricing, Inventory, Compatibility, AI | Catalog for taxonomy and attributes; Discovery for ranking and state; specialist source owners | Catalog for taxonomy; Discovery for presentation and ranking; source owners for facts | Catalog for taxonomy; Discovery for ranking | Discovery | Intent-ranking governance |
+| EVA-001 | Catalog | Pricing, Inventory, Reviews, Compatibility, Marketing, Purchase, Discovery, AI | Catalog, Pricing, Inventory, Reviews, and Compatibility for their facts | Each authoritative owner | Catalog publication; specialist owners for governed facts | Catalog | Review, financing, and warranty governance |
+| EVA-002 | Catalog | Discovery, Pricing, Inventory, Reviews, Compatibility, AI, Customer | Source domains for compared facts; Customer for saved comparison state | Source owners; Customer for persistence | Not applicable | Catalog | Comparison persistence and share controls |
+| PUR-001 | Purchase | Catalog, Pricing, Inventory, Promotions, Compatibility, Customer, AI | Purchase for Cart; source domains for commercial facts | Purchase with source-domain validation | Not applicable | Purchase | Cart merge and promotion governance |
+| PUR-002 | Purchase | Customer, Inventory, Pricing, Promotions, Payments, Delivery, Compatibility, Notifications, AI | Purchase for Checkout and order intent; specialist domains for payment, delivery, and facts | Purchase coordinates; specialist domains apply mutations | Payment or financing authority when required | Purchase | Financing, payment, delivery, and assurance rules |
+| PUR-003 | Purchase | Customer, Payments, Delivery, Notifications, Compatibility, Support | Purchase for order outcome; Notifications for delivery | Purchase; Notifications for message delivery | Not applicable | Purchase | Guest-order access and pending-payment handling |
+| ACC-001 | Customer | Purchase, Support, PC Builder, Discovery, Notifications | Customer for profile and composition; source domains for summaries | Source owner for each object | Not applicable | Customer | Personalization and prioritization |
+| ACC-002 | Customer | Purchase, Delivery, Payments, Support | Purchase for orders; specialist domains for their statuses | Purchase and relevant specialist owner | Not applicable | Customer, escalating order faults to Purchase | Guest-order consolidation and retention |
+| ACC-003 | Customer | Purchase, Delivery, Payments, Support, Compatibility, PC Builder, Notifications | Purchase for order; specialist domains for payment, delivery, cases, and builds | Relevant authoritative owner | Governed owner for cancellation, refund, or other consequential action | Customer, routing operational faults | Cancellation, refund, guest access, and case eligibility |
+| ACC-004 | Customer | Catalog, Pricing, Inventory, Discovery, Purchase | Customer for Wishlist; source domains for product facts | Customer for Wishlist; source owners for facts | Not applicable | Customer | Pre-authentication merge and retention |
+| ACC-005 | Customer | Delivery, Purchase | Customer for address records; Delivery for validation rules | Customer with Delivery validation | Not applicable | Customer | Address assurance and supported-area rules |
+| ACC-006 | Customer | Payments, Purchase, Security | Payments for instrument tokens; Customer for labels and default | Payments for instruments; Customer for preferences | Payments and Security rules | Customer, escalating provider faults | Provider controls, assurance, and deletion constraints |
+| ACC-007 | Customer | Notifications, Purchase, Delivery, Support, Marketing, PC Builder | Notifications for records; source domains for triggering events | Notifications for delivery and read state; source owner for event | Not applicable | Customer | Channel policy, retention, and notification preferences |
+| ACC-008 | Customer | Customer Authentication, Notifications, Legal, Support | Customer for profile and preferences; Authentication, Notifications, and Legal for governed controls | Owner of each setting | Strong assurance or Legal workflow where applicable | Customer | Privacy workflows, closure, export, and assurance levels |
 
 ## Next decision
 
