@@ -1,6 +1,6 @@
 # Page Relationships and Domain Ownership
 
-**Status:** Approved in part — model approved; graph and ownership ledger pending
+**Status:** Approved in part — model and Discovery–Purchase graph approved; remaining graph and ownership ledger pending
 
 ## Purpose
 
@@ -115,13 +115,52 @@ The completed graph and ledger must demonstrate:
 - Recovery paths that preserve intent without duplicating transactions
 - Coverage of customer, operational, legal, authentication, and system destinations
 
+## Approved relationship graph
+
+### Slice 1 — Discovery, evaluation, and purchase
+
+The following exclusions apply to every edge in this slice:
+
+- No payment credentials, authentication secrets, unnecessary personal data, or internal-only identifiers cross the boundary.
+- URL-carried state is limited to non-sensitive, validated references and inspectable discovery state.
+- The target revalidates price, promotion eligibility, inventory, compatibility, authentication, and authorization as applicable.
+
+| Edge | Relationship | Trigger | Context carried | Context excluded | Access transition | Failure behavior | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| REL-DP-001 | `STF-001` `leads-to` `DSC-001` | Submit Home search | Query and optional visible intent | Personalization internals | Public; optional customer context is re-evaluated | Remain on Home with actionable search failure or open recoverable Search state | Approved |
+| REL-DP-002 | `STF-002` `leads-to` `EVA-001` | Select a deal product | Promotion reference | Assumed eligibility or guaranteed price | Public | Product Detail explains expired, invalid, or changed promotion | Approved |
+| REL-DP-003 | `STF-003` `leads-to` `EVA-001` | Select a collection product | Collection reference and result position | Internal merchandising rules | Public | Preserve Collection context and show Product Detail recovery | Approved |
+| REL-DP-004 | `STF-004` `leads-to` `EVA-001` | Select a brand product | Brand reference and result position | Internal brand-governance data | Public | Preserve Brand context and show Product Detail recovery | Approved |
+| REL-DP-005 | `STF-006` `leads-to` `DSC-002` | Follow guide criteria to products | Guide reference and visible suggested filters | Hidden editorial or AI inference | Public | Category opens without invalid filters and explains omitted criteria | Approved |
+| REL-DP-006 | `DSC-001` `leads-to` `EVA-001` | Select a product result | Query, filters, visible intent, and result position | Ranking internals and unrelated result data | Public; optional customer context re-evaluated | Preserve Search state and expose Product Detail recovery | Approved |
+| REL-DP-007 | `DSC-002` `leads-to` `EVA-001` | Select a category product | Category, filters, visible intent, and result position | Ranking internals and hidden inference | Public; optional customer context re-evaluated | Preserve Category state and expose Product Detail recovery | Approved |
+| REL-DP-008 | `DSC-001` `leads-to` `EVA-002` | Compare selected search results | Product references and Search context | Non-selected results and ranking internals | Public session; authenticated persistence optional | Retain valid products and report invalid comparison members | Approved |
+| REL-DP-009 | `DSC-002` `leads-to` `EVA-002` | Compare selected category products | Product references and Category context | Non-selected results and hidden intent | Public session; authenticated persistence optional | Retain valid products and report invalid comparison members | Approved |
+| REL-DP-010 | `EVA-001` `leads-to` `EVA-002` | Add product to comparison | Product reference and evaluation origin | Unselected variant or private recommendation internals | Public session; authenticated persistence optional | Remain on Product Detail and preserve existing comparison set | Approved |
+| REL-DP-011 | `EVA-002` `leads-to` `EVA-001` | Inspect or select compared product | Product reference and retained comparison set | AI chain-of-thought and unrelated products | Public session; authenticated persistence optional | Preserve Comparison and report unavailable product | Approved |
+| REL-DP-012 | `EVA-001` `leads-to` `PUR-001` | Add product to Cart | Product, selected variant, quantity, and offer reference | Stale displayed price and recommendation internals | Public session; authenticated Cart merge optional | Remain on Product Detail with inventory, variant, price, or compatibility correction | Approved |
+| REL-DP-013 | `EVA-002` `leads-to` `PUR-001` | Choose compared product for purchase | Product, valid variant, quantity, and offer reference | Other compared products and AI internals | Public session; authenticated Cart merge optional | Preserve Comparison and explain purchase constraint | Approved |
+| REL-DP-014 | `PUR-001` `leads-to` `PUR-002` | Proceed to Checkout | Valid Cart reference, items, compatibility summary, eligible promotions, and calculated totals | Payment credentials and unvalidated client totals | Guest or customer; Checkout establishes required assurance | Remain on Cart with item-level correction and no transaction attempt | Approved |
+| REL-DP-015 | `PUR-002` `creates` `PUR-003` | Successful idempotent order placement | New order reference and non-sensitive outcome | Payment credentials, fraud signals, and internal transaction details | Transaction-bound guest or customer access | Remain in Checkout with safe retry or pending status until an order exists | Approved |
+| REL-DP-016 | `PUR-002` `recovers-to` `PUR-001` | Checkout detects a Cart-level correction | Affected items and reason category | Payment credentials and unrelated checkout data | Preserve guest or customer Cart ownership | Return to Cart with corrections highlighted and no duplicate order | Approved |
+| REL-DP-017 | `PUR-003` `resumes` `ACC-003` | Open persistent Order Detail | Order reference | Confirmation token after exchange and sensitive payment data | Authenticated owner or securely verified guest path | Route to verification, Sign In, or safe confirmation recovery without exposing order data | Approved |
+| REL-DP-018 | `PUR-003` `leads-to` `STF-001` | Continue shopping after confirmation | Completed-order continuation signal only | Order contents, payment data, and personal data | Public with optional authenticated context | Open Home without order context if continuation data is unavailable | Approved |
+
+### Slice 1 invariants
+
+- Query, filter, intent, comparison, and Cart state remain inspectable and clearable.
+- Returning from Product Detail preserves meaningful Search, Category, Collection, Brand, or Comparison context.
+- Promotion context never guarantees eligibility or price.
+- Failed order creation remains in Checkout with idempotent recovery.
+- Order Confirmation is reached only after an order exists.
+- Graph edges do not bypass host-owned validation or state handling.
+
 ## Next decision
 
 Populate and review consequential relationships in four slices:
 
-1. Discovery, evaluation, and purchase
-2. Account, PC Builder, AI, and Support
-3. Authentication, legal, and system recovery
-4. Admin management edges and the ownership ledger
+1. Account, PC Builder, AI, and Support
+2. Authentication, legal, and system recovery
+3. Admin management edges and the ownership ledger
 
 Unresolved responsibilities must be marked `Provisional` rather than inferred as approved.
