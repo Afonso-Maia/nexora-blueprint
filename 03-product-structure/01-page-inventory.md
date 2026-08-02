@@ -1,6 +1,6 @@
 # Page Inventory
 
-**Status:** Approved in part — customer-facing inventory and Admin Commerce Operations approved; remaining Admin inventory pending
+**Status:** Approved in part — customer-facing inventory and Admin Commerce, Customer, and Support inventory approved; remaining Admin inventory pending
 
 ## Purpose
 
@@ -1387,6 +1387,73 @@ The following remain modules within list pages and resource workspaces:
 - Compatibility testing and explanation previews
 
 No list, workspace, or module grants authority by being visible. Every read and action is independently permission-checked and audited where required.
+
+### Block 6B — Administrative Dashboard: Customers and Support
+
+Customer and case access is permission- and record-filtered, uses data minimization and masking by default, and creates audit events where required. Workforce impersonation is not an approved capability.
+
+#### ADM-018 — Customers
+
+- **Type / class:** Resource list and operational lookup / Administrative Dashboard
+- **Purpose:** Find customers for a legitimate operational purpose without exposing unrestricted customer data.
+- **Ownership:** Customer; supported by Security, Legal, Purchase, Support, and Admin Platform
+- **Audience / access / shell:** Authorized customer-service, risk, privacy, and administrative users / Role-, purpose-, and record-restricted / Admin
+- **Entry / URL:** Admin navigation, Order and Support workspaces, operational search, and governed tasks / `/admin/customers`
+- **Search participation:** Permission-aware operational search target; excluded from customer search
+- **Relationships / actions:** Leads to Customer Workspace and authorized related Orders or Support cases; actions are find, filter, open, and export only through governed purpose-specific workflows
+- **Required states:** No matches, ambiguous identity, masked results, restricted record, suspended account, stale index, partial relationship data, and export denied or pending
+- **Lifecycle / journeys:** Operate customer relationships, privacy, and Support / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-019 — Customer Workspace
+
+- **Type / class:** Durable resource detail and governed workspace / Administrative Dashboard
+- **Purpose:** Provide minimized customer context, relationships, restrictions, requests, and audit history for authorized operations.
+- **Ownership:** Customer; supported by Customer Authentication, Security, Legal, Purchase, Support, Notifications, and Admin Platform
+- **Audience / access / shell:** Authorized workforce users with a legitimate purpose / Field-, action-, purpose-, and record-restricted / Admin
+- **Entry / URL:** Customers, Order Workspace, Support Case Workspace, operational search, and privacy workflow / `/admin/customers/{customer-reference}`
+- **Search participation:** Permission-aware operational search target; excluded from customer search
+- **Relationships / actions:** Links authorized identity status, orders, cases, builds, notifications, privacy requests, restrictions, and audit events; sensitive actions use explicit workflows and stronger assurance
+- **Required states:** Masked field, verification required, restricted or high-risk account, deletion or export pending, retention hold, identity conflict, concurrent change, partial dependency failure, and forbidden panel
+- **Lifecycle / journeys:** Operate customer relationships, privacy, and Support / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-020 — Support Queue
+
+- **Type / class:** Permission-aware operational queue / Administrative Dashboard
+- **Purpose:** Route, prioritize, assign, and monitor typed Support cases through governed views.
+- **Ownership:** Support; supported by Customer, Purchase, Delivery, Payments, Catalog, Notifications, and Admin Platform
+- **Audience / access / shell:** Authorized agents, specialists, supervisors, and operations managers / Role-, queue-, and record-restricted / Admin
+- **Entry / URL:** Admin navigation, Operations Overview, alerts, operational search, and related resources / `/admin/support-cases`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** Leads to Support Case Workspace, Customer Workspace, and Order Workspace; actions include filter, saved view, assign, reprioritize, escalate, export when permitted, and governed bulk routing
+- **Required states:** No assigned cases, no matches, unassigned backlog, breached or at-risk service level, restricted queue, stale assignment, bulk conflict, and partial external-provider data
+- **Lifecycle / journeys:** Operate Support and Return / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+#### ADM-021 — Support Case Workspace
+
+- **Type / class:** Durable typed-case operational workspace / Administrative Dashboard
+- **Purpose:** Resolve one general, return, refund, warranty, or repair case through shared and type-specific modules.
+- **Ownership:** Support; specialized operational ownership varies by case type; supported by Customer, Purchase, Delivery, Payments, Catalog, Inventory, Notifications, Legal, and Admin Platform
+- **Audience / access / shell:** Authorized assigned or supervisory users / Field-, action-, queue-, and record-restricted / Admin
+- **Entry / URL:** Support Queue, operational search, Customer Workspace, Order Workspace, notifications, and escalation links / `/admin/support-cases/{case-reference}`
+- **Search participation:** Permission-aware operational search target
+- **Relationships / actions:** References authoritative Customer, Order, Product, Build, payment, delivery, and policy resources; actions may include communicate, add internal note, request evidence, route, approve governed remedies, coordinate logistics, escalate, and resolve
+- **Required states:** Unassigned, awaiting customer, awaiting internal function, awaiting carrier or repair provider, escalated, overdue, resolved, closed, missing evidence, conflicting ownership, external update delayed, concurrent action, and forbidden module
+- **Lifecycle / journeys:** Operate Support and Return / Admin operations
+- **Horizon / maturity / status:** Foundation / Provisional / Approved
+
+### Block 6B embedded experience units
+
+The following remain modules within the approved Admin pages:
+
+- Customer identity summary with masking and purpose controls
+- Authorized relationship summaries for orders, cases, builds, and notifications
+- Privacy-request, restriction, export, deletion, and identity-correction workflows
+- Case assignment, service-level, timeline, messaging, internal notes, attachments, evidence, logistics, refund, replacement, warranty, and repair modules
+
+Internal notes and customer-visible messages are distinct content types with explicit audience indicators. Impersonation, unrestricted customer export, and unrestricted cross-queue access are not approved capabilities.
 
 ## Protected architectural boundaries
 

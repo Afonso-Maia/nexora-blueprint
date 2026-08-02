@@ -6,7 +6,7 @@ Phase 2B is proceeding through explicit decision gates. Approval of one topic do
 
 Phase 2B will define:
 
-1. [Page Inventory](01-page-inventory.md) — customer-facing, System, and Admin Commerce Operations approved; remaining Admin inventory pending
+1. [Page Inventory](01-page-inventory.md) — customer-facing and Admin operational inventory through Customers and Support approved; remaining Admin inventory pending
 2. Information Hierarchy
 3. Account Architecture
 4. Support Center Architecture

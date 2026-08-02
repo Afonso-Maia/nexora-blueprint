@@ -23,6 +23,7 @@
 - Approved the five-page System and Utility inventory.
 - Approved an object-centered Administrative Dashboard with permission-adaptive operational workspaces.
 - Approved the 17-page Admin Commerce Operations inventory.
+- Approved the four-page Admin Customers and Support inventory.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
