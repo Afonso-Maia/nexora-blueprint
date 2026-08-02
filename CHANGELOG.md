@@ -12,6 +12,7 @@
 - Approved Inter Variable as the unified type family with governed display, heading, body, label, data, and caption roles.
 - Accepted ADR-0006 establishing unified variable typography and resilient font delivery requirements.
 - Approved the four-point spacing scale, content-driven containers, responsive grids, control sizing, and comfortable and compact density behavior.
+- Approved restrained radii, structural borders, semantic elevation, overlay behavior, and light/dark depth parity.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
