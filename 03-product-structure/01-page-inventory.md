@@ -1515,7 +1515,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Typed resource list page / Administrative Dashboard
 - **Purpose:** Find and govern buying guides, campaigns, policy documents, Support content, and other approved content types.
-- **Ownership:** Marketing for editorial content; Legal and Support retain authority for their content types; supported by Discovery and Admin Platform
+- **Ownership:** Admin Platform; supported by Marketing, Legal, Support, Discovery, and the accountable owner of each content type
 - **Audience / access / shell:** Authorized content operators, subject owners, and reviewers / Type-, role-, and locale-restricted / Admin
 - **Entry / URL:** Admin navigation, operational search, Collections, Promotions, Search Governance, and linked resources / `/admin/content`
 - **Search participation:** Permission-aware operational search target
@@ -1528,7 +1528,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Durable typed-content detail and editor / Administrative Dashboard
 - **Purpose:** Edit, version, review, preview, publish, supersede, or retire one governed content object.
-- **Ownership:** Varies by content type; Marketing, Legal, or Support is accountable; supported by Catalog, Discovery, and Admin Platform
+- **Ownership:** Admin Platform; supported by Marketing, Legal, Support, Catalog, Discovery, and the accountable owner of the active content type
 - **Audience / access / shell:** Authorized content operators, subject owners, translators, and approvers / Type-, field-, action-, and locale-restricted / Admin
 - **Entry / URL:** Content Library, linked operational resources, operational search, and review tasks / `/admin/content/{content-reference}`
 - **Search participation:** Permission-aware operational search target
@@ -1567,7 +1567,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Protected access-identity list / Administrative Dashboard
 - **Purpose:** Manage workforce access identities, status, role assignments, and assurance indicators.
-- **Ownership:** Security and Admin Platform; supported by People Operations and Legal when governed
+- **Ownership:** Platform Security; supported by Admin Platform, People Operations, and Legal when governed
 - **Audience / access / shell:** Authorized access administrators and auditors / Highly restricted / Admin
 - **Entry / URL:** Admin navigation, Role Workspace, Audit Log, and security tasks / `/admin/workforce-users`
 - **Search participation:** Permission-aware operational search target for authorized access administrators
@@ -1580,7 +1580,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Durable permission-definition detail and editor / Administrative Dashboard
 - **Purpose:** Define reusable permissions and inspect assignment and segregation-of-duties impact.
-- **Ownership:** Security and Admin Platform; supported by Legal and accountable domain owners
+- **Ownership:** Platform Security; supported by Admin Platform, Legal, and accountable domain owners
 - **Audience / access / shell:** Authorized access architects, approvers, and auditors / Highly restricted / Admin
 - **Entry / URL:** Workforce Users, Admin navigation, access review tasks, and Audit Log / `/admin/roles/{role-reference}`
 - **Search participation:** Permission-aware operational search target for authorized access administrators
@@ -1593,7 +1593,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Append-only investigation page / Administrative Dashboard
 - **Purpose:** Investigate immutable operational and security events within authorized scope.
-- **Ownership:** Security and Admin Platform; contributing domains emit governed events
+- **Ownership:** Platform Security; supported by Admin Platform and contributing event-source domains
 - **Audience / access / shell:** Authorized auditors, security operators, and limited accountable managers / Highly restricted and field-filtered / Admin
 - **Entry / URL:** Admin navigation, resource workspaces, access reviews, incident tasks, and deep links / `/admin/audit`
 - **Search participation:** Separate permission-aware audit query; excluded from general operational search by default
@@ -1606,7 +1606,7 @@ These pages govern discovery-supporting content, workforce authority, evidence, 
 
 - **Type / class:** Governed reporting workspace / Administrative Dashboard
 - **Purpose:** Explore approved operational and product-performance reporting under source-level permissions.
-- **Ownership:** Analytics when established; accountable source domains retain metric ownership; supported by Admin Platform
+- **Ownership:** Admin Platform; supported by accountable metric and source-data domains
 - **Audience / access / shell:** Authorized operators, analysts, and leaders / Metric-, field-, and record-restricted / Admin
 - **Entry / URL:** Admin navigation, Operations Overview, and linked operational context / `/admin/reports`
 - **Search participation:** Excluded from operational object search

@@ -99,6 +99,20 @@ Compatibility is an independent shared domain under [ADR-0002](../adrs/ADR-0002-
 - Other consuming domains own their page experience but cannot alter compatibility truth.
 - AI may explain or supplement guidance but cannot override deterministic results.
 
+### Shared Admin tooling ownership
+
+Shared Admin tooling uses stable page accountability while retaining object-level authority:
+
+- Admin Platform owns the Content Library, Content Workspace, and Reports and Analytics page experiences.
+- Marketing, Legal, Support, or another approved content-type owner retains authority over its content records, mutation, review, and publication.
+- Source domains retain authority over metric definitions, underlying data, and record-level reporting permissions.
+- Platform Security owns Workforce Users, Role Workspace, and Audit Log page experiences and their security systems.
+- Accountable business-domain owners approve scoped permissions affecting their resources where required.
+
+Page ownership covers reliability, accessibility, navigation, common interaction behavior, and escalation for the shared tool. It does not authorize the page owner to mutate, approve, reinterpret, or disclose governed business data.
+
+A future Analytics domain does not receive ownership implicitly. Establishing it or transferring page accountability requires an explicit approved change.
+
 ### Ledger granularity
 
 The ownership ledger contains one explicit row for each approved Page Inventory ID. Ownership is not inherited implicitly from a page class or product-surface family.
