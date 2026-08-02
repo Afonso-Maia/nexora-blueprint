@@ -14,7 +14,7 @@ Phase 2B will define:
 6. [Administrative Dashboard IA](06-administrative-dashboard-ia.md) — approved; navigation, operational work, governed changes, cross-domain actions, discovery, risk, audit, permissions boundary, and continuity
 7. [Roles and Permissions](07-roles-and-permissions.md) — approved; subjects, lifecycle, roles, scopes, evaluation, temporary access, segregation, review, offboarding, and emergency access
 8. [Error, Empty, Loading, Offline, and Degraded States](08-error-empty-and-degraded-states.md) — approved; host-owned state semantics, operation truth, recovery, accessibility, and route-level boundaries
-9. Scalability
+9. [Scalability Guidelines](09-scalability-guidelines.md) — approved; governed extension, stable contracts, lifecycle, capacity, and change triggers
 10. Architecture Validation
 
 Work must follow the decision process in [CONTRIBUTING.md](../CONTRIBUTING.md).

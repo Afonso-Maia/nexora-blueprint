@@ -91,6 +91,8 @@
 - Completed the Roles and Permissions Architecture.
 - Approved host-owned, operation-aware error, empty, loading, offline, and degraded-state architecture.
 - Completed Error and Empty States.
+- Approved scalability through governed templates, typed objects, stable ownership, and versioned contracts.
+- Completed Scalability Guidelines.
 - Reconstructed the approved Nexora Product Blueprint.
 - Recorded Phase 1 Product Foundation and Phase 2A Information Discovery Architecture.
 - Reinstated ADR-0001 for the approved search-first information architecture.
