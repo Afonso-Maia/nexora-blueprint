@@ -14,6 +14,7 @@ It may establish testability, architectural quality gates, and deployment design
 4. [System Context and Runtime Topology](04-system-context-and-runtime-topology.md) — approved; trust-segmented customer, Admin, core, worker, Search, and AI runtime roles
 5. [Frontend Architecture](05-frontend-architecture.md) — approved; TypeScript, React, and Next.js App Router with server-first composition
 6. [Design System Implementation Architecture](06-design-system-implementation-architecture.md) — approved; DTCG tokens, generated CSS contracts, layered CSS Modules, governed React packages, and isolated reference compositions
+7. [Rendering and Navigation Strategy](07-rendering-and-navigation-strategy.md) — approved; explicit mixed rendering, governed caching, canonical URL state, and accessible navigation continuity
 
 ## Architectural inputs
 

@@ -29,6 +29,11 @@
 - Approved Storybook as the isolated implementation catalog and reference-composition environment subordinate to the Blueprint.
 - Approved coordinated semantic versioning, immutable release identity, migration guidance, and cross-consumer validation for Design System releases.
 - Accepted ADR-0012 establishing the Design System implementation foundation.
+- Approved explicit mixed rendering classes for stable public content, published content, public commerce, query discovery, private continuity, transactions and workspaces, Admin, and route recovery.
+- Approved source-owned cache contracts, event-driven invalidation with safety expiry, guarded Cache Components use, and prohibition of shared caching for private or consequential state.
+- Approved canonical URL ownership for safe shareable discovery state, governed prefetch, focus and scroll restoration, metadata, indexing defaults, and route-successor governance.
+- Approved dynamic or source-refreshed price, inventory, eligibility, Compatibility, permissions, personal data, transactions, workspaces, and Admin operations.
+- Accepted ADR-0013 establishing the mixed-rendering, caching, URL, navigation, and indexing strategy.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

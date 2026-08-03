@@ -16,3 +16,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0010](ADR-0010-trust-segmented-runtime-topology.md) | Accepted | Trust-segmented runtime topology |
 | [ADR-0011](ADR-0011-nextjs-frontend-foundation.md) | Accepted | TypeScript, React, and Next.js frontend foundation |
 | [ADR-0012](ADR-0012-design-system-implementation-foundation.md) | Accepted | Design System implementation foundation |
+| [ADR-0013](ADR-0013-mixed-rendering-and-navigation.md) | Accepted | Explicit mixed rendering and canonical navigation |
