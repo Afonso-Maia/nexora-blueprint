@@ -13,6 +13,11 @@
 - Approved distinct customer and Administrative Dashboard application boundaries without pre-approving separate deployment for every product surface.
 - Approved public project entry points, private implementation and storage boundaries, acyclic dependency direction, owner-led shared-code thresholds, and mechanical architecture enforcement.
 - Accepted ADR-0009 establishing the monorepo strategy and enforced project boundaries.
+- Approved six trust-segmented runtime roles for Customer Experience, Administrative Experience, the authoritative Commerce Core, core background work, Search, and AI orchestration.
+- Approved separate customer and workforce ingress, session, identity-context, cache, telemetry, and experience boundaries.
+- Approved co-deployed authoritative domain modules, separately executed durable core work, and independently degradable Search and AI capabilities.
+- Approved synchronous and asynchronous path rules that preserve source authorization, idempotency, correlation, explicit outcomes, and provider reconciliation.
+- Accepted ADR-0010 establishing the initial runtime topology, trust segmentation, and co-deployment model.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
