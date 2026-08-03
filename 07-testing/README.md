@@ -22,6 +22,12 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 12. [Domain-Module Integration Testing](12-domain-module-integration-testing.md) — approved; public-port evidence against real owned infrastructure
 13. [Database, Consistency, and Migration Testing](13-database-consistency-and-migration-testing.md) — approved; production-engine migrations, concurrency, restore, and integrity proof
 14. [External-Provider Adapter Conformance](14-external-provider-adapter-conformance.md) — approved; shared behavioral suites across fakes, sandboxes, and controlled live checks
+15. [End-to-End Customer Journey Testing](15-end-to-end-customer-journey-testing.md) — approved; small risk-selected deployed journeys with authoritative outcome checks
+16. [Administrative Dashboard Workflow Testing](16-administrative-dashboard-workflow-testing.md) — approved; capability, source-effect, bulk, approval, export, and Audit validation
+17. [Authentication, Session, Assurance, and Authorization Testing](17-authentication-session-assurance-and-authorization-testing.md) — approved; layered identity and deny-by-default permission matrices
+18. [Security and Privacy Validation](18-security-and-privacy-validation.md) — approved; threat-led continuous controls with independent critical-risk evidence
+19. [Accessibility and Assistive-Technology Validation](19-accessibility-and-assistive-technology-validation.md) — approved; automation plus risk-based manual AT and disabled-user journey evidence
+20. [Localization and Brazilian Commerce Validation](20-localization-and-brazilian-commerce-validation.md) — approved; typed pt-BR content and structured Brazilian value conformance
 
 ## Architectural inputs
 

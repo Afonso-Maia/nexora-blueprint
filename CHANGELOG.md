@@ -23,6 +23,15 @@
 - Required public-port module integration and production-engine database, migration, consistency, restore, and rebuild proof.
 - Established provider-neutral adapter conformance across controllable fakes, sandboxes, and safe live checks.
 
+## Phase 5 journeys and specialist validation
+
+- Approved a deliberately small customer journey suite with authoritative source-outcome assertions.
+- Defined capability-, scope-, assurance-, approval-, source-effect-, and Audit-aware Admin workflow evidence.
+- Established comprehensive identity, session, contextual assurance, and source-authorization negative matrices.
+- Approved continuous threat-led security and privacy validation with independent critical-risk review.
+- Required automated, manual, assistive-technology, and disabled-user accessibility evidence.
+- Defined typed pt-BR content and structured Brazilian commerce validation without inventing legal policy.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.
