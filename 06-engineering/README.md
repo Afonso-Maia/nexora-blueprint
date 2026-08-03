@@ -18,6 +18,7 @@ It may establish testability, architectural quality gates, and deployment design
 8. [State Ownership and Restoration](08-state-ownership-and-restoration.md) — approved; single-owner state classes, bounded client projections, explicit operations, and conflict-safe restoration
 9. [API and Backend-for-Frontend Strategy](09-api-and-bff-strategy.md) — approved; co-deployed experience BFFs, private OpenAPI HTTP contracts, typed problems, and explicit operations
 10. [Domain Modules and Transaction Boundaries](10-domain-modules-and-transaction-boundaries.md) — approved; ledger-aligned authorities, owner-led transactions, governed collaboration, and extraction triggers
+11. [Data Ownership, Storage, and Migration](11-data-ownership-storage-and-migration.md) — approved; PostgreSQL schema isolation, UUIDv7 identity, explicit consistency, online migrations, and recoverable lifecycle
 
 ## Architectural inputs
 

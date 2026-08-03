@@ -20,3 +20,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0014](ADR-0014-state-ownership.md) | Accepted | Single-authority state and explicit client projections |
 | [ADR-0015](ADR-0015-bff-and-http-contracts.md) | Accepted | Co-deployed experience BFFs and OpenAPI HTTP contracts |
 | [ADR-0016](ADR-0016-domain-modules.md) | Accepted | Ledger-aligned domain modules and owner-led transactions |
+| [ADR-0017](ADR-0017-postgresql-data-authority.md) | Accepted | PostgreSQL modular data authority |

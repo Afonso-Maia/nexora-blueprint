@@ -49,6 +49,12 @@
 - Approved one accountable transaction owner by default, a governed exception register for true local multi-module invariants, and durable workflows for remote or long-running coordination.
 - Approved provider ports, acyclic collaboration, no cross-module storage access, and evidence-based extraction triggers.
 - Accepted ADR-0016 establishing the domain-module map, transaction defaults, collaboration rules, and extraction requirements.
+- Approved managed PostgreSQL as the authoritative commerce-core store with one initial regional writer and private schema, migration, role, and connection boundaries per module.
+- Approved UUIDv7 internal identifiers, separate human and provider references, exact money and time types, and bounded governed JSON use.
+- Approved aggregate, read-after-write, eventual-projection, and provider-reconciled consistency classes without default replica reads for current authority.
+- Approved Expand, Backfill, Verify, Switch, and Contract migrations; resumable backfills; governed corrections; retention, archival, deletion propagation, and storage adoption thresholds.
+- Approved encrypted continuous backup, point-in-time recovery, recurring restore validation, and post-restore reconciliation.
+- Accepted ADR-0017 establishing PostgreSQL modular data authority, identifier strategy, migration protocol, and recovery requirements.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
