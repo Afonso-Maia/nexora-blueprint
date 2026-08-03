@@ -18,6 +18,7 @@
 - Approved WCAG 2.2 AA as the product-wide accessibility baseline with enhanced critical-path requirements.
 - Accepted ADR-0007 establishing accessibility scope, blocking authority, and validation gates.
 - Approved the semantic structural, surface, content, media, interaction, and internal-state primitive catalog.
+- Approved persistent-label form components, explicit validation, durable input state, and risk-aware submission models.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
