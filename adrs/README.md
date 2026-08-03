@@ -12,3 +12,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0006](ADR-0006-unified-variable-typography.md) | Accepted | Unified variable typography |
 | [ADR-0007](ADR-0007-accessibility-conformance-foundation.md) | Accepted | Accessibility conformance foundation |
 | [ADR-0008](ADR-0008-modular-authoritative-core.md) | Accepted | Modular authoritative core and selective deployment boundaries |
+| [ADR-0009](ADR-0009-governed-monorepo.md) | Accepted | Governed monorepo and enforced project boundaries |

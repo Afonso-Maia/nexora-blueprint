@@ -9,6 +9,10 @@
 - Accepted ADR-0008 establishing the modular authoritative core and independent-deployment threshold.
 - Began Phase 4 — Engineering Architecture and Implementation Planning.
 - Approved the Phase 4 Engineering mission, principles, scope, protected boundaries, federated governance, decision rights, ADR threshold, exception policy, and evidence-based completion gates.
+- Approved a governed monorepo with independently buildable applications, domain modules, Design System assets, platform capabilities, contracts, and tooling.
+- Approved distinct customer and Administrative Dashboard application boundaries without pre-approving separate deployment for every product surface.
+- Approved public project entry points, private implementation and storage boundaries, acyclic dependency direction, owner-led shared-code thresholds, and mechanical architecture enforcement.
+- Accepted ADR-0009 establishing the monorepo strategy and enforced project boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
