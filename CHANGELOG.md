@@ -1,5 +1,12 @@
 # Changelog
 
+## Phase 6 framing and delivery-planning model
+
+- Renamed Delivery Roadmap to Phase 6 — Delivery Roadmap and Incremental Release Planning and began the phase.
+- Approved risk-led vertical increments with bounded enabling runway.
+- Defined committed, forecast, and directional planning horizons; valid-increment criteria; controlled-value boundaries; and platform-first and UI-first guardrails.
+- Accepted ADR-0039 establishing the Phase 6 delivery-planning model.
+
 ## Phase 5 complete
 
 - Validated all 45 Testing Strategy and Quality Validation scope areas.
