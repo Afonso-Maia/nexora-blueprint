@@ -1,5 +1,12 @@
 # Changelog
 
+## Phase 6 complete
+
+- Approved all 43 Delivery Roadmap and Incremental Release Planning decisions.
+- Defined ten dependency-aware increments, the critical commercial path, provider and staffing gates, progressive exposure, operational readiness, and evidence-led release governance.
+- Mapped all 89 canonical pages exactly once to a primary delivery increment and covered all nine templates.
+- Validated the controlled implementation handoff without inventing dates, providers, staffing, policy, or implementation values.
+
 ## Phase 6 framing and delivery-planning model
 
 - Renamed Delivery Roadmap to Phase 6 — Delivery Roadmap and Incremental Release Planning and began the phase.
