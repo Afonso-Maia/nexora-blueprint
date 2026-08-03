@@ -23,6 +23,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 15. [Product and Merchandising Components](15-product-and-merchandising-components.md) — approved; fact-led commerce presentation
 16. [Comparison and Recommendation Patterns](16-comparison-and-recommendation-patterns.md) — approved; layered decision support
 17. [Cart and Checkout Patterns](17-cart-and-checkout-patterns.md) — approved; one adaptive, idempotent transaction
+18. [Account and Post-Purchase Patterns](18-account-and-post-purchase-patterns.md) — approved; federated continuity and obligation-first status
 
 ## Architectural inputs
 

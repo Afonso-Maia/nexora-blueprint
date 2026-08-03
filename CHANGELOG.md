@@ -24,6 +24,7 @@
 - Approved fact-led product, price, inventory, variant, specification, promotion, review, recommendation, and merchandising components.
 - Approved the layered Comparison Decision Workspace and explainable recommendation patterns.
 - Approved corrective Cart and one adaptive Checkout with modular review, explicit consent, idempotent commitment, and operation-aware outcomes.
+- Approved federated Account continuity, obligation-first Dashboard patterns, Order Detail presentation, guest access, assurance, restrictions, notifications, and privacy workflows.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
