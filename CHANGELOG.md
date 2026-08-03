@@ -91,6 +91,12 @@
 - Approved no default Cart reservation, bounded Checkout reservation, visible expiry and partial outcomes, and explicit oversell and backorder policy.
 - Approved versioned Commercial Snapshots and atomic Order creation, Promotion claim, Reservation consumption, commercial evidence, and outbox recording.
 - Accepted ADR-0023 establishing versioned commercial quotes, Checkout reservations, and the commitment boundary.
+- Approved server-authoritative guest and customer Carts, explicit sign-in merge, typed corrections, durable persistence, and atomic PC Build conversion.
+- Approved one Purchase-owned Checkout Session with versioned module dependencies, source-driven recalculation, exact reviewed transaction state, and accessible expiry recovery.
+- Approved provider-hosted or provider-tokenized payment collection with provider-neutral Payment Intents, Attempts, execution profiles, signed events, and reconciliation.
+- Approved durable Checkout Operations, immediate-authorization and asynchronous-payment profiles, local atomic Order creation, explicit compensation, and truthful pending or indeterminate outcomes.
+- Approved immutable Order commercial, Product, delivery, payment, Compatibility, and consent snapshots without copying mutable source authority.
+- Accepted ADR-0024 establishing durable Checkout orchestration, payment token custody, Order timing, compensation, and reconciliation.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
