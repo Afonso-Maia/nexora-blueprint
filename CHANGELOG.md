@@ -32,6 +32,7 @@
 - Approved Brazilian Portuguese-first content, terminology, formatting, AI attribution, expansion, fallback, and ownership behavior.
 - Approved versioned component contribution, specification, review, testing, adoption, exception, deprecation, and removal governance.
 - Approved nine Design System page templates aligned to the nine Phase 2B archetypes.
+- Approved the complete 89-page mapping to page templates, required pattern families, and universal Design System obligations.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
