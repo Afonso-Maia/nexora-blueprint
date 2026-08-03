@@ -103,6 +103,12 @@
 - Approved source-composed Order Detail, deterministic composite status, customer-safe timeline, federated Orders and Dashboard projections, guest continuity, and Order claim.
 - Approved semantic source notification events, separate in-app interaction and channel-delivery states, governed templates, preferences, suppression, deep links, and provider reconciliation.
 - Accepted ADR-0025 establishing federated post-purchase continuity and its projection and messaging boundaries.
+- Approved one relational Support Case envelope with versioned typed extensions for general support, returns, refunds, warranties, and repairs.
+- Approved independent lifecycle, responsibility, assignment, escalation, Obligation, Evidence, communication, provider-work, and linked-source dimensions.
+- Approved append-only attributed timelines, mechanically separate customer Messages and Internal Notes, validated channel association, and delivery-independent Case truth.
+- Approved quarantined direct Evidence upload, malware scanning, immutable versions, decision binding, scoped access, retention, redaction, and Legal-hold behavior.
+- Approved durable source-owned Remedy Requests and purpose-bound external Work Packages with attributable provider identity, minimum scope, expiry, revocation, and reconciliation.
+- Accepted ADR-0026 establishing the shared typed Support Case, governed Evidence custody, and bounded external work model.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
