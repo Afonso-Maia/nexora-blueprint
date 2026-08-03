@@ -29,6 +29,7 @@
 - Approved persistent PC Builder Engineering Workspace patterns for slots, Compatibility, budget, performance, AI, save/share, conflict, and Cart conversion.
 - Approved object-centered Admin Overview, worklist, bulk action, export, Resource Workspace, staged change, approval, execution, audit, permission, and responsive patterns.
 - Approved shared state anatomy with distinct host-owned loading, empty, unavailable, failure, partial, stale, conflict, offline, pending, indeterminate, completion, and route recovery semantics.
+- Approved Brazilian Portuguese-first content, terminology, formatting, AI attribution, expansion, fallback, and ownership behavior.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
