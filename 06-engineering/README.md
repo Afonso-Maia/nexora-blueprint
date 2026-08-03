@@ -32,6 +32,7 @@ It may establish testability, architectural quality gates, and deployment design
 22. [AI Orchestration, Grounding, Provenance, and Safety](22-ai-orchestration-grounding-provenance-and-safety.md) — approved; managed model adapters, governed source tools, explicit context and citations, human-confirmed effects, and optional degradation
 23. [Administrative Dashboard Application Architecture](23-administrative-dashboard-application-architecture.md) — approved; separate workforce application, capability shell, source-owned panels, governed changes, durable bulk work, and protected exports
 24. [Events, Queues, Workflows, Idempotency, and Reconciliation](24-events-queues-workflows-idempotency-and-reconciliation.md) — approved; transactional outbox/inbox, managed at-least-once queues, PostgreSQL workflow state, bounded retries, compensation, and reconciliation
+25. [Caching, Offline Behavior, and State Restoration](25-caching-offline-and-state-restoration.md) — approved; layered public and private caches, managed distributed acceleration, explicit invalidation, safe offline reads, and conflict-aware restoration
 
 ## Architectural inputs
 

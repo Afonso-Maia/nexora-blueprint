@@ -131,6 +131,11 @@
 - Approved recurring reconciliation, source-snapshot rebuilds, controlled replay, and asynchronous correlation without broker exactly-once assumptions.
 - Deferred Kafka, event sourcing, distributed transactions, and a general workflow platform until measured need justifies them.
 - Accepted ADR-0030 establishing PostgreSQL workflow authority and managed at-least-once messaging.
+- Approved browser, CDN, Next.js, managed Redis-compatible, source projection, and Search cache layers under explicit ownership and freshness contracts.
+- Approved public/private separation, semantic cache keys, versioned invalidation, safety expiry, stampede protection, and source revalidation for consequential work.
+- Approved allowlisted offline reads and bounded drafts while prohibiting general offline mutation queues and browser authority for commerce or protected state.
+- Approved identity-first reconnection, current-source comparison, conflict-aware restoration, private-state cleanup, and cache-loss-safe degradation.
+- Accepted ADR-0031 establishing layered non-authoritative caching and offline boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
