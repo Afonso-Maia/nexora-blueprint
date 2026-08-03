@@ -30,6 +30,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 22. [System-State Components](22-system-state-components.md) — approved; host-owned truth and recovery semantics
 23. [Content and Localization](23-content-and-localization.md) — approved; Brazilian Portuguese-first interface content
 24. [Component Lifecycle and Quality](24-component-lifecycle-and-quality.md) — approved; versioned contribution, testing, and deprecation
+25. [Page Templates](25-page-templates.md) — approved; nine archetype-aligned composition contracts
 
 ## Architectural inputs
 
