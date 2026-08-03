@@ -55,6 +55,12 @@
 - Approved Expand, Backfill, Verify, Switch, and Contract migrations; resumable backfills; governed corrections; retention, archival, deletion propagation, and storage adoption thresholds.
 - Approved encrypted continuous backup, point-in-time recovery, recurring restore validation, and post-restore reconciliation.
 - Accepted ADR-0017 establishing PostgreSQL modular data authority, identifier strategy, migration protocol, and recovery requirements.
+- Approved managed standards-based identity behind Nexora-owned subject, session, assurance, recovery, and provider-adapter contracts.
+- Approved separate customer and workforce identity realms, passkey-preferred customer authentication, and mandatory phishing-resistant workforce authentication.
+- Approved opaque server-side BFF sessions, secure host-only cookies, browser token prohibitions, CSRF controls, rotation, revocation, and bounded degraded behavior.
+- Approved short-lived workload identity and signed audience-bound subject context while preserving source-domain authorization and step-up enforcement.
+- Approved explicit guest, recovery, account-linking, device, emergency, and delegated-AI identity boundaries with accessible alternatives and audit requirements.
+- Accepted ADR-0018 establishing managed identity, separated realms, server-side sessions, and secure actor propagation.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
