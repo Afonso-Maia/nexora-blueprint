@@ -38,6 +38,7 @@ It may establish testability, architectural quality gates, and deployment design
 28. [Accessibility Engineering](28-accessibility-engineering.md) — approved; semantic-first implementation, automated and assistive-technology gates, third-party equivalence, accessible state behavior, and blocking release authority
 29. [Localization and Brazilian Commerce Formatting](29-localization-and-brazilian-commerce-formatting.md) — approved; Portuguese-first typed messages, ICU semantics, standards-based formatting, structured Brazilian commerce values, and explicit future-market boundaries
 30. [Performance Budgets and Capacity Assumptions](30-performance-budgets-and-capacity-assumptions.md) — approved; versioned experience and operation budgets, percentile evidence, explicit workload models, ten-times observed-peak headroom, and governed overload control
+31. [Observability and Operational Diagnostics](31-observability-and-operational-diagnostics.md) — approved; OpenTelemetry signals, end-to-end correlation, source-owned outcome diagnostics, privacy-safe telemetry, and actionable runbooks
 
 ## Architectural inputs
 

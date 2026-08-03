@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 observability architecture
+
+- Approved OpenTelemetry as the vendor-neutral instrumentation and trace-context standard.
+- Defined correlated signals, outcome diagnostics, privacy controls, dashboards, alerts, and runbook ownership.
+
 ## Phase 4 performance architecture
 
 - Approved versioned experience and operation performance budgets.
