@@ -141,6 +141,11 @@
 - Approved provider, database, queue, Search, AI, and object-storage failure behavior plus durable incident controls and recovery order.
 - Deferred active-active multi-region commerce writes until transaction, conflict, operational, and organization evidence justifies them.
 - Accepted ADR-0032 establishing the single-region multi-zone resilience and disaster-recovery posture.
+- Approved zero-trust user and workload boundaries, data classification, purpose limitation, managed encryption, secrets, keys, and provider tokenization.
+- Approved source-executed Privacy Requests, explicit retention and deletion propagation, backup tombstones, environment isolation, and business-abuse controls.
+- Approved transactionally sourced append-only Audit events with restricted writers, cryptographic integrity checkpoints, protected exports, and verification.
+- Approved secure development, SBOM, signed provenance, dependency, container, infrastructure, vulnerability, penetration-test, and incident-response gates.
+- Accepted ADR-0033 establishing managed secrets, classified data, source privacy execution, and append-only Audit integrity.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

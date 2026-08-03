@@ -36,3 +36,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0030](ADR-0030-postgresql-workflow-state-and-managed-at-least-once-queues.md) | Accepted | PostgreSQL workflow state and managed at-least-once queues |
 | [ADR-0031](ADR-0031-layered-non-authoritative-caching.md) | Accepted | Layered non-authoritative caching |
 | [ADR-0032](ADR-0032-single-region-multi-zone-resilience.md) | Accepted | Single-region multi-zone resilience |
+| [ADR-0033](ADR-0033-managed-secrets-and-append-only-audit-integrity.md) | Accepted | Managed secrets and append-only Audit integrity |
