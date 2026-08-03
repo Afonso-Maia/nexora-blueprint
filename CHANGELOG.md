@@ -79,6 +79,12 @@
 - Approved staged ranking, hard source eligibility, Product and Variant collapse, explicit curation, separated Universal Search groups, and protected operational search.
 - Deferred semantic and hybrid retrieval behind relevance, exact-match, filtering, privacy, latency, explainability, and lexical-fallback gates.
 - Accepted ADR-0021 establishing managed OpenSearch, lexical-first retrieval, and derived Search authority.
+- Approved a deterministic Compatibility engine using typed declarative rules, immutable compiled Rule Set versions, and versioned Catalog fact snapshots.
+- Approved typed configuration graphs, unit-safe bounded expressions, static dependency and conflict analysis, and prohibition of arbitrary executable rules.
+- Approved explicit Compatible, Warning, Incompatible, Unknown, and Not-applicable outcomes with structured explanations, evidence, and guarded warning acknowledgements.
+- Approved incremental and full evaluation equivalence, digest-bound caching, shadow evaluation, impact analysis, atomic activation, rollback, and retained consequential evidence.
+- Approved current Compatibility revalidation through Build-to-Cart and Checkout commitment without consumer, Support, Admin, or AI hard-block overrides.
+- Accepted ADR-0022 establishing the deterministic declarative Compatibility engine and rule governance model.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
