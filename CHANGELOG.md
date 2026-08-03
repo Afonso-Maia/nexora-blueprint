@@ -21,6 +21,7 @@
 - Approved persistent-label form components, explicit validation, durable input state, and risk-aware submission models.
 - Approved search-first customer navigation, scoped Support and Account navigation, and stable capability-based Admin navigation components.
 - Approved Universal Search, grouped suggestions, visible intent, attribute-driven filters, sorting, selection, and zero-result recovery components.
+- Approved fact-led product, price, inventory, variant, specification, promotion, review, recommendation, and merchandising components.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
