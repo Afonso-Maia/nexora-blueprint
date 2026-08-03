@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 delivery architecture
+
+- Approved GitHub Actions with short-lived OIDC deployment identity and signed build-once artifacts.
+- Defined staged promotion, compatible migrations, progressive exposure, supply-chain evidence, and outcome-aware recovery.
+
 ## Phase 4 dependency and configuration architecture
 
 - Approved pinned Node.js LTS, Corepack-managed pnpm, a single lockfile, and Turborepo task orchestration.

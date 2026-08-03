@@ -41,6 +41,7 @@ It may establish testability, architectural quality gates, and deployment design
 31. [Observability and Operational Diagnostics](31-observability-and-operational-diagnostics.md) — approved; OpenTelemetry signals, end-to-end correlation, source-owned outcome diagnostics, privacy-safe telemetry, and actionable runbooks
 32. [Testing Interfaces and Architectural Quality Gates](32-testing-interfaces-and-architectural-quality-gates.md) — approved; authority-aligned test seams, layered evidence, contract and resilience suites, representative data, and blocking architecture gates
 33. [Dependency, Configuration, and Environment Management](33-dependency-configuration-and-environment-management.md) — approved; pinned Node/pnpm/Turborepo builds, governed dependencies, typed startup configuration, isolated environments, and OpenFeature-compatible flags
+34. [CI/CD and Deployment Architecture](34-ci-cd-and-deployment-architecture.md) — approved; GitHub Actions, OIDC deployment identity, build-once signed artifacts, compatible migrations, progressive exposure, and outcome-aware recovery
 
 ## Architectural inputs
 
