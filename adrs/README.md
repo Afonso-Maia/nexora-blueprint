@@ -30,3 +30,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0024](ADR-0024-durable-checkout-orchestration-and-provider-tokenized-payments.md) | Accepted | Durable Checkout orchestration and provider-tokenized payments |
 | [ADR-0025](ADR-0025-federated-post-purchase-continuity.md) | Accepted | Federated post-purchase continuity |
 | [ADR-0026](ADR-0026-shared-typed-support-case-and-bounded-external-work.md) | Accepted | Shared typed Support Case and bounded external work |
+| [ADR-0027](ADR-0027-durable-server-build-and-immutable-share-snapshots.md) | Accepted | Durable server PC Build and immutable Share snapshots |

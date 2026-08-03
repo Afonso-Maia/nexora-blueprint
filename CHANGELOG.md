@@ -109,6 +109,12 @@
 - Approved quarantined direct Evidence upload, malware scanning, immutable versions, decision binding, scoped access, retention, redaction, and Legal-hold behavior.
 - Approved durable source-owned Remedy Requests and purpose-bound external Work Packages with attributable provider identity, minimum scope, expiry, revocation, and reconciliation.
 - Accepted ADR-0026 establishing the shared typed Support Case, governed Evidence custody, and bounded external work model.
+- Approved server-authoritative durable guest and customer PC Builds using one typed Build Schema for Guided and Expert initialization.
+- Approved stable slots and selections, current relational aggregates, immutable internal Build Revisions, strong ETags, candidate evaluation, and field-aware conflict handling.
+- Approved dependency-aware recalculation across Compatibility, Pricing, Inventory, Budget, and deterministic versioned Performance estimates with independently degraded panels.
+- Approved explicit guest claim, Saved Builds, duplication, archive, immutable revocable Share snapshots, and current-versus-snapshot fact distinction.
+- Approved idempotent all-or-none Build-to-Cart conversion, exact Order Build snapshots, and non-mutating upgrade lineage.
+- Accepted ADR-0027 establishing durable server Build authority, immutable Share snapshots, and atomic conversion.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

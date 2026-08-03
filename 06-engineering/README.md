@@ -28,6 +28,7 @@ It may establish testability, architectural quality gates, and deployment design
 18. [Cart, Checkout, Payments, and Order Creation](18-cart-checkout-payments-and-order-creation.md) — approved; server Carts, durable unified Checkout orchestration, provider-tokenized payments, atomic Order creation, compensation, and reconciliation
 19. [Order, Fulfillment, Account, and Notification Continuity](19-order-fulfillment-account-and-notifications.md) — approved; source-owned post-purchase lifecycles, fulfillment units, federated Account projections, and separated notification and message-delivery state
 20. [Support Cases, Communication, Evidence, and External Work](20-support-cases-communication-evidence-and-external-work.md) — approved; one typed Case envelope, append-only communication, governed Evidence, explicit Obligations, source Remedy Requests, and bounded provider packages
+21. [PC Builder Persistence and Recalculation](21-pc-builder-persistence-and-recalculation.md) — approved; durable guest and customer Builds, immutable internal Revisions, dependency-aware recalculation, immutable Share snapshots, and atomic Cart conversion
 
 ## Architectural inputs
 
