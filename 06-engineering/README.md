@@ -24,6 +24,7 @@ It may establish testability, architectural quality gates, and deployment design
 14. [Catalog and Taxonomy Architecture](14-catalog-and-taxonomy-architecture.md) — approved; stable product and variant identity, typed governed attributes, immutable published revisions, quarantined ingestion, and rebuildable projections
 15. [Search Indexing, Ranking, Filtering, and Query](15-search-indexing-ranking-filtering-and-query.md) — approved; managed OpenSearch, source-versioned indexes, Brazilian Portuguese lexical retrieval, governed facets and ranking, and evidence-gated semantic search
 16. [Compatibility Engine Architecture](16-compatibility-engine-architecture.md) — approved; typed declarative rules, deterministic graph evaluation, explicit unknown semantics, structured evidence, and atomic rule activation
+17. [Pricing, Promotions, Inventory, and Availability](17-pricing-promotions-inventory-and-availability.md) — approved; exact versioned quotes, cross-owner promotion execution, inventory movement ledger, Checkout reservations, and bound commercial snapshots
 
 ## Architectural inputs
 

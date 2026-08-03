@@ -85,6 +85,12 @@
 - Approved incremental and full evaluation equivalence, digest-bound caching, shadow evaluation, impact analysis, atomic activation, rollback, and retained consequential evidence.
 - Approved current Compatibility revalidation through Build-to-Cart and Checkout commitment without consumer, Support, Admin, or AI hard-block overrides.
 - Accepted ADR-0022 establishing the deterministic declarative Compatibility engine and rule governance model.
+- Approved immutable purpose-bound Price Quotes with exact arithmetic, deterministic precedence, explicit expiry, and explainable calculation evidence.
+- Approved coordinated Promotion execution preserving Marketing definition, Pricing effect, Purchase eligibility and redemption, Inventory availability, and Legal policy ownership.
+- Approved append-only Inventory movements, derived Stock Positions, explicit available-to-promise semantics, and idempotent expiring Reservations.
+- Approved no default Cart reservation, bounded Checkout reservation, visible expiry and partial outcomes, and explicit oversell and backorder policy.
+- Approved versioned Commercial Snapshots and atomic Order creation, Promotion claim, Reservation consumption, commercial evidence, and outbox recording.
+- Accepted ADR-0023 establishing versioned commercial quotes, Checkout reservations, and the commitment boundary.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

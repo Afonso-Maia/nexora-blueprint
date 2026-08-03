@@ -26,3 +26,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0020](ADR-0020-governed-versioned-catalog.md) | Accepted | Governed versioned Catalog |
 | [ADR-0021](ADR-0021-managed-opensearch-and-lexical-first-retrieval.md) | Accepted | Managed OpenSearch and lexical-first retrieval |
 | [ADR-0022](ADR-0022-deterministic-declarative-compatibility-engine.md) | Accepted | Deterministic declarative Compatibility engine |
+| [ADR-0023](ADR-0023-versioned-commercial-quotes-and-inventory-reservations.md) | Accepted | Versioned commercial quotes and Inventory reservations |
