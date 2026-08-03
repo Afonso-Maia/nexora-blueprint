@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 testing interfaces
+
+- Approved authority-aligned test seams and layered architectural evidence.
+- Defined blocking contract, boundary, accessibility, security, resilience, performance, localization, and telemetry gates without absorbing the later Testing phase.
+
 ## Phase 4 observability architecture
 
 - Approved OpenTelemetry as the vendor-neutral instrumentation and trace-context standard.
