@@ -19,6 +19,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 11. [Primitive Components](11-primitive-components.md) — approved; semantic structural and interaction substrate
 12. [Forms and Input Components](12-forms-and-input-components.md) — approved; persistent-label fields and risk-aware submission
 13. [Navigation Components](13-navigation-components.md) — approved; search-first, scope-aware navigation
+14. [Search and Filtering Components](14-search-and-filtering-components.md) — approved; visible query, intent, and refinement state
 
 ## Architectural inputs
 
