@@ -9,6 +9,7 @@ It may establish testability, architectural quality gates, and deployment design
 ## Approved decisions
 
 1. [System Shape and Deployment Boundary](01-system-shape-and-deployment-boundary.md) — approved; modular authoritative core with selective independent deployment
+2. [Mission, Principles, Scope, and Governance](02-mission-principles-scope-and-governance.md) — approved; architecture-led governance with evidence-based completion gates
 
 ## Architectural inputs
 
