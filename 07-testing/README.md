@@ -1,6 +1,6 @@
 # Phase 5 — Testing Strategy and Quality Validation
 
-**Status:** In progress
+**Status:** Approved and complete
 
 Phase 5 defines the risk-based testing strategy, quality model, evidence portfolio, environments, responsibilities, coverage, and release validation needed to demonstrate that Nexora satisfies its approved product, Design System, engineering, security, accessibility, resilience, and operational contracts.
 
@@ -46,6 +46,13 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 36. [Test Environments, Isolation, Reset, and Parity](36-test-environments-isolation-reset-and-parity.md) — approved; smallest faithful environment with explicit drift
 37. [Synthetic Monitoring and Safe Production Validation](37-synthetic-monitoring-and-safe-production-validation.md) — approved; bounded non-destructive production evidence
 38. [Defect, Triage, Quarantine, and Flaky-Test Policy](38-defect-triage-quarantine-and-flaky-test-policy.md) — approved; consequence-led severity and no silent retry
+39. [Requirements, Risks, Tests, and Evidence Traceability](39-requirements-risks-tests-and-evidence-traceability.md) — approved; stable many-to-many evidence graph
+40. [Quality Dashboards, Reporting, and Release Evidence](40-quality-dashboards-reporting-and-release-evidence.md) — approved; drillable decision records without vanity scores
+41. [Test Automation Architecture and Tool Governance](41-test-automation-architecture-and-tool-governance.md) — approved; shared contracts, domain-owned suites, and evidence portability
+42. [CI/CD Quality-Gate Integration](42-ci-cd-quality-gate-integration.md) — approved; progressive affected and full gates bound to immutable artifacts
+43. [Manual, Exploratory, Usability, and Acceptance Boundaries](43-manual-exploratory-usability-and-acceptance-boundaries.md) — approved; chartered human evidence for judgment and novelty
+44. [Page and Template Testing Mapping](44-page-and-template-testing-mapping.md) — approved; all 89 pages and nine templates covered exactly once
+45. [Phase 5 Validation and Delivery-Roadmap Handoff](45-phase-5-validation-and-delivery-roadmap-handoff.md) — approved; complete testing-strategy validation and later-phase boundary
 
 ## Architectural inputs
 
