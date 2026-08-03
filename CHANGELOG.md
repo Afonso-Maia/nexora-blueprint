@@ -67,6 +67,12 @@
 - Approved risk-classed authorization caching, signed least-data projections, bounded revocation propagation, execution-time reauthorization, and narrow execution grants.
 - Approved fail-closed consequential behavior, bounded read-only degradation, explainable decision evidence, and mechanical authorization quality gates.
 - Accepted ADR-0019 establishing source-owned final enforcement and the shared authorization-kernel topology.
+- Approved one authoritative relational Catalog with stable Product, Variant, Category, Brand, and Attribute Definition identities.
+- Approved exactly one canonical category per Product, typed unit-aware attributes, explicit category schemas, and preserved product-versus-variant invariants.
+- Approved quarantined idempotent supplier ingestion, governed normalization, field-level provenance, ambiguous-match review, and prohibition of direct supplier publication.
+- Approved separate mutable drafts, immutable published revisions, impact analysis, atomic publication, transactional outbox events, and explicit rollback.
+- Approved purpose-built rebuildable projections and consumer contracts for storefront, Search, filtering, Compatibility, PC Builder, Purchase, Support, Admin, and AI.
+- Accepted ADR-0020 establishing the governed versioned Catalog and its publication and projection boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

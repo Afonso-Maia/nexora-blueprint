@@ -23,3 +23,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0017](ADR-0017-postgresql-data-authority.md) | Accepted | PostgreSQL modular data authority |
 | [ADR-0018](ADR-0018-managed-identity-and-server-side-sessions.md) | Accepted | Managed identity and server-side sessions |
 | [ADR-0019](ADR-0019-source-enforced-hybrid-authorization.md) | Accepted | Source-enforced hybrid authorization |
+| [ADR-0020](ADR-0020-governed-versioned-catalog.md) | Accepted | Governed versioned Catalog |

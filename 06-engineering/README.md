@@ -21,6 +21,7 @@ It may establish testability, architectural quality gates, and deployment design
 11. [Data Ownership, Storage, and Migration](11-data-ownership-storage-and-migration.md) — approved; PostgreSQL schema isolation, UUIDv7 identity, explicit consistency, online migrations, and recoverable lifecycle
 12. [Identity, Sessions, Authentication, and Assurance](12-identity-sessions-authentication-and-assurance.md) — approved; managed standards-based identity, opaque BFF sessions, passkeys, separated workforce access, and source-owned assurance enforcement
 13. [Authorization and Policy Enforcement](13-authorization-and-policy-enforcement.md) — approved; source-enforced hybrid authorization with a shared deterministic kernel, versioned policy projections, and fail-closed consequential decisions
+14. [Catalog and Taxonomy Architecture](14-catalog-and-taxonomy-architecture.md) — approved; stable product and variant identity, typed governed attributes, immutable published revisions, quarantined ingestion, and rebuildable projections
 
 ## Architectural inputs
 
