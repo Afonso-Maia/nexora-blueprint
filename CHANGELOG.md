@@ -136,6 +136,11 @@
 - Approved allowlisted offline reads and bounded drafts while prohibiting general offline mutation queues and browser authority for commerce or protected state.
 - Approved identity-first reconnection, current-source comparison, conflict-aware restoration, private-state cleanup, and cache-loss-safe degradation.
 - Accepted ADR-0031 establishing layered non-authoritative caching and offline boundaries.
+- Approved explicit failure classes, dependency criticality, bounded calls, retries, circuit breaking, bulkheads, load shedding, partial responses, and host-owned degraded states.
+- Approved one primary region with managed multi-zone availability, one writer, encrypted backups, PITR, rebuildable projections, and tested secondary-region restoration.
+- Approved provider, database, queue, Search, AI, and object-storage failure behavior plus durable incident controls and recovery order.
+- Deferred active-active multi-region commerce writes until transaction, conflict, operational, and organization evidence justifies them.
+- Accepted ADR-0032 establishing the single-region multi-zone resilience and disaster-recovery posture.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

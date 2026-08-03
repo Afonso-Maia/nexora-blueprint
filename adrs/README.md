@@ -35,3 +35,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0029](ADR-0029-separate-capability-adaptive-admin-application.md) | Accepted | Separate capability-adaptive Admin application |
 | [ADR-0030](ADR-0030-postgresql-workflow-state-and-managed-at-least-once-queues.md) | Accepted | PostgreSQL workflow state and managed at-least-once queues |
 | [ADR-0031](ADR-0031-layered-non-authoritative-caching.md) | Accepted | Layered non-authoritative caching |
+| [ADR-0032](ADR-0032-single-region-multi-zone-resilience.md) | Accepted | Single-region multi-zone resilience |
