@@ -23,6 +23,7 @@
 - Approved Universal Search, grouped suggestions, visible intent, attribute-driven filters, sorting, selection, and zero-result recovery components.
 - Approved fact-led product, price, inventory, variant, specification, promotion, review, recommendation, and merchandising components.
 - Approved the layered Comparison Decision Workspace and explainable recommendation patterns.
+- Approved corrective Cart and one adaptive Checkout with modular review, explicit consent, idempotent commitment, and operation-aware outcomes.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
