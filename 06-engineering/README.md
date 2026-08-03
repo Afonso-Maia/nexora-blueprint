@@ -31,6 +31,7 @@ It may establish testability, architectural quality gates, and deployment design
 21. [PC Builder Persistence and Recalculation](21-pc-builder-persistence-and-recalculation.md) — approved; durable guest and customer Builds, immutable internal Revisions, dependency-aware recalculation, immutable Share snapshots, and atomic Cart conversion
 22. [AI Orchestration, Grounding, Provenance, and Safety](22-ai-orchestration-grounding-provenance-and-safety.md) — approved; managed model adapters, governed source tools, explicit context and citations, human-confirmed effects, and optional degradation
 23. [Administrative Dashboard Application Architecture](23-administrative-dashboard-application-architecture.md) — approved; separate workforce application, capability shell, source-owned panels, governed changes, durable bulk work, and protected exports
+24. [Events, Queues, Workflows, Idempotency, and Reconciliation](24-events-queues-workflows-idempotency-and-reconciliation.md) — approved; transactional outbox/inbox, managed at-least-once queues, PostgreSQL workflow state, bounded retries, compensation, and reconciliation
 
 ## Architectural inputs
 

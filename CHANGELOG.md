@@ -126,6 +126,11 @@
 - Approved governed worklists, saved views, Selection Snapshots, Resource Workspaces, Change Envelopes, approvals, actions, bulk Operations, and protected exports.
 - Approved source-owned Settings behavior, Audit presentation, permission-aware responsive continuity, and prohibition of direct storage, provider, or generic CRUD access.
 - Accepted ADR-0029 establishing the separate capability-adaptive Admin application and shared-tooling boundaries.
+- Approved transactional outbox and inbox, managed at-least-once queues, versioned message envelopes, source revisions, and idempotent handlers.
+- Approved domain-owned PostgreSQL Workflow and Operation state with separate workers, leases, scheduling, bounded retries, timeout uncertainty, compensation, and dead letters.
+- Approved recurring reconciliation, source-snapshot rebuilds, controlled replay, and asynchronous correlation without broker exactly-once assumptions.
+- Deferred Kafka, event sourcing, distributed transactions, and a general workflow platform until measured need justifies them.
+- Accepted ADR-0030 establishing PostgreSQL workflow authority and managed at-least-once messaging.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
