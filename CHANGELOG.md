@@ -150,6 +150,11 @@
 - Approved centrally pinned lint, Storybook, axe-core, Playwright, HTML, accessible-name, visual, zoom, and responsive automation with expiring suppressions.
 - Approved component, page, canonical-journey, provider, browser-upgrade, and production accessibility gates plus VoiceOver and NVDA manual validation.
 - Confirmed that inaccessible critical journeys and providers block release under ADR-0007.
+- Approved `pt-BR` as the only launch locale with typed message catalogs, ICU MessageFormat semantics, server/client parity, and explicit fallback.
+- Approved `Intl` formatting, exact structured money and measurements, IANA time zones, E.164 telephone storage, and governed Brazilian address and CEP schemas.
+- Approved structured API values, source-owned renditions, Portuguese error recovery, content expansion, and deterministic email, notification, and document formatting.
+- Deferred locale-prefixed URLs and additional locale or market support until an explicit cross-product architecture decision.
+- Accepted ADR-0034 establishing Portuguese-first typed localization and Brazilian commerce formatting.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

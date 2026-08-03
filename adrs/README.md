@@ -37,3 +37,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0031](ADR-0031-layered-non-authoritative-caching.md) | Accepted | Layered non-authoritative caching |
 | [ADR-0032](ADR-0032-single-region-multi-zone-resilience.md) | Accepted | Single-region multi-zone resilience |
 | [ADR-0033](ADR-0033-managed-secrets-and-append-only-audit-integrity.md) | Accepted | Managed secrets and append-only Audit integrity |
+| [ADR-0034](ADR-0034-portuguese-first-typed-localization.md) | Accepted | Portuguese-first typed localization |
