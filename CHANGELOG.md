@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 dependency and configuration architecture
+
+- Approved pinned Node.js LTS, Corepack-managed pnpm, a single lockfile, and Turborepo task orchestration.
+- Defined dependency admission, typed runtime configuration, environment isolation, and OpenFeature-compatible flag governance.
+
 ## Phase 4 testing interfaces
 
 - Approved authority-aligned test seams and layered architectural evidence.
