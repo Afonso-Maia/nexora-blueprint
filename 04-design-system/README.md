@@ -29,6 +29,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 21. [Administrative Dashboard Patterns](21-administrative-dashboard-patterns.md) — approved; governed worklists and resource workspaces
 22. [System-State Components](22-system-state-components.md) — approved; host-owned truth and recovery semantics
 23. [Content and Localization](23-content-and-localization.md) — approved; Brazilian Portuguese-first interface content
+24. [Component Lifecycle and Quality](24-component-lifecycle-and-quality.md) — approved; versioned contribution, testing, and deprecation
 
 ## Architectural inputs
 
