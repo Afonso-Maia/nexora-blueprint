@@ -44,6 +44,11 @@
 - Approved explicit idempotency and durable operation resources for consequential, long-running, and indeterminate commands.
 - Approved purpose-built experience representations without a GraphQL gateway, direct browser-to-domain access, or general public developer API.
 - Accepted ADR-0015 establishing BFF topology, synchronous contract style, failure semantics, concurrency, pagination, compatibility, and external API boundaries.
+- Approved ledger-aligned authoritative domain modules, composition and governance modules, and platform capabilities with private storage and public contracts.
+- Preserved Purchase ownership of Cart, Checkout, and orders; specialist Payments and Fulfillment state; Catalog and Compatibility separation; and Marketing, Pricing, Purchase, and Inventory promotion responsibilities.
+- Approved one accountable transaction owner by default, a governed exception register for true local multi-module invariants, and durable workflows for remote or long-running coordination.
+- Approved provider ports, acyclic collaboration, no cross-module storage access, and evidence-based extraction triggers.
+- Accepted ADR-0016 establishing the domain-module map, transaction defaults, collaboration rules, and extraction requirements.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

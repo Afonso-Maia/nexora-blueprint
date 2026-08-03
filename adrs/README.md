@@ -19,3 +19,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0013](ADR-0013-mixed-rendering-and-navigation.md) | Accepted | Explicit mixed rendering and canonical navigation |
 | [ADR-0014](ADR-0014-state-ownership.md) | Accepted | Single-authority state and explicit client projections |
 | [ADR-0015](ADR-0015-bff-and-http-contracts.md) | Accepted | Co-deployed experience BFFs and OpenAPI HTTP contracts |
+| [ADR-0016](ADR-0016-domain-modules.md) | Accepted | Ledger-aligned domain modules and owner-led transactions |
