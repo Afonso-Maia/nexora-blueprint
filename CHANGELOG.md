@@ -1,5 +1,12 @@
 # Changelog
 
+## Phase 5 framing and quality portfolio
+
+- Renamed Testing to Phase 5 — Testing Strategy and Quality Validation and began the phase.
+- Approved a seven-dimension quality model and risk-based layered evidence aligned with source ownership and transaction boundaries.
+- Bounded extensive browser acceptance to a deliberately small composition suite and preserved detailed delivery sequencing for the Delivery Roadmap.
+- Accepted ADR-0038 establishing the Phase 5 evidence strategy.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.

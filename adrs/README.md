@@ -41,3 +41,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0035](ADR-0035-opentelemetry-observability-standard.md) | Accepted | OpenTelemetry observability standard |
 | [ADR-0036](ADR-0036-pinned-pnpm-turborepo-and-typed-runtime-configuration.md) | Accepted | Pinned pnpm, Turborepo, and typed runtime configuration |
 | [ADR-0037](ADR-0037-build-once-immutable-progressive-delivery.md) | Accepted | Build-once immutable progressive delivery |
+| [ADR-0038](ADR-0038-risk-based-layered-quality-evidence.md) | Accepted | Risk-based layered quality evidence |
