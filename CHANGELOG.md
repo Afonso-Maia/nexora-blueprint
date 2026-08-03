@@ -14,6 +14,15 @@
 - Assigned embedded source and experience ownership with independent specialist authority and platform enablement.
 - Approved an outcome-oriented taxonomy for proof levels, quality purposes, execution contexts, doubles, and coverage.
 
+## Phase 5 foundational test layers
+
+- Defined blocking static architecture, generated-contract, policy, and supply-chain conformance.
+- Approved deterministic unit/property testing, targeted mutation evidence, and bounded lifecycle models.
+- Defined semantic component, risk-selected visual, theme, responsive, and reference-composition validation.
+- Approved OpenAPI/BFF and asynchronous producer/consumer compatibility with semantic negative and delivery evidence.
+- Required public-port module integration and production-engine database, migration, consistency, restore, and rebuild proof.
+- Established provider-neutral adapter conformance across controllable fakes, sandboxes, and safe live checks.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.

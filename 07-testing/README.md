@@ -13,6 +13,15 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 3. [Ready, Done, and Release Confidence](03-ready-done-and-release-confidence.md) — approved; explicit entry, completion, and release-evidence contracts
 4. [Test Ownership and Responsibility](04-test-ownership-and-responsibility.md) — approved; embedded quality ownership with independent specialist authority
 5. [Test Levels and Types](05-test-levels-and-types.md) — approved; outcome-oriented taxonomy with one primary proof layer
+6. [Static Analysis and Architectural Conformance](06-static-analysis-and-architectural-conformance.md) — approved; blocking generated-contract, dependency, policy, and supply-chain checks
+7. [Unit and Property-Based Testing](07-unit-and-property-based-testing.md) — approved; deterministic invariant testing with selective generative and mutation evidence
+8. [Component and Design System Testing](08-component-and-design-system-testing.md) — approved; semantic contract matrices in isolation and reference compositions
+9. [Visual Regression and Theme Validation](09-visual-regression-and-theme-validation.md) — approved; risk-selected perceptual evidence with token and semantic assertions
+10. [API and BFF Contract Testing](10-api-and-bff-contract-testing.md) — approved; specification, consumer compatibility, authorization, and semantic problem conformance
+11. [Event and Asynchronous Contract Testing](11-event-and-asynchronous-contract-testing.md) — approved; producer/consumer compatibility plus delivery-semantics evidence
+12. [Domain-Module Integration Testing](12-domain-module-integration-testing.md) — approved; public-port evidence against real owned infrastructure
+13. [Database, Consistency, and Migration Testing](13-database-consistency-and-migration-testing.md) — approved; production-engine migrations, concurrency, restore, and integrity proof
+14. [External-Provider Adapter Conformance](14-external-provider-adapter-conformance.md) — approved; shared behavioral suites across fakes, sandboxes, and controlled live checks
 
 ## Architectural inputs
 
