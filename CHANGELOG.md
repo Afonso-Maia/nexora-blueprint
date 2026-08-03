@@ -115,6 +115,12 @@
 - Approved explicit guest claim, Saved Builds, duplication, archive, immutable revocable Share snapshots, and current-versus-snapshot fact distinction.
 - Approved idempotent all-or-none Build-to-Cart conversion, exact Order Build snapshots, and non-mutating upgrade lineage.
 - Accepted ADR-0027 establishing durable server Build authority, immutable Share snapshots, and atomic conversion.
+- Approved an independently deployed AI Orchestration runtime using managed models behind Nexora-owned provider adapters.
+- Approved explicit context manifests, source-authorized structured grounding, typed tools, delegated AI identity, citations, and provider-independent Conversation authority.
+- Approved human-confirmed consequential proposals and prohibited autonomous AI commitment, direct data-store access, hidden filters, and source-truth substitution.
+- Approved versioned prompts and model routes, no implicit cross-conversation memory, provider data minimization, layered prompt-injection controls, and Portuguese-first evaluation.
+- Approved complete deterministic operation during AI failure with bounded fallback, streaming, retention, deletion, safety, and observability behavior.
+- Accepted ADR-0028 establishing managed model orchestration, governed tools, grounding, and confirmation boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
