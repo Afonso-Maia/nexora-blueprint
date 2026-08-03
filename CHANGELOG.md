@@ -32,6 +32,14 @@
 - Required automated, manual, assistive-technology, and disabled-user accessibility evidence.
 - Defined typed pt-BR content and structured Brazilian commerce validation without inventing legal policy.
 
+## Phase 5 domain-critical validation
+
+- Defined Search judgment sets, index reconciliation, and deterministic Compatibility ruleset evidence.
+- Approved exact Pricing, Promotion, Inventory, availability, Checkout, payment, and at-most-one-Order validation.
+- Preserved source-versioned Order, fulfillment, Account, notification, Support, and provider continuity.
+- Defined durable PC Builder revision, recalculation, sharing, and Cart-conversion evidence.
+- Established versioned AI grounding, provenance, safety, privacy, and deterministic-path optionality evaluation.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.

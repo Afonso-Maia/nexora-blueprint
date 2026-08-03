@@ -28,6 +28,14 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 18. [Security and Privacy Validation](18-security-and-privacy-validation.md) — approved; threat-led continuous controls with independent critical-risk evidence
 19. [Accessibility and Assistive-Technology Validation](19-accessibility-and-assistive-technology-validation.md) — approved; automation plus risk-based manual AT and disabled-user journey evidence
 20. [Localization and Brazilian Commerce Validation](20-localization-and-brazilian-commerce-validation.md) — approved; typed pt-BR content and structured Brazilian value conformance
+21. [Search Relevance and Index Validation](21-search-relevance-and-index-validation.md) — approved; versioned Brazilian judgment sets, invariants, and projection checks
+22. [Deterministic Compatibility Validation](22-deterministic-compatibility-validation.md) — approved; immutable ruleset, fact, explanation, conflict, and impact evidence
+23. [Pricing, Promotion, Inventory, and Availability Testing](23-pricing-promotion-inventory-and-availability-testing.md) — approved; exact commercial and concurrency invariants
+24. [Cart, Checkout, Payment, and Order-Creation Testing](24-cart-checkout-payment-and-order-creation-testing.md) — approved; durable orchestration and at-most-one-Order proof
+25. [Order, Fulfillment, Account, and Notification Testing](25-order-fulfillment-account-and-notification-testing.md) — approved; source-versioned federated continuity
+26. [Support Case and External-Work Testing](26-support-case-and-external-work-testing.md) — approved; typed cases, evidence, obligations, remedies, and provider reconciliation
+27. [PC Builder Persistence and Recalculation Testing](27-pc-builder-persistence-and-recalculation-testing.md) — approved; durable revisions, conflict, dependency recalculation, and conversion
+28. [AI Grounding, Provenance, Safety, and Optionality Testing](28-ai-grounding-provenance-safety-and-optionality-testing.md) — approved; versioned evaluation with deterministic-path equivalence
 
 ## Architectural inputs
 
