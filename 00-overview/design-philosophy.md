@@ -6,5 +6,4 @@ Nexora’s experience is premium, restrained, and engineering-informed. It reduc
 
 Recommendations must be explainable. AI augments user control and remains distinguishable from deterministic catalog and compatibility facts. Visual hierarchy favors search and decision-relevant content over promotional density.
 
-The approved visual direction is [Precision Gold](../01-brand/visual-identity.md). Detailed tokens and components are deferred to the [Design System](../04-design-system/README.md).
-
+The approved visual direction is [Precision Gold](../01-brand/visual-identity.md). Detailed foundations, tokens, components, patterns, and page templates are defined in the completed [Design System and Experience Specification](../04-design-system/README.md).

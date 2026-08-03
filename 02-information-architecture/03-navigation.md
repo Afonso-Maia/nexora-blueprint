@@ -14,5 +14,4 @@ Primary navigation contains Home, Categories, Deals, PC Builder, and Support. Gl
 - Mobile preserves the same conceptual hierarchy.
 - New content types do not automatically become top-level navigation.
 
-Exact responsive interactions are deferred to wireframing and design-system work.
-
+Responsive navigation behavior is governed by the completed [Design System and Experience Specification](../04-design-system/README.md); exact page composition remains part of wireframing.

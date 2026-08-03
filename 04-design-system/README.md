@@ -1,6 +1,6 @@
 # Phase 3 — Design System and Experience Specification
 
-**Status:** In progress
+**Status:** Approved and complete
 
 Phase 3 defines the shared visual, interaction, accessibility, responsive, content, component, pattern, and page-template rules needed for high-fidelity wireframing, visual design, prototyping, and later implementation.
 
@@ -32,6 +32,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 24. [Component Lifecycle and Quality](24-component-lifecycle-and-quality.md) — approved; versioned contribution, testing, and deprecation
 25. [Page Templates](25-page-templates.md) — approved; nine archetype-aligned composition contracts
 26. [Page-to-System Mapping](26-page-to-system-mapping.md) — approved; complete 89-page template and pattern coverage
+27. [Phase 3 Validation](27-phase-3-validation.md) — approved; complete scope, architecture, coverage, and handoff validation
 
 ## Architectural inputs
 
@@ -45,4 +46,4 @@ Phase 3 consumes rather than redefines:
 - The [Scalability Guidelines](../03-product-structure/09-scalability-guidelines.md)
 - The completed [Phase 2B validation](../03-product-structure/10-phase-2b-validation.md)
 
-Only decisions explicitly marked Approved are authoritative. Remaining Phase 3 topics will follow the decision workflow in [CONTRIBUTING.md](../CONTRIBUTING.md).
+Phase 3 is approved and complete. Later changes continue to follow the decision workflow in [CONTRIBUTING.md](../CONTRIBUTING.md).

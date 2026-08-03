@@ -303,4 +303,4 @@ Repository validation confirmed:
 
 Phase 2B Product Structure Architecture is approved and complete.
 
-The next planned product-development stage is the Design System, followed by Engineering, Testing, delivery planning, and documentation publication according to the approved roadmap.
+At Phase 2B completion, the next planned stage was the Design System. Phase 3 — Design System and Experience Specification is now approved and complete, and Engineering is the next planned stage according to the approved roadmap.
