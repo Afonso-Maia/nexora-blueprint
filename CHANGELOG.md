@@ -7,6 +7,13 @@
 - Bounded extensive browser acceptance to a deliberately small composition suite and preserved detailed delivery sequencing for the Delivery Roadmap.
 - Accepted ADR-0038 establishing the Phase 5 evidence strategy.
 
+## Phase 5 governance and evidence taxonomy
+
+- Approved four consequence-led quality-risk tiers and four change-risk classes.
+- Defined risk-calibrated Ready, Done, and Release Confidence evidence contracts.
+- Assigned embedded source and experience ownership with independent specialist authority and platform enablement.
+- Approved an outcome-oriented taxonomy for proof levels, quality purposes, execution contexts, doubles, and coverage.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.

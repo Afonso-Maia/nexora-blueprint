@@ -9,6 +9,10 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 ## Approved decisions
 
 1. [Framing, Quality Model, and Testing Portfolio](01-framing-quality-model-and-testing-portfolio.md) — approved; risk-based layered evidence aligned with authority and transaction boundaries
+2. [Quality Risk Classification](02-quality-risk-classification.md) — approved; four consequence-led tiers with change-risk calibration
+3. [Ready, Done, and Release Confidence](03-ready-done-and-release-confidence.md) — approved; explicit entry, completion, and release-evidence contracts
+4. [Test Ownership and Responsibility](04-test-ownership-and-responsibility.md) — approved; embedded quality ownership with independent specialist authority
+5. [Test Levels and Types](05-test-levels-and-types.md) — approved; outcome-oriented taxonomy with one primary proof layer
 
 ## Architectural inputs
 
