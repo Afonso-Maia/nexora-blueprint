@@ -1,6 +1,22 @@
-# Engineering
+# Phase 4 — Engineering Architecture and Implementation Planning
 
-**Status:** Planned
+**Status:** In progress
 
-This phase will define technical architecture and implementation guidance. No engineering stack or deployment architecture is approved yet.
+Phase 4 defines the implementation architecture and engineering contracts needed to build Nexora without redefining approved product, domain, state, permission, accessibility, or Design System semantics.
 
+It may establish testability, architectural quality gates, and deployment design, but detailed quality strategy and delivery sequencing remain in the later Testing and Delivery Roadmap phases. Production implementation is outside this phase unless explicitly authorized.
+
+## Approved decisions
+
+1. [System Shape and Deployment Boundary](01-system-shape-and-deployment-boundary.md) — approved; modular authoritative core with selective independent deployment
+
+## Architectural inputs
+
+Phase 4 consumes rather than redefines:
+
+- The approved [Information Discovery Architecture](../02-information-architecture/README.md)
+- The complete [Page Inventory](../03-product-structure/01-page-inventory.md), [relationship and ownership model](../03-product-structure/02-page-relationships-and-ownership.md), and [information hierarchy](../03-product-structure/03-information-hierarchy.md)
+- The approved [Roles and Permissions](../03-product-structure/07-roles-and-permissions.md), [system-state architecture](../03-product-structure/08-error-empty-and-degraded-states.md), and [Scalability Guidelines](../03-product-structure/09-scalability-guidelines.md)
+- The approved [Design System architecture](../04-design-system/01-system-architecture.md), [accessibility foundation](../04-design-system/10-accessibility-foundations.md), [page templates](../04-design-system/25-page-templates.md), and complete [page-to-system mapping](../04-design-system/26-page-to-system-mapping.md)
+
+No language, framework, database, cloud, queue, or hosting provider is approved by the initial architecture decision.

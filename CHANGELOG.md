@@ -2,6 +2,12 @@
 
 ## 2026-08-02
 
+- Renamed the Engineering stage to Phase 4 — Engineering Architecture and Implementation Planning.
+- Approved the Experience applications, BFF and application layer, governed domain modules, platform adapters, and infrastructure system shape.
+- Approved a modular authoritative commerce core with explicit module, data, transaction, contract, and authorization boundaries.
+- Approved selective independent deployment only where durable data, transaction, scale, degradation, security, integration, deployment, or accountability distinctions justify it.
+- Accepted ADR-0008 establishing the modular authoritative core and independent-deployment threshold.
+- Began Phase 4 — Engineering Architecture and Implementation Planning.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
