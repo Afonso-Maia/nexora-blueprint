@@ -8,6 +8,17 @@
 - Defined deterministic source-to-route mapping, governed metadata, generated navigation and indexes, non-authoritative presentation components, validation obligations, and valid publication-increment criteria.
 - Accepted ADR-0040 establishing the repository-native publication architecture.
 
+## Phase 7 publication experience and governance
+
+- Approved all 42 Phase 7 publication decisions while keeping implementation and public launch gated by evidence.
+- Defined federated source ownership, three reading modes, source-aligned information architecture, accessible navigation, guided journeys, and generated decision and coverage views.
+- Approved local privacy-preserving search, source-backed filtering, deterministic cross-references, controlled metadata, stable identifiers, visible lifecycle status, and durable history.
+- Defined accessible diagrams, tables, page/template exploration, delivery-roadmap presentation, technical rendering, responsive behavior, WCAG 2.2 AA validation, restrained branding, and light/dark parity.
+- Preserved authoritative English repository content and pt-BR-first product semantics without creating an unsustainable partial translation mirror.
+- Established Markdown/MDX governance, editorial linting, immutable CI/CD, provider-portable hosting criteria, no behavioral analytics at launch, supply-chain controls, performance/resilience gates, and source-first maintenance.
+- Defined complete publication-readiness evidence and the portfolio-review journey without claiming commerce implementation or public launch.
+- Accepted ADR-0041 for local private documentation search and ADR-0042 for authoritative source-language publication.
+
 ## Phase 6 complete
 
 - Approved all 43 Delivery Roadmap and Incremental Release Planning decisions.

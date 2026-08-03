@@ -44,3 +44,5 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0038](ADR-0038-risk-based-layered-quality-evidence.md) | Accepted | Risk-based layered quality evidence |
 | [ADR-0039](ADR-0039-risk-led-vertical-delivery-with-bounded-enabling-runway.md) | Accepted | Risk-led vertical delivery with bounded enabling runway |
 | [ADR-0040](ADR-0040-repository-native-blueprint-publication.md) | Accepted | Repository-native Blueprint publication |
+| [ADR-0041](ADR-0041-local-private-documentation-search.md) | Accepted | Local private documentation search |
+| [ADR-0042](ADR-0042-authoritative-source-language-publication.md) | Accepted | Authoritative source-language publication |
