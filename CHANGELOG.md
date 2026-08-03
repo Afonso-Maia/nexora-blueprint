@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 performance architecture
+
+- Approved versioned experience and operation performance budgets.
+- Defined percentile measurement, workload and capacity registers, headroom tests, and overload priorities.
+
 ## 2026-08-02
 
 - Renamed the Engineering stage to Phase 4 — Engineering Architecture and Implementation Planning.
