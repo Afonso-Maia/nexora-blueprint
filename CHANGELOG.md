@@ -73,6 +73,12 @@
 - Approved separate mutable drafts, immutable published revisions, impact analysis, atomic publication, transactional outbox events, and explicit rollback.
 - Approved purpose-built rebuildable projections and consumer contracts for storefront, Search, filtering, Compatibility, PC Builder, Purchase, Support, Admin, and AI.
 - Accepted ADR-0020 establishing the governed versioned Catalog and its publication and projection boundaries.
+- Approved an independently deployed Search capability backed initially by managed OpenSearch.
+- Approved source-owned versioned search documents, event-driven indexing, recurring reconciliation, immutable index generations, and atomic alias promotion.
+- Approved Brazilian Portuguese lexical BM25 retrieval with protected exact technical fields, governed synonyms and typo handling, stable identifier filters, dynamic facets, and opaque cursor continuation.
+- Approved staged ranking, hard source eligibility, Product and Variant collapse, explicit curation, separated Universal Search groups, and protected operational search.
+- Deferred semantic and hybrid retrieval behind relevance, exact-match, filtering, privacy, latency, explainability, and lexical-fallback gates.
+- Accepted ADR-0021 establishing managed OpenSearch, lexical-first retrieval, and derived Search authority.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
