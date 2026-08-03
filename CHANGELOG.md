@@ -146,6 +146,10 @@
 - Approved transactionally sourced append-only Audit events with restricted writers, cryptographic integrity checkpoints, protected exports, and verification.
 - Approved secure development, SBOM, signed provenance, dependency, container, infrastructure, vulnerability, penetration-test, and incident-response gates.
 - Accepted ADR-0033 establishing managed secrets, classified data, source privacy execution, and append-only Audit integrity.
+- Approved semantic-first accessibility engineering with native controls, complete keyboard operation, governed focus, restrained announcements, reflow, contrast, motion, media, and form behavior.
+- Approved centrally pinned lint, Storybook, axe-core, Playwright, HTML, accessible-name, visual, zoom, and responsive automation with expiring suppressions.
+- Approved component, page, canonical-journey, provider, browser-upgrade, and production accessibility gates plus VoiceOver and NVDA manual validation.
+- Confirmed that inaccessible critical journeys and providers block release under ADR-0007.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

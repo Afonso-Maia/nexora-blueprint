@@ -35,6 +35,7 @@ It may establish testability, architectural quality gates, and deployment design
 25. [Caching, Offline Behavior, and State Restoration](25-caching-offline-and-state-restoration.md) — approved; layered public and private caches, managed distributed acceleration, explicit invalidation, safe offline reads, and conflict-aware restoration
 26. [Error, Degraded-Mode, and Resilience Architecture](26-error-degraded-mode-and-resilience-architecture.md) — approved; isolated failure domains, bounded dependencies, semantic degradation, multi-zone operation, recoverable regional posture, and tested restoration
 27. [Security, Privacy, Secrets, and Audit](27-security-privacy-secrets-and-audit.md) — approved; zero-trust boundaries, classified data, managed secrets and keys, source privacy workflows, supply-chain controls, and append-only integrity-checked Audit
+28. [Accessibility Engineering](28-accessibility-engineering.md) — approved; semantic-first implementation, automated and assistive-technology gates, third-party equivalence, accessible state behavior, and blocking release authority
 
 ## Architectural inputs
 
