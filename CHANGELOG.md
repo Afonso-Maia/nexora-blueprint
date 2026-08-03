@@ -34,6 +34,11 @@
 - Approved canonical URL ownership for safe shareable discovery state, governed prefetch, focus and scroll restoration, metadata, indexing defaults, and route-successor governance.
 - Approved dynamic or source-refreshed price, inventory, eligibility, Compatibility, permissions, personal data, transactions, workspaces, and Admin operations.
 - Accepted ADR-0013 establishing the mixed-rendering, caching, URL, navigation, and indexing strategy.
+- Approved single-authority ownership for URL, request, session, source, projection, cache, client query, interaction, form, draft, workspace, optimistic, operation, offline, and provider state.
+- Approved selective TanStack Query use for client-interactive projections without application-wide hydration or source-of-truth status.
+- Approved risk-bounded optimistic behavior, durable operation identities, explicit indeterminate outcomes, and source-version conflict handling.
+- Approved browser-storage restrictions, identity and permission cleanup, multi-tab invalidation, restoration precedence, and no generic offline mutation queue.
+- Accepted ADR-0014 establishing state ownership, client projection, persistence, restoration, and offline boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
