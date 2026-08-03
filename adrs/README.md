@@ -28,3 +28,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0022](ADR-0022-deterministic-declarative-compatibility-engine.md) | Accepted | Deterministic declarative Compatibility engine |
 | [ADR-0023](ADR-0023-versioned-commercial-quotes-and-inventory-reservations.md) | Accepted | Versioned commercial quotes and Inventory reservations |
 | [ADR-0024](ADR-0024-durable-checkout-orchestration-and-provider-tokenized-payments.md) | Accepted | Durable Checkout orchestration and provider-tokenized payments |
+| [ADR-0025](ADR-0025-federated-post-purchase-continuity.md) | Accepted | Federated post-purchase continuity |

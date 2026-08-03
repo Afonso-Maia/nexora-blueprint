@@ -97,6 +97,12 @@
 - Approved durable Checkout Operations, immediate-authorization and asynchronous-payment profiles, local atomic Order creation, explicit compensation, and truthful pending or indeterminate outcomes.
 - Approved immutable Order commercial, Product, delivery, payment, Compatibility, and consent snapshots without copying mutable source authority.
 - Accepted ADR-0024 establishing durable Checkout orchestration, payment token custody, Order timing, compensation, and reconciliation.
+- Approved Purchase-owned Order lifecycle and quantity accounting with separate Payments, Inventory, Fulfillment, Support, Notification, and Messaging authority.
+- Approved Fulfillment Units, Shipments, return logistics, carrier adapters, delivery-promise history, out-of-order provider handling, and reconciliation.
+- Approved durable item-scoped cancellation coordination, explicit partial outcomes, specialist compensation, and typed Support-case handoff for persistent remedies.
+- Approved source-composed Order Detail, deterministic composite status, customer-safe timeline, federated Orders and Dashboard projections, guest continuity, and Order claim.
+- Approved semantic source notification events, separate in-app interaction and channel-delivery states, governed templates, preferences, suppression, deep links, and provider reconciliation.
+- Accepted ADR-0025 establishing federated post-purchase continuity and its projection and messaging boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
