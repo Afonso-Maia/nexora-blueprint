@@ -61,6 +61,12 @@
 - Approved short-lived workload identity and signed audience-bound subject context while preserving source-domain authorization and step-up enforcement.
 - Approved explicit guest, recovery, account-linking, device, emergency, and delegated-AI identity boundaries with accessible alternatives and audit requirements.
 - Accepted ADR-0018 establishing managed identity, separated realms, server-side sessions, and secure actor propagation.
+- Approved source-enforced hybrid authorization using the authoritative Roles and Permissions module, a shared deterministic kernel, and current source-owned resource facts.
+- Approved typed, versioned policy data; complete-grant evaluation; deterministic deny precedence; explicit decision contracts; and atomic policy activation.
+- Approved enforcement behavior for reads, commands, creation, fields, discovery, exports, reports, Search, AI, notifications, and permission-aware presentation.
+- Approved risk-classed authorization caching, signed least-data projections, bounded revocation propagation, execution-time reauthorization, and narrow execution grants.
+- Approved fail-closed consequential behavior, bounded read-only degradation, explainable decision evidence, and mechanical authorization quality gates.
+- Accepted ADR-0019 establishing source-owned final enforcement and the shared authorization-kernel topology.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

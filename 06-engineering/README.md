@@ -20,6 +20,7 @@ It may establish testability, architectural quality gates, and deployment design
 10. [Domain Modules and Transaction Boundaries](10-domain-modules-and-transaction-boundaries.md) — approved; ledger-aligned authorities, owner-led transactions, governed collaboration, and extraction triggers
 11. [Data Ownership, Storage, and Migration](11-data-ownership-storage-and-migration.md) — approved; PostgreSQL schema isolation, UUIDv7 identity, explicit consistency, online migrations, and recoverable lifecycle
 12. [Identity, Sessions, Authentication, and Assurance](12-identity-sessions-authentication-and-assurance.md) — approved; managed standards-based identity, opaque BFF sessions, passkeys, separated workforce access, and source-owned assurance enforcement
+13. [Authorization and Policy Enforcement](13-authorization-and-policy-enforcement.md) — approved; source-enforced hybrid authorization with a shared deterministic kernel, versioned policy projections, and fail-closed consequential decisions
 
 ## Architectural inputs
 
