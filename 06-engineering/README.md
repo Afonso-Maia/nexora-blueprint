@@ -42,6 +42,7 @@ It may establish testability, architectural quality gates, and deployment design
 32. [Testing Interfaces and Architectural Quality Gates](32-testing-interfaces-and-architectural-quality-gates.md) — approved; authority-aligned test seams, layered evidence, contract and resilience suites, representative data, and blocking architecture gates
 33. [Dependency, Configuration, and Environment Management](33-dependency-configuration-and-environment-management.md) — approved; pinned Node/pnpm/Turborepo builds, governed dependencies, typed startup configuration, isolated environments, and OpenFeature-compatible flags
 34. [CI/CD and Deployment Architecture](34-ci-cd-and-deployment-architecture.md) — approved; GitHub Actions, OIDC deployment identity, build-once signed artifacts, compatible migrations, progressive exposure, and outcome-aware recovery
+35. [ADR and Technology-Selection Governance](35-adr-and-technology-selection-governance.md) — approved; reversibility-scaled decision paths, evidence-based selection, an owned technology lifecycle register, and governed boundary evolution
 
 ## Architectural inputs
 

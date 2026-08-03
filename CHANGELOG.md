@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 technology governance
+
+- Approved reversibility-scaled records for implementation choices, shared conventions, ADRs, Blueprint conflicts, and exceptions.
+- Defined evidence-based technology selection, an owned lifecycle register, deprecation, and service-boundary evolution.
+
 ## Phase 4 delivery architecture
 
 - Approved GitHub Actions with short-lived OIDC deployment identity and signed build-once artifacts.
