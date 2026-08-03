@@ -43,6 +43,7 @@ It may establish testability, architectural quality gates, and deployment design
 33. [Dependency, Configuration, and Environment Management](33-dependency-configuration-and-environment-management.md) — approved; pinned Node/pnpm/Turborepo builds, governed dependencies, typed startup configuration, isolated environments, and OpenFeature-compatible flags
 34. [CI/CD and Deployment Architecture](34-ci-cd-and-deployment-architecture.md) — approved; GitHub Actions, OIDC deployment identity, build-once signed artifacts, compatible migrations, progressive exposure, and outcome-aware recovery
 35. [ADR and Technology-Selection Governance](35-adr-and-technology-selection-governance.md) — approved; reversibility-scaled decision paths, evidence-based selection, an owned technology lifecycle register, and governed boundary evolution
+36. [Page and Template Engineering Mapping](36-page-and-template-engineering-mapping.md) — approved; universal engineering contracts, nine template profiles, all 89 canonical page IDs, runtime routing, and source-authority continuity
 
 ## Architectural inputs
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## Phase 4 page and template mapping
+
+- Mapped all 89 canonical pages and nine approved templates to implementation profiles.
+- Defined universal engineering obligations, surface runtime routing, and consequential source-authority handoffs.
+
 ## Phase 4 technology governance
 
 - Approved reversibility-scaled records for implementation choices, shared conventions, ADRs, Blueprint conflicts, and exceptions.
