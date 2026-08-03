@@ -21,6 +21,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 13. [Navigation Components](13-navigation-components.md) — approved; search-first, scope-aware navigation
 14. [Search and Filtering Components](14-search-and-filtering-components.md) — approved; visible query, intent, and refinement state
 15. [Product and Merchandising Components](15-product-and-merchandising-components.md) — approved; fact-led commerce presentation
+16. [Comparison and Recommendation Patterns](16-comparison-and-recommendation-patterns.md) — approved; layered decision support
 
 ## Architectural inputs
 
