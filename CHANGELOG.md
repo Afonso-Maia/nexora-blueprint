@@ -39,6 +39,11 @@
 - Approved risk-bounded optimistic behavior, durable operation identities, explicit indeterminate outcomes, and source-version conflict handling.
 - Approved browser-storage restrictions, identity and permission cleanup, multi-tab invalidation, restoration precedence, and no generic offline mutation queue.
 - Accepted ADR-0014 establishing state ownership, client projection, persistence, restoration, and offline boundaries.
+- Approved separate logical Customer and Admin BFFs co-deployed with their experience runtimes and a private HTTP/JSON Commerce Core API.
+- Approved OpenAPI 3.1.x as the canonical HTTP contract, RFC 9457 Problem Details, strong ETags, conditional requests, opaque cursor pagination, and runtime schema validation.
+- Approved explicit idempotency and durable operation resources for consequential, long-running, and indeterminate commands.
+- Approved purpose-built experience representations without a GraphQL gateway, direct browser-to-domain access, or general public developer API.
+- Accepted ADR-0015 establishing BFF topology, synchronous contract style, failure semantics, concurrency, pagination, compatibility, and external API boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
