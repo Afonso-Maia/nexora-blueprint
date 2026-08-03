@@ -24,6 +24,7 @@ Phase 3 defines the shared visual, interaction, accessibility, responsive, conte
 16. [Comparison and Recommendation Patterns](16-comparison-and-recommendation-patterns.md) — approved; layered decision support
 17. [Cart and Checkout Patterns](17-cart-and-checkout-patterns.md) — approved; one adaptive, idempotent transaction
 18. [Account and Post-Purchase Patterns](18-account-and-post-purchase-patterns.md) — approved; federated continuity and obligation-first status
+19. [Support and Authentication Patterns](19-support-and-authentication-patterns.md) — approved; case-centered support and focused identity recovery
 
 ## Architectural inputs
 
