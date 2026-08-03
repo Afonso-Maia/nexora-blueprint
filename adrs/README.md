@@ -43,3 +43,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0037](ADR-0037-build-once-immutable-progressive-delivery.md) | Accepted | Build-once immutable progressive delivery |
 | [ADR-0038](ADR-0038-risk-based-layered-quality-evidence.md) | Accepted | Risk-based layered quality evidence |
 | [ADR-0039](ADR-0039-risk-led-vertical-delivery-with-bounded-enabling-runway.md) | Accepted | Risk-led vertical delivery with bounded enabling runway |
+| [ADR-0040](ADR-0040-repository-native-blueprint-publication.md) | Accepted | Repository-native Blueprint publication |

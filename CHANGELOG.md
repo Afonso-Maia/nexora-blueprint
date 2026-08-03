@@ -1,5 +1,13 @@
 # Changelog
 
+## Phase 7 framing and publication architecture
+
+- Renamed Publication to Phase 7 — Blueprint Publication and Documentation Experience and began the phase.
+- Approved a repository-native generated documentation site that preserves repository Markdown as the sole authoritative content layer.
+- Confirmed Astro Starlight as the publication foundation while retaining versions, providers, domain, analytics, search implementation, and publication date as controlled selections.
+- Defined deterministic source-to-route mapping, governed metadata, generated navigation and indexes, non-authoritative presentation components, validation obligations, and valid publication-increment criteria.
+- Accepted ADR-0040 establishing the repository-native publication architecture.
+
 ## Phase 6 complete
 
 - Approved all 43 Delivery Roadmap and Incremental Release Planning decisions.
