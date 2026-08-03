@@ -36,6 +36,16 @@ It consumes rather than redefines the approved Blueprint. Staffing, implementati
 26. [Support Case and External-Work Testing](26-support-case-and-external-work-testing.md) — approved; typed cases, evidence, obligations, remedies, and provider reconciliation
 27. [PC Builder Persistence and Recalculation Testing](27-pc-builder-persistence-and-recalculation-testing.md) — approved; durable revisions, conflict, dependency recalculation, and conversion
 28. [AI Grounding, Provenance, Safety, and Optionality Testing](28-ai-grounding-provenance-safety-and-optionality-testing.md) — approved; versioned evaluation with deterministic-path equivalence
+29. [Idempotency, Retry, and Reconciliation Testing](29-idempotency-retry-and-reconciliation-testing.md) — approved; crash-point and ambiguity proof for consequential work
+30. [Error, Degraded-Mode, and Resilience Testing](30-error-degraded-mode-and-resilience-testing.md) — approved; dependency failure matrices, chaos, restore, and regional rebuild drills
+31. [Caching, Offline, and State-Restoration Testing](31-caching-offline-and-state-restoration-testing.md) — approved; non-authoritative cache and explicit restoration precedence
+32. [Performance, Load, Stress, Endurance, and Capacity Validation](32-performance-load-stress-endurance-and-capacity-validation.md) — approved; budget-led workload models and critical-path protection
+33. [Observability and Operational-Diagnostics Validation](33-observability-and-operational-diagnostics-validation.md) — approved; correlated outcome, redaction, alert, and runbook evidence
+34. [Browser, Device, Viewport, Input, and Network Coverage](34-browser-device-viewport-input-and-network-coverage.md) — approved; capability-based tiered coverage register
+35. [Test Data, Fixtures, Factories, and Privacy](35-test-data-fixtures-factories-and-privacy.md) — approved; deterministic classified synthetic data products
+36. [Test Environments, Isolation, Reset, and Parity](36-test-environments-isolation-reset-and-parity.md) — approved; smallest faithful environment with explicit drift
+37. [Synthetic Monitoring and Safe Production Validation](37-synthetic-monitoring-and-safe-production-validation.md) — approved; bounded non-destructive production evidence
+38. [Defect, Triage, Quarantine, and Flaky-Test Policy](38-defect-triage-quarantine-and-flaky-test-policy.md) — approved; consequence-led severity and no silent retry
 
 ## Architectural inputs
 

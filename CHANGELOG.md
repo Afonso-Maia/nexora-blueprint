@@ -40,6 +40,14 @@
 - Defined durable PC Builder revision, recalculation, sharing, and Cart-conversion evidence.
 - Established versioned AI grounding, provenance, safety, privacy, and deterministic-path optionality evaluation.
 
+## Phase 5 resilience and test operations
+
+- Approved crash-point idempotency/retry/reconciliation evidence and host-owned degraded-mode recovery drills.
+- Defined cache authority, offline safety, restoration precedence, performance/capacity, and observability validation.
+- Established capability-based browser/device/input/network coverage and deterministic classified synthetic data.
+- Approved faithful isolated environment tiers, bounded production synthetics, and progressive exposure validation.
+- Defined consequence-led defect severity, triage, expiring quarantine, and a prohibition on silent flaky-test retry.
+
 ## Phase 4 complete
 
 - Validated all 36 recommended Engineering scope areas and the modular-core framing decision.
