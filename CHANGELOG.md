@@ -23,6 +23,12 @@
 - Approved feature-oriented route modules, governed Design System consumption, native-first forms and navigation, strict runtime-boundary validation, and capability-based browser support.
 - Approved frontend accessibility, localization, security, state-ownership, performance, and quality-gate requirements without pre-selecting their dedicated implementation tools.
 - Accepted ADR-0011 establishing the frontend technology foundation and server-first posture.
+- Approved DTCG 2025.10 as the canonical machine-readable token source and Style Dictionary as the governed transformation engine.
+- Approved generated semantic CSS custom properties, standards-based CSS, cascade layers, and CSS Modules without core runtime CSS-in-JS.
+- Approved layer-aligned React Design System packages, selective React Aria behavior behind Nexora APIs, and governed Lucide access.
+- Approved Storybook as the isolated implementation catalog and reference-composition environment subordinate to the Blueprint.
+- Approved coordinated semantic versioning, immutable release identity, migration guidance, and cross-consumer validation for Design System releases.
+- Accepted ADR-0012 establishing the Design System implementation foundation.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.
