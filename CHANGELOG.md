@@ -18,6 +18,11 @@
 - Approved co-deployed authoritative domain modules, separately executed durable core work, and independently degradable Search and AI capabilities.
 - Approved synchronous and asynchronous path rules that preserve source authorization, idempotency, correlation, explicit outcomes, and provider reconciliation.
 - Accepted ADR-0010 establishing the initial runtime topology, trust segmentation, and co-deployment model.
+- Approved TypeScript, React, and Next.js App Router as the shared frontend foundation for separate Customer and Administrative Experience applications.
+- Approved server-first composition with Server Components by default and explicit low Client Component boundaries.
+- Approved feature-oriented route modules, governed Design System consumption, native-first forms and navigation, strict runtime-boundary validation, and capability-based browser support.
+- Approved frontend accessibility, localization, security, state-ownership, performance, and quality-gate requirements without pre-selecting their dedicated implementation tools.
+- Accepted ADR-0011 establishing the frontend technology foundation and server-first posture.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

@@ -12,6 +12,7 @@ It may establish testability, architectural quality gates, and deployment design
 2. [Mission, Principles, Scope, and Governance](02-mission-principles-scope-and-governance.md) — approved; architecture-led governance with evidence-based completion gates
 3. [Repository and Application Organization](03-repository-and-application-organization.md) — approved; governed monorepo with independently buildable projects and enforced boundaries
 4. [System Context and Runtime Topology](04-system-context-and-runtime-topology.md) — approved; trust-segmented customer, Admin, core, worker, Search, and AI runtime roles
+5. [Frontend Architecture](05-frontend-architecture.md) — approved; TypeScript, React, and Next.js App Router with server-first composition
 
 ## Architectural inputs
 

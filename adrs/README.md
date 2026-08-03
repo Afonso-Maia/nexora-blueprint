@@ -14,3 +14,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0008](ADR-0008-modular-authoritative-core.md) | Accepted | Modular authoritative core and selective deployment boundaries |
 | [ADR-0009](ADR-0009-governed-monorepo.md) | Accepted | Governed monorepo and enforced project boundaries |
 | [ADR-0010](ADR-0010-trust-segmented-runtime-topology.md) | Accepted | Trust-segmented runtime topology |
+| [ADR-0011](ADR-0011-nextjs-frontend-foundation.md) | Accepted | TypeScript, React, and Next.js frontend foundation |
