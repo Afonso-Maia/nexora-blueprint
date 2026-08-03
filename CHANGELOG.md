@@ -26,6 +26,7 @@
 - Approved corrective Cart and one adaptive Checkout with modular review, explicit consent, idempotent commitment, and operation-aware outcomes.
 - Approved federated Account continuity, obligation-first Dashboard patterns, Order Detail presentation, guest access, assurance, restrictions, notifications, and privacy workflows.
 - Approved intent-and-context Support, structured cases and obligations, and focused non-disclosing authentication and recovery patterns.
+- Approved persistent PC Builder Engineering Workspace patterns for slots, Compatibility, budget, performance, AI, save/share, conflict, and Cart conversion.
 - Approved the Phase 2B product-surface classification model for the Page Inventory.
 - Approved comprehensive canonical population with provisional metadata and independent delivery horizons.
 - Approved destination-oriented page boundaries with explicit exceptions.
