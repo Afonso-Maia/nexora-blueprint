@@ -32,3 +32,4 @@ ADRs capture cross-cutting or expensive-to-reverse decisions.
 | [ADR-0026](ADR-0026-shared-typed-support-case-and-bounded-external-work.md) | Accepted | Shared typed Support Case and bounded external work |
 | [ADR-0027](ADR-0027-durable-server-build-and-immutable-share-snapshots.md) | Accepted | Durable server PC Build and immutable Share snapshots |
 | [ADR-0028](ADR-0028-managed-model-orchestration-with-governed-tools.md) | Accepted | Managed model orchestration with governed tools |
+| [ADR-0029](ADR-0029-separate-capability-adaptive-admin-application.md) | Accepted | Separate capability-adaptive Admin application |

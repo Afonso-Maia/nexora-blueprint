@@ -121,6 +121,11 @@
 - Approved versioned prompts and model routes, no implicit cross-conversation memory, provider data minimization, layered prompt-injection controls, and Portuguese-first evaluation.
 - Approved complete deterministic operation during AI failure with bounded fallback, streaming, retention, deletion, safety, and observability behavior.
 - Accepted ADR-0028 establishing managed model orchestration, governed tools, grounding, and confirmation boundaries.
+- Approved a separate workforce Administrative Dashboard application, BFF, identity realm, session boundary, telemetry scope, and deployment.
+- Approved one capability-adaptive shell with server-first route composition and purpose-built source-domain Admin contracts.
+- Approved governed worklists, saved views, Selection Snapshots, Resource Workspaces, Change Envelopes, approvals, actions, bulk Operations, and protected exports.
+- Approved source-owned Settings behavior, Audit presentation, permission-aware responsive continuity, and prohibition of direct storage, provider, or generic CRUD access.
+- Accepted ADR-0029 establishing the separate capability-adaptive Admin application and shared-tooling boundaries.
 - Renamed the next stage to Phase 3 — Design System and Experience Specification.
 - Approved the six-layer Foundations, Tokens, Primitives, Components, Patterns, and Page templates architecture.
 - Accepted ADR-0004 establishing the layered Design System architecture and separate-asset threshold.

@@ -30,6 +30,7 @@ It may establish testability, architectural quality gates, and deployment design
 20. [Support Cases, Communication, Evidence, and External Work](20-support-cases-communication-evidence-and-external-work.md) — approved; one typed Case envelope, append-only communication, governed Evidence, explicit Obligations, source Remedy Requests, and bounded provider packages
 21. [PC Builder Persistence and Recalculation](21-pc-builder-persistence-and-recalculation.md) — approved; durable guest and customer Builds, immutable internal Revisions, dependency-aware recalculation, immutable Share snapshots, and atomic Cart conversion
 22. [AI Orchestration, Grounding, Provenance, and Safety](22-ai-orchestration-grounding-provenance-and-safety.md) — approved; managed model adapters, governed source tools, explicit context and citations, human-confirmed effects, and optional degradation
+23. [Administrative Dashboard Application Architecture](23-administrative-dashboard-application-architecture.md) — approved; separate workforce application, capability shell, source-owned panels, governed changes, durable bulk work, and protected exports
 
 ## Architectural inputs
 
