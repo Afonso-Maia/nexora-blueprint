@@ -23,6 +23,7 @@ The reproducible release identity is the reviewed Git commit plus the SHA-256 di
 | Launch date | Not selected | Public indexing remains disabled |
 | Performance budgets | 650 KiB maximum per rendered HTML document; 15 MiB total Pagefind output | Initial measured blocking budgets; revisit from hosted constrained-network evidence |
 | Availability and recovery targets | Not selected | Define with provider capability and named operational owner |
+| Vercel preview build runtime | Provider Node 24 currently resolves to `24.15.0` | Below repository minimum `24.18.0`; provider-only engine enforcement bypass is allowed for non-indexed evidence, never release acceptance |
 | Release archive retention | Not selected | CI preview artifacts retain for 14 days only |
 | Post-launch review | Not scheduled | Set relative to approved launch date |
 
@@ -104,6 +105,7 @@ Source owners review high-consequence content on their governed cadence. Automat
 
 - The temporary `nexora-blueprint.vercel.app` origin has not yet been verified against a native Git build containing the complete reviewed publication.
 - Vercel Git integration, project settings, and protected deployment values are configured. Hosted route evidence, provider logs, custom DNS, and an external monitor are not yet accepted.
+- Vercel's Node 24 build image supplied `24.15.0` on the first native build, below the approved repository minimum. The preview-only engine-enforcement exception blocks production acceptance until removed.
 - Provider-specific preview, immutable promotion, smoke, rollback, outage fallback, and access-recovery rehearsals are pending.
 - Named publication, accessibility, security/privacy, and platform-operations assignees are pending.
 - Manual screen-reader, forced-color, zoom/reflow, print, constrained-network, search-failure, and disabled-user evidence is not yet signed off.

@@ -11,7 +11,7 @@ Use `nexora-blueprint.vercel.app` as the temporary provider hostname and canonic
 
 ## Implementation
 
-- `vercel.json` declares the Astro framework, locked scripts-disabled installation, `pnpm build`, the `dist/` output boundary, trailing-slash behavior, security headers, cache policy, and preview-safe indexing policy.
+- `vercel.json` declares the Astro framework, locked scripts-disabled installation, the repository build, the `dist/` output boundary, trailing-slash behavior, security headers, cache policy, and preview-safe indexing policy.
 - The connected Vercel Git project builds committed source with Node 24 and the repository-pinned pnpm and dependency lock. This is the active hosted-preview path and creates an immutable deployment for each Git revision.
 - Publication CI independently validates and packages `dist/` and `.vercel/output` from the same reviewed source and records a SHA-256 digest. The CI artifact remains the release candidate required by the approved build-once production gate.
 - The manual prebuilt workflow remains present but is not the active preview path: its initial raw Build Output API deployments returned a root 404, and the later pinned-CLI attempt did not produce accepted hosted smoke evidence. These failed attempts are retained as operational evidence, not represented as readiness success.
@@ -30,11 +30,14 @@ On 2026-08-18, the public GitHub repository `Afonso-Maia/nexora-blueprint` was c
 
 Vercel project `nexora-blueprint` (`prj_mmkXuae2AINVg6NiQr0NtnigUq95`) was created in team `team_fnzzyCQbz3qN9je0aNFYYrsc`, linked locally through the ignored `.vercel/project.json` file, and connected to GitHub. Vercel reports Node 24 and the temporary `nexora-blueprint.vercel.app` domains. Before the native-source configuration commit, the provider deployment history contains the setup placeholder and failed prebuilt smoke candidates; none is accepted as the reviewed publication release.
 
+The first native Git build correlated production deployment `dpl_GsrPR2rjUqHuEbDnWNEgDU244uiF` with commit `acff4edd84c6121da92aa20eda8453d70c06d643` and proved repository cloning, `main` production-branch selection, and provider build invocation. It stopped before installation because Vercel's Node 24 build image supplied `24.15.0`, below the repository requirement `>=24.18.0 <25`. The requirement remains unchanged. Provider-only install and build commands disable pnpm engine enforcement solely to obtain non-indexed hosted-preview evidence; this exception does not approve production, alter the Node 24.19 release toolchain, or satisfy the immutable-artifact gate.
+
 ## Evidence still required
 
 This selection does not claim deployment completion. The gate still requires:
 
 - preview deployment and hosted route, header, privacy, performance, and 404 evidence;
+- removal of the provider Node `24.15.0` exception after Vercel supplies a patch satisfying `>=24.18.0 <25`;
 - staged production deployment, protected approval, promotion, and immutable digest correlation;
 - rollback to a previously promoted artifact and recovery rehearsal;
 - provider access recovery, logs, monitoring, and export verification; and
