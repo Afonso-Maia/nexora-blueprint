@@ -55,7 +55,7 @@ Phase 7 transforms the approved Nexora Product Blueprint into a polished, access
 - [Status, Authority, and Generated Index Implementation](44-status-and-generated-index-implementation.md) — completed status/authority presentation and source-derived ADR and 89-page coverage views
 - [Publication Operations and Readiness Evidence](45-publication-operations-and-readiness-evidence.md) — in-progress controlled-value register, hosting comparison, owner roster, automated evidence, and launch/recovery procedures
 - [Link, History, Journey, and Resilience Implementation](46-link-history-journey-and-resilience-implementation.md) — completed source-link graph, backlinks, lifecycle gate, guided journeys, history, 404, rendered validation, and resilient presentation increment
-- [Vercel Hosting Selection and Deployment Preparation](47-vercel-hosting-selection-and-deployment-preparation.md) — approved Vercel selection, temporary provider hostname, prebuilt immutable deployment workflow, and remaining account-level evidence
+- [Vercel Hosting Selection and Deployment Preparation](47-vercel-hosting-selection-and-deployment-preparation.md) — approved Vercel selection, temporary provider hostname, native hosted-preview path, immutable-production gate, and remaining account-level evidence
 
 ## Phase boundary
 

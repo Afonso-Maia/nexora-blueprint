@@ -11,24 +11,24 @@ Use `nexora-blueprint.vercel.app` as the temporary provider hostname and canonic
 
 ## Implementation
 
-- `pnpm stage:vercel` converts the already validated `dist/` directory into Build Output API version 3 under `.vercel/output` without rebuilding source.
-- Generated Vercel output carries static routing, the accessible 404, CSP and defensive headers, preview isolation, immutable hashed-asset caching, and revalidated HTML caching.
-- Publication CI packages `dist/` and `.vercel/output` together and records their SHA-256 digest.
-- A separate manually dispatched workflow downloads the exact reviewed CI artifact, verifies its digest, uploads its content-addressed files through Vercel's deployment REST API, creates the deployment, and runs hosted smoke checks.
-- The deployment client uses Node's built-in cryptography and Fetch APIs, avoiding a large deployment-only dependency tree that did not pass the repository audit gate. Staged production requests the production target; provider domain auto-assignment remains disabled so later promotion changes routing without rebuilding the artifact.
-- The post-change locked dependency audit reports no known vulnerabilities, and the deployment-client syntax check, source validation, Astro check, production build, rendered validation, Vercel staging, security validation, and whitespace validation pass locally.
+- `vercel.json` declares the Astro framework, locked scripts-disabled installation, `pnpm build`, the `dist/` output boundary, trailing-slash behavior, security headers, cache policy, and preview-safe indexing policy.
+- The connected Vercel Git project builds committed source with Node 24 and the repository-pinned pnpm and dependency lock. This is the active hosted-preview path and creates an immutable deployment for each Git revision.
+- Publication CI independently validates and packages `dist/` and `.vercel/output` from the same reviewed source and records a SHA-256 digest. The CI artifact remains the release candidate required by the approved build-once production gate.
+- The manual prebuilt workflow remains present but is not the active preview path: its initial raw Build Output API deployments returned a root 404, and the later pinned-CLI attempt did not produce accepted hosted smoke evidence. These failed attempts are retained as operational evidence, not represented as readiness success.
+- Native Vercel Git preview is a controlled pre-launch exception for acquiring hosted accessibility, routing, privacy, performance, and resilience evidence. It does not satisfy exact CI-artifact promotion and cannot by itself complete Phase 7.
+- The locked dependency audit reports no known vulnerabilities, and source validation, Astro check, production build, rendered validation, Vercel staging, security validation, and whitespace validation pass locally.
 
 ## Account configuration prerequisite
 
-Create or link the Vercel project with the intended temporary project name and configure environment-protected GitHub secrets for `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, and a dedicated expiring `VERCEL_TOKEN`. Disable Vercel Git-source auto-deployment so the provider cannot rebuild a second artifact outside the governed CI path.
+Link the Vercel project to the public GitHub repository with `main` as the production branch, repository root as the Root Directory, Astro as the framework, `pnpm build` as the Build Command, `dist` as the Output Directory, locked scripts-disabled installation, and Node 24. Keep every deployment non-indexable during pre-launch evidence gathering.
 
-The token receives only the scope needed to deploy and inspect this Blueprint project, is unavailable to untrusted pull requests, and is rotated on the owned schedule. The preferred short-lived workload-identity requirement remains an open provider limitation because Vercel’s documented OIDC federation issues identity from Vercel workloads to external services rather than authenticating GitHub Actions to the Vercel deployment API.
+The environment-protected GitHub values `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, and `VERCEL_TOKEN` remain isolated from untrusted pull requests while the build-once deployment path is unresolved. They are not required by native Vercel Git builds and may be removed after the production promotion mechanism is replaced or retired. The preferred short-lived workload-identity requirement remains an open provider limitation because Vercel’s documented OIDC federation issues identity from Vercel workloads to external services rather than authenticating GitHub Actions to the Vercel deployment API.
 
 ## Connected project evidence
 
-On 2026-08-18, the public GitHub repository `Afonso-Maia/nexora-blueprint` was connected to the local checkout after a sensitive-data scan passed across the complete committed history. Only commit `20c327cd21911248a2a80981905386aca9b970e3` and its ancestors were pushed; the Phase 7 working tree remained uncommitted and unpublished.
+On 2026-08-18, the public GitHub repository `Afonso-Maia/nexora-blueprint` was connected to the local checkout after a sensitive-data scan passed across the complete committed history. Phase 7 implementation commits were subsequently validated in GitHub Actions and pushed to `main`; no protected deployment value is committed.
 
-Vercel project `nexora-blueprint` (`prj_mmkXuae2AINVg6NiQr0NtnigUq95`) was created in team `team_fnzzyCQbz3qN9je0aNFYYrsc` and linked locally through the ignored `.vercel/project.json` file. The temporary `nexora-blueprint.vercel.app` hostname returns a minimal `noindex, nofollow` setup placeholder. This proves account access, project creation, routing, and TLS only; it is not the reviewed publication artifact and does not satisfy preview, production, smoke, accessibility, performance, rollback, or recovery gates.
+Vercel project `nexora-blueprint` (`prj_mmkXuae2AINVg6NiQr0NtnigUq95`) was created in team `team_fnzzyCQbz3qN9je0aNFYYrsc`, linked locally through the ignored `.vercel/project.json` file, and connected to GitHub. Vercel reports Node 24 and the temporary `nexora-blueprint.vercel.app` domains. Before the native-source configuration commit, the provider deployment history contains the setup placeholder and failed prebuilt smoke candidates; none is accepted as the reviewed publication release.
 
 ## Evidence still required
 

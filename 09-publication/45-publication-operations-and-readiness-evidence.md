@@ -38,13 +38,13 @@ The portable `dist/` artifact and `_headers` contract were evaluated against pro
 
 Capability references: [Cloudflare Direct Upload](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/), [Cloudflare redirects](https://developers.cloudflare.com/pages/configuration/redirects/), [Cloudflare rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/), [Vercel deployments](https://vercel.com/docs/deployments/overview), [Vercel promotion](https://vercel.com/docs/deployments/promoting-a-deployment), [Vercel rollback](https://vercel.com/docs/instant-rollback), and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
-Vercel is selected. The Blueprint uses the Build Output API and a dependency-free Node deployment client to upload the already validated artifact through Vercel's content-addressed REST API. A staged production deployment requests the production target while automatic domain assignment remains disabled, and is promoted only after review without rebuilding. Cloudflare Pages remains the documented exit candidate if Vercel ceases to satisfy the gate.
+Vercel is selected. Native Vercel Git deployment is the active non-indexed hosted-preview path, using the committed source, locked dependency graph, Node 24, and repository build command. The independently packaged CI artifact remains the required production release candidate; native preview evidence does not waive the approved build-once promotion gate. Cloudflare Pages remains the documented exit candidate if Vercel ceases to satisfy the gate.
 
 ## Vercel deployment control
 
-CI stages `dist/` as `.vercel/output/static`, generates Build Output API version 3 routing and header configuration, and packages both from the same validated build. The manual Vercel workflow accepts an exact successful CI run and full commit SHA, verifies the artifact digest, deploys only `.vercel/output`, and smoke-tests canonical routes, generated views, CSP, indexing isolation, and the custom 404.
+CI stages `dist/` as `.vercel/output/static`, generates Build Output API version 3 routing and header configuration, and packages both from the same validated build. The connected Vercel project separately builds Git revisions for hosted preview evidence using settings committed in `vercel.json`. Preview acceptance requires correlating the deployment with its Git SHA and running canonical-route, generated-view, CSP, indexing-isolation, search, asset, and custom-404 checks.
 
-Vercel project linking must supply `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`. CI authentication uses a dedicated, least-privilege `VERCEL_TOKEN` with the shortest operational expiry available and environment-scoped GitHub access. Vercel does not currently document GitHub-issued OIDC as CLI deployment authentication; the expiring token is an owned exception to the preferred short-lived workload-identity posture and must be rotated or replaced when a supported federation path exists.
+Native Vercel Git preview does not consume GitHub deployment secrets. The existing environment-protected `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, and `VERCEL_TOKEN` values remain quarantined while the exact-artifact production mechanism is unresolved. Vercel does not currently document GitHub-issued OIDC as CLI deployment authentication; any future token-based promotion is an owned exception to the preferred short-lived workload-identity posture and must be least-privilege, rotated, or replaced when supported federation exists.
 
 ## Owner roster
 
@@ -92,7 +92,7 @@ Automation does not satisfy the assistive-technology or disabled-user gates by i
 6. On a blocking regression, reassign the production origin to the last approved digest, repeat smoke checks, and open an incident record.
 7. Quarterly after launch, rehearse provider access recovery, artifact redeployment, DNS recovery, and rollback; record elapsed recovery and gaps.
 
-The Vercel project and temporary hostname are configured. The procedure cannot be rehearsed until the committed workflow consumes the protected deployment credential and the blocking owners are assigned.
+The Vercel project, Git connection, Node version, build settings, and temporary hostname are configured. Hosted preview checks begin with the next `main` deployment. Exact-artifact promotion, rollback, and recovery cannot be accepted until the production mechanism and blocking owners are assigned.
 
 ## Incident and freshness process
 
@@ -102,8 +102,8 @@ Source owners review high-consequence content on their governed cadence. Automat
 
 ## Known limitations and open blocking evidence
 
-- The temporary `nexora-blueprint.vercel.app` origin currently serves only a verified `noindex, nofollow` setup placeholder; the reviewed publication artifact has not been deployed.
-- Vercel project and organization identifiers are configured, and the repository owner reports the protected deployment secrets are present. Their usability remains to be proven by the first governed workflow run; provider logs, custom DNS, and an external monitor are not configured.
+- The temporary `nexora-blueprint.vercel.app` origin has not yet been verified against a native Git build containing the complete reviewed publication.
+- Vercel Git integration, project settings, and protected deployment values are configured. Hosted route evidence, provider logs, custom DNS, and an external monitor are not yet accepted.
 - Provider-specific preview, immutable promotion, smoke, rollback, outage fallback, and access-recovery rehearsals are pending.
 - Named publication, accessibility, security/privacy, and platform-operations assignees are pending.
 - Manual screen-reader, forced-color, zoom/reflow, print, constrained-network, search-failure, and disabled-user evidence is not yet signed off.
