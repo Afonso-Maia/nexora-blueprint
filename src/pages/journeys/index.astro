@@ -1,0 +1,9 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { journeys } from '../../lib/journeys.mjs';
+---
+<StarlightPage frontmatter={{title:'Guided journeys',description:'Optional source-linked paths through the authoritative Nexora Product Blueprint.'}}>
+  <p class="source-note"><strong>Orientation.</strong> These ordered paths quote no product truth. Every step exits to a canonical source or clearly labelled generated view. The manifests implement the journeys approved in <a href="/09-publication/07-phase-navigation-and-guided-journeys/">Phase Navigation and Guided Journeys</a>.</p>
+  <div class="journeys">{journeys.map((journey) => <article id={journey.id}><h2>{journey.title}</h2><dl><div><dt>Audience</dt><dd>{journey.audience}</dd></div><div><dt>Purpose</dt><dd>{journey.purpose}</dd></div><div><dt>Reading scope</dt><dd>{journey.scope}</dd></div><div><dt>Prerequisite</dt><dd>{journey.prerequisite}</dd></div></dl><ol>{journey.steps.map(([label,href]) => <li><a href={href}>{label}</a></li>)}</ol><p><strong>Completion outcome:</strong> {journey.outcome}.</p></article>)}</div>
+</StarlightPage>
+<style>.source-note{padding:1rem;border-inline-start:.25rem solid var(--sl-color-accent);background:var(--sl-color-gray-6)}.journeys{display:grid;gap:1.25rem}.journeys article{padding:1rem;border:1px solid var(--sl-color-gray-5);border-radius:.5rem}.journeys h2{margin-top:0}.journeys dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.journeys dt{font-weight:700}.journeys dd{margin:0}@media(max-width:40rem){.journeys dl{grid-template-columns:1fr}}</style>

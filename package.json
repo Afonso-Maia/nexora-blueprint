@@ -1,0 +1,35 @@
+{
+  "name": "nexora-blueprint",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": ">=24.18.0 <25",
+    "pnpm": "10.18.3"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/validate-blueprint.mjs && astro build && node scripts/validate-rendered.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "validate": "node scripts/validate-blueprint.mjs",
+    "validate:rendered": "node scripts/validate-rendered.mjs",
+    "validate:security": "node scripts/validate-security.mjs",
+    "stage:vercel": "node scripts/stage-vercel-output.mjs",
+    "deploy:vercel": "node scripts/deploy-vercel.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.2.2",
+    "@astrojs/starlight": "0.41.7",
+    "astro": "7.2.0",
+    "sharp": "0.35.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "typescript": "5.9.3"
+  },
+  "volta": {
+    "node": "24.19.0"
+  }
+}

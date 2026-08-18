@@ -1,0 +1,14 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { readFile } from 'node:fs/promises';
+import { loadAdrs } from '../../lib/blueprint-data.mjs';
+const changelog = await readFile('CHANGELOG.md','utf8');
+const milestones = [...changelog.matchAll(/^##\s+(.+)$/gm)].map((match)=>match[1]);
+const adrs = await loadAdrs();
+---
+<StarlightPage frontmatter={{title:'Blueprint history',description:'Generated milestone and ADR chronology with canonical source links.'}}>
+  <p class="source-note"><strong>Generated view.</strong> The <a href="/CHANGELOG/">Changelog</a> and <a href="/adrs/">ADR collection</a> remain authoritative. Git is supporting provenance and is not reproduced here.</p>
+  <section><h2>Milestones</h2><ol>{milestones.map((title)=><li>{title} — <a href="/CHANGELOG/">view in changelog</a></li>)}</ol></section>
+  <section><h2>ADR chronology</h2><ol reversed>{[...adrs].reverse().map((adr)=><li><a href={adr.route}>{adr.id}: {adr.title}</a> — <strong>{adr.status}</strong>{adr.date && ` · ${adr.date}`}</li>)}</ol></section>
+</StarlightPage>
+<style>.source-note{padding:1rem;border-inline-start:.25rem solid var(--sl-color-accent);background:var(--sl-color-gray-6)}li{margin-block:.4rem}</style>

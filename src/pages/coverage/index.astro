@@ -1,0 +1,110 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { loadCoverage } from '../../lib/blueprint-data.mjs';
+
+const { pages, templateCount } = await loadCoverage();
+const templates = [...new Set(pages.map((page) => page.template))];
+const increments = [...new Set(pages.map((page) => page.increment))];
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Page and Template Coverage',
+    description: 'Generated cross-phase coverage explorer for all canonical Nexora pages and templates.',
+  }}
+>
+  <p class="source-note">
+    Generated from the authoritative <a href="/03-product-structure/01-page-inventory/">Page Inventory</a>,
+    <a href="/04-design-system/26-page-to-system-mapping/">Design System mapping</a>,
+    <a href="/06-engineering/36-page-and-template-engineering-mapping/">engineering mapping</a>,
+    <a href="/07-testing/44-page-and-template-testing-mapping/">testing mapping</a>, and
+    <a href="/08-roadmap/42-increment-to-page-and-template-mapping/">delivery mapping</a>.
+  </p>
+
+  <div class="summary" aria-label="Coverage totals">
+    <div><strong>{pages.length}</strong><span>canonical pages</span></div>
+    <div><strong>{templateCount}</strong><span>primary templates</span></div>
+    <div><strong>{increments.length}</strong><span>mapped increments</span></div>
+  </div>
+
+  <div class="filters" role="search" aria-label="Filter page coverage">
+    <label>Find a page<input id="coverage-query" type="search" placeholder="ID, name, owner, or pattern" /></label>
+    <label>Template<select id="coverage-template"><option value="">All templates</option>{templates.map((value) => <option>{value}</option>)}</select></label>
+    <label>Increment<select id="coverage-increment"><option value="">All increments</option>{increments.map((value) => <option>{value}</option>)}</select></label>
+  </div>
+
+  <p id="coverage-count" aria-live="polite">Showing all {pages.length} pages.</p>
+
+  <div class="coverage-table" tabindex="0" role="region" aria-label="Canonical page coverage table">
+    <table>
+      <thead><tr><th scope="col">Page</th><th scope="col">Template</th><th scope="col">Owner</th><th scope="col">Primary increment</th><th scope="col">Cross-phase profiles</th></tr></thead>
+      <tbody>
+        {pages.map((page) => (
+          <tr
+            data-page
+            data-template={page.template}
+            data-increment={page.increment}
+            data-search={`${page.id} ${page.name} ${page.owner} ${page.patterns} ${page.emphasis}`.toLowerCase()}
+          >
+            <th scope="row"><a href={page.inventoryHref}><code>{page.id}</code><span>{page.name}</span></a></th>
+            <td>{page.template}</td>
+            <td>{page.owner}</td>
+            <td>{page.increment}</td>
+            <td>
+              <details>
+                <summary>View profiles</summary>
+                <p><strong>Design:</strong> {page.patterns}. {page.emphasis}</p>
+                <p><strong>Engineering:</strong> {page.engineering?.rendering}. {page.engineering?.emphasis}</p>
+                <p><strong>Testing:</strong> {page.testing}</p>
+              </details>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const query = document.querySelector<HTMLInputElement>('#coverage-query');
+    const template = document.querySelector<HTMLSelectElement>('#coverage-template');
+    const increment = document.querySelector<HTMLSelectElement>('#coverage-increment');
+    const rows = [...document.querySelectorAll<HTMLTableRowElement>('[data-page]')];
+    const count = document.querySelector<HTMLParagraphElement>('#coverage-count');
+
+    function filterCoverage() {
+      if (!query || !template || !increment || !count) return;
+      const queryValue = query.value.trim().toLowerCase();
+      let visible = 0;
+      for (const row of rows) {
+        const matches = (!queryValue || row.dataset.search?.includes(queryValue)) &&
+          (!template.value || row.dataset.template === template.value) &&
+          (!increment.value || row.dataset.increment === increment.value);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      count.textContent = `Showing ${visible} of ${rows.length} pages.`;
+    }
+
+    query?.addEventListener('input', filterCoverage);
+    template?.addEventListener('change', filterCoverage);
+    increment?.addEventListener('change', filterCoverage);
+  </script>
+</StarlightPage>
+
+<style>
+  .source-note { padding: 1rem; border-inline-start: 0.25rem solid var(--sl-color-accent); background: var(--sl-color-gray-6); }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-block: 1.5rem; }
+  .summary div { display: grid; padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; }
+  .summary strong { color: var(--sl-color-white); font-size: var(--sl-text-2xl); }
+  .summary span { color: var(--sl-color-gray-2); }
+  .filters { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; margin-block: 1.5rem; }
+  .filters label { display: grid; gap: 0.35rem; font-weight: 600; }
+  .filters input, .filters select { width: 100%; min-height: 2.75rem; padding: 0.55rem 0.7rem; color: var(--sl-color-text); background: var(--sl-color-black); border: 1px solid var(--sl-color-gray-4); border-radius: 0.4rem; font: inherit; }
+  .coverage-table { overflow-x: auto; }
+  table { min-width: 70rem; }
+  th[scope='row'] a { display: grid; gap: 0.25rem; min-width: 12rem; }
+  tr[hidden] { display: none; }
+  td details { min-width: 13rem; }
+  td details p { margin-block: 0.65rem; }
+  @media (max-width: 50rem) { .filters, .summary { grid-template-columns: 1fr; } }
+</style>

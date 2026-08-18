@@ -1,0 +1,81 @@
+---
+import { Badge } from '@astrojs/starlight/components';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+
+const data = Astro.locals.starlightRoute.entry.data;
+const status = 'publicationStatus' in data ? data.publicationStatus : undefined;
+const statusVariant =
+  'publicationStatusVariant' in data ? data.publicationStatusVariant : 'default';
+const sourcePath = 'sourcePath' in data ? data.sourcePath : undefined;
+const generatedView = ['/decisions/', '/coverage/', '/journeys/', '/history/'].includes(Astro.url.pathname);
+type InboundReference = { href: string; title: string; sourcePath: string };
+type LifecycleReference = { href: string; label: string; sourcePath: string };
+type PublicationRecord = { sourcePath: string; successor?: LifecycleReference; inbound: InboundReference[] };
+let publicationRecord: PublicationRecord | undefined;
+if (sourcePath) {
+  try {
+    const manifest = JSON.parse(await readFile(path.join(process.cwd(), '.astro/blueprint-manifest.json'), 'utf8'));
+    publicationRecord = manifest.documents.find((document: PublicationRecord) => document.sourcePath === sourcePath);
+  } catch { /* Validation creates the manifest before production builds. */ }
+}
+const inbound = publicationRecord?.inbound ?? [];
+---
+
+<div class="title-row">
+  <h1 id="_top">{data.title}</h1>
+  {status && <span data-pagefind-meta={`status:${status}`}><Badge text={status} variant={statusVariant} size="medium" /></span>}
+</div>
+<p class="authority-statement">
+  {
+    generatedView ? (
+      <><strong>Generated view.</strong> This page is a non-authoritative projection of linked Blueprint sources.</>
+    ) : (
+      <><strong>Authoritative source.</strong>{sourcePath && <> Repository path: <code>{sourcePath}</code>.</>}</>
+    )
+  }
+</p>
+{publicationRecord?.successor && (
+  <aside class="lifecycle-notice" aria-label={`${status} document notice`}>
+    <strong>This document is {status?.toLowerCase()}.</strong> Use its recorded successor: <a href={publicationRecord.successor.href}>{publicationRecord.successor.label}</a>.
+  </aside>
+)}
+{inbound.length > 0 && (
+  <details class="backlinks">
+    <summary>Referenced by {inbound.length} authoritative {inbound.length === 1 ? 'document' : 'documents'}</summary>
+    <ul>
+      {inbound.map((reference) => <li><a href={reference.href}>{reference.title}</a> <code>{reference.sourcePath}</code></li>)}
+    </ul>
+  </details>
+)}
+
+<style>
+  .title-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-top: 1rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: var(--sl-text-h1);
+    line-height: var(--sl-line-height-headings);
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+
+  .authority-statement {
+    margin: 0.65rem 0 0;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+  }
+
+  .authority-statement code {
+    overflow-wrap: anywhere;
+  }
+  .lifecycle-notice { margin-top: 1rem; padding: .8rem 1rem; border: 2px solid var(--sl-color-red); border-radius: .4rem; }
+  .backlinks { margin-top: 1rem; font-size: var(--sl-text-sm); }
+  .backlinks code { overflow-wrap: anywhere; }
+</style>

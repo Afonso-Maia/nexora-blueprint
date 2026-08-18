@@ -1,0 +1,115 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { loadAdrs, statusVariant } from '../../lib/blueprint-data.mjs';
+
+const adrs = await loadAdrs();
+const statuses = [...new Set(adrs.map((adr) => adr.status).filter(Boolean))];
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Decisions and Architecture Records',
+    description: 'Generated index of Nexora architecture decisions with status, date, and canonical source links.',
+  }}
+>
+  <p class="source-note">
+    Generated from <a href="/adrs/">Architecture Decision Records</a>. ADR files remain canonical;
+    titles and statuses below are not independently maintained.
+  </p>
+
+  <div class="filters" role="search" aria-label="Filter architecture decisions">
+    <label>
+      Find a decision
+      <input id="decision-query" type="search" placeholder="Number, title, or referenced topic" />
+    </label>
+    <label>
+      Status
+      <select id="decision-status">
+        <option value="">All statuses</option>
+        {statuses.map((status) => <option value={status}>{status}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <p id="decision-count" aria-live="polite">Showing all {adrs.length} decisions.</p>
+
+  <div class="decision-list">
+    {
+      adrs.map((adr) => (
+        <article
+          class="decision-card"
+          data-decision
+          data-status={adr.status ?? 'Not recorded'}
+          data-search={`${adr.id} ${adr.title} ${adr.references.map((reference) => reference.label).join(' ')}`.toLowerCase()}
+        >
+          <div class="decision-heading">
+            <h2><a href={adr.route}>{adr.id}: {adr.title}</a></h2>
+            <span class={`status status-${statusVariant(adr.status)}`}>{adr.status ?? 'Status not recorded'}</span>
+          </div>
+          <dl>
+            <div><dt>Date</dt><dd>{adr.date ?? 'Not recorded'}</dd></div>
+            <div><dt>Phase</dt><dd>Not recorded in source metadata</dd></div>
+            <div><dt>Supersession</dt><dd>None recorded</dd></div>
+          </dl>
+          {
+            adr.references.length > 0 && (
+              <p class="references">
+                <strong>Decision sources:</strong>{' '}
+                {adr.references.map((reference, index) => (
+                  <><a href={reference.href}>{reference.label}</a>{index < adr.references.length - 1 ? ', ' : ''}</>
+                ))}
+              </p>
+            )
+          }
+        </article>
+      ))
+    }
+  </div>
+
+  <script>
+    const query = document.querySelector<HTMLInputElement>('#decision-query');
+    const status = document.querySelector<HTMLSelectElement>('#decision-status');
+    const cards = [...document.querySelectorAll<HTMLElement>('[data-decision]')];
+    const count = document.querySelector<HTMLParagraphElement>('#decision-count');
+
+    function filterDecisions() {
+      if (!query || !status || !count) return;
+      const queryValue = query.value.trim().toLowerCase();
+      const statusValue = status.value;
+      let visible = 0;
+      for (const card of cards) {
+        const matchesQuery = !queryValue || card.dataset.search?.includes(queryValue);
+        const matchesStatus = !statusValue || card.dataset.status === statusValue;
+        card.hidden = !(matchesQuery && matchesStatus);
+        if (!card.hidden) visible += 1;
+      }
+      count.textContent = `Showing ${visible} of ${cards.length} decisions.`;
+    }
+
+    query?.addEventListener('input', filterDecisions);
+    status?.addEventListener('change', filterDecisions);
+  </script>
+</StarlightPage>
+
+<style>
+  .source-note { padding: 1rem; border-inline-start: 0.25rem solid var(--sl-color-accent); background: var(--sl-color-gray-6); }
+  .filters { display: grid; grid-template-columns: minmax(14rem, 2fr) minmax(10rem, 1fr); gap: 1rem; margin-block: 1.5rem; }
+  .filters label { display: grid; gap: 0.35rem; font-weight: 600; }
+  .filters input, .filters select { width: 100%; min-height: 2.75rem; padding: 0.55rem 0.7rem; color: var(--sl-color-text); background: var(--sl-color-black); border: 1px solid var(--sl-color-gray-4); border-radius: 0.4rem; font: inherit; }
+  .decision-list { display: grid; gap: 1rem; }
+  .decision-card { padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; }
+  .decision-card[hidden] { display: none; }
+  .decision-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+  .decision-heading h2 { margin: 0; font-size: var(--sl-text-xl); }
+  .status { padding: 0.2rem 0.55rem; border: 1px solid currentColor; border-radius: 999px; font-size: var(--sl-text-xs); font-weight: 700; }
+  .status-success { color: var(--sl-color-green-high); }
+  .status-note { color: var(--sl-color-blue-high); }
+  .status-caution { color: var(--sl-color-orange-high); }
+  .status-danger { color: var(--sl-color-red-high); }
+  dl { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin-bottom: 0; }
+  dl div { display: grid; gap: 0.15rem; }
+  dt { color: var(--sl-color-gray-2); font-size: var(--sl-text-xs); font-weight: 700; text-transform: uppercase; }
+  dd { margin: 0; }
+  .references { margin-bottom: 0; }
+  @media (max-width: 40rem) { .filters { grid-template-columns: 1fr; } }
+</style>

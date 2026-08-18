@@ -1,0 +1,10 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+Astro.response.status = 404;
+---
+<StarlightPage frontmatter={{title:'Page not found',description:'The requested Blueprint route does not exist.'}}>
+  <p>The requested route is unknown or no longer available. It was not redirected because the publication cannot safely guess your intended destination.</p>
+  <h2>Recover</h2>
+  <ul><li><a href="/">Return to the Blueprint overview</a></li><li><a href="/journeys/">Choose a guided journey</a></li><li><a href="/decisions/">Browse decisions</a></li><li><a href="/coverage/">Browse page and template coverage</a></li></ul>
+  <p>Search remains available in the site header. If search is unavailable, the links above provide the equivalent index-based recovery path.</p>
+</StarlightPage>

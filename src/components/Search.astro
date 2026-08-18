@@ -1,0 +1,14 @@
+---
+import DefaultSearch from '@astrojs/starlight/components/Search.astro';
+---
+<DefaultSearch />
+<noscript><p class="search-recovery">Search needs JavaScript. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a> instead.</p></noscript>
+<p class="search-recovery" data-search-recovery hidden role="status">Search is unavailable. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a>.</p>
+<script>
+  window.addEventListener('unhandledrejection', (event) => {
+    const message = String(event.reason ?? '');
+    if (!/pagefind|search/i.test(message)) return;
+    document.querySelector<HTMLElement>('[data-search-recovery]')?.removeAttribute('hidden');
+  });
+</script>
+<style>.search-recovery{position:fixed;z-index:100;inset-block-start:4rem;inset-inline-end:1rem;max-width:24rem;margin:0;padding:.75rem;background:var(--sl-color-black);border:2px solid var(--sl-color-accent);border-radius:.4rem;font-size:var(--sl-text-sm)}</style>

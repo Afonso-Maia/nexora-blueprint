@@ -29,3 +29,20 @@ The Nexora Product Blueprint is the single source of truth for Nexora, a fiction
 Phase 1 Product Foundation, Phase 2A Information Discovery Architecture, Phase 2B Product Structure Architecture, Phase 3 Design System and Experience Specification, Phase 4 Engineering Architecture and Implementation Planning, Phase 5 Testing Strategy and Quality Validation, and Phase 6 Delivery Roadmap and Incremental Release Planning are approved and complete. Phase 7 Blueprint Publication and Documentation Experience is in progress. Within Phase 7, only explicitly approved decisions are authoritative.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for decision and documentation governance.
+
+## Publication development
+
+The Astro Starlight publication reads the authoritative Markdown directly from its existing repository locations. It does not maintain a copied documentation tree.
+
+Use the pinned Node.js and pnpm versions, then run:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm validate
+pnpm check
+pnpm dev
+```
+
+Create the production artifact with `pnpm build` and inspect it locally with `pnpm preview`. Generated manifests are written under `.astro/`; the static publication artifact is written under `dist/`. Neither directory is authoritative or committed.
+
+Published discovery views include the generated [decision index](/decisions/) and [page and template coverage explorer](/coverage/).

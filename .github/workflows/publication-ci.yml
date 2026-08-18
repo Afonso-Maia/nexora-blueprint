@@ -1,0 +1,43 @@
+name: Publication CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: publication-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: pnpm/action-setup@v4
+        with: { version: 10.18.3, run_install: false }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm validate
+      - run: pnpm check
+        env: { ASTRO_TELEMETRY_DISABLED: '1' }
+      - run: pnpm build
+        env: { ASTRO_TELEMETRY_DISABLED: '1' }
+      - run: pnpm validate:security
+      - run: pnpm audit --audit-level high
+      - run: pnpm stage:vercel
+      - name: Package immutable preview artifact
+        run: tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -czf nexora-blueprint-${{ github.sha }}.tar.gz dist .vercel/output
+      - run: sha256sum nexora-blueprint-${{ github.sha }}.tar.gz | tee nexora-blueprint-${{ github.sha }}.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nexora-blueprint-${{ github.sha }}
+          path: |
+            nexora-blueprint-${{ github.sha }}.tar.gz
+            nexora-blueprint-${{ github.sha }}.sha256
+          if-no-files-found: error
+          retention-days: 14

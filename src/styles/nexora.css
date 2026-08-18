@@ -1,0 +1,74 @@
+:root {
+  --sl-color-accent-low: #33280d;
+  --sl-color-accent: #c9a646;
+  --sl-color-accent-high: #f4dfa2;
+  --sl-color-white: #f8f7f2;
+  --sl-color-gray-1: #e9e7df;
+  --sl-color-gray-2: #bab8b0;
+  --sl-color-gray-3: #85837c;
+  --sl-color-gray-4: #56554f;
+  --sl-color-gray-5: #363530;
+  --sl-color-gray-6: #24231f;
+  --sl-color-black: #151512;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #f3e7c4;
+  --sl-color-accent: #765b12;
+  --sl-color-accent-high: #382a08;
+  --sl-color-white: #171713;
+  --sl-color-gray-1: #34332e;
+  --sl-color-gray-2: #57564f;
+  --sl-color-gray-3: #77766e;
+  --sl-color-gray-4: #adaba2;
+  --sl-color-gray-5: #d8d6ce;
+  --sl-color-gray-6: #eeece6;
+  --sl-color-gray-7: #f7f6f1;
+  --sl-color-black: #ffffff;
+}
+
+.sl-markdown-content {
+  line-height: 1.72;
+}
+
+.sl-markdown-content table {
+  font-size: 0.9rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sl-color-accent-high);
+  outline-offset: 3px;
+}
+
+.sl-markdown-content :is(pre, table) {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; }
+  .sl-markdown-content a { text-decoration: underline; }
+}
+
+@media print {
+  :root { color-scheme: light; }
+  header, nav, .sidebar-pane, .right-sidebar, site-search, starlight-menu-button, .pagination-links, .backlinks { display: none !important; }
+  body, main, .main-pane, .content-panel { display: block !important; width: auto !important; max-width: none !important; color: #111 !important; background: #fff !important; }
+  .sl-markdown-content { font-size: 10.5pt; line-height: 1.45; }
+  .sl-markdown-content a { color: #111 !important; text-decoration: underline; overflow-wrap: anywhere; }
+  .sl-markdown-content a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 8pt; }
+  pre, code, table, figure, blockquote { break-inside: avoid; }
+  table { display: table !important; width: 100%; font-size: 8pt !important; }
+  tr, img, svg { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; color: #111 !important; }
+  .authority-statement, .lifecycle-notice { color: #111 !important; }
+  @page { margin: 16mm; }
+}

@@ -1,0 +1,64 @@
+name: Vercel Publication Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      artifact_run_id:
+        description: Successful Publication CI run containing the reviewed artifact
+        required: true
+        type: string
+      artifact_commit_sha:
+        description: Full reviewed commit SHA used by that CI run
+        required: true
+        type: string
+      target:
+        description: Deployment target
+        required: true
+        default: preview
+        type: choice
+        options: [preview, staged-production]
+permissions:
+  actions: read
+  contents: read
+concurrency:
+  group: publication-vercel-${{ inputs.target }}
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: ${{ inputs.target == 'staged-production' && 'publication-production' || 'publication-preview' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.artifact_commit_sha }}
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        with: { version: 10.18.3, run_install: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 24.19.0 }
+      - uses: actions/download-artifact@v4
+        with:
+          name: nexora-blueprint-${{ inputs.artifact_commit_sha }}
+          run-id: ${{ inputs.artifact_run_id }}
+          github-token: ${{ github.token }}
+      - name: Verify immutable artifact
+        run: sha256sum --check nexora-blueprint-${{ inputs.artifact_commit_sha }}.sha256
+      - run: tar -xzf nexora-blueprint-${{ inputs.artifact_commit_sha }}.tar.gz
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Upload and deploy exact prebuilt output
+        id: deploy
+        shell: bash
+        run: |
+          node scripts/deploy-vercel.mjs "${{ inputs.target }}" > deployment-url.txt
+          echo "url=$(cat deployment-url.txt)" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: Smoke test immutable deployment
+        run: node scripts/smoke-deployment.mjs "${{ steps.deploy.outputs.url }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vercel-deployment-${{ github.run_id }}
+          path: deployment-url.txt
+          retention-days: 14
