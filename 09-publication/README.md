@@ -56,6 +56,7 @@ Phase 7 transforms the approved Nexora Product Blueprint into a polished, access
 - [Publication Operations and Readiness Evidence](45-publication-operations-and-readiness-evidence.md) — in-progress controlled-value register, hosting comparison, owner roster, automated evidence, and launch/recovery procedures
 - [Link, History, Journey, and Resilience Implementation](46-link-history-journey-and-resilience-implementation.md) — completed source-link graph, backlinks, lifecycle gate, guided journeys, history, 404, rendered validation, and resilient presentation increment
 - [Vercel Hosting Selection and Deployment Preparation](47-vercel-hosting-selection-and-deployment-preparation.md) — approved Vercel selection, temporary provider hostname, native hosted-preview path, immutable-production gate, and remaining account-level evidence
+- [CSP-Safe Local Search Implementation](48-csp-safe-local-search-implementation.md) — completed static search successor, CSP hardening, mechanical coverage gate, and hosted responsive interaction evidence
 
 ## Phase boundary
 
