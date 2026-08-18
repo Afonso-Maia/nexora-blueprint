@@ -13,20 +13,26 @@ const securityHeaders = {
   'Cross-Origin-Opener-Policy': 'same-origin',
   'X-Robots-Tag': 'noindex, nofollow',
 };
-
-await readFile(path.join(dist, 'index.html'));
-await rm(output, { recursive: true, force: true });
-await mkdir(path.join(output, 'static'), { recursive: true });
-await cp(dist, path.join(output, 'static'), { recursive: true });
-await writeFile(path.join(output, 'config.json'), `${JSON.stringify({
+const config = {
   version: 3,
   framework: { version: 'astro@7.2.0' },
   routes: [
     { src: '/_astro/(.*)', headers: { ...securityHeaders, 'Cache-Control': 'public, max-age=31536000, immutable' }, continue: true },
     { src: '/(.*)', headers: { ...securityHeaders, 'Cache-Control': 'public, max-age=0, must-revalidate' }, continue: true },
     { handle: 'filesystem' },
+    { src: '/', dest: '/index.html' },
     { src: '/(.+)/', dest: '/$1/index.html' },
     { src: '/(.*)', dest: '/404.html', status: 404 },
   ],
-}, null, 2)}\n`);
+};
+
+if (!config.routes.some((route) => route.src === '/' && route.dest === '/index.html')) {
+  throw new Error('Vercel output must route the publication root to /index.html.');
+}
+
+await readFile(path.join(dist, 'index.html'));
+await rm(output, { recursive: true, force: true });
+await mkdir(path.join(output, 'static'), { recursive: true });
+await cp(dist, path.join(output, 'static'), { recursive: true });
+await writeFile(path.join(output, 'config.json'), `${JSON.stringify(config, null, 2)}\n`);
 console.log('Staged validated static output in .vercel/output for prebuilt deployment.');
