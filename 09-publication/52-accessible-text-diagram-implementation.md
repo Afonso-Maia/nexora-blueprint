@@ -33,6 +33,12 @@ Source validation, Astro check, production build, rendered validation, security 
 
 Automated semantics do not prove that each diagram communicates effectively. Representative screen-reader reading order, keyboard access to locally scrollable code, 200% and 400% zoom, narrow-screen reflow, print preview, and human comprehension review remain part of the blocking manual accessibility gate.
 
+## Hosted browser evidence
+
+Vercel deployment `dpl_6aiCZ6mjgVWGZnJ67hv82HnJgKWa`, correlated with commit `1542a48391455d3016ef9d00484b08a2ac4a65d4`, reached READY on the temporary canonical alias. Browser inspection of the system-context topology at a 1280 CSS-pixel viewport confirmed a `group` named by `generated-text-diagram-1`, the visible accessibility-tree label `Logical topology — text diagram`, preserved diagram text, and zero document, group, or code-block overflow.
+
+The available hosted browser connection did not expose viewport resizing during this check. Hosted narrow-width, assistive-technology, keyboard, print, zoom, and human-comprehension results are therefore not claimed by this evidence.
+
 ## References
 
 - [Diagram and Visualization Strategy](18-diagram-and-visualization-strategy.md)
