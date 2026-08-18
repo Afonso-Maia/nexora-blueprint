@@ -28,11 +28,13 @@ Record the completed implementation amendment that preserves ADR-0041's private,
 
 Vercel deployment `dpl_2VdSf8FiuxenUYMkW1PwP85ekAUD` is correlated with commit `c80e72d258b12bb3c277fba026711b4c0b07dff4` and reached READY on the temporary canonical alias. Hosted smoke checks passed six representative routes, the static search index, defensive headers, indexing isolation, and custom 404 behavior.
 
-Browser checks passed `ADR-0042` with `Accepted`, authoritative kind, and source-path context; the Portuguese term `português`; empty-result guidance; input focus and keyboard close with focus return; and 390 CSS-pixel reflow without horizontal document, dialog, or result overflow. A fresh browser tab emitted no console errors. The failure branch, its deterministic switch, and its three recovery destinations are mechanically present; hosted fault-injection browser evidence remains required after deployment.
+Browser checks passed `ADR-0042` with `Accepted`, authoritative kind, and source-path context; the Portuguese term `português`; empty-result guidance; input focus and keyboard close with focus return; and 390 CSS-pixel reflow without horizontal document, dialog, or result overflow. A fresh browser tab emitted no console errors.
+
+Vercel deployment `dpl_C8dxA5fmTqj4gWcm3S15ARKr1ppS`, correlated with commit `3ddba5c4238dbb7a141213006cb29dc4646c1fba`, passed explicit unavailable-index fault injection. The hosted modal opened, announced `Search index could not be loaded.`, disabled the unusable input, exposed named journeys, decisions, and coverage links, and retained zero document overflow. Following the exact guided-journeys recovery link reached `/journeys/` with the `Guided journeys` H1 and one main landmark.
 
 ## Boundary
 
-This increment completes the search implementation successor. It does not waive manual assistive-technology review, unavailable-index fault injection, constrained-network measurements, the Vercel Node patch exception, immutable CI-artifact promotion, rollback/recovery rehearsal, named blocking owners, final domain selection, or launch approval.
+This increment completes the search implementation successor and unavailable-index recovery evidence. It does not waive manual assistive-technology review, constrained-network measurements, the Vercel Node patch exception, immutable CI-artifact promotion, rollback/recovery rehearsal, named blocking owners, final domain selection, or launch approval.
 
 ## References
 
