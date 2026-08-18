@@ -10,11 +10,12 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/validate-blueprint.mjs && astro build && node scripts/validate-rendered.mjs",
+    "build": "node scripts/validate-blueprint.mjs && astro build && node scripts/validate-rendered.mjs && node scripts/validate-performance.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "validate": "node scripts/validate-blueprint.mjs",
     "validate:rendered": "node scripts/validate-rendered.mjs",
+    "validate:performance": "node scripts/validate-performance.mjs",
     "validate:security": "node scripts/validate-security.mjs",
     "stage:vercel": "node scripts/stage-vercel-output.mjs",
     "deploy:vercel": "node scripts/deploy-vercel.mjs"

@@ -31,7 +31,7 @@ jobs:
       - run: pnpm audit --audit-level high
       - run: pnpm stage:vercel
       - name: Package immutable preview artifact
-        run: tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -czf nexora-blueprint-${{ github.sha }}.tar.gz dist .vercel/output
+        run: tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -czf nexora-blueprint-${{ github.sha }}.tar.gz dist .vercel/output .astro/blueprint-manifest.json .astro/coverage-report.json .astro/performance-report.json
       - run: sha256sum nexora-blueprint-${{ github.sha }}.tar.gz | tee nexora-blueprint-${{ github.sha }}.sha256
       - uses: actions/upload-artifact@v4
         with:

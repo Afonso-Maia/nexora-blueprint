@@ -61,6 +61,7 @@ Phase 7 transforms the approved Nexora Product Blueprint into a polished, access
 - [Accessible Table Presentation Implementation](50-accessible-table-presentation-implementation.md) — completed source-derived captions, explicit header scopes, print-visible captions, and rendered table validation
 - [Rendered Accessibility Conformance Gate](51-rendered-accessibility-conformance-gate.md) — completed whole-site structural checks for language, landmarks, headings, IDs, names, dialogs, images, and SVG treatment
 - [Accessible Text-Diagram Implementation](52-accessible-text-diagram-implementation.md) — completed derived labels, semantic groups, print-visible captions, and whole-site rendered validation for text diagrams
+- [Performance, Asset, and Resilience Budget Implementation](53-performance-asset-and-resilience-budget-implementation.md) — completed controlled artifact, HTML, search, CSS, JavaScript, font, raster, digest-identity, and static-baseline gates
 
 ## Phase boundary
 
