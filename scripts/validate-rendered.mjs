@@ -66,6 +66,11 @@ for (const [route, page] of htmlByRoute) {
     if (!/<caption\b[^>]*>[^<]+<\/caption>/.test(table[0])) failures.push(`${route}: table lacks a non-empty caption`);
     for (const header of table[0].matchAll(/<th\b([^>]*)>/g)) if (!/\bscope="(?:col|row|colgroup|rowgroup)"/.test(header[1])) failures.push(`${route}: table header lacks explicit scope`);
   }
+  for (const diagram of page.html.matchAll(/<pre\b[^>]*data-language="text"[\s\S]*?<\/pre>/g)) {
+    const before = page.html.slice(Math.max(0, diagram.index - 400), diagram.index);
+    const group = before.match(/<div\b[^>]*class="[^"]*\btext-diagram\b[^>]*role="group"[^>]*aria-labelledby="([^"]+)"[^>]*>[\s\S]*<p\b[^>]*id="([^"]+)"[^>]*class="[^"]*\bgenerated-diagram-caption\b[^>]*>[^<]+<\/p>[\s\S]*$/);
+    if (!group || group[1] !== group[2]) failures.push(`${route}: text diagram lacks a consistently labelled group`);
+  }
 }
 
 const searchRecovery = htmlByRoute.get('/coverage/')?.html ?? '';

@@ -3,6 +3,7 @@ import { unified } from '@astrojs/markdown-remark';
 import starlight from '@astrojs/starlight';
 import repositoryMarkdown from './src/remark/repository-markdown.mjs';
 import accessibleTables from './src/rehype/accessible-tables.mjs';
+import accessibleTextDiagrams from './src/rehype/accessible-text-diagrams.mjs';
 
 export default defineConfig({
   site: 'https://nexora-blueprint.vercel.app',
@@ -10,7 +11,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [[repositoryMarkdown, { root: process.cwd() }]],
-      rehypePlugins: [accessibleTables],
+      rehypePlugins: [accessibleTables, accessibleTextDiagrams],
     }),
   },
   integrations: [

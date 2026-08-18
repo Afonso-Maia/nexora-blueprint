@@ -68,6 +68,7 @@ Unassigned blocking roles prevent go-live even when automation passes.
 - Every authoritative rendered document carries a print-only status, canonical URL, repository source identity, and stale-copy warning. Rendered validation blocks if any document omits that identity; representative print-preview inspection remains a separate manual gate.
 - Markdown tables receive source-derived accessible captions from their nearest section heading and explicit column-header scope without source migration. Generated coverage supplies its own caption and row/column scopes. Rendered validation blocks empty captions or unscoped headers across every table.
 - Whole-site rendered accessibility inspection requires English source-language metadata, exactly one main landmark and H1, unique IDs, labelled dialogs, image alternatives, named or hidden SVGs, and accessible names for buttons and links on every generated HTML page.
+- All five fenced text diagrams receive source-derived accessible names from their nearest headings while preserving their complete text. Rendered validation requires a consistently labelled diagram group and code block; print exposes the generated caption.
 - Security inspection checks common secret patterns, active Markdown, remote-hotlinked Markdown assets, lockfile identity, and analytics absence. CI additionally runs the package-manager vulnerability audit.
 - CI uses locked installation, read-only repository permission, immutable artifact packaging, a digest, concurrency control, and bounded retention.
 

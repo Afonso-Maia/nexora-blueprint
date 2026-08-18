@@ -35,7 +35,8 @@
   font-size: 0.9rem;
 }
 
-.generated-table-caption {
+.generated-table-caption,
+.generated-diagram-caption {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -80,6 +81,7 @@
   pre, code, table, figure, blockquote { break-inside: avoid; }
   table { display: table !important; width: 100%; font-size: 8pt !important; }
   .generated-table-caption { position: static; width: auto; height: auto; margin: 0 0 4pt; overflow: visible; clip: auto; white-space: normal; text-align: start; font-weight: 700; }
+  .generated-diagram-caption { position: static; width: auto; height: auto; margin: 0 0 4pt; overflow: visible; clip: auto; white-space: normal; text-align: start; font-weight: 700; }
   tr, img, svg { break-inside: avoid; }
   h1, h2, h3 { break-after: avoid; color: #111 !important; }
   .authority-statement, .lifecycle-notice { color: #111 !important; }
