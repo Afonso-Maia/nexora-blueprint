@@ -72,6 +72,7 @@
 
   async function loadIndex() {
     if (index) return index;
+    if (new URLSearchParams(window.location.search).get('search-unavailable') === '1') throw new Error('Search index failure requested for resilience validation');
     const response = await fetch('/search-index.json', { headers: { accept: 'application/json' } });
     if (!response.ok) throw new Error(`Search index returned ${response.status}`);
     index = await response.json() as SearchEntry[];
@@ -87,6 +88,7 @@
       render(entries, input.value.trim());
     } catch {
       recovery?.removeAttribute('hidden');
+      input.disabled = true;
       if (status) status.textContent = 'Search index could not be loaded.';
     }
   }

@@ -21,13 +21,14 @@ Record the completed implementation amendment that preserves ADR-0041's private,
 - Source validation continues to prove routes, headings, local links and fragments, lifecycle relationships, mappings, and journey targets.
 - Rendered validation requires one search entry per authoritative document plus the four generated views, checks every required field, enforces the 15 MiB budget, and requires no-script and unavailable-index recovery links.
 - Deployment smoke validation fetches and parses the hosted index and blocks when its route or minimum coverage is unavailable.
+- A client-local `?search-unavailable=1` resilience switch deterministically exercises the real failure branch without changing server state or transmitting a test value. The state announces the load failure, disables the unusable input, and preserves named links to journeys, decisions, and coverage. Rendered validation requires the switch and announcement to remain in the built client asset.
 - Node 24.19.0 validation, Astro check, production build, security validation, Vercel staging, dependency audit, and whitespace validation passed before commit `c80e72d258b12bb3c277fba026711b4c0b07dff4`.
 
 ## Hosted evidence
 
 Vercel deployment `dpl_2VdSf8FiuxenUYMkW1PwP85ekAUD` is correlated with commit `c80e72d258b12bb3c277fba026711b4c0b07dff4` and reached READY on the temporary canonical alias. Hosted smoke checks passed six representative routes, the static search index, defensive headers, indexing isolation, and custom 404 behavior.
 
-Browser checks passed `ADR-0042` with `Accepted`, authoritative kind, and source-path context; the Portuguese term `português`; empty-result guidance; input focus and keyboard close with focus return; and 390 CSS-pixel reflow without horizontal document, dialog, or result overflow. A fresh browser tab emitted no console errors. The failure branch and its three recovery destinations are mechanically present, but an explicit unavailable-index fault-injection browser run remains part of the broader resilience evidence gate.
+Browser checks passed `ADR-0042` with `Accepted`, authoritative kind, and source-path context; the Portuguese term `português`; empty-result guidance; input focus and keyboard close with focus return; and 390 CSS-pixel reflow without horizontal document, dialog, or result overflow. A fresh browser tab emitted no console errors. The failure branch, its deterministic switch, and its three recovery destinations are mechanically present; hosted fault-injection browser evidence remains required after deployment.
 
 ## Boundary
 

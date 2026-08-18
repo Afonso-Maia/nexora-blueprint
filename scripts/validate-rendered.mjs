@@ -75,6 +75,7 @@ for (const [route, page] of htmlByRoute) {
 
 const searchRecovery = htmlByRoute.get('/coverage/')?.html ?? '';
 if (!searchRecovery.includes('<noscript>') || !searchRecovery.includes('/journeys/')) failures.push('Search unavailable state lacks index recovery');
+if (!searchRecovery.includes('search-unavailable') || !searchRecovery.includes('Search index could not be loaded.')) failures.push('Search client lacks deterministic unavailable-index validation state');
 const notFound = htmlByRoute.get('/404.html')?.html ?? '';
 for (const route of ['/journeys/','/decisions/','/coverage/']) if (!notFound.includes(`href="${route}"`)) failures.push(`404 lacks recovery route ${route}`);
 
