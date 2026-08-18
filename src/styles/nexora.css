@@ -79,11 +79,12 @@
   .sl-markdown-content a { color: #111 !important; text-decoration: underline; overflow-wrap: anywhere; }
   .sl-markdown-content a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 8pt; }
   pre, code, table, figure, blockquote { break-inside: avoid; }
+  .text-diagram { break-inside: avoid; }
   table { display: table !important; width: 100%; font-size: 8pt !important; }
   .generated-table-caption { position: static; width: auto; height: auto; margin: 0 0 4pt; overflow: visible; clip: auto; white-space: normal; text-align: start; font-weight: 700; }
   .generated-diagram-caption { position: static; width: auto; height: auto; margin: 0 0 4pt; overflow: visible; clip: auto; white-space: normal; text-align: start; font-weight: 700; }
   tr, img, svg { break-inside: avoid; }
-  h1, h2, h3 { break-after: avoid; color: #111 !important; }
+  h1, h2, h3, .sl-heading-wrapper { break-after: avoid; color: #111 !important; }
   .authority-statement, .lifecycle-notice { color: #111 !important; }
   @page { margin: 16mm; }
 }

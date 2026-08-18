@@ -76,6 +76,8 @@ for (const [route, page] of htmlByRoute) {
 const searchRecovery = htmlByRoute.get('/coverage/')?.html ?? '';
 if (!searchRecovery.includes('<noscript>') || !searchRecovery.includes('/journeys/')) failures.push('Search unavailable state lacks index recovery');
 if (!searchRecovery.includes('search-unavailable') || !searchRecovery.includes('Search index could not be loaded.')) failures.push('Search client lacks deterministic unavailable-index validation state');
+const renderedCss = (await Promise.all((await files(path.join(dist, '_astro'))).filter((file) => file.endsWith('.css')).map((file) => readFile(file, 'utf8')))).join('\n');
+if (!renderedCss.includes('.text-diagram{break-inside:avoid}') || !renderedCss.includes('h1,h2,h3,.sl-heading-wrapper{break-after:avoid')) failures.push('Print CSS lacks diagram grouping or heading-continuation controls');
 const notFound = htmlByRoute.get('/404.html')?.html ?? '';
 for (const route of ['/journeys/','/decisions/','/coverage/']) if (!notFound.includes(`href="${route}"`)) failures.push(`404 lacks recovery route ${route}`);
 
