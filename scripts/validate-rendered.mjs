@@ -26,7 +26,25 @@ for (const document of manifest.documents) if (!htmlByRoute.has(document.canonic
 for (const route of ['/404.html','/coverage/','/decisions/','/history/','/journeys/']) if (!htmlByRoute.has(route)) failures.push(`Missing required rendered route ${route}`);
 
 for (const [route, page] of htmlByRoute) {
-  if (!/<main[\s>]/.test(page.html) || !/<h1[\s>]/.test(page.html)) failures.push(`${route}: missing main landmark or H1`);
+  const mainCount = [...page.html.matchAll(/<main[\s>]/g)].length;
+  const h1Count = [...page.html.matchAll(/<h1[\s>]/g)].length;
+  if (mainCount !== 1 || h1Count !== 1) failures.push(`${route}: expected one main landmark and one H1, found ${mainCount} and ${h1Count}`);
+  if (!/<html\b[^>]*\blang="en"/.test(page.html)) failures.push(`${route}: missing authoritative source language`);
+  const ids = [...page.html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+  if (duplicateIds.length) failures.push(`${route}: duplicate IDs ${duplicateIds.join(', ')}`);
+  for (const image of page.html.matchAll(/<img\b[^>]*>/g)) if (!/\balt=/.test(image[0])) failures.push(`${route}: image lacks alt text`);
+  for (const dialog of page.html.matchAll(/<dialog\b([^>]*)>/g)) if (!/(aria-label=|aria-labelledby=)/.test(dialog[1])) failures.push(`${route}: dialog lacks an accessible name`);
+  const withoutHiddenGraphics = page.html.replace(/<span\b[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/span>/g, '');
+  for (const graphic of withoutHiddenGraphics.matchAll(/<svg\b([^>]*)>/g)) if (!/(aria-hidden="true"|aria-label=|aria-labelledby=)/.test(graphic[1])) failures.push(`${route}: SVG is neither named nor hidden`);
+  for (const button of page.html.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)) {
+    const visibleText = button[2].replace(/<[^>]+>/g, '').trim();
+    if (!visibleText && !/(aria-label=|aria-labelledby=|title=)/.test(button[1])) failures.push(`${route}: button lacks an accessible name`);
+  }
+  for (const link of page.html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)) {
+    const content = link[2].replace(/<[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/[^>]+>/g, '').replace(/<[^>]+>/g, '').trim();
+    if (!content && !/(aria-label=|aria-labelledby=|title=)/.test(link[1])) failures.push(`${route}: link lacks an accessible name`);
+  }
   const canonical = page.html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (!canonical || !canonical.startsWith('https://nexora-blueprint.vercel.app/')) failures.push(`${route}: missing environment canonical URL`);
   if (page.html.includes(root) || /(?:API_KEY|SECRET|TOKEN)=/.test(page.html)) failures.push(`${route}: artifact exposes a private path or secret-like value`);
