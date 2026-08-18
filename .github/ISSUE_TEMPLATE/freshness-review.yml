@@ -1,0 +1,38 @@
+name: Blueprint freshness review
+description: Record a risk-based source review without treating Git timestamps as freshness evidence.
+title: "[Freshness review]: "
+labels: [documentation, freshness]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Authoritative source path
+      placeholder: 09-publication/41-contribution-ownership-maintenance-and-freshness.md
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Review trigger
+      options:
+        - Scheduled high-consequence review
+        - Provider or dependency change
+        - Broken-link or validation report
+        - Incident follow-up
+        - Owner-requested review
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Review evidence and outcome
+      description: Record sources checked, whether meaning remains current, required changes, reviewer, and review date.
+    validations:
+      required: true
+  - type: textarea
+    id: next
+    attributes:
+      label: Next review or closure
+      description: Give the justified next review condition/date or explain why no cadence is required.
+    validations:
+      required: true

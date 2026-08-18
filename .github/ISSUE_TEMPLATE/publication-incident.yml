@@ -1,0 +1,41 @@
+name: Publication incident
+description: Record an availability, correctness, accessibility, privacy, security, or route-integrity incident without including secrets.
+title: "[Publication incident]: "
+labels: [publication, incident]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, private user data, exploit details, or other sensitive material in this public repository.
+  - type: dropdown
+    id: class
+    attributes:
+      label: Incident class
+      options:
+        - Authority or correctness
+        - Accessibility
+        - Security or privacy
+        - Route or link integrity
+        - Availability or performance
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Public impact
+      description: Describe affected routes, readers, start time, and observable behavior using non-sensitive information.
+    validations:
+      required: true
+  - type: textarea
+    id: containment
+    attributes:
+      label: Containment and recovery
+      description: Record rollback, correction, workaround, owner, and verification evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: prevention
+    attributes:
+      label: Follow-up and prevention
+      description: Record durable prevention work, target date, and closure evidence.
+    validations:
+      required: true

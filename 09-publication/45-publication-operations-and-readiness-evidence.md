@@ -51,13 +51,13 @@ Native Vercel Git preview does not consume GitHub deployment secrets. The existi
 
 | Scope | Accountable role | Responsibilities | Current named assignee |
 | --- | --- | --- | --- |
-| Publication framework, generation, CI, and release integrity | Publication Steward | Route coverage, generated correctness, previews, release evidence, and rollback | Unassigned |
-| Source meaning and status | Repository section owner | Correctness, authority, supersession, and risk-based freshness | Derived from the repository section; named roster pending |
-| Accessibility gate | Accessibility owner | WCAG evidence, exception approval, assistive-technology and disabled-user review | Unassigned |
-| Security and privacy gate | Security/privacy owner | Dependency, artifact, CSP, preview, and incident review | Unassigned |
-| Domain, DNS, and provider recovery | Platform operations owner | Least privilege, TLS, DNS, logs, monitoring, rollback, and account recovery | Unassigned |
+| Publication framework, generation, CI, and release integrity | Publication Steward | Route coverage, generated correctness, previews, release evidence, and rollback | Afonso Maia (`@Afonso-Maia`) |
+| Source meaning and status | Repository section owner | Correctness, authority, supersession, and risk-based freshness | Afonso Maia (`@Afonso-Maia`), interim owner for all sections |
+| Accessibility gate | Accessibility owner | WCAG evidence, exception approval, assistive-technology and disabled-user review | Afonso Maia (`@Afonso-Maia`), coordination only; independent evidence pending |
+| Security and privacy gate | Security/privacy owner | Dependency, artifact, CSP, preview, and incident review | Afonso Maia (`@Afonso-Maia`) |
+| Domain, DNS, and provider recovery | Platform operations owner | Least privilege, TLS, DNS, logs, monitoring, rollback, and account recovery | Afonso Maia (`@Afonso-Maia`) |
 
-Unassigned blocking roles prevent go-live even when automation passes.
+The single-maintainer assignment removes orphan ownership but does not provide independent approval. Disabled-user, assistive-technology, and specialist evidence required by the readiness gate remain blocking and cannot be self-certified through this roster.
 
 ## Implemented automated evidence
 
@@ -126,7 +126,7 @@ Source owners review high-consequence content on their governed cadence. Automat
 - Vercel Git integration, project settings, and protected deployment values are configured. Hosted route evidence, provider logs, custom DNS, and an external monitor are not yet accepted.
 - Vercel's Node 24 build image supplied `24.15.0` on the first native build, below the approved repository minimum. The preview-only engine-enforcement exception blocks production acceptance until removed.
 - Provider-specific preview, immutable promotion, smoke, rollback, outage fallback, and access-recovery rehearsals are pending.
-- Named publication, accessibility, security/privacy, and platform-operations assignees are pending.
+- Publication, source, accessibility coordination, security/privacy, and platform-operations ownership is assigned to the sole maintainer. Independent disabled-user, assistive-technology, and specialist evidence remains pending.
 - Manual screen-reader, forced-color, zoom/reflow, print, constrained-network, search-failure, and disabled-user evidence is not yet signed off.
 - No post-launch review date can be set before a launch date exists.
 - Whole-Blueprint PDF, EPUB, offline application, guaranteed offline search, and bilingual mirror remain explicitly outside the approved initial boundary.

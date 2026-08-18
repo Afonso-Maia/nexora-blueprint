@@ -1,0 +1,8 @@
+# Nexora Blueprint is currently maintained by one repository owner.
+* @Afonso-Maia
+
+# Publication implementation and release controls remain explicitly routed.
+/.github/ @Afonso-Maia
+/09-publication/ @Afonso-Maia
+/scripts/ @Afonso-Maia
+/src/ @Afonso-Maia
