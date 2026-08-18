@@ -19,6 +19,7 @@ const config = {
   routes: [
     { src: '/_astro/(.*)', headers: { ...securityHeaders, 'Cache-Control': 'public, max-age=31536000, immutable' }, continue: true },
     { src: '/(.*)', headers: { ...securityHeaders, 'Cache-Control': 'public, max-age=0, must-revalidate' }, continue: true },
+    { src: '/pagefind/(.*)', headers: { 'Content-Security-Policy': "default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; connect-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval'" }, continue: true },
     { handle: 'filesystem' },
     { src: '/', dest: '/index.html' },
     { src: '/(.+)/', dest: '/$1/index.html' },

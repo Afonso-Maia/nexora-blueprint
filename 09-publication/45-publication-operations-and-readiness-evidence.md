@@ -73,7 +73,7 @@ Unassigned blocking roles prevent go-live even when automation passes.
 - Native Vercel production deployment `dpl_G5jMAn2aMv2nAEPR9zmMuJBU9cyq` reached READY from Git commit `bddbd8320a28371612bea49d4313c829e574090c` and was assigned to `nexora-blueprint.vercel.app`.
 - Hosted smoke checks passed `/`, `/journeys/`, `/decisions/`, `/coverage/`, a long publication-readiness document, `/404.html`, an unknown route, CSP, defensive headers, and `noindex` isolation.
 - Desktop browser inspection confirmed one H1, main and navigation landmarks, canonical origin, no horizontal document overflow, and no initial console errors.
-- Search interaction exposed a blocking CSP defect: Pagefind WebAssembly compilation requires the narrowly scoped `'wasm-unsafe-eval'` source. The native, portable, and staged header contracts now include that source without enabling general `'unsafe-eval'`; hosted search revalidation remains required after deployment.
+- Search interaction exposed a blocking CSP defect. Pagefind documents `'wasm-unsafe-eval'` as the preferred WebAssembly source, but the available browser engine continued to reject compilation after that live header was verified. Document responses retain the narrow directive; only self-hosted `/pagefind/*` worker responses receive the `'unsafe-eval'` compatibility fallback, with navigation, forms, objects, framing, and external connections denied. Removal remains an owned security-hardening follow-up. Hosted search revalidation remains required after deployment.
 
 ## Manual evidence protocol
 
