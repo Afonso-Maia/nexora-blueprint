@@ -32,6 +32,8 @@ Vercel project `nexora-blueprint` (`prj_mmkXuae2AINVg6NiQr0NtnigUq95`) was creat
 
 The first native Git build correlated production deployment `dpl_GsrPR2rjUqHuEbDnWNEgDU244uiF` with commit `acff4edd84c6121da92aa20eda8453d70c06d643` and proved repository cloning, `main` production-branch selection, and provider build invocation. It stopped before installation because Vercel's Node 24 build image supplied `24.15.0`, below the repository requirement `>=24.18.0 <25`. The requirement remains unchanged. Provider-only install and build commands disable pnpm engine enforcement solely to obtain non-indexed hosted-preview evidence; this exception does not approve production, alter the Node 24.19 release toolchain, or satisfy the immutable-artifact gate.
 
+The following native Git deployment `dpl_G5jMAn2aMv2nAEPR9zmMuJBU9cyq`, correlated with commit `bddbd8320a28371612bea49d4313c829e574090c`, reached READY and received the temporary production aliases. Hosted route, landmark, defensive-header, indexing-isolation, and custom-404 smoke checks passed. Browser interaction then identified a Pagefind WebAssembly CSP omission; the header contract was corrected with `'wasm-unsafe-eval'`, and the successor deployment must prove search recovery before this evidence is accepted.
+
 ## Evidence still required
 
 This selection does not claim deployment completion. The gate still requires:
