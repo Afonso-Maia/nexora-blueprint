@@ -19,6 +19,10 @@ Rendered validation inspects every table on every generated page and blocks a mi
 
 Manual screen-reader header-association, keyboard scrolling, 400% zoom, long-value reflow, theme contrast, and representative print-preview checks remain required. Those human/browser checks are not inferred from semantic markup alone.
 
+## Hosted browser evidence
+
+Vercel deployment `dpl_veoUV3Z39fWHhiSQWDYxQg4ziV1a`, correlated with commit `25cf46c4f0e75afeaae891aeb5863705fa1dce89`, reached READY on the temporary canonical alias. At 390 CSS pixels, the coverage table exposed its descriptive caption as the table's accessible name, column and row header roles, and a labelled `tabindex="0"` scroll region. The table remained locally scrollable while the document had zero horizontal overflow, and the fresh browser session emitted no console errors.
+
 ## References
 
 - [Table and Structured-Data Presentation](19-table-and-structured-data-presentation.md)
