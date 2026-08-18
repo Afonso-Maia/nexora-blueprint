@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [
     starlight({
       disable404Route: true,
+      pagefind: false,
       title: 'Nexora Product Blueprint',
       description:
         'The authoritative product, design, engineering, quality, and delivery blueprint for Nexora.',

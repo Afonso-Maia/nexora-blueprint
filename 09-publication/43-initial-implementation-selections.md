@@ -16,7 +16,7 @@ Record the first controlled implementation selections required to begin the repo
 | Site generator | Astro 7.2.0 | Pin exactly; upgrades require a reviewed build and rendered regression evidence. |
 | Documentation framework | Astro Starlight 0.41.7 | Pin exactly with its compatible Astro peer range. |
 | Image processing | Sharp 0.35.3 | Pin exactly as a build dependency; generated output is not authoritative. |
-| Search | Starlight's build-generated local Pagefind integration | Keep queries local and collect no behavioral analytics at launch. |
+| Search | Build-generated static JSON index with a repository-owned Starlight search override | Keep queries local, expose status and authoritative paths in results, collect no behavioral analytics, and operate under the publication CSP without WebAssembly evaluation exceptions. This mechanically equivalent local implementation supersedes the initial Pagefind implementation choice without changing ADR-0041. |
 | Analytics | None at launch | A later provider requires a separate privacy and governance selection. |
 | Hosting | Deferred until the portable static artifact and preview workflow are proven | Compare candidates against the approved hosting, rollback, headers, preview, export, and recovery requirements. |
 | Dependency updates | Reviewed, exact-version updates with a regenerated lockfile | Require validation, production build, representative rendered review, and rollback compatibility. |

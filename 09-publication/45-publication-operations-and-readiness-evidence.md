@@ -16,12 +16,12 @@ The reproducible release identity is the reviewed Git commit plus the SHA-256 di
 | Concern | Current value | State and control |
 | --- | --- | --- |
 | Runtime and publication dependencies | Recorded in [Initial Publication Implementation Selections](43-initial-implementation-selections.md) | Selected and exactly pinned |
-| Search and analytics | Local Pagefind; no behavioral analytics | Selected for launch architecture; queries stay on-device |
+| Search and analytics | Build-generated local JSON index; no behavioral analytics | Selected for launch architecture; queries stay on-device and results expose status and source-path context |
 | Workflow platform | GitHub Actions | Approved by Phase 4 and implemented for publication CI |
 | Public hosting provider | Vercel | Selected for both Nexora repositories; this record and workflow apply only to the Blueprint repository |
 | Public domain and base path | Temporary provider hostname `nexora-blueprint.vercel.app`; root base path | Custom hostname remains unselected; public indexing stays disabled until final domain and launch approval |
 | Launch date | Not selected | Public indexing remains disabled |
-| Performance budgets | 650 KiB maximum per rendered HTML document; 15 MiB total Pagefind output | Initial measured blocking budgets; revisit from hosted constrained-network evidence |
+| Performance budgets | 650 KiB maximum per rendered HTML document; 15 MiB static search-index maximum | Initial measured blocking budgets; revisit from hosted constrained-network evidence |
 | Availability and recovery targets | Not selected | Define with provider capability and named operational owner |
 | Vercel preview build runtime | Provider Node 24 currently resolves to `24.15.0` | Below repository minimum `24.18.0`; provider-only engine enforcement bypass is allowed for non-indexed evidence, never release acceptance |
 | Release archive retention | Not selected | CI preview artifacts retain for 14 days only |
@@ -63,7 +63,7 @@ Unassigned blocking roles prevent go-live even when automation passes.
 
 - Source validation proves one route for every eligible document, a gap-free 42-ADR sequence, 89 unique pages, nine templates, complete cross-phase mapping, resolved local targets and fragments, journey targets, and lifecycle successor requirements.
 - The manifest records headings, outbound links, deterministic backlinks, status, and lifecycle fields.
-- Astro type checking, static production build, Pagefind generation, and rendered route/fragment validation are blocking.
+- Astro type checking, static production build, static search-index generation, and rendered route/fragment validation are blocking.
 - Rendered inspection checks required pages, landmarks, heading presence, private-path and secret-like output, per-document HTML size, and aggregate search size.
 - Security inspection checks common secret patterns, active Markdown, remote-hotlinked Markdown assets, lockfile identity, and analytics absence. CI additionally runs the package-manager vulnerability audit.
 - CI uses locked installation, read-only repository permission, immutable artifact packaging, a digest, concurrency control, and bounded retention.
@@ -73,7 +73,7 @@ Unassigned blocking roles prevent go-live even when automation passes.
 - Native Vercel production deployment `dpl_G5jMAn2aMv2nAEPR9zmMuJBU9cyq` reached READY from Git commit `bddbd8320a28371612bea49d4313c829e574090c` and was assigned to `nexora-blueprint.vercel.app`.
 - Hosted smoke checks passed `/`, `/journeys/`, `/decisions/`, `/coverage/`, a long publication-readiness document, `/404.html`, an unknown route, CSP, defensive headers, and `noindex` isolation.
 - Desktop browser inspection confirmed one H1, main and navigation landmarks, canonical origin, no horizontal document overflow, and no initial console errors.
-- Search interaction exposed a blocking CSP defect. Pagefind documents `'wasm-unsafe-eval'` as the preferred WebAssembly source, but the available browser engine continued to reject compilation after that live header was verified. Document responses retain the narrow directive; only self-hosted `/pagefind/*` worker responses receive the `'unsafe-eval'` compatibility fallback, with navigation, forms, objects, framing, and external connections denied. Removal remains an owned security-hardening follow-up. Hosted search revalidation remains required after deployment.
+- Search interaction exposed a blocking Pagefind WebAssembly CSP incompatibility. The preferred `'wasm-unsafe-eval'` directive and a worker-path-only `'unsafe-eval'` fallback were each verified live but could not override the policy inherited by the document. The successor removes both exceptions and replaces the runtime with a mechanically equivalent build-generated JSON index and repository-owned accessible dialog. Hosted identifier, Portuguese-term, status-context, empty-result, keyboard, recovery, and narrow-screen validation remain required after deployment.
 
 ## Manual evidence protocol
 
@@ -84,7 +84,7 @@ Record browser/version, operating system, viewport or zoom, theme, input/assisti
 3. VoiceOver with Safari and one second approved browser/screen-reader pairing;
 4. light, dark, system, forced-colors where supported, and reduced motion;
 5. 200% and 400% zoom plus 320 CSS-pixel reflow without two-dimensional page scrolling;
-6. search identifiers, Portuguese terms, empty results, deep links, status context, and blocked-Pagefind recovery through indexes;
+6. search identifiers, Portuguese terms, empty results, deep links, status context, and unavailable-index recovery through generated indexes;
 7. short, long, tabular, diagram-heavy, and code-heavy print previews with visible status and canonical identity; and
 8. disabled-user review for navigation, search, and generated interactive views.
 
@@ -110,7 +110,7 @@ Source owners review high-consequence content on their governed cadence. Automat
 
 ## Known limitations and open blocking evidence
 
-- The temporary `nexora-blueprint.vercel.app` origin has not yet been verified against a native Git build containing the complete reviewed publication.
+- The temporary `nexora-blueprint.vercel.app` origin has passed baseline route, header, indexing-isolation, landmark, overflow, and 404 checks; the CSP-safe search successor still requires hosted verification.
 - Vercel Git integration, project settings, and protected deployment values are configured. Hosted route evidence, provider logs, custom DNS, and an external monitor are not yet accepted.
 - Vercel's Node 24 build image supplied `24.15.0` on the first native build, below the approved repository minimum. The preview-only engine-enforcement exception blocks production acceptance until removed.
 - Provider-specific preview, immutable promotion, smoke, rollback, outage fallback, and access-recovery rehearsals are pending.

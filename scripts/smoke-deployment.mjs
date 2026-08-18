@@ -11,4 +11,8 @@ for (const route of routes) {
 }
 const missing = await fetch(new URL('/publication-smoke-missing-route/', origin), { redirect: 'manual' });
 if (missing.status !== 404 || !(await missing.text()).includes('Page not found')) throw new Error('Custom 404 behavior failed');
-console.log(`Smoke-tested ${routes.length} routes, security headers, indexing isolation, and custom 404 at ${origin}.`);
+const search = await fetch(new URL('/search-index.json', origin));
+if (search.status !== 200) throw new Error(`Static search index returned ${search.status}`);
+const searchIndex = await search.json();
+if (!Array.isArray(searchIndex) || searchIndex.length < 280) throw new Error('Static search index failed');
+console.log(`Smoke-tested ${routes.length} routes, static search, security headers, indexing isolation, and custom 404 at ${origin}.`);

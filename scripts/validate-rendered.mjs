@@ -51,8 +51,16 @@ if (!searchRecovery.includes('<noscript>') || !searchRecovery.includes('/journey
 const notFound = htmlByRoute.get('/404.html')?.html ?? '';
 for (const route of ['/journeys/','/decisions/','/coverage/']) if (!notFound.includes(`href="${route}"`)) failures.push(`404 lacks recovery route ${route}`);
 
-const allFiles = await files(dist);
-const searchBytes = (await Promise.all(allFiles.filter((file)=>file.includes('/pagefind/')).map(async(file)=>(await stat(file)).size))).reduce((a,b)=>a+b,0);
-if (searchBytes > 15 * 1024 * 1024) failures.push(`Pagefind exceeds 15 MiB budget (${searchBytes} bytes)`);
+const searchIndexPath = path.join(dist, 'search-index.json');
+let searchBytes = 0;
+try {
+  const searchIndex = JSON.parse(await readFile(searchIndexPath, 'utf8'));
+  searchBytes = (await stat(searchIndexPath)).size;
+  if (!Array.isArray(searchIndex) || searchIndex.length !== manifest.documents.length + 4) failures.push('Static search index has incorrect document coverage');
+  for (const field of ['title', 'route', 'status', 'kind', 'sourcePath', 'text']) if (!Object.hasOwn(searchIndex[0] ?? {}, field)) failures.push(`Static search index lacks ${field}`);
+} catch (error) {
+  failures.push(`Static search index is missing or invalid: ${error.message}`);
+}
+if (searchBytes > 15 * 1024 * 1024) failures.push(`Static search index exceeds 15 MiB budget (${searchBytes} bytes)`);
 if (failures.length) throw new Error(`Rendered validation failed:\n- ${failures.slice(0,50).join('\n- ')}${failures.length > 50 ? `\n- …and ${failures.length-50} more` : ''}`);
-console.log(`Validated ${htmlByRoute.size} rendered pages, internal routes and fragments; Pagefind is ${(searchBytes/1024/1024).toFixed(2)} MiB.`);
+console.log(`Validated ${htmlByRoute.size} rendered pages, internal routes and fragments; static search is ${(searchBytes/1024/1024).toFixed(2)} MiB.`);

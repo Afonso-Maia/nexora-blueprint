@@ -1,14 +1,128 @@
----
-import DefaultSearch from '@astrojs/starlight/components/Search.astro';
----
-<DefaultSearch />
-<noscript><p class="search-recovery">Search needs JavaScript. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a> instead.</p></noscript>
-<p class="search-recovery" data-search-recovery hidden role="status">Search is unavailable. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a>.</p>
+<button type="button" class="search-button" data-search-open aria-haspopup="dialog" aria-controls="blueprint-search">
+  <span>Search</span><kbd>⌘ K</kbd>
+</button>
+
+<dialog id="blueprint-search" class="search-dialog" aria-labelledby="blueprint-search-title">
+  <div class="search-panel">
+    <header>
+      <h2 id="blueprint-search-title">Search the Blueprint</h2>
+      <button type="button" data-search-close aria-label="Close search">×</button>
+    </header>
+    <label for="blueprint-search-input">Search titles, identifiers, headings, status, paths, and content</label>
+    <input id="blueprint-search-input" type="search" autocomplete="off" spellcheck="false" />
+    <p class="search-status" data-search-status role="status" aria-live="polite">Enter a term to search all authoritative documents.</p>
+    <ol class="search-results" data-search-results></ol>
+    <p class="search-recovery" data-search-recovery hidden>
+      Search is unavailable. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a>.
+    </p>
+  </div>
+</dialog>
+
+<noscript><p class="search-recovery noscript-search">Search needs JavaScript. Use <a href="/journeys/">guided journeys</a>, <a href="/decisions/">decisions</a>, or <a href="/coverage/">coverage</a> instead.</p></noscript>
+
 <script>
-  window.addEventListener('unhandledrejection', (event) => {
-    const message = String(event.reason ?? '');
-    if (!/pagefind|search/i.test(message)) return;
-    document.querySelector<HTMLElement>('[data-search-recovery]')?.removeAttribute('hidden');
+  type SearchEntry = { title: string; route: string; status: string | null; kind: string; sourcePath: string; text: string };
+
+  const openButton = document.querySelector<HTMLButtonElement>('[data-search-open]');
+  const dialog = document.querySelector<HTMLDialogElement>('#blueprint-search');
+  const closeButton = dialog?.querySelector<HTMLButtonElement>('[data-search-close]');
+  const input = dialog?.querySelector<HTMLInputElement>('#blueprint-search-input');
+  const status = dialog?.querySelector<HTMLElement>('[data-search-status]');
+  const results = dialog?.querySelector<HTMLOListElement>('[data-search-results]');
+  const recovery = dialog?.querySelector<HTMLElement>('[data-search-recovery]');
+  let index: SearchEntry[] | null = null;
+
+  const normalize = (value: string) => value.toLocaleLowerCase('en').normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+
+  function render(entries: SearchEntry[], query: string) {
+    if (!results || !status) return;
+    results.replaceChildren();
+    if (!query) {
+      status.textContent = 'Enter a term to search all authoritative documents.';
+      return;
+    }
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+    const ranked = entries
+      .map((entry) => {
+        const title = normalize(entry.title);
+        const path = normalize(entry.sourcePath);
+        const haystack = `${title} ${path} ${normalize(entry.status ?? '')} ${normalize(entry.text)}`;
+        if (!terms.every((term) => haystack.includes(term))) return null;
+        const exact = normalize(query);
+        const score = title === exact ? 0 : title.startsWith(exact) ? 1 : title.includes(exact) ? 2 : path.includes(exact) ? 3 : 4;
+        return { entry, score };
+      })
+      .filter((value): value is { entry: SearchEntry; score: number } => value !== null)
+      .sort((left, right) => left.score - right.score || left.entry.title.localeCompare(right.entry.title))
+      .slice(0, 12);
+
+    status.textContent = ranked.length ? `${ranked.length} result${ranked.length === 1 ? '' : 's'} shown.` : 'No results. Try a stable ID, title, phase, or repository path.';
+    for (const { entry } of ranked) {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      const metadata = document.createElement('span');
+      link.href = entry.route;
+      link.textContent = entry.title;
+      metadata.className = 'search-result-meta';
+      metadata.textContent = [entry.status, entry.kind, entry.sourcePath].filter(Boolean).join(' · ');
+      item.append(link, metadata);
+      results.append(item);
+    }
+  }
+
+  async function loadIndex() {
+    if (index) return index;
+    const response = await fetch('/search-index.json', { headers: { accept: 'application/json' } });
+    if (!response.ok) throw new Error(`Search index returned ${response.status}`);
+    index = await response.json() as SearchEntry[];
+    return index;
+  }
+
+  async function openSearch() {
+    if (!dialog || !input) return;
+    dialog.showModal();
+    input.focus();
+    try {
+      const entries = await loadIndex();
+      render(entries, input.value.trim());
+    } catch {
+      recovery?.removeAttribute('hidden');
+      if (status) status.textContent = 'Search index could not be loaded.';
+    }
+  }
+
+  openButton?.addEventListener('click', openSearch);
+  closeButton?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog?.addEventListener('close', () => openButton?.focus());
+  input?.addEventListener('input', () => { if (index) render(index, input.value.trim()); });
+  document.addEventListener('keydown', (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      if (dialog?.open) dialog.close(); else void openSearch();
+    }
   });
 </script>
-<style>.search-recovery{position:fixed;z-index:100;inset-block-start:4rem;inset-inline-end:1rem;max-width:24rem;margin:0;padding:.75rem;background:var(--sl-color-black);border:2px solid var(--sl-color-accent);border-radius:.4rem;font-size:var(--sl-text-sm)}</style>
+
+<style>
+  .search-button{display:flex;align-items:center;gap:.65rem;border:1px solid var(--sl-color-gray-5);border-radius:.5rem;padding:.45rem .65rem;background:var(--sl-color-gray-6);color:var(--sl-color-gray-2);font:inherit;cursor:pointer}
+  .search-button:hover{color:var(--sl-color-white);border-color:var(--sl-color-gray-3)}
+  .search-button kbd{font-size:.75rem}
+  .search-dialog{width:min(46rem,calc(100% - 2rem));max-height:min(42rem,calc(100% - 2rem));padding:0;border:1px solid var(--sl-color-gray-5);border-radius:.75rem;background:var(--sl-color-black);color:var(--sl-color-white)}
+  .search-dialog::backdrop{background:rgb(0 0 0/.68)}
+  .search-panel{padding:1rem}
+  .search-panel header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .search-panel h2{margin:0;font-size:var(--sl-text-h3)}
+  [data-search-close]{border:0;background:transparent;color:inherit;font-size:1.75rem;cursor:pointer}
+  .search-panel label{display:block;margin:.8rem 0 .35rem;font-size:var(--sl-text-sm);color:var(--sl-color-gray-2)}
+  .search-panel input{width:100%;padding:.75rem;border:1px solid var(--sl-color-gray-4);border-radius:.4rem;background:var(--sl-color-gray-6);color:var(--sl-color-white);font:inherit}
+  .search-status{margin:.7rem 0;color:var(--sl-color-gray-2);font-size:var(--sl-text-sm)}
+  .search-results{display:grid;gap:.35rem;margin:0;padding:0;list-style:none}
+  .search-results li{display:grid;gap:.15rem;padding:.55rem .65rem;border:1px solid var(--sl-color-gray-5);border-radius:.4rem}
+  .search-results a{font-weight:650;color:var(--sl-color-accent-high);text-decoration:none}
+  .search-results a:hover{text-decoration:underline}
+  .search-result-meta{overflow-wrap:anywhere;color:var(--sl-color-gray-2);font-size:.78rem}
+  .search-recovery{font-size:var(--sl-text-sm)}
+  .noscript-search{position:fixed;z-index:100;inset-block-start:4rem;inset-inline-end:1rem;max-width:24rem;padding:.75rem;background:var(--sl-color-black);border:2px solid var(--sl-color-accent);border-radius:.4rem}
+  @media(max-width:50rem){.search-button kbd{display:none}.search-button{padding:.4rem .55rem}}
+</style>
