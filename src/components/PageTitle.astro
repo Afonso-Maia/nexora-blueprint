@@ -9,6 +9,7 @@ const statusVariant =
   'publicationStatusVariant' in data ? data.publicationStatusVariant : 'default';
 const sourcePath = 'sourcePath' in data ? data.sourcePath : undefined;
 const generatedView = ['/decisions/', '/coverage/', '/journeys/', '/history/'].includes(Astro.url.pathname);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 type InboundReference = { href: string; title: string; sourcePath: string };
 type LifecycleReference = { href: string; label: string; sourcePath: string };
 type PublicationRecord = { sourcePath: string; successor?: LifecycleReference; inbound: InboundReference[] };
@@ -24,7 +25,7 @@ const inbound = publicationRecord?.inbound ?? [];
 
 <div class="title-row">
   <h1 id="_top">{data.title}</h1>
-  {status && <span data-pagefind-meta={`status:${status}`}><Badge text={status} variant={statusVariant} size="medium" /></span>}
+  {status && <span><Badge text={status} variant={statusVariant} size="medium" /></span>}
 </div>
 <p class="authority-statement">
   {
@@ -34,6 +35,12 @@ const inbound = publicationRecord?.inbound ?? [];
       <><strong>Authoritative source.</strong>{sourcePath && <> Repository path: <code>{sourcePath}</code>.</>}</>
     )
   }
+</p>
+<p class="print-identity">
+  {status && <><strong>Status:</strong> {status}. </>}
+  <strong>Canonical URL:</strong> <span>{canonicalUrl}</span>
+  {sourcePath && <> · <strong>Repository source:</strong> <span>{sourcePath}</span></>}
+  <br />Printed or saved copies may be stale. Verify current status at the canonical URL.
 </p>
 {publicationRecord?.successor && (
   <aside class="lifecycle-notice" aria-label={`${status} document notice`}>
@@ -75,7 +82,18 @@ const inbound = publicationRecord?.inbound ?? [];
   .authority-statement code {
     overflow-wrap: anywhere;
   }
+  .print-identity { display: none; }
   .lifecycle-notice { margin-top: 1rem; padding: .8rem 1rem; border: 2px solid var(--sl-color-red); border-radius: .4rem; }
   .backlinks { margin-top: 1rem; font-size: var(--sl-text-sm); }
   .backlinks code { overflow-wrap: anywhere; }
+
+  @media print {
+    .print-identity {
+      display: block;
+      margin: 0.75rem 0 1rem;
+      color: #111;
+      font-size: 8.5pt;
+      overflow-wrap: anywhere;
+    }
+  }
 </style>

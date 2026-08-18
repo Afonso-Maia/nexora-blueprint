@@ -65,6 +65,7 @@ Unassigned blocking roles prevent go-live even when automation passes.
 - The manifest records headings, outbound links, deterministic backlinks, status, and lifecycle fields.
 - Astro type checking, static production build, static search-index generation, and rendered route/fragment validation are blocking.
 - Rendered inspection checks required pages, landmarks, heading presence, private-path and secret-like output, per-document HTML size, and aggregate search size.
+- Every authoritative rendered document carries a print-only status, canonical URL, repository source identity, and stale-copy warning. Rendered validation blocks if any document omits that identity; representative print-preview inspection remains a separate manual gate.
 - Security inspection checks common secret patterns, active Markdown, remote-hotlinked Markdown assets, lockfile identity, and analytics absence. CI additionally runs the package-manager vulnerability audit.
 - CI uses locked installation, read-only repository permission, immutable artifact packaging, a digest, concurrency control, and bounded retention.
 

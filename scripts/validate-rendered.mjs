@@ -51,6 +51,13 @@ if (!searchRecovery.includes('<noscript>') || !searchRecovery.includes('/journey
 const notFound = htmlByRoute.get('/404.html')?.html ?? '';
 for (const route of ['/journeys/','/decisions/','/coverage/']) if (!notFound.includes(`href="${route}"`)) failures.push(`404 lacks recovery route ${route}`);
 
+for (const document of manifest.documents) {
+  const rendered = htmlByRoute.get(document.canonicalRoute)?.html ?? '';
+  if (!/class="[^"]*\bprint-identity\b/.test(rendered)) failures.push(`${document.canonicalRoute} lacks print identity`);
+  if (!rendered.includes(`https://nexora-blueprint.vercel.app${document.canonicalRoute}`)) failures.push(`${document.canonicalRoute} lacks canonical print URL`);
+  if (!rendered.includes('Printed or saved copies may be stale')) failures.push(`${document.canonicalRoute} lacks stale-copy warning`);
+}
+
 const searchIndexPath = path.join(dist, 'search-index.json');
 let searchBytes = 0;
 try {
