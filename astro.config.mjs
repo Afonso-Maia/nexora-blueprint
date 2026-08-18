@@ -2,12 +2,16 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import starlight from '@astrojs/starlight';
 import repositoryMarkdown from './src/remark/repository-markdown.mjs';
+import accessibleTables from './src/rehype/accessible-tables.mjs';
 
 export default defineConfig({
   site: 'https://nexora-blueprint.vercel.app',
   trailingSlash: 'always',
   markdown: {
-    processor: unified({ remarkPlugins: [[repositoryMarkdown, { root: process.cwd() }]] }),
+    processor: unified({
+      remarkPlugins: [[repositoryMarkdown, { root: process.cwd() }]],
+      rehypePlugins: [accessibleTables],
+    }),
   },
   integrations: [
     starlight({

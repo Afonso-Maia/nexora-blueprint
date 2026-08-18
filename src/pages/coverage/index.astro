@@ -37,6 +37,7 @@ const increments = [...new Set(pages.map((page) => page.increment))];
 
   <div class="coverage-table" tabindex="0" role="region" aria-label="Canonical page coverage table">
     <table>
+      <caption class="generated-table-caption">Canonical page coverage across product, design, engineering, testing, and delivery</caption>
       <thead><tr><th scope="col">Page</th><th scope="col">Template</th><th scope="col">Owner</th><th scope="col">Primary increment</th><th scope="col">Cross-phase profiles</th></tr></thead>
       <tbody>
         {pages.map((page) => (

@@ -58,6 +58,7 @@ Phase 7 transforms the approved Nexora Product Blueprint into a polished, access
 - [Vercel Hosting Selection and Deployment Preparation](47-vercel-hosting-selection-and-deployment-preparation.md) — approved Vercel selection, temporary provider hostname, native hosted-preview path, immutable-production gate, and remaining account-level evidence
 - [CSP-Safe Local Search Implementation](48-csp-safe-local-search-implementation.md) — completed static search successor, CSP hardening, mechanical coverage gate, and hosted responsive interaction evidence
 - [Individual-Document Print Identity Implementation](49-individual-document-print-identity-implementation.md) — completed canonical URL, status, source identity, stale-copy warning, and rendered coverage gate for authoritative documents
+- [Accessible Table Presentation Implementation](50-accessible-table-presentation-implementation.md) — completed source-derived captions, explicit header scopes, print-visible captions, and rendered table validation
 
 ## Phase boundary
 

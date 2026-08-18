@@ -44,6 +44,10 @@ for (const [route, page] of htmlByRoute) {
     }
   }
   if ((await stat(page.file)).size > 650 * 1024) failures.push(`${route}: HTML exceeds 650 KiB budget`);
+  for (const table of page.html.matchAll(/<table\b[\s\S]*?<\/table>/g)) {
+    if (!/<caption\b[^>]*>[^<]+<\/caption>/.test(table[0])) failures.push(`${route}: table lacks a non-empty caption`);
+    for (const header of table[0].matchAll(/<th\b([^>]*)>/g)) if (!/\bscope="(?:col|row|colgroup|rowgroup)"/.test(header[1])) failures.push(`${route}: table header lacks explicit scope`);
+  }
 }
 
 const searchRecovery = htmlByRoute.get('/coverage/')?.html ?? '';
