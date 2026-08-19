@@ -66,6 +66,7 @@ Phase 7 transforms the approved Nexora Product Blueprint into a polished, access
 - [Representative Print Validation Evidence](55-representative-print-validation-evidence.md) — completed short, long, tabular, diagram, and technical browser-print inspection with pagination corrections and rendered guards
 - [Scheduled Availability Monitoring Implementation](56-scheduled-availability-monitoring-implementation.md) — completed six-hour secretless hosted smoke checks, retained diagnostics, and mechanical workflow controls
 - [Provider Observability and Local Recovery Rehearsal](57-provider-observability-and-local-recovery-rehearsal.md) — completed live provider inspection, corruption detection, exact-tree restoration, and packaged recovery evidence
+- [Phase 7 Readiness Evidence Index](58-phase-7-readiness-evidence-index.md) — consolidated pass evidence, machine-readable audit, explicit blockers, and the final completion rule
 
 ## Phase boundary
 

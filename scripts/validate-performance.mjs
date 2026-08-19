@@ -85,7 +85,7 @@ for (const route of representativeRoutes) {
 }
 
 await mkdir(path.join(root, '.astro'), { recursive: true });
-await writeFile(path.join(root, '.astro/performance-report.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), budgets, measurements }, null, 2)}\n`);
+await writeFile(path.join(root, '.astro/performance-report.json'), `${JSON.stringify({ schemaVersion: 1, budgets, measurements }, null, 2)}\n`);
 
 if (failures.length) throw new Error(`Performance validation failed:\n- ${failures.join('\n- ')}`);
 console.log(`Validated performance budgets: HTML p95 ${(measurements.htmlP95Bytes / 1024).toFixed(1)} KiB, largest HTML ${(measurements.htmlMaximumBytes / 1024).toFixed(1)} KiB, search ${(measurements.searchIndexBytes / 1024 / 1024).toFixed(2)} MiB, immutable assets ${(measurements.immutableAssetsBytes / 1024).toFixed(1)} KiB.`);

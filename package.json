@@ -19,6 +19,7 @@
     "validate:security": "node scripts/validate-security.mjs",
     "stage:vercel": "node scripts/stage-vercel-output.mjs",
     "rehearse:recovery": "node scripts/rehearse-recovery.mjs",
+    "validate:readiness": "node scripts/validate-readiness.mjs",
     "deploy:vercel": "node scripts/deploy-vercel.mjs"
   },
   "dependencies": {

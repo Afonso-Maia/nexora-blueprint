@@ -34,6 +34,6 @@ if(!freshnessForm.includes('Authoritative source path') || !freshnessForm.includ
 const monitor=await readFile(path.join(root,'.github/workflows/publication-monitor.yml'),'utf8').catch(()=> '');
 if(!monitor.includes('schedule:') || !monitor.includes('publication-smoke-report.json') || !monitor.includes('contents: read') || monitor.includes('secrets.') || !monitor.includes('actions/checkout@v7') || !monitor.includes('actions/setup-node@v7') || !monitor.includes('actions/upload-artifact@v7')) failures.push('publication monitor lacks schedule, diagnostics, read-only permissions, secretless operation, or Node 24 action majors');
 const publicationCi=await readFile(path.join(root,'.github/workflows/publication-ci.yml'),'utf8').catch(()=> '');
-if(!publicationCi.includes('pnpm rehearse:recovery') || !publicationCi.includes('.astro/recovery-rehearsal-report.json')) failures.push('publication CI lacks recovery rehearsal or packaged evidence');
+if(!publicationCi.includes('pnpm rehearse:recovery') || !publicationCi.includes('.astro/recovery-rehearsal-report.json') || !publicationCi.includes('pnpm validate:readiness') || !publicationCi.includes('.astro/readiness-report.json')) failures.push('publication CI lacks recovery/readiness validation or packaged evidence');
 if(failures.length) throw new Error(`Security validation failed:\n- ${failures.join('\n- ')}`);
 console.log('Validated repository secret patterns, active Markdown, remote assets, lockfile presence, analytics absence, ownership routing, maintenance intake, and secretless monitoring.');
