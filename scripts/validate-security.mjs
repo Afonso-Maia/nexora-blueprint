@@ -32,6 +32,6 @@ if(!incidentForm.includes('Do not include credentials') || !incidentForm.include
 const freshnessForm=await readFile(path.join(root,'.github/ISSUE_TEMPLATE/freshness-review.yml'),'utf8').catch(()=> '');
 if(!freshnessForm.includes('Authoritative source path') || !freshnessForm.includes('Review evidence and outcome')) failures.push('freshness review form lacks source and evidence fields');
 const monitor=await readFile(path.join(root,'.github/workflows/publication-monitor.yml'),'utf8').catch(()=> '');
-if(!monitor.includes('schedule:') || !monitor.includes('publication-smoke-report.json') || !monitor.includes('contents: read') || monitor.includes('secrets.')) failures.push('publication monitor lacks schedule, diagnostics, read-only permissions, or secretless operation');
+if(!monitor.includes('schedule:') || !monitor.includes('publication-smoke-report.json') || !monitor.includes('contents: read') || monitor.includes('secrets.') || !monitor.includes('actions/checkout@v7') || !monitor.includes('actions/setup-node@v7') || !monitor.includes('actions/upload-artifact@v7')) failures.push('publication monitor lacks schedule, diagnostics, read-only permissions, secretless operation, or Node 24 action majors');
 if(failures.length) throw new Error(`Security validation failed:\n- ${failures.join('\n- ')}`);
 console.log('Validated repository secret patterns, active Markdown, remote assets, lockfile presence, analytics absence, ownership routing, maintenance intake, and secretless monitoring.');

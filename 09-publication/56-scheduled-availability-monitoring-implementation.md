@@ -11,6 +11,8 @@ Record the initial external availability monitor for the selected Vercel-hosted 
 
 GitHub Actions runs a secretless smoke test every six hours and on manual dispatch against the temporary canonical origin. The workflow has read-only repository permission, a five-minute timeout, concurrency cancellation, pinned Node 24.19.0, and no deployment credentials.
 
+Publication workflows use the current Node 24 action majors: checkout v7, setup-node v7, upload-artifact v7, download-artifact v8 where needed, and pnpm/action-setup v6 where needed. This removes reliance on GitHub's temporary forced execution of Node 20 actions under Node 24.
+
 Each run checks the landing page, generated journeys, decisions, coverage, the long Phase 7 readiness document, the directly addressable 404 document, a real missing route, the static search index, main and H1 landmarks, Content-Security-Policy, and preview-safe `noindex` headers. A timestamped JSON report records every completed assertion and the first failure. Reports upload even when the smoke step fails and retain for 14 days.
 
 Repository security validation mechanically requires the scheduled workflow, diagnostic artifact, read-only permission, and absence of secret references. The same smoke script remains usable for isolated immutable deployment checks.
