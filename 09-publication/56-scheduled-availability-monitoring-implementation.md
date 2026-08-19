@@ -1,0 +1,29 @@
+# Scheduled Availability Monitoring Implementation
+
+**Status:** Completed
+**Date:** 2026-08-19
+
+## Purpose
+
+Record the initial external availability monitor for the selected Vercel-hosted publication. This implementation record applies approved publication operations decisions; it does not set a launch service-level objective or replace provider observability.
+
+## Implementation
+
+GitHub Actions runs a secretless smoke test every six hours and on manual dispatch against the temporary canonical origin. The workflow has read-only repository permission, a five-minute timeout, concurrency cancellation, pinned Node 24.19.0, and no deployment credentials.
+
+Each run checks the landing page, generated journeys, decisions, coverage, the long Phase 7 readiness document, the directly addressable 404 document, a real missing route, the static search index, main and H1 landmarks, Content-Security-Policy, and preview-safe `noindex` headers. A timestamped JSON report records every completed assertion and the first failure. Reports upload even when the smoke step fails and retain for 14 days.
+
+Repository security validation mechanically requires the scheduled workflow, diagnostic artifact, read-only permission, and absence of secret references. The same smoke script remains usable for isolated immutable deployment checks.
+
+## Operational boundary
+
+GitHub-hosted monitoring is independent of Vercel execution but not of GitHub availability or the public Internet path used by GitHub runners. Alert routing is the failed workflow notification available to the sole maintainer. A second-network monitor, launch availability target, Vercel log review, and provider/DNS recovery rehearsal remain required before final launch acceptance.
+
+The temporary origin remains intentionally non-indexed. When a final domain and launch approval exist, the smoke contract must separate production indexing expectations from preview isolation before removing `noindex`.
+
+## References
+
+- [CI/CD and Deployment Architecture](36-ci-cd-and-deployment-architecture.md)
+- [Hosting, Domain, Redirects, and Availability](37-hosting-domain-redirects-and-availability.md)
+- [Performance Budgets and Resilience](40-performance-budgets-and-resilience.md)
+- [Publication Operations and Readiness Evidence](45-publication-operations-and-readiness-evidence.md)

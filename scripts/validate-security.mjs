@@ -31,5 +31,7 @@ const incidentForm=await readFile(path.join(root,'.github/ISSUE_TEMPLATE/publica
 if(!incidentForm.includes('Do not include credentials') || !incidentForm.includes('Security or privacy')) failures.push('publication incident form lacks public-repository safety or classification');
 const freshnessForm=await readFile(path.join(root,'.github/ISSUE_TEMPLATE/freshness-review.yml'),'utf8').catch(()=> '');
 if(!freshnessForm.includes('Authoritative source path') || !freshnessForm.includes('Review evidence and outcome')) failures.push('freshness review form lacks source and evidence fields');
+const monitor=await readFile(path.join(root,'.github/workflows/publication-monitor.yml'),'utf8').catch(()=> '');
+if(!monitor.includes('schedule:') || !monitor.includes('publication-smoke-report.json') || !monitor.includes('contents: read') || monitor.includes('secrets.')) failures.push('publication monitor lacks schedule, diagnostics, read-only permissions, or secretless operation');
 if(failures.length) throw new Error(`Security validation failed:\n- ${failures.join('\n- ')}`);
-console.log('Validated repository secret patterns, active Markdown, remote assets, lockfile presence, analytics absence, ownership routing, and maintenance intake.');
+console.log('Validated repository secret patterns, active Markdown, remote assets, lockfile presence, analytics absence, ownership routing, maintenance intake, and secretless monitoring.');
