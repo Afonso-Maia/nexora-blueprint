@@ -17,6 +17,12 @@ Each run checks the landing page, generated journeys, decisions, coverage, the l
 
 Repository security validation mechanically requires the scheduled workflow, diagnostic artifact, read-only permission, and absence of secret references. The same smoke script remains usable for isolated immutable deployment checks.
 
+## Hosted evidence
+
+Manual dispatch run `32213726794` passed from commit `7e5f464f0c7c61f89e393501326911dac8126684` using checkout v7, setup-node v7, and upload-artifact v7. It retained diagnostic artifact `9351624088` with GitHub-recorded digest `sha256:ccb51ce97eab876ee454acdad3ff4354094b89f2df15bd6d07ac94c41dd32a52` through 2026-09-02.
+
+Publication CI run `32213718588` independently passed locked installation, source validation, Astro check, production build, rendered and performance checks, security validation, dependency audit, Vercel staging, deterministic packaging, digest generation, and artifact upload for the same commit. Artifact `9351632523` has GitHub-recorded digest `sha256:862606c407a50f771c052448c5ef6330e7fff3f9c0a1d8295ce0a797222dffc5` and the same retention boundary. Neither run emitted the superseded Node 20 action-runtime annotation.
+
 ## Operational boundary
 
 GitHub-hosted monitoring is independent of Vercel execution but not of GitHub availability or the public Internet path used by GitHub runners. Alert routing is the failed workflow notification available to the sole maintainer. A second-network monitor, launch availability target, Vercel log review, and provider/DNS recovery rehearsal remain required before final launch acceptance.
